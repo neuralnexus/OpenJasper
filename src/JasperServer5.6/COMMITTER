@@ -1,0 +1,20 @@
+COMMITTER Text File
+-------------------
+
+This file assists with locking trunk or branch code. 
+
+An svn property can be set on this file. 
+
+A pre-commit hook script on the server looks for the existence
+of the property js-committer set on this file. 
+
+The script reads the value of the js-committer property and 
+expects the svn user account name of a user allowed to commit. 
+
+  svn propset <prop> <value> COMMITTER
+
+  svn propdel <prop> COMMITTER
+
+WARNING: The js-committer property is managed by the Dev-Build Team 
+         and/or by a Subversion Administrator. 
+

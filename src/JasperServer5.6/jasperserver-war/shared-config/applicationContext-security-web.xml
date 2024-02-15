@@ -1,0 +1,439 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!-- ======================== FILTER CHAIN =======================
+    ACLs later: requestMethodsFilter
+    Not in 1.0-RC1: exceptionTranslationFilter,
+    Later: ,rememberMeProcessingFilter
+
+    Web services currently can't use the filter chain because Axis instantiates
+    the web service handler classes, not Spring. However, we can do the context integration
+    filter, which associates a security context with the http session, and call
+    into the Acegi beans from the service handler
+    -->
+    <bean id="filterChainProxy" class="org.springframework.security.util.FilterChainProxy">
+        <property name="filterInvocationDefinitionSource">
+            <value>
+                CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+                PATTERN_TYPE_APACHE_ANT
+                /xmla=httpSessionContextIntegrationFilter,${bean.loggingFilter},${bean.basicProcessingFilter},JIAuthenticationSynchronizer,anonymousProcessingFilter,basicAuthExceptionTranslationFilter,filterInvocationInterceptor
+                /services/**=httpSessionContextIntegrationFilter,${bean.loggingFilter},delegatingPreAuthenticatedFilter,${bean.portletAuthenticationProcessingFilter},delegatingBasicProcessingFilter,${bean.passwordExpirationProcessingFilter},JIAuthenticationSynchronizer,anonymousProcessingFilter,wsBasicAuthExceptionTranslationFilter,filterInvocationInterceptor
+                /rest/login=httpSessionContextIntegrationFilter,${bean.loggingFilter}, encryptionFilter,delegatingPreAuthenticatedFilter,delegatingAuthenticationRestProcessingFilter,JIAuthenticationSynchronizer,anonymousProcessingFilter,filterInvocationInterceptor
+                /rest/**=httpSessionContextIntegrationFilter,${bean.loggingFilter},delegatingPreAuthenticatedFilter,${bean.portletAuthenticationProcessingFilter},delegatingBasicProcessingFilter,${bean.passwordExpirationProcessingFilter},JIAuthenticationSynchronizer,anonymousProcessingFilter,wsBasicAuthExceptionTranslationFilter,filterInvocationInterceptor
+                /rest_v2/**=httpSessionContextIntegrationFilter,encryptionFilter,textOnlyResponseWebAppSecurityFilter,jsCsrfGuardFilter,${bean.loggingFilter},${bean.userPreferencesFilter},delegatingPreAuthenticatedFilter,${bean.authenticationProcessingFilter},${bean.userPreferencesFilter},delegatingBasicProcessingFilter,delegatingRequestParameterAuthenticationFilter,JIAuthenticationSynchronizer,anonymousProcessingFilter,restExceptionTranslationFilter,filterInvocationInterceptor
+                /**=httpSessionContextIntegrationFilter,encryptionFilter,multipartRequestWrapperFilter,webAppSecurityFilter,jsCsrfGuardFilter,${bean.loggingFilter},${bean.userPreferencesFilter},delegatingPreAuthenticatedFilter,delegatingAuthenticationProcessingFilter,${bean.userPreferencesFilter},delegatingBasicProcessingFilter,delegatingRequestParameterAuthenticationFilter,JIAuthenticationSynchronizer,anonymousProcessingFilter,delegatingExceptionTranslationFilter,filterInvocationInterceptor,switchUserProcessingFilter,iPadSupportFilter
+            </value>
+        </property>
+    </bean>
+
+    <!-- updater bean to insert a filter -->
+    <bean id="insertFilter" class="com.jaspersoft.jasperserver.api.common.util.spring.GenericBeanUpdaterDefinition">
+        <property name="order" value="10"/>
+        <property name="beanName" value="filterChainProxy"/>
+        <property name="propertyName" value="filterInvocationDefinitionSource"/>
+        <property name="operation" value="insert"/>
+    </bean>
+
+    <bean id="anonymousProcessingFilter"
+          class="org.springframework.security.providers.anonymous.AnonymousProcessingFilter">
+        <property name="key">
+            <value>foobar</value>
+        </property>
+        <property name="userAttribute" ref="anonymousUserDescriptor"/>
+    </bean>
+
+    <bean id="JIAuthenticationSynchronizer"
+          class="com.jaspersoft.jasperserver.api.metadata.user.service.impl.MetadataAuthenticationProcessingFilter">
+        <property name="externalUserService">
+            <ref bean="${bean.internalUserAuthorityService}"/>
+        </property>
+    </bean>
+
+
+    <bean id="userPreferencesFilter" class="com.jaspersoft.jasperserver.war.UserPreferencesFilter">
+        <property name="cookieAge">
+            <value type="int">86400</value>
+        </property>
+        <property name="userService">
+            <ref bean="${bean.internalUserAuthorityService}"/>
+        </property>
+    </bean>
+
+    <!-- Basic Authentication -->
+    <bean id="basicProcessingFilter" class="org.springframework.security.ui.basicauth.BasicProcessingFilter">
+        <property name="authenticationManager">
+            <ref bean="authenticationManager"/>
+        </property>
+        <property name="authenticationEntryPoint">
+            <ref local="basicProcessingFilterEntryPoint"/>
+        </property>
+    </bean>
+
+    <bean id="portletAuthenticationProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.metadata.user.service.impl.JIPortletAuthenticationProcessingFilter">
+        <property name="trustedIpAddress">
+            <list>
+                <!-- uncomment this if both portal server and web server are running on the same machine -->
+                <!--       <value>127.0.0.1</value>   -->
+            </list>
+        </property>
+        <property name="userService">
+            <ref bean="${bean.internalUserAuthorityService}"/>
+        </property>
+    </bean>
+
+    <bean id="passwordExpirationProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.metadata.user.service.impl.PasswordExpirationProcessingFilter">
+        <property name="userService">
+            <ref bean="${bean.internalUserAuthorityService}"/>
+        </property>
+        <property name="passwordExpirationInDays" value="0"/>
+    </bean>
+
+
+    <!-- if there is no BASIC auth header, this filter will display a 401 error thanks to the entry point -->
+    <bean id="basicAuthExceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter">
+        <property name="authenticationEntryPoint">
+            <ref bean="basicProcessingFilterEntryPoint"/>
+        </property>
+    </bean>
+
+    <bean id="basicProcessingFilterEntryPoint"
+          class="org.springframework.security.ui.basicauth.BasicProcessingFilterEntryPoint">
+        <property name="realmName">
+            <value>Protected Area</value>
+        </property>
+    </bean>
+
+    <bean id="wsBasicAuthExceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter">
+        <property name="authenticationEntryPoint">
+            <ref bean="basicProcessingFilterEntryPoint"/>
+        </property>
+    </bean>
+
+    <bean id="restExceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter">
+        <property name="authenticationEntryPoint">
+            <bean class="com.jaspersoft.jasperserver.war.ForbiddenEntryPoint"/>
+        </property>
+    </bean>
+
+    <!-- PreAuthentication Spring API configuration-->
+    <bean id="delegatingPreAuthenticatedFilter"
+          class="com.jaspersoft.jasperserver.api.security.externalAuth.JSDelegatingFilterProxy">
+        <property name="targetBeanName" value="proxyPreAuthenticatedProcessingFilter"/>
+        <property name="defaultFilter">
+            <bean class="com.jaspersoft.jasperserver.war.NullFilter"/>
+        </property>
+    </bean>
+
+    <bean id="delegatingAuthenticationProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.security.externalAuth.JSDelegatingFilterProxy">
+        <property name="targetBeanName" value="proxyAuthenticationProcessingFilter"/>
+        <property name="defaultFilter" ref="${bean.authenticationProcessingFilter}"/>
+    </bean>
+
+    <bean id="delegatingRequestParameterAuthenticationFilter"
+          class="com.jaspersoft.jasperserver.api.security.externalAuth.JSDelegatingFilterProxy">
+        <property name="targetBeanName" value="proxyRequestParameterAuthenticationFilter"/>
+        <property name="defaultFilter" ref="requestParameterAuthenticationFilter"/>
+    </bean>
+
+    <bean id="delegatingBasicProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.security.externalAuth.JSDelegatingFilterProxy">
+        <property name="targetBeanName" value="proxyBasicProcessingFilter"/>
+        <property name="defaultFilter" ref="${bean.basicProcessingFilter}"/>
+    </bean>
+
+    <bean id="delegatingAuthenticationSoapProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.security.externalAuth.JSDelegatingFilterProxy">
+        <property name="targetBeanName" value="proxyAuthenticationSoapProcessingFilter"/>
+        <property name="defaultFilter" ref="${bean.basicProcessingFilter}"/>
+    </bean>
+
+    <bean id="delegatingAuthenticationRestProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.security.externalAuth.JSDelegatingFilterProxy">
+        <property name="targetBeanName" value="proxyAuthenticationRestProcessingFilter"/>
+        <property name="defaultFilter" ref="restLoginAuthenticationFilter"/>
+    </bean>
+
+    <bean id="authenticationProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.security.EncryptionAuthenticationProcessingFilter">
+        <property name="authenticationManager">
+            <ref bean="authenticationManager"/>
+        </property>
+        <property name="sessionRegistry">
+            <ref bean="sessionRegistry"/>
+        </property>
+        <property name="authenticationFailureUrl">
+            <value>/login.html?error=1</value>
+        </property>
+        <property name="defaultTargetUrl">
+            <value>/loginsuccess.html</value>
+        </property>
+        <property name="filterProcessesUrl">
+            <value>/j_spring_security_check</value>
+        </property>
+        <property name="invalidateSessionOnSuccessfulAuthentication">
+            <value>true</value>
+        </property>
+        <property name="migrateInvalidatedSessionAttributes">
+            <value>true</value>
+        </property>
+    </bean>
+
+    <bean id="restLoginAuthenticationFilter"
+          class="com.jaspersoft.jasperserver.rest.RESTLoginAuthenticationFilter">
+        <property name="authenticationManager">
+            <ref bean="authenticationManager"/>
+        </property>
+    </bean>
+
+    <bean id="requestParameterAuthenticationFilter"
+          class="com.jaspersoft.jasperserver.war.util.RequestParameterAuthenticationFilter">
+        <property name="authenticationManager">
+            <ref bean="authenticationManager"/>
+        </property>
+        <property name="authenticationFailureUrl">
+            <value>/login.html?error=1</value>
+        </property>
+        <property name="excludeUrls">
+            <list>
+                <value>/j_spring_switch_user</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="authenticationProcessingFilterEntryPoint"
+          class="org.springframework.security.ui.webapp.AuthenticationProcessingFilterEntryPoint">
+        <property name="loginFormUrl">
+            <value>/login.html</value>
+        </property>
+        <property name="forceHttps">
+            <value>false</value>
+        </property>
+    </bean>
+
+    <!-- ===================== HTTP REQUEST SECURITY ====================
+    <bean id="httpSessionContextIntegrationFilter" class="org.springframework.security.context.HttpSessionContextIntegrationFilter">
+        <property name="context"><value>org.springframework.security.context.security.SecureContextImpl</value></property>
+    </bean>
+     -->
+    <bean id="httpSessionContextIntegrationFilter"
+          class="org.springframework.security.context.HttpSessionContextIntegrationFilter"/>
+
+    <bean id="multipartRequestWrapperFilter" class="com.jaspersoft.jasperserver.war.MultipartRequestWrapperFilter">
+        <property name="multipartResolver">
+            <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+                <property name="maxUploadSize" value="${file.upload.max.size}" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="filterLocaleResolver" class="com.jaspersoft.jasperserver.war.JSSessionLocaleResolver"/>
+
+    <bean id="webAppSecurityFilter" class="com.jaspersoft.jasperserver.api.security.WebAppSecurityFilter">
+        <property name="messages" ref="messageSource"/>
+        <property name="redirectUrl" value="/error.html"/>
+        <property name="localeResolver" ref="filterLocaleResolver"/>
+        <!-- to forbid showing of stacktraces in UI, set value="false" -->
+        <property name="showStacktraceMessage" value="true"/>
+    </bean>
+
+    <bean id="textOnlyResponseWebAppSecurityFilter" class="com.jaspersoft.jasperserver.api.security.TextOnlyResponseWebAppSecurityFilter" parent="webAppSecurityFilter"/>
+
+    <bean id="jsCsrfGuardFilter" class="com.jaspersoft.jasperserver.api.security.JSCsrfGuardFilter"/>
+
+    <bean id="encryptionFilter" class="com.jaspersoft.jasperserver.api.security.encryption.EncryptionFilter">
+        <property name="messages" ref="messageSource"/>
+    </bean>
+
+    <bean id="validator" class="com.jaspersoft.jasperserver.api.security.validators.Validator">
+        <property name="messages" ref="messageSource"/>
+    </bean>
+
+    <bean id="delegatingExceptionTranslationFilter"
+          class="com.jaspersoft.jasperserver.api.security.externalAuth.JSDelegatingFilterProxy">
+        <property name="targetBeanName" value="proxyExceptionTranslationFilter"/>
+        <property name="defaultFilter" ref="exceptionTranslationFilter"/>
+    </bean>
+
+    <bean id="exceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter">
+        <property name="authenticationEntryPoint">
+            <ref local="authenticationProcessingFilterEntryPoint"/>
+
+        </property>
+        <property name="accessDeniedHandler">
+            <bean class="com.jaspersoft.jasperserver.war.themes.ThemeAwareAccessDeniedHandlerImpl">
+                <property name="errorPage" value="/WEB-INF/jsp/modules/system/AccessDeniedPage.jsp"/>
+                <property name="themeResolver" ref="themeResolver"/>
+                <property name="themeSource" ref="themeSource"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="httpRequestAccessDecisionManager" class="org.springframework.security.vote.AffirmativeBased">
+        <property name="allowIfAllAbstainDecisions">
+            <value>false</value>
+        </property>
+        <property name="decisionVoters">
+            <list>
+                <ref bean="roleVoter"/>
+                <bean class="org.springframework.security.vote.AuthenticatedVoter"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--
+        Note the order that entries are placed against the objectDefinitionSource is critical.
+        The FilterSecurityInterceptor will work from the top of the list down to the FIRST pattern that matches the request URL.
+        Accordingly, you should place MOST SPECIFIC (ie a/b/c/d.*) expressions first, with LEAST SPECIFIC (ie a/.*) expressions last
+
+        =========  JasperServer Note ==============
+        There are currently three roles:
+            ROLE_ANONYMOUS (i.e. not logged in)
+            ROLE_USER
+            ROLE_ADMINISTRATOR
+        Any page accessible by a non-admin user (or by someone not logged in)
+        must be added explicitly. Any other pages are assumed to require the admin role
+
+        Note: alwaysReauthenticate=true does not work when external authentication is on.  External authentication has its own
+        authenticationManager with its own authenticationProvider's: JRS authenticationManager won't work.
+     -->
+    <bean id="filterInvocationInterceptor" class="org.springframework.security.intercept.web.FilterSecurityInterceptor">
+        <property name="authenticationManager">
+            <ref bean="authenticationManager"/>
+        </property>
+        <property name="accessDecisionManager">
+            <ref bean="httpRequestAccessDecisionManager"/>
+        </property>
+        <!-- <property name="runAsManager"><ref bean="runAsManager"/></property>  -->
+        <property name="objectDefinitionSource">
+            <value>
+                CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+                PATTERN_TYPE_APACHE_ANT
+                /login.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /externallogin.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /logout.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR,IS_AUTHENTICATED_FULLY
+                /loginerror.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /error.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /exituser.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR,IS_AUTHENTICATED_FULLY
+                /home.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /flow.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /loginsuccess.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /listolapviews.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /fillparams.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /j_spring_switch_user*=ROLE_ADMINISTRATOR
+                /fileview/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /olap/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /xmla=ROLE_USER,ROLE_ADMINISTRATOR
+                /services/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /reportimage/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /jrpxml/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /heartbeatinfo.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /rest/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/jobs/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/permissions/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/reports/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/resources/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/reportexecutions/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/serverinfo/**=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/application.wadl=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/application.wadl/xsd0.xsd=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/bundles/**=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /rest_v2/settings/**=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /404.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /500.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /reportgenerator.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /viewreportcancel.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /viewreportasynccancel.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /viewreportpageupdatecheck.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /bif/*=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /bif/*/**=ROLE_USER,ROLE_ADMINISTRATOR
+                /xdm.html=ROLE_ANONYMOUS,ROLE_USER,ROLE_ADMINISTRATOR
+                /getreportcomponents.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /getrequirejsconfig.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /runreportaction.html=ROLE_USER,ROLE_ADMINISTRATOR
+
+                <!--scheduler-->
+                /scheduler/jobsummary.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /scheduler/jobdetails.html=ROLE_USER,ROLE_ADMINISTRATOR
+                /scheduler/main.html=ROLE_USER,ROLE_ADMINISTRATOR
+
+            </value>
+        </property>
+    </bean>
+
+    <!-- updater bean to set the roles allowed to get to a URL -->
+    <bean id="setRolesForURL" class="com.jaspersoft.jasperserver.api.common.util.spring.GenericBeanUpdaterDefinition">
+        <property name="order" value="10"/>
+        <property name="beanName" value="filterInvocationInterceptor"/>
+        <property name="propertyName" value="objectDefinitionSource"/>
+        <property name="operation" value="append"/>
+    </bean>
+
+    <!-- get these done last -->
+    <bean class="com.jaspersoft.jasperserver.api.common.util.spring.GenericBeanUpdater">
+        <property name="definition" ref="setRolesForURL"/>
+        <property name="order" value="1000000000"/>
+        <property name="value">
+            <value>
+                /awsconfiguration.html=ROLE_SUPERUSER
+                /rest_v2/**=ROLE_ADMINISTRATOR
+                /*.html=ROLE_ADMINISTRATOR
+                /*.jsp=ROLE_ADMINISTRATOR
+            </value>
+        </property>
+        <property name="valueType" value="string"/>
+    </bean>
+
+    <!-- switchUserProcessingFilter for "login-as" feature -->
+
+    <bean id="switchUserProcessingFilter"
+          class="com.jaspersoft.jasperserver.api.security.JSSwitchUserProcessingFilter">
+        <property name="userDetailsService">
+            <ref bean="${bean.switchUserProcessingFilter.userDetailsService}"/>
+        </property>
+        <property name="switchUserUrl">
+            <value>/j_spring_switch_user</value>
+        </property>
+        <property name="exitUserUrl">
+            <value>/j_acegi_exit_user</value>
+        </property>
+        <property name="targetUrl">
+            <value>/home.html</value>
+        </property>
+        <property name="exitTargetUrl">
+            <value>/flow.html?_flowId=userListFlow&amp;curlnk=3</value>
+        </property>
+        <property name="auditContext" ref="${bean.auditContext}"/>
+        <property name="themeResolver" ref="themeResolver"/>
+    </bean>
+
+    <!-- enable all features supported by iPad  -->
+
+    <bean id="iPadSupportFilter"
+          class="com.jaspersoft.jasperserver.api.security.IPadSupportFilter">
+        <property name="redirectUrl">
+            <value>/flow.html?_flowId=homeFlow</value>
+        </property>
+        <property name="notSupportedUrls">
+            <list>
+                <value>/flow.html?_flowId=tenantFlow</value>
+                <value>/flow.html?_flowId=reportUnitFlow</value>
+                <value>/flow.html?_flowId=adminHomeFlow</value>
+                <value>/flow.html?_flowId=userListFlow</value>
+                <value>/flow.html?_flowId=roleListFlow</value>
+                <value>/flow.html?_flowId=mondrianPropertiesFlow</value>
+                <value>/flow.html?_flowId=designerOptionsFlow</value>
+                <value>/flow.html?_flowId=designerCacheFlow</value>
+                <value>/flow.html?_flowId=awsSettingsFlow</value>
+
+                <value>/flow.html?_flowId=dashboardDesignerFlow</value>
+                <value>/log_settings.html</value>
+                <value>/flow.html?_flowId=createSLDatasourceFlow</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

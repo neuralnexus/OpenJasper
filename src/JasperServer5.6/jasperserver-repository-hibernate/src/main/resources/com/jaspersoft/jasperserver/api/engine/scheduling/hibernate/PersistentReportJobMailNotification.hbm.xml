@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class table="JIReportJobMail" name="com.jaspersoft.jasperserver.api.engine.scheduling.hibernate.PersistentReportJobMailNotification">
+        <id name="id" type="long" >
+            <generator class="native"/>
+        </id>
+        <version column="version" unsaved-value="negative" name="version"/>
+        <property name="subject" column="subject" type="string" length="100" not-null="true"/>
+        <property name="messageText" column="message" type="string" length="2000" not-null="false"/>
+        <property name="resultSendType" column="send_type" type="byte" not-null="true"/>
+        <property name="skipEmptyReports" column="skip_empty" type="boolean" not-null="true"/>
+        <list name="recipients" table="JIReportJobMailRecipient">
+            <key column="destination_id"/>
+            <list-index column="recipient_idx"/>
+            <composite-element class="com.jaspersoft.jasperserver.api.engine.scheduling.hibernate.PersistentReportJobMailRecipient">
+                <property name="type" column="recipient_type" type="byte" not-null="true"/>
+                <property name="address" column="address" type="string" length="100" not-null="true"/>
+            </composite-element>
+        </list>
+        <property name="messageTextWhenJobFails" column="message_text_when_job_fails" type="string" length="2000" not-null="false"/>
+        <property name="includingStackTraceWhenJobFails" column="inc_stktrc_when_job_fails" type="boolean" not-null="true"/>
+        <property name="skipNotificationWhenJobFails" column="skip_notif_when_job_fails" type="boolean" not-null="true"/>
+    </class>
+</hibernate-mapping>

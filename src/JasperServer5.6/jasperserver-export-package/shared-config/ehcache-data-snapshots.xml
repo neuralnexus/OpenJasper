@@ -1,0 +1,5 @@
+<ehcache name="dataSnapshots">
+
+  <!-- empty config for import-export (bug 35993) --> 
+
+</ehcache>

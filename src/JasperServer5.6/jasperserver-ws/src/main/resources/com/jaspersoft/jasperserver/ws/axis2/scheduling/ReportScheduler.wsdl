@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	targetNamespace="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap"
+	xmlns:impl="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:intf="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<schema
+			targetNamespace="http://www.jasperforge.org/jasperserver/ws"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<import
+				namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+			<complexType name="ArrayOf_xsd_long">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType"
+							wsdl:arrayType="xsd:long[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<complexType abstract="true" name="JobTrigger">
+				<sequence>
+					<element name="id" type="xsd:long" />
+					<element name="version" type="xsd:int" />
+					<element name="timezone" nillable="true"
+						type="xsd:string" />
+					<element name="startDate" nillable="true"
+						type="xsd:dateTime" />
+					<element name="endDate" nillable="true"
+						type="xsd:dateTime" />
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOf_xsd_int">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType"
+							wsdl:arrayType="xsd:int[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<complexType name="JobCalendarTrigger">
+				<complexContent>
+					<extension base="impl:JobTrigger">
+						<sequence>
+							<element name="minutes" nillable="true"
+								type="xsd:string" />
+							<element name="hours" nillable="true"
+								type="xsd:string" />
+							<element name="daysType" nillable="true"
+								type="impl:CalendarDaysType" />
+							<element name="weekDays" nillable="true"
+								type="impl:ArrayOf_xsd_int" />
+							<element name="monthDays" nillable="true"
+								type="xsd:string" />
+							<element name="months" nillable="true"
+								type="impl:ArrayOf_xsd_int" />
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+			<complexType name="ArrayOf_xsd_string">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType"
+							wsdl:arrayType="xsd:string[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<complexType name="JobMailNotification">
+				<sequence>
+					<element name="id" type="xsd:long" />
+					<element name="version" type="xsd:int" />
+					<element name="toAddresses" nillable="true"
+						type="impl:ArrayOf_xsd_string" />
+					<element name="subject" nillable="true"
+						type="xsd:string" />
+					<element name="messageText" nillable="true"
+						type="xsd:string" />
+					<element name="resultSendType" nillable="true"
+						type="impl:ResultSendType" />
+					<element name="skipEmptyReports" type="xsd:boolean" />
+				</sequence>
+			</complexType>
+			<complexType name="JobParameter">
+				<sequence>
+					<element name="name" nillable="true"
+						type="xsd:string" />
+					<element name="value" nillable="true"
+						type="xsd:anyType" />
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfJobParameter">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType"
+							wsdl:arrayType="impl:JobParameter[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<complexType name="JobRepositoryDestination">
+				<sequence>
+					<element name="id" type="xsd:long" />
+					<element name="version" type="xsd:int" />
+					<element name="folderURI" nillable="true"
+						type="xsd:string" />
+					<element name="sequentialFilenames"
+						type="xsd:boolean" />
+					<element name="overwriteFiles" type="xsd:boolean" />
+					<element name="outputDescription" nillable="true"
+						type="xsd:string" />
+					<element name="timestampPattern" nillable="true"
+						type="xsd:string" />
+				</sequence>
+			</complexType>
+			<complexType name="JobSimpleTrigger">
+				<complexContent>
+					<extension base="impl:JobTrigger">
+						<sequence>
+							<element name="occurrenceCount"
+								type="xsd:int" />
+							<element name="recurrenceInterval"
+								nillable="true" type="xsd:int" />
+							<element name="recurrenceIntervalUnit"
+								nillable="true" type="impl:IntervalUnit" />
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+			<complexType name="Job">
+				<sequence>
+					<element name="id" type="xsd:long" />
+					<element name="version" type="xsd:int" />
+					<element name="reportUnitURI" nillable="true"
+						type="xsd:string" />
+					<element name="username" nillable="true"
+						type="xsd:string" />
+					<element name="label" nillable="true"
+						type="xsd:string" />
+					<element name="description" nillable="true"
+						type="xsd:string" />
+					<element name="simpleTrigger" nillable="true"
+						type="impl:JobSimpleTrigger" />
+					<element name="calendarTrigger" nillable="true"
+						type="impl:JobCalendarTrigger" />
+					<element name="parameters" nillable="true"
+						type="impl:ArrayOfJobParameter" />
+					<element name="baseOutputFilename" nillable="true"
+						type="xsd:string" />
+					<element name="outputFormats" nillable="true"
+						type="impl:ArrayOf_xsd_string" />
+					<element name="outputLocale" nillable="true"
+						type="xsd:string" />
+					<element name="repositoryDestination"
+						nillable="true" type="impl:JobRepositoryDestination" />
+					<element name="mailNotification" nillable="true"
+						type="impl:JobMailNotification" />
+				</sequence>
+			</complexType>
+			<complexType name="JobSummary">
+				<sequence>
+					<element name="id" type="xsd:long" />
+					<element name="version" type="xsd:int" />
+					<element name="reportUnitURI" nillable="true"
+						type="xsd:string" />
+					<element name="username" nillable="true"
+						type="xsd:string" />
+					<element name="label" nillable="true"
+						type="xsd:string" />
+					<element name="state" nillable="true"
+						type="impl:RuntimeJobState" />
+					<element name="previousFireTime" nillable="true"
+						type="xsd:dateTime" />
+					<element name="nextFireTime" nillable="true"
+						type="xsd:dateTime" />
+				</sequence>
+			</complexType>
+			<complexType name="ArrayOfJobSummary">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType"
+							wsdl:arrayType="impl:JobSummary[]" />
+					</restriction>
+				</complexContent>
+			</complexType>
+			<xsd:simpleType name="IntervalUnit">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="MINUTE"/>
+					<xsd:enumeration value="HOUR"/>
+					<xsd:enumeration value="DAY"/>
+					<xsd:enumeration value="WEEK"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="CalendarDaysType">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="ALL"/>
+					<xsd:enumeration value="WEEK"/>
+					<xsd:enumeration value="MONTH"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="ResultSendType">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="SEND"/>
+					<xsd:enumeration value="SEND_ATTACHMENT"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="RuntimeJobState">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="UNKNOWN"/>
+					<xsd:enumeration value="NORMAL"/>
+					<xsd:enumeration value="EXECUTING"/>
+					<xsd:enumeration value="PAUSED"/>
+					<xsd:enumeration value="COMPLETE"/>
+					<xsd:enumeration value="ERROR"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="deleteJobResponse"></wsdl:message>
+	<wsdl:message name="deleteJobsResponse"></wsdl:message>
+	<wsdl:message name="getJobResponse">
+		<wsdl:part name="getJobReturn" type="impl:Job" />
+	</wsdl:message>
+	<wsdl:message name="scheduleJobResponse">
+		<wsdl:part name="scheduleJobReturn" type="impl:Job" />
+	</wsdl:message>
+	<wsdl:message name="getReportJobsResponse">
+		<wsdl:part name="getReportJobsReturn"
+			type="impl:ArrayOfJobSummary" />
+	</wsdl:message>
+	<wsdl:message name="getReportJobsRequest">
+		<wsdl:part name="reportURI" type="xsd:string" />
+	</wsdl:message>
+	<wsdl:message name="deleteJobRequest">
+		<wsdl:part name="id" type="xsd:long" />
+	</wsdl:message>
+	<wsdl:message name="getJobRequest">
+		<wsdl:part name="id" type="xsd:long" />
+	</wsdl:message>
+	<wsdl:message name="updateJobResponse">
+		<wsdl:part name="updateJobReturn" type="impl:Job" />
+	</wsdl:message>
+	<wsdl:message name="scheduleJobRequest">
+		<wsdl:part name="job" type="impl:Job" />
+	</wsdl:message>
+	<wsdl:message name="getAllJobsResponse">
+		<wsdl:part name="getAllJobsReturn"
+			type="impl:ArrayOfJobSummary" />
+	</wsdl:message>
+	<wsdl:message name="getAllJobsRequest"></wsdl:message>
+	<wsdl:message name="updateJobRequest">
+		<wsdl:part name="job" type="impl:Job" />
+	</wsdl:message>
+	<wsdl:message name="deleteJobsRequest">
+		<wsdl:part name="ids" type="impl:ArrayOf_xsd_long" />
+	</wsdl:message>
+	<wsdl:portType name="ReportScheduler">
+		<wsdl:operation name="deleteJob" parameterOrder="id">
+			<wsdl:input message="impl:deleteJobRequest"
+				name="deleteJobRequest" />
+			<wsdl:output message="impl:deleteJobResponse"
+				name="deleteJobResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="deleteJobs" parameterOrder="ids">
+			<wsdl:input message="impl:deleteJobsRequest"
+				name="deleteJobsRequest" />
+			<wsdl:output message="impl:deleteJobsResponse"
+				name="deleteJobsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getJob" parameterOrder="id">
+			<wsdl:input message="impl:getJobRequest"
+				name="getJobRequest" />
+			<wsdl:output message="impl:getJobResponse"
+				name="getJobResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="scheduleJob" parameterOrder="job">
+			<wsdl:input message="impl:scheduleJobRequest"
+				name="scheduleJobRequest" />
+			<wsdl:output message="impl:scheduleJobResponse"
+				name="scheduleJobResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="updateJob" parameterOrder="job">
+			<wsdl:input message="impl:updateJobRequest"
+				name="updateJobRequest" />
+			<wsdl:output message="impl:updateJobResponse"
+				name="updateJobResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getAllJobs">
+			<wsdl:input message="impl:getAllJobsRequest"
+				name="getAllJobsRequest" />
+			<wsdl:output message="impl:getAllJobsResponse"
+				name="getAllJobsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getReportJobs"
+			parameterOrder="reportURI">
+			<wsdl:input message="impl:getReportJobsRequest"
+				name="getReportJobsRequest" />
+			<wsdl:output message="impl:getReportJobsResponse"
+				name="getReportJobsResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ReportSchedulerSoapBinding"
+		type="impl:ReportScheduler">
+		<wsdlsoap:binding style="rpc"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="deleteJob">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="deleteJobRequest">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:input>
+			<wsdl:output name="deleteJobResponse">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deleteJobs">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="deleteJobsRequest">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:input>
+			<wsdl:output name="deleteJobsResponse">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getJob">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getJobRequest">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:input>
+			<wsdl:output name="getJobResponse">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="scheduleJob">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="scheduleJobRequest">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:input>
+			<wsdl:output name="scheduleJobResponse">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="updateJob">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="updateJobRequest">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:input>
+			<wsdl:output name="updateJobResponse">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getAllJobs">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getAllJobsRequest">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:input>
+			<wsdl:output name="getAllJobsResponse">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getReportJobs">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getReportJobsRequest">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:input>
+			<wsdl:output name="getReportJobsResponse">
+				<wsdlsoap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://www.jasperforge.org/jasperserver/ws"
+					use="encoded" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ReportSchedulerService">
+		<wsdl:port binding="impl:ReportSchedulerSoapBinding"
+			name="ReportScheduler">
+			<wsdlsoap:address
+				location="http://localhost:8880/jasperserver/services/ReportScheduler" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

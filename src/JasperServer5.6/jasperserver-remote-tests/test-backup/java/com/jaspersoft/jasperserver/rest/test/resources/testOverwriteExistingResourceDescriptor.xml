@@ -1,0 +1,20 @@
+<resourceDescriptor name="myImage" wsType="img" uriString="/ContentFiles" isNew="false">
+	<label>myImage</label>
+	<description>This description Overwritten the previous one</description>
+	<creationDate>1308696383000</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.common.domain.FileResource</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/ContentFiles</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>0</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_IS_REFERENCE">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value>true</value>
+	</resourceProperty>
+</resourceDescriptor>

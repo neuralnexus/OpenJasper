@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- for olap client connection actions -->
+    <bean id="olapClientConnectionAction" class="com.jaspersoft.jasperserver.war.action.OlapClientConnectionAction">
+	 	<property name="repository">
+            <ref bean="${bean.repositoryService}"/>
+        </property>
+        <property name="engine">
+        	<ref bean="engineService"/>
+	   	</property>
+		<property name="olapConnection">
+			<ref bean="olapConnectionService"/>
+		</property>
+        <property name="dataSourceTreeDataProvider" ref="dsTreeDataProvider" />
+        <property name="jrxmlTreeDataProvider" ref="jrxmlTreeDataProvider" />
+        <property name="messages" ref="messageSource"/>
+        <property name="validator" ref="olapClientConnectionValidator" />
+        <property name="configuration" ref="configurationBean"/>
+        <property name="classOlap4jCache" value="${class.olap4jCache}"/>
+    </bean>
+
+    <bean id="olapClientConnectionValidator" class="com.jaspersoft.jasperserver.war.validation.OlapClientConnectionValidator">
+        <property name="repository">
+            <ref bean="${bean.repositoryService}"/>
+        </property>
+    </bean>
+
+    <import resource="repositoryExplorerBean.xml"/>
+
+</beans>

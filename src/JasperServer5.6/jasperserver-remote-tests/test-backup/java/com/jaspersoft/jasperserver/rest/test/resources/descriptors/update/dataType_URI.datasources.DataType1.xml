@@ -1,0 +1,38 @@
+<resourceDescriptor name="JUNIT_DATA_TYPE" wsType="dataType" uriString="/ContentFiles/JUNIT_DATA_TYPE" isNew="false">
+	<label>UPDATE JUNIT DATA TYPE</label>
+	<description>UPDATE JUNIT DATA TYPE</description>
+	<creationDate>1310003024000</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.common.domain.DataType</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/ContentFiles</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>0</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_IS_REFERENCE">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATATYPE_TYPE">
+		<value>2</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATATYPE_PATTERN">
+		<value></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATATYPE_MAX_VALUE">
+		<value>3</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATATYPE_MIN_VALUE">
+		<value>1</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATATYPE_STRICT_MAX">
+		<value>true</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATATYPE_STRICT_MIN">
+		<value>true</value>
+	</resourceProperty>
+</resourceDescriptor>

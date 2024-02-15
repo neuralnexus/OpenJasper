@@ -1,0 +1,419 @@
+<!-- =========================================================================== -->
+<!--                                                                             -->
+<!-- Copyright (C) 2005 - 2014 TIBCO Software Inc. All rights reserved.      -->
+<!-- http://www.jaspersoft.com.                                                  -->
+<!--                                                                             -->
+<!-- Unless you have purchased a commercial license agreement from Jaspersoft,   -->
+<!-- the following license terms apply:                                          -->
+<!--                                                                             -->
+<!-- This program is free software: you can redistribute it and/or modify        -->
+<!-- it under the terms of the GNU Affero General Public License as              -->
+<!-- published by the Free Software Foundation, either version 3 of the          -->
+<!-- License, or (at your option) any later version.                             -->
+<!--                                                                             -->
+<!-- This program is distributed in the hope that it will be useful,             -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of              -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                -->
+<!-- GNU Affero General Public License for more details.                         -->
+<!--                                                                             -->
+<!-- You should have received a copy of the GNU Affero General Public  License   -->
+<!-- along with this program. If not, see <http://www.gnu.org/licenses/>.        -->
+<!--                                                                             -->
+<!-- =========================================================================== -->
+
+<project name="code-coverage">
+
+  <!--
+    Cobertura tasks definition.
+    Requires defined 'cobertura.dir' property pointing to unpacked Cobertura binary package.
+
+    NOTE: Build doesn't break if Cobertura JAR, dependencies or task definitions are not found.
+   -->
+  <taskdef resource="tasks.properties" onerror="ignore">
+    <classpath>
+      <fileset dir="${cobertura.dir}" erroronmissingdir="false">
+        <include name="cobertura.jar" />
+        <include name="lib/**/*.jar" />
+      </fileset>
+    </classpath>
+  </taskdef>
+
+  <!-- Common directory for code coverage resources. -->
+  <property name="cc.common.dir" value="${js-path}/code-coverage" />
+
+  <!-- ==================================================================== -->
+  <!--                                                                      -->
+  <!-- JasperServer type-sensitive property setters                         -->
+  <!--                                                                      -->
+  <!-- ==================================================================== -->
+
+  <!--
+    Utility for setting code coverage scope to JasperServer CE.
+
+    Sets 'cc.js.type' property to 'ce' value and
+    also initializes source paths, target paths and other properties relative to this server type.
+   -->
+  <target name="__cc-set-ce-scope"
+      depends="set-ce-webapp-name, __cc-set-scope"
+      description="Utility for setting code coverage scope to JasperServer CE.">
+    <property name="cc.source.dir" value="${js-path}" />
+    <property name="cc.target.dir" value="${cc.source.dir}/code-coverage/target" />
+
+    <antcall target="__cc-echo-properties" />
+  </target>
+
+  <!--
+    Utility for setting code coverage scope to JasperServer Pro.
+
+    Sets 'cc.js.type' property to 'pro' value and
+    also initializes source paths, target paths and other properties relative to this server type.
+   -->
+  <target name="__cc-set-pro-scope"
+      depends="set-pro-webapp-name, __cc-set-scope"
+      description="Utility for setting code coverage scope to JasperServer Pro.">
+    <property name="cc.source.dir" value="${js-pro-path}" />
+    <property name="cc.target.dir" value="${cc.source.dir}/code-coverage/target" />
+
+    <antcall target="__cc-echo-properties" />
+  </target>
+
+  <!--
+    Utility for setting 'cc.js.type' property and path to recently built WAR.
+   -->
+  <target name="__cc-set-scope"
+      description="Utility for setting 'cc.js.type' property and WAR install_resources path.">
+    <property name="cc.js.type" value="${jsEdition}" />
+    <property name="cc.war.install.dir" value="${warSourceDir}" />
+  </target>
+
+  <!--
+    Prints values for properties for debugging purposes.
+   -->
+  <target name="__cc-echo-properties"
+      description="Prints values for properties for debugging purposes.">
+    <echo>JasperServer type set to [${cc.js.type}]</echo>
+    <echo>Source directory set to ${cc.source.dir}</echo>
+    <echo>WAR install resources folder (for potential instrumentation) set to ${cc.war.install.dir}</echo>
+    <echo>Code coverage target directory set to ${cc.target.dir}</echo>
+  </target>
+
+  <!-- ==================================================================== -->
+  <!--                                                                      -->
+  <!-- Unit tests                                                           -->
+  <!--                                                                      -->
+  <!-- ==================================================================== -->
+
+  <!--
+    Runs the JasperServer CE unit tests and generates code coverage report.
+   -->
+  <target name="cc-run-unit-tests-gen-report-ce"
+      depends="__cc-set-ce-scope, __cc-run-unit-tests-and-gen-report"
+      description="Runs the JasperServer CE unit tests and generates code coverage report." />
+
+  <!--
+    Runs the JasperServer Pro unit tests and generates code coverage report.
+   -->
+  <target name="cc-run-unit-tests-gen-report-pro"
+      depends="__cc-set-pro-scope, __cc-run-unit-tests-and-gen-report"
+      description="Runs the JasperServer Pro unit tests and generates code coverage report." />
+
+  <!--
+    Utility for running JasperServer unit tests and generating code coverage report.
+   -->
+  <target name="__cc-run-unit-tests-and-gen-report"
+      depends="install-jdbc-dep"
+      description="Utility for running JasperServer unit tests and generating code coverage report.">
+    <echo>Running unit tests and code coverage report generation.</echo>
+    <runmaven dir="${cc.source.dir}">
+      <arg value="clean" />
+      <arg value="cobertura:cobertura-consolidate" />
+    </runmaven>
+    <antcall target="__cc-copy-unit-test-reports" />
+  </target>
+
+  <!--
+    Utility for copying code coverage reports for unit tests to centralized code coverage data repository.
+   -->
+  <target name="__cc-copy-unit-test-reports" if="cc.js.type"
+      description="Utility for copying code coverage reports for unit tests to centralized code coverage
+      data repository.">
+    <echo>Copying consolidated code coverage report for unit tests to centralized code coverage data repository.</echo>
+    <property name="cc.target.unit.dir" value="${cc.target.dir}/unit" />
+    <property name="cc.target.unit.report.dir" value="${cc.target.unit.dir}/report" />
+    <delete dir="${cc.target.unit.report.dir}" />
+    <copy todir="${cc.target.unit.report.dir}">
+      <fileset dir="${cc.source.dir}/target/site/cobertura" />
+    </copy>
+    <copy file="${cc.source.dir}/target/cobertura/consolidate-cobertura.ser"
+        tofile="${cc.target.unit.dir}/cobertura-unit.ser" />
+  </target>
+
+  <!-- ==================================================================== -->
+  <!--                                                                      -->
+  <!-- Remote tests                                                         -->
+  <!--                                                                      -->
+  <!-- ==================================================================== -->
+
+  <!--
+    Generates code coverage report for remote integration tests of JasperServer CE.
+   -->
+  <target name="cc-gen-report-remote-tests-ce"
+      depends="__cc-set-ce-scope"
+      description="Generates code coverage report for remote integration tests of JasperServer CE.">
+    <antcall target="__cc-report">
+      <param name="test.type" value="remote" />
+    </antcall>
+  </target>
+
+  <!--
+    Generates code coverage report for remote integration tests of JasperServer Pro.
+   -->
+  <target name="cc-gen-report-remote-tests-pro"
+      depends="__cc-set-pro-scope"
+      description="Generates code coverage report for remote integration tests of JasperServer Pro.">
+    <antcall target="__cc-report">
+      <param name="test.type" value="remote" />
+    </antcall>
+  </target>
+
+  <!--
+    Updates JasperServer CE WAR so that it will contain instrumented classes and
+    will be ready to collect code coverage data when running remote integration tests.
+   -->
+  <target name="cc-instrument-war-for-remote-tests-ce"
+      depends="__cc-set-ce-scope"
+      description="Updates JasperServer CE WAR so that it will contain instrumented classes and
+      will be ready to collect code coverage data when running remote integration tests">
+    <antcall target="__cc-instrument-war">
+      <param name="test.type" value="remote" />
+    </antcall>
+  </target>
+
+  <!--
+    Updates JasperServer Pro WAR so that it will contain instrumented classes and
+    will be ready to collect code coverage data when running remote integration tests.
+   -->
+  <target name="cc-instrument-war-for-remote-tests-pro"
+      depends="__cc-set-pro-scope"
+      description="Updates JasperServer Pro WAR so that it will contain instrumented classes and
+      will be ready to collect code coverage data when running remote integration tests">
+    <antcall target="__cc-instrument-war">
+      <param name="test.type" value="remote" />
+    </antcall>
+  </target>
+
+  <!-- ==================================================================== -->
+  <!--                                                                      -->
+  <!-- Functional tests                                                     -->
+  <!--                                                                      -->
+  <!-- ==================================================================== -->
+
+  <!--
+    Generates code coverage report for functional tests of JasperServer Pro.
+   -->
+  <target name="cc-gen-report-functional-tests-pro"
+      depends="__cc-set-pro-scope"
+      description="Generates code coverage report for functional tests of JasperServer Pro.">
+    <antcall target="__cc-report">
+      <param name="test.type" value="functional" />
+    </antcall>
+  </target>
+
+  <!--
+    Updates JasperServer Pro WAR so that it will contain instrumented classes and
+    will be ready to collect code coverage data when running functional tests.
+   -->
+  <target name="cc-instrument-war-for-functional-tests-pro"
+      depends="__cc-set-pro-scope"
+      description="Updates JasperServer Pro WAR so that it will contain instrumented classes and
+      will be ready to collect code coverage data when running functional tests">
+    <antcall target="__cc-instrument-war">
+      <param name="test.type" value="functional" />
+    </antcall>
+  </target>
+
+  <!-- ==================================================================== -->
+  <!--                                                                      -->
+  <!-- Report consolidation                                                 -->
+  <!--                                                                      -->
+  <!-- ==================================================================== -->
+
+  <!--
+    Generates consolidated code coverage report based on combined results from unit and remote integration tests
+    of JasperServer CE.
+   -->
+  <target name="cc-gen-report-consolidated-ce"
+      depends="__cc-set-ce-scope, __cc-consolidate"
+      description="Generates consolidated code coverage report based on combined results from unit and
+      remote integration tests of JasperServer CE.">
+    <antcall target="__cc-report">
+      <param name="test.type" value="consolidated" />
+    </antcall>
+  </target>
+
+  <!--
+    Generates consolidated code coverage report based on combined results from unit, remote integration
+    and functional tests of JasperServer Pro.
+   -->
+  <target name="cc-gen-report-consolidated-pro"
+      depends="__cc-set-pro-scope, __cc-consolidate"
+      description="Generates consolidated code coverage report based on combined results from unit and functional tests
+      of JasperServer Pro.">
+    <antcall target="__cc-report">
+      <param name="test.type" value="consolidated" />
+    </antcall>
+  </target>
+
+  <!--
+    Utility for combining code coverage data from all tests into one consolidated data file.
+   -->
+  <target name="__cc-consolidate" if="cc.target.dir"
+      description="Utility for combining code coverage data from all tests into one consolidated data file.">
+    <property name="consolidate.datafile" value="${cc.target.dir}/consolidated/cobertura-consolidated.ser" />
+    <delete file="${consolidate.datafile}" />
+    <cobertura-merge datafile="${consolidate.datafile}">
+      <fileset dir="${cc.target.dir}">
+        <include name="unit/cobertura-unit.ser" />
+        <include name="remote/cobertura-remote.ser" />
+        <include name="functional/cobertura-functional.ser" />
+      </fileset>
+    </cobertura-merge>
+  </target>
+
+  <!-- ==================================================================== -->
+  <!--                                                                      -->
+  <!-- Report generation utilities                                          -->
+  <!--                                                                      -->
+  <!-- ==================================================================== -->
+
+  <!--
+    Utility for generating code coverage report for the given test type of JasperServer.
+
+    @param test.type test type (unit, remote, functional, consolidated).
+   -->
+  <target name="__cc-report" if="test.type"
+      description="Utility for generating code coverage report for the given test type of JasperServer.">
+    <!--
+      Source files should be copied to one folder with source roots flattening
+      because <cobertura-report> task doesn't provide a way
+      to specify list of source directories that match certain pattern.
+
+      See https://sourceforge.net/tracker/index.php?func=detail&aid=2999515&group_id=130558&atid=720018
+     -->
+    <property name="src.tmp.dir" value="${cc.target.dir}/${test.type}/src" />
+    <delete dir="${src.tmp.dir}" />
+    <copy todir="${src.tmp.dir}">
+      <fileset dir="${cc.source.dir}">
+        <include name="**/*.java" />
+      </fileset>
+      <regexpmapper from="^(.*)src[/\\]main[/\\]java[/\\](.*)\.java$$" to="\2.java" />
+    </copy>
+
+    <!-- Generating report. -->
+    <property name="report.dir" value="${cc.target.dir}/${test.type}/report" />
+    <delete dir="${report.dir}" />
+    <cobertura-report datafile="${cc.target.dir}/${test.type}/cobertura-${test.type}.ser"
+        destdir="${report.dir}" srcdir="${src.tmp.dir}" />
+
+    <!-- Cleaning up temporary sources. -->
+    <delete dir="${src.tmp.dir}" />
+  </target>
+
+  <!-- ==================================================================== -->
+  <!--                                                                      -->
+  <!-- Code coverage instrumentation utilities                              -->
+  <!--                                                                      -->
+  <!-- ==================================================================== -->
+
+  <!--
+    Utility for instrumenting JasperServer WAR.
+
+    @param test.type test type (unit, remote, functional).
+   -->
+  <target name="__cc-instrument-war"
+      description="Utility for instrumenting JasperServer WAR">
+    <property name="cc.target-type.dir" value="${cc.target.dir}/${test.type}" />
+    <property name="cc.target.war.dir" value="${cc.target-type.dir}/war" />
+    <property name="cc.target.war.classes.dir" value="${cc.target.war.dir}/WEB-INF/classes" />
+    <property name="cc.datafile" value="${cc.target-type.dir}/cobertura-${test.type}.ser" />
+
+    <!-- Prepare target directory. -->
+    <delete dir="${cc.target.war.dir}" />
+    <mkdir dir="${cc.target.war.dir}" />
+
+    <!-- Copy recently built WAR to temporary directory. -->
+    <copy todir="${cc.target.war.dir}">
+      <fileset dir="${cc.war.install.dir}" />
+    </copy>
+
+    <!-- Instrument the dependencies. -->
+    <antcall target="__cc-do-instrument-war-${cc.js.type}">
+      <param name="cc.datafile" value="${cc.datafile}" />
+      <param name="cc.target.war.dir" value="${cc.target.war.dir}" />
+    </antcall>
+
+    <!-- Add Cobertura runtime library. -->
+    <copy file="${cobertura.dir}/cobertura.jar" todir="${cc.target.war.dir}/WEB-INF/lib" />
+
+    <!--
+      Add cobertura.properties file with proper path to datafile.
+
+      If custom datafile location is specified that it should be written to cobertura.properties.
+      Such behaviour is handy when WAR instrumentation is performed on one machine,
+      but instrumented WAR for testing should be deployed for testing on another machine
+      where path to datafile will be non-standard.
+     -->
+    <if>
+      <isset property="cc.js.${cc.js.type}.${test.type}.target.datafile" />
+      <then>
+        <propertycopy name="cc.target.datafile" from="cc.js.${cc.js.type}.${test.type}.target.datafile" />
+      </then>
+      <else>
+        <property name="cc.target.datafile" value="${cc.datafile}" />
+      </else>
+    </if>
+    <copy file="${cc.common.dir}/cobertura.properties" todir="${cc.target.war.classes.dir}" />
+    <replace file="${cc.target.war.classes.dir}/cobertura.properties" token="$${cobertura.datafile}"
+        value="${cc.target.datafile}" />
+  </target>
+
+  <!--
+    Utility for instrumenting JasperServer CE WAR.
+
+    @param cc.datafile code coverage data file.
+    @param cc.target.war.dir path to temporary directory of unpacked WAR.
+   -->
+  <target name="__cc-do-instrument-war-ce" description="Utility for instrumenting JasperServer CE WAR">
+    <delete file="${cc.datafile}" />
+    <cobertura-instrument datafile="${cc.datafile}">
+      <includeClasses regex="com.jaspersoft.*" />
+      <fileset dir="${cc.target.war.dir}/WEB-INF/classes">
+        <include name="**/*.class" />
+      </fileset>
+      <fileset dir="${cc.target.war.dir}/WEB-INF/lib">
+        <include name="jasperserver-*.jar" />
+      </fileset>
+    </cobertura-instrument>
+  </target>
+
+  <!--
+    Utility for instrumenting JasperServer Pro WAR.
+
+    @param cc.datafile code coverage data file.
+    @param cc.target.war.dir path to temporary directory of unpacked WAR.
+   -->
+  <target name="__cc-do-instrument-war-pro" description="Utility for instrumenting JasperServer Pro WAR">
+    <delete file="${cc.datafile}" />
+    <cobertura-instrument datafile="${cc.datafile}">
+      <includeClasses regex="com.jaspersoft.*" />
+      <fileset dir="${cc.target.war.dir}/WEB-INF/classes">
+        <include name="**/*.class" />
+      </fileset>
+      <fileset dir="${cc.target.war.dir}/WEB-INF/lib">
+        <include name="ji-*.jar" />
+        <include name="jpivot-*.jar" />
+      </fileset>
+    </cobertura-instrument>
+  </target>
+
+</project>

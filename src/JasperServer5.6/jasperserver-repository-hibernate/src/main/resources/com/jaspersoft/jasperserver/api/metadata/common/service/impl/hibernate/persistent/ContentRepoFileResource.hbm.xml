@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.ContentRepoFileResource"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIContentResource">
+		<key column="id"/>
+		<property name="data" type="com.jaspersoft.hibernate.ByteWrappingBlobType" length="20971520" column="data"
+			lazy="true"/>
+		<property name="fileType" length="20" type="string" column="file_type"/>
+	</joined-subclass>
+</hibernate-mapping>

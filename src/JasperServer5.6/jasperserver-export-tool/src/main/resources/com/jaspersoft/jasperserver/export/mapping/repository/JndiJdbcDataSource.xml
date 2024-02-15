@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.jaspersoft.jasperserver.export.modules.repository.beans.JndiJdbcDataSourceBean" extends="com.jaspersoft.jasperserver.export.modules.repository.beans.ResourceBean">
+		<map-to xml="jndiJdbcDataSource"/>
+		<field name="jndiName" type="string">
+			<bind-xml name="jndiName" node="element"/>
+		</field>
+		<field name="timezone" type="string">
+			<bind-xml name="timezone" node="element"/>
+		</field>
+	</class>
+</mapping>

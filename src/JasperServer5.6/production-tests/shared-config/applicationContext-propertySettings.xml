@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <!-- resources beans for configuration settings persistence service -->
+	<bean id="propertiesManagementService" class="com.jaspersoft.jasperserver.api.common.properties.PropertiesManagementServiceImpl">
+        <property name="repository">
+            <ref bean="hibernateRepositoryService"/> <!-- use unsecured repo service to load gloabl-property-list -->
+        </property>
+        <!-- ce version only supports logging properties -->
+        <property name="changers">
+            <map>
+		        <!-- to eliminate circular dependencies, 
+		             service changers refs are passed by reference (as Strings)
+		             and not by value (as Beans)-->
+                <entry key="log4j" value="log4jPropertyChanger"/>
+				<entry key="mondrian" value="mondrianPropertyChanger" />
+                <entry key="jdbc" value="jdbcDriverServicePropertyChanger" />
+            </map>
+        </property>
+	</bean>
+
+	<!-- log4j changers manages settings read and apply from and to log4j subsystem -->
+	<bean id="log4jPropertyChanger"
+			class="com.jaspersoft.jasperserver.api.common.properties.Log4jPropertyChanger"/>
+
+	<!-- mondrian changer manages settings read and apply from and to mondrian subsystem -->
+	<bean id="mondrianPropertyChanger" class="com.jaspersoft.jasperserver.api.metadata.common.util.MondrianPropertyChanger">
+	</bean>
+
+    <bean id="jdbcDriverServicePropertyChanger" class="com.jaspersoft.jasperserver.api.common.util.JdbcDriverServicePropertyChanger">
+        <property name="jdbcDriverService" ref="jdbcDriverService"/>
+    </bean>
+
+    <!-- propertiesSaveOrUpdateListener had bean setup, but not initialized with a propertiesManagementServiceName
+          to prevent it from working in the import/export context. here, in testing context, it is initialized via an updater
+          -->
+	
+	<bean id="propertiesSaveOrUpdateListenerUpdater"
+		class="com.jaspersoft.jasperserver.api.common.util.spring.GenericBeanUpdater">
+		<property name="definition" ref="propertiesSaveOrUpdateListenerUpdaterDefinition" />
+		<property name="value" value="propertiesManagementService"/>
+		<property name="valueType" value="string" />
+	</bean>
+
+	<bean id="propertiesSaveOrUpdateListenerUpdaterDefinition" class="com.jaspersoft.jasperserver.api.common.util.spring.GenericBeanUpdaterDefinition">
+	    <property name="order" value="10"/>
+	    <property name="beanName" value="propertiesSaveOrUpdateListener"/>
+	    <property name="propertyName" value="propertiesManagementServiceName"/>
+	    <property name="operation" value="set"/>
+	</bean>
+
+</beans>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd"
+       default-lazy-init="true">
+
+
+  <bean id="propertyConfigurer" class="com.jaspersoft.jasperserver.api.common.properties.DecryptingPropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+        <value>js.jdbc.properties</value>
+        <value>js.quartz.properties</value>
+        <value>js.spring.properties</value>
+        <value>js.spring.export.properties</value>
+        <value>js.scheduling.properties</value>
+        <value>mondrian.connect.string.properties</value>
+        <value>js.aws.datasource.properties</value>
+        <value>js.config.properties</value>
+      </list>
+    </property>
+    <property name="properties">
+      <props>
+        <prop key="resource.root">classpath:</prop>
+        <prop key="bean.olapCacheManager">cacheManager</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="dataSource" class="com.jaspersoft.jasperserver.export.datasource.ConfigurableDataSource" destroy-method="close">
+    <property name="driverClassName" value="${metadata.jdbc.driverClassName}"/>
+    <property name="url" value="${metadata.jdbc.url}"/>
+    <property name="username" value="${metadata.jdbc.username}"/>
+    <property name="password" value="${metadata.jdbc.password}"/>
+    <property name="extraProperties">
+      <map>
+        <entry key="characterEncoding" value="UTF-8" />
+      </map>
+    </property>
+    <property name="initialSize" value="8"/>
+    <property name="maxActive" value="20"/>
+    <property name="maxIdle" value="20"/>
+    <property name="minIdle" value="0"/>
+  </bean>
+
+  <!-- repositoryService bean: moved from applicationContext.xml                     -->
+  <!-- this is because import-export needs a non-authenticated (ie unsecure) version -->
+  <!-- of this bean. Only database login is required.                                -->
+    <alias name="hibernateRepositoryService" alias="repositoryService"/>
+
+  <!-- reportJobsPersistenceService bean: moved from appContext-report-scheduling.xml   -->
+  <!-- this is because import-export needs a non-standard, non-authenticated version of -->
+  <!-- of this bean.                                                                    -->
+  <alias name="reportJobsPersistenceHibernateService" alias="reportJobsPersistenceService"/>
+
+  <!-- this is not really satisfactory; these two lists need to be defined in six places: ce/pro * webapp/unit-test/export-import -->
+  <bean id="hibernateCompositeDeleteListenerListeners" class="java.util.ArrayList">
+     <constructor-arg>
+        <list>
+            <ref bean="hibernateReportJobsUserDeleteListener"/>
+            <ref bean="hibernateLoggingServiceUserDeleteListener"/>
+            <ref bean="hibernateAccessEventDeleteListener"/>
+            <ref bean="hibernateRoleDeleteListener"/>
+        </list>
+     </constructor-arg>
+    </bean>
+
+  <bean id="hibernateCompositeSaveOrUpdateListeners" class="java.util.ArrayList">
+     <constructor-arg>
+        <list>
+            <ref bean="dataSnapshotReportUnitListener" />
+        </list>
+     </constructor-arg>
+  </bean>
+
+  <bean id="hibernateCompositePostUpdateListeners" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <!-- don't need listener for import/ export -->
+            </list>
+        </constructor-arg>
+  </bean>
+
+</beans>

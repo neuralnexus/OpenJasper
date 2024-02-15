@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="editMondrianPropertiesForm">
+
+    <view-state id="editMondrianPropertiesForm" view="modules/administer/analysisOptions">
+        <transition on="saveSingleProperty" to="saveSingleProperty"/>
+    </view-state>
+
+    <action-state id="saveSingleProperty">
+        <evaluate expression="editMondrianPropertiesAction.saveSingleProperty"/>
+        <transition on="success" to="ajaxView"/>
+        <!--<transition on="error" to="displayError"/>-->
+    </action-state>
+
+    <view-state id="ajaxView" view="ajax/ajaxresponse"/>
+
+    <view-state id="ajaxError" view="ajax/ajaxerror"/>
+
+    <view-state id="errorPage" view="modules/system/errorPage"/>
+
+    <global-transitions>
+        <transition on-exception="java.lang.Throwable" to="errorPage"/>
+    </global-transitions>
+
+    <!-- end exceptions handling -->
+    <bean-import resource="spring-config.xml"/>
+
+    <bean-import resource="mondrianActionBeans.xml"/>
+
+</flow>

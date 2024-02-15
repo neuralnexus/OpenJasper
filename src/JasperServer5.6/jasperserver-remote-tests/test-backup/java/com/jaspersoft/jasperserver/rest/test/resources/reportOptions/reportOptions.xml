@@ -1,0 +1,32 @@
+<resourceDescriptor name="Poland" wsType="reportOptions"
+	uriString="/reports/samples/Poland" isNew="true">
+	<label>Poland</label>
+	<creationDate>1319063061890</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.ji.report.options.metadata.ReportOptions</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/reports/samples</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>0</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_IS_REFERENCE">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_REPORT_URI">
+		<value>/reports/samples/Freight</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_INPUT_VALUES">
+		<value>RequestDate,java.util.Date,865148400000;
+			OrderId,java.lang.Integer,10600;
+			Country,java.lang.String,Poland;
+		</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_OPTIONS_NAME">
+		<value>Freight_Poland</value>
+	</resourceProperty>
+</resourceDescriptor>

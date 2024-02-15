@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="diagnosticCustomDataSource" class="com.jaspersoft.jasperserver.api.engine.jasperreports.util.CustomDataSourceDefinition">
+        <property name="factory" ref="customDataSourceServiceFactory"/>
+        <property name="name" value="diagnosticCustomDataSource"/>
+        <property name="serviceClassName" value="com.jaspersoft.jasperserver.api.logging.diagnostic.datasource.DiagnosticCustomDataSourceService"/>
+        <property name="propertyDefinitions">
+            <list>
+                <map>
+                    <entry key="name" value="diagnosticDataSource" />
+                    <entry key="hidden" value="true" />
+                    <entry key="default" value="Internal Diagnostic DataSource"/>
+                </map>
+            </list>
+        </property>
+        <property name="queryExecuterMap">
+            <map/>
+        </property>
+    </bean>
+</beans>

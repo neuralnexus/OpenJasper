@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="JIReportJobAlert" name="com.jaspersoft.jasperserver.api.engine.scheduling.hibernate.PersistentReportJobAlert">
+        <id name="id" type="long" >
+            <generator class="native"/>
+        </id>
+        <version column="version" unsaved-value="negative" name="version"/>
+        <property name="recipient" type="byte" column="recipient" not-null="true"/>
+        <list name="toAddresses" table="JIReportAlertToAddress">
+            <key column="alert_id"/>
+            <list-index column="to_address_idx"/>
+            <element column="to_address" type="string" length="100" not-null="true"/>
+        </list>
+        <property name="subject" column="subject" type="string" length="100" not-null="false"/>
+        <property name="messageText" column="message_text" type="string" length="2000" not-null="false"/>
+        <property name="messageTextWhenJobFails" column="message_text_when_job_fails" type="string" length="2000" not-null="false"/>
+        <property name="jobState" column="job_state" type="byte" not-null="true"/>
+        <property name="includingStackTrace" column="including_stack_trace" type="boolean" not-null="true"/>
+        <property name="includingReportJobInfo" column="including_report_job_info" type="boolean" not-null="true"/>
+	</class>
+</hibernate-mapping>

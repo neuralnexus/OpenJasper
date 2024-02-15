@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jaspersoft.jasperserver</groupId>
+    <artifactId>jasperserver-ws-sample</artifactId>
+    <packaging>pom</packaging>
+    <version>5.6.1</version>
+    <name>Jasper Server WS Sample</name>
+    <url>http://www.jaspersoft.com</url>
+
+    <modules>
+        <module>jasperserver-ws-sample-war</module>
+        <module>jasperserver-ws-sample-jar</module>
+    </modules>
+
+       <!-- workaround for invalid jboss-integration-platform artifact -->  
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling</artifactId>
+            <version>1.4.6.Final</version>
+          </dependency>
+     
+          <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling-river</artifactId>
+            <version>1.4.6.Final</version>
+          </dependency>
+     
+          <dependency>
+            <groupId>org.jboss.marshalling</groupId>
+            <artifactId>jboss-marshalling-osgi</artifactId>
+            <version>1.4.6.Final</version>
+          </dependency>
+
+          <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>3.1.4.GA</version>
+          </dependency>
+             <!-- workaround end -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.4</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>2.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>1.1.2</version>
+            </dependency>
+            <dependency>
+                <groupId>opensymphony</groupId>
+                <artifactId>sitemesh</artifactId>
+                <version>2.4.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.jasperreports</groupId>
+                <artifactId>jasperreports</artifactId>
+                <version>5.6.1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>xml-apis</groupId>
+                        <artifactId>xml-apis</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.jaspersoft.jasperserver</groupId>
+                <artifactId>jasperserver-common-ws</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jaspersoft.jasperserver</groupId>
+                <artifactId>jasperserver-ireport-plugin</artifactId>
+                <!-- hard code ver 4.2.0. will not change unless plugin is actually updated -->
+                <version>4.2.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <compilerVersion>${javaVersion}</compilerVersion>
+                    <source>${javaVersion}</source>
+                    <target>${javaVersion}</target>
+                    <debug>true</debug>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                    <optimize>false</optimize>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <!--Java version.-->
+        <javaVersion>1.6</javaVersion>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
+</project>

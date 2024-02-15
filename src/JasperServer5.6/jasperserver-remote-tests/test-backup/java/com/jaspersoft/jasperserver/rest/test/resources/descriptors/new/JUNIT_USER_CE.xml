@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user>
+	<enabled>true</enabled>
+	<externallyDefined>false</externallyDefined>
+	<fullName>JUNIT_USER</fullName>
+	<password>JUNIT_USER</password>
+	<roles>
+		<externallyDefined>false</externallyDefined>
+		<roleName>ROLE_USER</roleName>
+	</roles>
+	<roles>
+		<externallyDefined>false</externallyDefined>
+		<roleName>ROLE_ADMINISTRATOR</roleName>
+	</roles>
+	<username>JUNIT_USER</username>
+</user>

@@ -1,0 +1,78 @@
+<entityResource>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="userImpl">
+			<externallyDefined>false</externallyDefined>
+			<fullName>etladmin</fullName>
+			<username>etladmin</username>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="userImpl">
+			<externallyDefined>false</externallyDefined>
+			<fullName>admin</fullName>
+			<username>admin</username>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="userImpl">
+			<externallyDefined>false</externallyDefined>
+			<fullName>anonymousUser</fullName>
+			<username>anonymousUser</username>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="userImpl">
+			<externallyDefined>false</externallyDefined>
+			<fullName>Joe User</fullName>
+			<username>joeuser</username>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="roleImpl">
+			<externallyDefined>false</externallyDefined>
+			<roleName>ROLE_USER</roleName>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="roleImpl">
+			<externallyDefined>false</externallyDefined>
+			<roleName>ROLE_PORTLET</roleName>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="roleImpl">
+			<externallyDefined>false</externallyDefined>
+			<roleName>ROLE_USER</roleName>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="roleImpl">
+			<externallyDefined>false</externallyDefined>
+			<roleName>ROLE_ANONYMOUS</roleName>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+	<Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<permissionMask>30</permissionMask>
+		<permissionRecipient xsi:type="roleImpl">
+			<externallyDefined>false</externallyDefined>
+			<roleName>ROLE_ETL_ADMIN</roleName>
+		</permissionRecipient>
+		<URI>repo:/JUNIT_NEW_FOLDER</URI>
+	</Item>
+</entityResource>

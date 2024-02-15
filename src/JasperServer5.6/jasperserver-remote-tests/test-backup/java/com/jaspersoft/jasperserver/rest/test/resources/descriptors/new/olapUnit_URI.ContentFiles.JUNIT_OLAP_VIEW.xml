@@ -1,0 +1,17 @@
+<resourceDescriptor name="JUNIT_OLAP_VIEW" wsType="olapUnit" uriString="/ContentFiles/JUNIT_OLAP_VIEW" isNew="false">
+	<label><![CDATA[JUNIT OLAP VIEW]]></label>
+	<description><![CDATA[this is a test JUNIT]]></description>
+	<creationDate>1315530401713</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value><![CDATA[com.jaspersoft.jasperserver.api.metadata.olap.domain.OlapUnit]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value><![CDATA[/ContentFiles]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value><![CDATA[0]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_MDX_QUERY">
+		<value><![CDATA[select {[Measures].[Unit Sales], [Measures].[Store Cost], [Measures].[Store Sales]} on columns, {([Promotion Media].[All Media], [Product].[All Products])} ON rows from Sales where ([Time].[2012].[Q4].[12])]]></value>
+	</resourceProperty>
+</resourceDescriptor>

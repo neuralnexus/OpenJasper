@@ -1,0 +1,32 @@
+<resourceDescriptor name="JUNIT_INPUT_CONTROL" wsType="inputControl" uriString="/ContentFiles/JUNIT_INPUT_CONTROL" isNew="true">
+	<label>JUNIT INPUT CONTROL </label>
+	<description>this is my input control</description>
+	<creationDate>1310163594000</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.common.domain.InputControl</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/ContentFiles</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>3</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_IS_REFERENCE">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_INPUTCONTROL_IS_MANDATORY">
+		<value>true</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_INPUTCONTROL_IS_READONLY">
+		<value>true</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_INPUTCONTROL_IS_VISIBLE">
+		<value>true</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_INPUTCONTROL_TYPE">
+		<value>1</value>
+	</resourceProperty>
+</resourceDescriptor>

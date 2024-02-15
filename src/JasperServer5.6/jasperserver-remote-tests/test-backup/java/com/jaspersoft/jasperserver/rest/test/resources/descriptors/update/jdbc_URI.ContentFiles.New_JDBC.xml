@@ -1,0 +1,26 @@
+<resourceDescriptor name="JUNIT_JDBC" wsType="jdbc" uriString="/ContentFiles/JUNIT_JDBC" isNew="false">
+	<label>UPDATED BY JUNIT</label>
+	<description>UPDATE DESCRIPTION </description>
+	<creationDate>1310163507000</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.JdbcReportDataSource</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/ContentFiles</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>1</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_DRIVER_CLASS">
+		<value>com.mysql.jdbc.Driver</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_PASSWORD">
+		<value>jasperadmin</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_USERNAME">
+		<value>jasperadmin</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_CONNECTION_URL">
+		<value>jdbc:mysql://localhost:3306/mydb</value>
+	</resourceProperty>
+</resourceDescriptor>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources>
+
+   <local-tx-datasource>
+      <jndi-name>${js.jndi}</jndi-name>
+      <connection-url>${js.jdbcUrl}</connection-url>
+      <driver-class>${jdbcDriverClass}</driver-class>
+      <user-name>${js.dbUsername}</user-name>
+      <password>${escapeXML:js.dbPassword}</password>
+      <min-pool-size>5</min-pool-size>
+      <max-pool-size>50</max-pool-size>
+      <idle-timeout-minutes>30</idle-timeout-minutes>
+   </local-tx-datasource>
+   
+   <local-tx-datasource>
+      <jndi-name>${sugarcrm.jndi}</jndi-name>
+      <connection-url>${sugarcrm.jdbcUrl}</connection-url>
+      <driver-class>${jdbcDriverClass}</driver-class>
+      <user-name>${sugarcrm.dbUsername}</user-name>
+      <password>${escapeXML:sugarcrm.dbPassword}</password>
+      <min-pool-size>5</min-pool-size>
+      <max-pool-size>50</max-pool-size>
+      <idle-timeout-minutes>30</idle-timeout-minutes>
+   </local-tx-datasource>
+   
+   <local-tx-datasource>
+      <jndi-name>${foodmart.jndi}</jndi-name>
+      <connection-url>${foodmart.jdbcUrl}</connection-url>
+      <driver-class>${jdbcDriverClass}</driver-class>
+      <user-name>${foodmart.dbUsername}</user-name>
+      <password>${escapeXML:foodmart.dbPassword}</password>
+      <min-pool-size>5</min-pool-size>
+      <max-pool-size>50</max-pool-size>
+      <idle-timeout-minutes>30</idle-timeout-minutes>
+   </local-tx-datasource>
+   
+</datasources>
+

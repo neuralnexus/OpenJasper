@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass
+			name="com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.impl.datasource.RepoCustomDataSource"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JICustomDatasource">
+		<key column="id"/>
+		<property name="serviceClass" not-null="true" length="250" type="string"/>
+		<map name="propertyMap" table="JICustomDatasourceProperty">
+			<key column="ds_id"/>
+			<map-key column="name" type="string" length="100"/>
+			<element column="value" type="string" length="1000"/>
+		</map>
+	</joined-subclass>
+</hibernate-mapping>

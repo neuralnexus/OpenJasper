@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoInputControl"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIInputControl">
+		<key column="id"/>                                                                       
+		<property name="type"/>
+		<property name="mandatory"/>
+		<property name="readOnly"/>
+		<property name="visible"/>
+		<many-to-one column="data_type" name="dataType"/>
+		<many-to-one column="list_of_values" name="listOfValues"/>
+		<many-to-one column="list_query" name="query"/>
+		<list table="JIInputControlQueryColumn" name="queryVisibleColumns">
+			<key column="input_control_id"/>
+			<list-index column="column_index"/>
+			<element type="string" column="query_column" not-null="true" length="200"/>
+		</list>
+		<property name="queryValueColumn" length="200" type="string" column="query_value_column"/>
+		<property name="defaultValue" type="serializable"/>
+	</joined-subclass>
+</hibernate-mapping>

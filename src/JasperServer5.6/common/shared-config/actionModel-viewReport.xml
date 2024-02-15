@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <context name="toolbar_fileOptions">
+        <!-- simpleAction labelKey="button.open" action="Report.open"/ --> <!-- TODO open report functionality is for next releases -->
+        <simpleAction labelKey="button.save" action="Report.save" clientTest="Report.canSaveReport"/>
+        <simpleAction labelKey="button.saveAs" action="Report.saveAs"/>
+    </context>
+</actions>

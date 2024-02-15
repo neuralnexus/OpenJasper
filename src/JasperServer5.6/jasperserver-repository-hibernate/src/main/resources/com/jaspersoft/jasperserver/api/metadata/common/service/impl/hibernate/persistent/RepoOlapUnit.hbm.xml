@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.olap.domain.impl.hibernate.RepoOlapUnit"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIOlapUnit">
+		<key column="id"/>
+		<many-to-one column="olapClientConnection" name="olapClientConnection"/>
+		<property name="mdxQuery" column="mdx_query" type="text" not-null="true" length="400000" />
+		<property name="olapViewOptions" type="com.jaspersoft.hibernate.ByteWrappingBlobType" length="20971520" column="view_options"/>
+	</joined-subclass>
+</hibernate-mapping>

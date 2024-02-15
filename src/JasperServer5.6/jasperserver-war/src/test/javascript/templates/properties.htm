@@ -1,0 +1,431 @@
+    <div id="properties" class="column decorated tertiary sizeable" style="width: 465px; ">
+
+
+
+
+    <!--cosmetic-->
+    <div class="corner top right"></div>
+    <div class="corner top left"></div>
+    <div class="corner bottom right"></div>
+    <div class="corner bottom left"></div>
+    <div class="edge rl right"></div>
+    <div class="edge rl left"></div>
+    <div class="edge tb top"></div>
+    <div class="edge tb bottom"></div>
+    <!--/cosmetic-->
+
+
+                    <div class="sizer horizontal"></div>
+                    <button class="button minimize"></button>
+
+        <div class="content">
+            <div class="header ">
+                <div class="cosmetic"></div>
+
+                <div class="title">
+                    Properties
+                </div>
+
+            </div>
+            <div class="body  ">
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--/WEB-INF/jsp/templates/nothingToDisplay.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--/WEB-INF/jsp/templates/container.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="nothingToDisplay" class="panel info nothingToDisplay centered_vert centered_horz" style="position: absolute; bottom: 33%; right: 25%; min-width: 100px; margin-left: -108.5px; left: 50%; margin-top: -12px; top: 50%; ">
+
+
+
+
+    <!--cosmetic-->
+    <div class="corner top right"></div>
+    <div class="corner top left"></div>
+    <div class="corner bottom right"></div>
+    <div class="corner bottom left"></div>
+    <div class="edge rl right"></div>
+    <div class="edge rl left"></div>
+    <div class="edge tb top"></div>
+    <div class="edge tb bottom"></div>
+    <!--/cosmetic-->
+
+
+        <div class="content">
+            <div class="header ">
+                <div class="cosmetic"></div>
+
+                <div class="title">
+
+                </div>
+
+            </div>
+            <div class="body  ">
+
+
+
+                            <p class="message">Select a user to display his properties.</p>
+
+
+
+            </div>
+            <div class="footer ">
+
+            </div>
+        </div>
+    </div>
+
+
+                    <fieldset class="group">
+                        <legend class="offLeft"><span>Name and Description</span></legend>
+                        <label class="control input text" for="userName" title="This is the displayed name of the user and can be changed.">
+                            <span class="wrap">User name:</span>
+                            <input class="" id="userName" type="text" maxlength="100" value="" readonly="readonly">
+                            <span class="message warning"></span>
+                        </label>
+                        <label class="control input text" for="userID" title="This is the permanent ID of the user and cannot be changed.">
+                            <span class="wrap">User ID:</span>
+                            <input class="" id="propUserID" type="text" maxlength="100" value="" readonly="readonly">
+                            <span class="hint">This value cannot be changed.</span>
+                            <span class="message warning"></span>
+                        </label>
+                        <label class="control input text" for="email" title="User email can be changed later.">
+                            <span class="wrap">Email:</span>
+                            <input class="" id="email" type="text" maxlength="100" value="" readonly="readonly">
+                            <span class="message warning"></span>
+                        </label>
+                    </fieldset>
+                    <fieldset id="passwords" class="group">
+                        <legend class="offLeft"><span>Password</span></legend>
+                        <label class="control input password" for="password" title="Password">
+                            <span class="wrap">Password (required):</span>
+
+                            <input class="" id="password" type="password" maxlength="47" value="">
+                            <span class="message warning"></span>
+                            <span class="message hint"></span>
+                        </label>
+                        <label class="control input password" for="confirmPassword" title="Password">
+                            <span class="wrap">Confirm Password (required):</span>
+
+                            <input class="" id="confirmPassword" type="password" maxlength="47" value="">
+                            <span class="message warning"></span>
+                            <span class="message hint"></span>
+                        </label>
+                    </fieldset>
+                    <fieldset class="group">
+                        <div class="control checkBox">
+                            <label class="wrap" for="enableUser" title="Enable this user.">
+                                User is enabled.
+                            </label>
+                            <input id="enableUser" type="checkbox" checked="checked" disabled="disabled">
+                        </div>
+                    </fieldset>
+                    <fieldset class="group">
+                        <div class="control checkBox">
+                            <label class="wrap" for="externalUser" title="This user is defined externally.">
+                                This user is defined externally.
+                            </label>
+                            <input id="externalUser" type="checkbox" checked="checked" disabled="disabled">
+                            <span class="hint">This value cannot be changed.</span>
+                        </div>
+                    </fieldset>
+                    <fieldset id="attributes" class="group">
+                            <ul class="list type_attributes">
+                                <li class="node"><span class="label wrap">Roles Assigned:</span>
+                                    <ul id="assignedViewList" class="list type_attributes"></ul>
+                                </li>
+                                <li class="node"><span class="label wrap">Profile Attributes:</span>
+                                    <ul id="profileAttributes" class="list type_attributes"></ul>
+                                </li>
+                            </ul>
+                    </fieldset>
+                    <fieldset id="editRoles" class="row twoColumn_equal pickWells" style="">
+                        <!-- start two columns -->
+                            <div id="moveButtons" class="centered_horz">
+                                <button id="addToAssigned" class="button action square move right up"><span class="wrap"><b class="icon"></b></span></button>
+                                <button id="removeFromAssigned" class="button action square move left up"><span class="wrap"><b class="icon"></b></span></button>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+    <!--/WEB-INF/jsp/templates/container.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="assigned" class="column decorated primary showingSubHeader">
+
+
+
+
+    <!--cosmetic-->
+    <div class="corner top right"></div>
+    <div class="corner top left"></div>
+    <div class="corner bottom right"></div>
+    <div class="corner bottom left"></div>
+    <div class="edge rl right"></div>
+    <div class="edge rl left"></div>
+    <div class="edge tb top"></div>
+    <div class="edge tb bottom"></div>
+    <!--/cosmetic-->
+
+
+        <div class="content">
+            <div class="header ">
+                <div class="cosmetic"></div>
+
+                <div class="title">
+                    Roles Assigned
+                </div>
+
+                                    <div class="sub header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span id="anonymous_element_2" class="control searchLockup ">
+        <label for="assignedSearchInput" class="offLeft">Search</label>
+        <div class="wrap"><input type="text" class="" id="assignedSearchInput" tabindex="-1"></div>
+        <b class="right"><a class="button searchClear"></a></b>
+        <a class="button search up"></a>
+    </span>
+
+
+
+
+                                    </div>
+
+            </div>
+            <div class="body  " id="anonymous_element_4">
+
+
+                                    <ul id="assignedList" class="list collapsible fields"></ul>
+
+
+            </div>
+            <div class="footer ">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!--/WEB-INF/jsp/templates/container.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="available" class="column decorated secondary sizeable showingSubHeader">
+
+
+
+
+    <!--cosmetic-->
+    <div class="corner top right"></div>
+    <div class="corner top left"></div>
+    <div class="corner bottom right"></div>
+    <div class="corner bottom left"></div>
+    <div class="edge rl right"></div>
+    <div class="edge rl left"></div>
+    <div class="edge tb top"></div>
+    <div class="edge tb bottom"></div>
+    <!--/cosmetic-->
+
+
+                                    <div class="sizer horizontal"></div>
+                                    <button class="button minimize"></button>
+
+        <div class="content">
+            <div class="header ">
+                <div class="cosmetic"></div>
+
+                <div class="title">
+                    Roles Available
+                </div>
+
+                                    <div class="sub header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span id="anonymous_element_1" class="control searchLockup ">
+        <label for="availableSearchInput" class="offLeft">Search</label>
+        <div class="wrap"><input type="text" class="" id="availableSearchInput" tabindex="-1"></div>
+        <b class="right"><a class="button searchClear"></a></b>
+        <a class="button search up"></a>
+    </span>
+
+
+
+
+                                    </div>
+
+            </div>
+            <div class="body  " id="anonymous_element_3">
+
+
+                                    <ul id="availableList" class="list collapsible fields"></ul>
+
+
+            </div>
+            <div class="footer ">
+
+            </div>
+        </div>
+    </div>
+
+                        <!-- end two columns -->
+                    </fieldset>
+
+
+            </div>
+            <div id="propertiesButtons" class="footer ">
+
+                    <button id="edit" type="submit" class="button action primary up"><span class="wrap">Edit</span><span class="icon"></span></button>
+                    <button id="save" type="submit" class="button action primary up"><span class="wrap">Save</span><span class="icon"></span></button>
+                    <button id="loginAsUser" type="submit" class="button action up"><span class="wrap">Login as User</span><span class="icon"></span></button>
+                    <button id="delete" type="submit" class="button action up"><span class="wrap">Delete User</span><span class="icon"></span></button>
+                    <button id="cancel" type="submit" class="button action up"><span class="wrap">Cancel</span><span class="icon"></span></button>
+
+            </div>
+        </div>
+    </div>

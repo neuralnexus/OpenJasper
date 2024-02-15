@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<jboss-web>
+
+    <resource-ref>
+        <res-ref-name>${js.jndi}</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/${js.jndi}</jndi-name>
+    </resource-ref>
+    
+    <resource-ref>
+        <res-ref-name>${sugarcrm.jndi}</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/${sugarcrm.jndi}</jndi-name>
+    </resource-ref>
+    
+    <resource-ref>
+        <res-ref-name>${foodmart.jndi}</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/${foodmart.jndi}</jndi-name>
+    </resource-ref>
+    
+</jboss-web>

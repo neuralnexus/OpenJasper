@@ -1,0 +1,20 @@
+<div class="sSelect {{ if (isIPad) print('ipad'); }} {{ print(expanded ? 'expanded' : 'collapsed'); }}">
+    <label>{{= label}}{{ print(label ? ':' : ''); }}</label>
+    <a class="sSelect-input" title="{{= value}}">
+        <span>{{ print(value != null ? value : i18n['sic.singleselect.select.one']); }}</span>
+        <div class="sSelect-disclosureContainer">
+            <span class="sSelect-disclosure"></span>
+        </div>
+    </a>
+    <div class="sSelect-listContainer">
+        <div class="sSelect-sSearch">
+                <span data-component-type="search" class="control searchLockup ">
+                    <div class="wrap">
+                        <input type="text" autocomplete="off">
+                    </div>
+                    <a class="button search up"></a>
+                </span>
+        </div>
+        <!-- list position -->
+    </div>
+</div>

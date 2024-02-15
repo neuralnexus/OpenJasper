@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jaspersoft.jasperserver</groupId>
+    <artifactId>jasperserver-ws-sample-war</artifactId>
+    <packaging>war</packaging>
+    <version>5.6.1</version>
+    <name>Jasper Server WS Sample WAR</name>
+    <url>http://www.jaspersoft.com</url>
+
+    <dependencies>
+        <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>taglibs</groupId>
+          <artifactId>standard</artifactId>
+        </dependency>
+
+		<dependency>
+          <groupId>com.jaspersoft.jasperserver</groupId>
+          <artifactId>jasperserver-ws-sample-jar</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+
+		<dependency>
+          <groupId>opensymphony</groupId>
+          <artifactId>sitemesh</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>jasperserver-ws-sample</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+	
+	<parent>
+        <groupId>com.jaspersoft.jasperserver</groupId>
+        <artifactId>jasperserver-ws-sample</artifactId>
+        <version>5.6.1</version>
+    </parent>
+</project>

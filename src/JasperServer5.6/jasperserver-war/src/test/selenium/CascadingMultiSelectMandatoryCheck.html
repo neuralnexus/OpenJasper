@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8080/" />
+<title>CascadingMultiSelectMandatoryCheck</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CascadingMultiSelectMandatoryCheck</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/jasperserver-pro/login.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_username</td>
+	<td>superuser</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=j_password_pseudo</td>
+	<td>superuser</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=submitButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/jasperserver-pro/flow.html?_flowId=viewReportFlow&amp;standAlone=true&amp;_flowId=viewReportFlow&amp;ParentFolderUri=%2Forganizations%2Forganization_1%2Freports%2Fsamples&amp;reportUnit=%2Forganizations%2Forganization_1%2Freports%2Fsamples%2FCascading_multi_select_report</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>window.Controls.show()</td>
+	<td></td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>//div[@id='Country_multi_select']/label/select</td>
+	<td>label=USA</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@id='Country_multi_select']/label/span[@class='warning']</td>
+	<td>This field is mandatory so you must enter data.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

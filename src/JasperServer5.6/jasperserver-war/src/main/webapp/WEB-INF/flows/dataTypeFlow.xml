@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="editDataTypeForm">
+
+    <input name="masterFlow"/>
+    <input name="dataType"/>
+    <input name="currentDataType"/>
+    <input name="parentFolder"/>
+    <input name="isEdit"/>
+
+    <view-state id="editDataTypeForm" view="modules/addResource/dataType/dataType">
+        <on-entry>
+            <set name="flowScope.prevForm" value="'editDataTypeForm'"/>
+            <evaluate expression="editDataTypeAction.setupEditForm"/>
+        </on-entry>
+        <transition on="save" to="saveDataType">
+            <evaluate expression="editDataTypeAction.setupEditForm"/>
+            <evaluate expression="editDataTypeAction.bindAndValidate"/>
+        </transition>
+        <transition on="changeCombo" to="editDataTypeForm">
+            <evaluate expression="editDataTypeAction.bind"/>
+        </transition>
+        <transition on="cancel" to="cancel"/>
+        <transition on="back" to="back"/>
+    </view-state>
+
+    <action-state id="saveDataType">
+        <evaluate expression="editDataTypeAction"/>
+        <transition on="yes" to="backToSearch"/>
+        <transition on="success" to="saved"/>
+        <transition on="error" to="editDataTypeForm"/>
+    </action-state>
+
+    <end-state id="backToSearch" view="flowRedirect:searchFlow"/>
+
+    <end-state id="cancel" view="flowRedirect:searchFlow?lastMode=true"/>
+
+    <end-state id="back"/>
+
+    <end-state id="saved"/>
+
+    <!-- exceptions handling -->
+    <decision-state id="backFromError">
+        <if test="not (flowScope.prevForm == null or flowScope.prevForm == '')" then="${flowScope.prevForm}"
+            else="cancel"/>
+    </decision-state>
+
+    <view-state id="errorPage" view="modules/system/errorPage"/>
+
+    <global-transitions>
+        <transition on="backFromErrorPage" to="backFromError"/>
+        <transition on-exception="java.lang.Throwable" to="errorPage"/>
+    </global-transitions>
+
+    <!-- end exceptions handling -->
+    <bean-import resource="spring-config.xml"/>
+    <bean-import resource="dataTypeBeans.xml"/>
+</flow>

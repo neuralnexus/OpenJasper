@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class table="JIDataSnapshotContents" name="com.jaspersoft.jasperserver.api.metadata.data.snapshot.hibernate.PersistentDataSnapshotContents">
+		<id name="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="data" type="com.jaspersoft.hibernate.ByteWrappingBlobType" length="268435456" column="data" not-null="true"/>
+	</class>
+	
+	<query name="JIDataSnapshotContentsDeleteId">
+		delete com.jaspersoft.jasperserver.api.metadata.data.snapshot.hibernate.PersistentDataSnapshotContents where id = :id
+	</query>
+</hibernate-mapping>

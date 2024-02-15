@@ -1,0 +1,38 @@
+<settings>
+  <offline>${maven.offline}</offline>
+  <localRepository>${maven-localrepo-path}</localRepository>  
+  <profiles>
+    <profile>
+      <id>JasperServerProfile</id>
+      <properties>
+        <repository.database.driver.groupId>${maven.jdbc.groupId}</repository.database.driver.groupId>
+        <repository.database.driver.artifactId>${maven.jdbc.artifactId}</repository.database.driver.artifactId>
+        <repository.database.driver.version>${maven.jdbc.version}</repository.database.driver.version>
+        <js.quartz.properties>${currentConf}/js.quartz.properties</js.quartz.properties>
+        <js.quartz.base.properties>${currentConf}/js.quartz.base.properties</js.quartz.base.properties>
+        <js.quartz.script>${js-base-path}/scripts/quartz/${quartz.ddlScript}</js.quartz.script>
+        <metadata.database.generate>false</metadata.database.generate>
+        <suppress.quartz.init>true</suppress.quartz.init>
+        <js-path>${js-path}</js-path>
+        <js-pro-path>${js-pro-path}</js-pro-path>
+        <jasperserver-repo>file:/${repo-path}</jasperserver-repo>  <!-- used for jpivot bld only -->
+        <platform-path>${currentConf}</platform-path>
+        <test.hibernate.cfg>${currentConf}/hibernate.cfg.xml</test.hibernate.cfg>
+        <test.hibernate.jdbc.properties>${currentConf}/js.jdbc.properties</test.hibernate.jdbc.properties>
+        <!-- workaround src w/o tibco drivers -->
+        <tibco.driver.available>false</tibco.driver.available>
+        <SKIP_TEST_ARG>skipTests</SKIP_TEST_ARG>
+      </properties>
+      <repositories>
+		<!-- custom repositories definition -->
+      </repositories>
+      <pluginRepositories>
+		<!-- custom pluginRepositories definition -->
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>JasperServerProfile</activeProfile>
+  </activeProfiles>
+  <!-- custom configurations -->
+</settings>

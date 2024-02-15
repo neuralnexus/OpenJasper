@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="TestNG-Example-Test-Suite-CE">
+
+	<!-- =============================================== -->
+	<!-- Demonstration Tests showing the power of TestNG -->
+	<!-- =============================================== -->
+
+    <!-- this class executes just one small test for the simple spring test -->
+	<!-- (it demonstrates how you can pass a parameter into a test)         -->
+    <test name="TheSimpleSpringTest">
+        <parameter name="simple-spring-test-input" value="simpleSpringTestParam-1" />
+        <classes>
+           <class name="com.jaspersoft.jasperserver.test.SimpleSpringTest" />
+        </classes>
+    </test>
+
+</suite>
+
+

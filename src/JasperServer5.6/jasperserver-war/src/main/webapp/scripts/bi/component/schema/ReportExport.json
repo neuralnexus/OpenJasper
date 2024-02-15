@@ -1,0 +1,23 @@
+{
+    "title": "Report export options",
+    "type": "object",
+    "properties": {
+        "outputFormat": {
+            "type": "string",
+            "description": "A format for output of the export operation",
+            "enum": ["pdf", "xlsx", "xls", "rtf", "csv", "xml", "odt", "ods", "docx","pptx"],
+            "default": "pdf"
+        },
+        "pages": {
+            "type": ["string", "integer"],
+            "description": "Exports all pages if this property was not specified. Range of report's pages or single report page",
+            "pattern": "^\\d+(\\-\\d+)?$"
+        },
+        "paginated": {
+            "type": "boolean",
+            "description": "Control 'pagination' feature. Only 'xls' and 'xlsx' support it",
+            "default": "false"
+        }
+    },
+    "required": ["outputFormat"]
+}

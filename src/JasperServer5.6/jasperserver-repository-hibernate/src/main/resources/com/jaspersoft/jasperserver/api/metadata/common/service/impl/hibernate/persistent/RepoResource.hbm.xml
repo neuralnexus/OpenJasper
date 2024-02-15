@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class abstract="true" 
+			table="JIResource" 
+			name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource">
+		<id name="id" type="long">
+			<generator class="native"/>
+		</id>
+		<natural-id mutable="true">
+			<property name="name" not-null="true" length="100" type="string" column="name"/>
+			<many-to-one column="parent_folder" name="parent"/>
+		</natural-id>
+		<version column="version" unsaved-value="negative" name="version"/>
+		<many-to-one column="childrenFolder" cascade="save-update,delete" name="childrenFolder"/>
+		<property name="label" not-null="true" length="100" type="string" column="label"/>
+		<property name="description" length="250" type="string" column="description"/>
+        <property name="resourceType" not-null="true" length="255" type="string" column="resourceType"
+                  index="resource_type_index"/>
+		<property name="creationDate" not-null="true" type="timestamp" column="creation_date"/>
+		<property name="updateDate" not-null="true" type="timestamp" column="update_date"/>
+        <set inverse="true" cascade="all-delete-orphan" name="accessEvents">
+            <key column="resource_id" on-delete="cascade"/>
+            <one-to-many class="com.jaspersoft.jasperserver.api.logging.access.domain.hibernate.RepoAccessEvent"/>
+        </set>
+	</class>
+</hibernate-mapping>

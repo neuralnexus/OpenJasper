@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.jaspersoft.jasperserver.export.modules.repository.beans.XmlaConnectionBean" extends="com.jaspersoft.jasperserver.export.modules.repository.beans.ResourceBean">
+		<map-to xml="xmlaConnection"/>
+		<field name="uri" type="string">
+			<bind-xml name="connectionURL" node="element"/>
+		</field>
+		<field name="dataSource" type="string">
+			<bind-xml name="dataSource" node="element"/>
+		</field>
+		<field name="catalog" type="string">
+			<bind-xml name="catalog" node="element"/>
+		</field>
+		<field name="username" type="string">
+			<bind-xml name="connectionUser" node="element"/>
+		</field>
+		<field name="password" type="string">
+			<bind-xml name="connectionPassword" node="element"/>
+		</field>
+	</class>
+</mapping>

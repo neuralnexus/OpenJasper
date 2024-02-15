@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="JIObjectPermission" name="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoObjectPermission">
+    <id name="id" type="long" >
+      <generator class="native"/>
+    </id>
+    <property column="uri" name="URI" type="string" length="250" not-null="true" index="uri_index"/>
+    <any name="permissionRecipient" id-type="long">
+      <column name="recipientobjectclass" length="250"/>
+      <column name="recipientobjectid"/>
+    </any>
+    <property name="permissionMask" not-null="true" type="integer" column="permissionMask"/>
+  </class>
+</hibernate-mapping>

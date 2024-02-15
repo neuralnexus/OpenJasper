@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="initEvent">
+
+    <action-state id="initEvent">
+        <evaluate expression="roleManagerAction"/>
+        <transition on="success" to="roleListView"/>
+    </action-state>
+
+    <view-state id="roleListView" view="modules/manage/roles">
+        <on-entry>
+            <set name="flowScope.prevForm" value="'roleListView'"/>
+        </on-entry>
+
+        <transition on="browse" to="next">
+            <evaluate expression="roleManagerAction.browse"/>
+        </transition>
+        <transition on="search" to="next">
+            <evaluate expression="roleManagerAction.search"/>
+        </transition>
+        <transition on="next" to="next"/>
+
+        <transition on="selectAndGetDetails" to="getDetails">
+            <evaluate expression="roleManagerAction.select"/>
+        </transition>
+
+        <transition on="searchAssigned" to="nextAssigned">
+            <evaluate expression="roleManagerAction.searchAssigned"/>
+        </transition>
+
+        <transition on="searchAvailable" to="nextAvailable">
+            <evaluate expression="roleManagerAction.searchAvailable"/>
+        </transition>
+        <transition on="nextAssigned" to="nextAssigned"/>
+        <transition on="nextAvailable" to="nextAvailable"/>
+
+        <transition on="delete" to="ajaxView">
+            <evaluate expression="roleManagerAction.delete"/>
+        </transition>
+        <transition on="deleteAll" to="ajaxView">
+            <evaluate expression="roleManagerAction.deleteAll"/>
+        </transition>
+        <transition on="exist" to="ajaxView">
+            <evaluate expression="roleManagerAction.exist"/>
+        </transition>
+        <transition on="update" to="ajaxView">
+            <evaluate expression="roleManagerAction.updateRole"/>
+        </transition>
+        <transition on="create" to="ajaxView">
+            <evaluate expression="roleManagerAction.create"/>
+        </transition>
+        <transition on="loadAssignedUsers" to="ajaxView">
+            <evaluate expression="roleManagerAction.loadAssignedUsers"/>
+        </transition>
+        <transition on="loadAvailableUsers" to="ajaxView">
+            <evaluate expression="roleManagerAction.loadAvailableUsers"/>
+        </transition>
+        <transition on="updateRoleUsers" to="ajaxView">
+            <evaluate expression="roleManagerAction.updateRoleUsers"/>
+        </transition>
+        <transition on="initEdit" to="ajaxView">
+            <evaluate expression="roleManagerAction.initEdit"/>
+        </transition>
+        <transition on="cancelEdit" to="ajaxView">
+            <evaluate expression="roleManagerAction.cancelEdit"/>
+        </transition>
+        <transition on="cancelEdit" to="ajaxView">
+            <evaluate expression="roleManagerAction.cancelEdit"/>
+        </transition>
+        <transition on="initChangeUsers" to="ajaxView">
+            <evaluate expression="roleManagerAction.initChangeUsers"/>
+        </transition>
+        <transition on="revertUsersChanges" to="ajaxView">
+            <evaluate expression="roleManagerAction.revertUsersChanges"/>
+        </transition>
+    </view-state>
+
+    <action-state id="next">
+        <evaluate expression="roleManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <action-state id="getDetails">
+        <evaluate expression="roleManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <action-state id="nextAssigned">
+        <evaluate expression="roleManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <action-state id="nextAvailable">
+        <evaluate expression="roleManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <view-state id="ajaxView" view="ajax/ajaxresponse"/>
+
+    <view-state id="ajaxError" view="ajax/ajaxerror"/>
+
+    <!-- exceptions handling -->
+    <decision-state id="backFromError">
+        <if test="not (flowScope.prevForm == null or flowScope.prevForm == '')" then="${flowScope.prevForm}"
+            else="initEvent"/>
+    </decision-state>
+
+    <view-state id="errorPage" view="modules/system/errorPage"/>
+
+    <global-transitions>
+        <transition on="backFromErrorPage" to="backFromError"/>
+        <transition on-exception="java.lang.Throwable" to="errorPage"/>
+    </global-transitions>
+
+    <!-- end exceptions handling -->
+
+    <bean-import resource="spring-config.xml"/>
+    <bean-import resource="roleBeans.xml"/>
+
+</flow>

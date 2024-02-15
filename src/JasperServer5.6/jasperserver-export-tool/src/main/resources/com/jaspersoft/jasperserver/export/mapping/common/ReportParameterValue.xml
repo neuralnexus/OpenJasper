@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.jaspersoft.jasperserver.export.modules.common.ReportParameterValueBean">
+		<map-to xml="parameter"/>
+			<field name="name" type="other">
+				<bind-xml name="key" node="element"/>
+			</field>
+			<field name="values" collection="array" type="other">
+				<bind-xml name="value" node="element"/>
+			</field>
+	</class>
+</mapping>

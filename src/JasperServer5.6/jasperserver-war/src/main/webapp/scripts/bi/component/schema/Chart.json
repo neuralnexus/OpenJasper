@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "description": "JIVE chart component schema",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Chart component identifier"
+        },
+        "componentType": {
+            "enum": ["chart"]
+        },
+        "name": {
+            "type": "string",
+            "description": "Persisted id for chart"
+        },
+        "chartType": {
+            "description": "Type of chart",
+            "enum": [
+                "Bar", "Column", "Line", "Area", "Spline",
+                "AreaSpline", "StackedBar", "StackedColumn", "StackedLine", "StackedArea",
+                "StackedSpline", "StackedAreaSpline", "StackedPercentBar", "StackedPercentColumn", "StackedPercentLine",
+                "StackedPercentArea", "StackedPercentSpline", "StackedPercentAreaSpline", "Pie",
+                "DualLevelPie", "TimeSeriesLine", "TimeSeriesArea", "TimeSeriesSpline",
+                "TimeSeriesAreaSpline", "ColumnLine", "ColumnSpline", "StackedColumnLine",
+                "StackedColumnSpline", "MultiAxisLine", "MultiAxisSpline", "MultiAxisColumn",
+                "Scatter", "Bubble", "SpiderColumn", "SpiderLine", "SpiderArea"
+            ]
+        }
+    },
+    "required": ["id"]
+}

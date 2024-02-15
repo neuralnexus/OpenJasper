@@ -1,0 +1,150 @@
+
+JasperServer 2.0 Release 
+
+Table of Contents
+
+1. Introduction
+
+2. Installation Notes
+
+3. What's New
+
+4. Release Distributions
+
+5. Further Information
+
+6. Known Issues
+
+
+
+-----------------------------------------------------------------
+1. Introduction
+
+JasperServer is specifically designed to provide a web 
+application around JasperReports, the most popular open
+source reporting solution. Continuing the philosophy of
+JasperReports, JasperServer provides a managed, stand-alone
+web reporting environment. You can also embed JasperServer
+in existing Java web applications and services and to a
+variety of technologies, including the LAMP stack. By
+focusing on a clean business API and using an advanced
+inversion of control architecture, JasperServer
+can be easily integrated and customized for your needs. 
+
+JasperServer provides the ability to define and maintain
+JasperReports in a web application and web services 
+environment. An extensible metadata repository defines 
+all resources needed to run JasperReports in a secure
+environment. You can define report parameters to prompt
+users for required input when reports are run.
+
+
+-----------------------------------------------------------------
+2. Installation Notes
+ 
+Please refer to the installation guide for complete 
+information on installation. The document is found at:
+
+    <install-dir>/docs/JasperServer-Install-Guide.pdf
+
+Once installed, the JasperServer login page URL is: 
+
+    http://<your_host>:<port>/jasperserver  
+
+Default Login for Tomcat:
+
+    http://<your_host>:8080/jasperserver  
+
+Default Login for JBoss:
+
+    http://<your_host>:8080/jasperserver  
+
+The default login credentials created during the
+installation are:
+
+    Username: jasperadmin
+    Password: <password>
+
+If you installed the sample data, you will also have a
+default non-administrative user:
+
+    Username:  joeuser
+    Password:  joeuser
+
+
+The main application database configuration file for Tomcat is:
+
+    <tomcat-dir>/webapps/jasperserver/META-INF/context.xml
+
+
+-----------------------------------------------------------------
+3. What's New
+
+    * Upgraded third party versions: mondrian-2.3, jpivot-1.7
+
+    * JasperSoft has improved its display of input controls.
+
+    * JasperSoft has simplified the object permissions page.
+
+    * Users can change their passwords. This option must be 
+      enabled by an administrator.
+
+    * Users can export to CSV (comma separated values) format and 
+      can create additional export formats.
+
+    * JasperServer can store passwords in encrypted format.
+
+    * Users can test connections when they create data sources.
+
+    * XML/A data sources are now available for JasperServer 
+      reports.
+
+    * Improved error handling.
+
+
+-----------------------------------------------------------------
+4. Release Distributions
+
+Installers for Linux and Windows 
+
+The installers contain components needed to 
+install JasperServer:
+
+* Java
+* Tomcat
+* MySQL (With MySQL included version of installer)
+* JasperServer web application WAR file
+
+The Windows version is certified to work with:
+
+* Windows 2003
+* Windows XP
+
+
+The Linux version is certified to work with:
+
+* RedHat
+* SUSE
+
+
+-----------------------------------------------------------------
+5. Further Information
+
+JasperSoft:
+
+    http://www.jaspersoft.com
+
+JasperSoft Sales and Support:
+
+    http://www.jaspersoft.com/co_contact.html
+    
+    
+-----------------------------------------------------------------
+6. Known Issues
+
+* a bug was reported with mondrian-2.3: 
+  if a value for a member is null, the 
+  data for views including that member
+  may be incorrect.  This is not common,
+  the workaround is to ensure member
+  names are not null.

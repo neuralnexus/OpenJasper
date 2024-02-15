@@ -1,0 +1,69 @@
+<div id='{{= uniqueId }}' class='calendar2 dialog overlay'>
+    <div class="content hasFooter">
+        <div class="header">
+            <div class="title">{{= i18n.CAL_date_chooser }}</div>
+        </div>
+        <div class='body'>
+            <div class='tabsControl'>
+                <div class="tabSelect">
+                    {{ if (calendarType === "datetime") { }}
+                        {{= i18n.CAL_fixed_timestamp }}
+                    {{ } else if (calendarType === "time") { }}
+                        {{= i18n.CAL_fixed_time }}
+                    {{ } else { }}
+                        {{= i18n.CAL_fixed_date }}
+                    {{ } }}
+                </div>
+                <div class="separator">|</div>
+                <div class="tabSelect">
+                    {{ if (calendarType === "datetime") { }}
+                        {{= i18n.CAL_relative_timestamp }}
+                    {{ } else if (calendarType === "time") { }}
+                        {{= i18n.CAL_relative_time }}
+                    {{ } else { }}
+                        {{= i18n.CAL_relative_date }}
+                    {{ } }}
+                </div>
+            </div>
+            <div class='tabs'>
+                <div id='{{= uniqueId }}_calendar' class='tab calendar'></div>
+                <div class='tab relativeDates'>
+                    <div class="dates">
+                        <div class="label">{{= i18n.CAL_time_period }}</div>
+                        <div class="measure">
+                            <select>
+                                <option selected="selected" value="">------</option>
+                                {{ _.each(rdWords, function(word) { }}
+                                <option value="{{= word.value }}">{{= word.label }}</option>
+                                {{ }); }}
+                            </select>
+                        </div>
+                        <div class="label">{{= i18n.CAL_adjustment }}</div>
+                        <div class="sign">
+                            <select>
+                                <option selected="selected" value="+">+</option>
+                                <option value="-">-</option>
+                            </select>
+                        </div>
+                        <div class="label">{{= i18n.CAL_number }}</div>
+                        <div class="amount">
+                            <input value="" type="text"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button class="button action up nowButton">
+                <span class="wrap">
+                    {{ if (calendarType === "date") { }}
+                        {{= i18n.CAL_today }}
+                    {{ } else { }}
+                        {{= i18n.CAL_now }}
+                    {{ } }}
+                    <span class="icon"></span>
+                </span></button>
+            <button class="button action up closeButton"><span class="wrap">{{= i18n.CAL_close }}<span class="icon"></span></span></button>
+        </div>
+    </div>
+</div>

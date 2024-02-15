@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	targetNamespace="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap"
+	xmlns:impl="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:intf="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <wsdl:types>
+        <schema
+            targetNamespace="http://www.jasperforge.org/jasperserver/ws"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+            <import
+                namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+
+            <complexType name="WSUser">
+                <sequence>
+                    <element name="username"
+                        type="xsd:string" />
+                    <element name="fullName" nillable="true"
+                        type="xsd:string" />
+                    <element name="password" nillable="true"
+                        type="xsd:string" />
+                    <element name="emailAddress" nillable="true"
+                        type="xsd:string" />
+                    <element name="externallyDefined" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="enabled" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="previousPasswordChangeTime" nillable="true"
+                        type="xsd:date" />
+                    <element name="tenantId" nillable="true"
+                        type="xsd:string" />
+                     <element name="roles" nillable="true"
+                        type="impl:ArrayOfWSRole" />
+                </sequence>
+            </complexType>
+
+            <complexType name="WSRole">
+                <sequence>
+                    <element name="roleName" nillable="false"
+                        type="xsd:string" />
+                    <element name="externallyDefined" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="tenantId" nillable="true"
+                        type="xsd:string" />
+                    <element name="users" nillable="true"
+                        type="impl:ArrayOfWSUser" />
+                </sequence>
+            </complexType>
+
+            <complexType name="WSUserSearchCriteria">
+                <sequence>
+                    <element name="name" nillable="true"
+                        type="xsd:string" />
+                    <element name="tenantId" nillable="true"
+                        type="xsd:string" />
+                    <element name="includeSubOrgs" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="requiredRoles" nillable="true"
+                        type="impl:ArrayOfWSRole" />
+                    <element name="maxRecords" type="xsd:int" />
+                </sequence>
+            </complexType>
+
+            <complexType name="WSRoleSearchCriteria">
+                <sequence>
+                    <element name="roleName" nillable="true"
+                        type="xsd:string" />
+                    <element name="tenantId" nillable="true"
+                        type="xsd:string" />
+                    <element name="includeSubOrgs" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="maxRecords" type="xsd:int" />
+                </sequence>
+            </complexType>
+
+            <complexType name="ArrayOfWSUser">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType"
+                            wsdl:arrayType="impl:WSUser[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+
+            <complexType name="ArrayOfWSRole">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType"
+                            wsdl:arrayType="impl:WSRole[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+
+        </schema>
+    </wsdl:types>
+
+    <!-- USER -->
+
+    <wsdl:message name="findUsersRequest">
+        <wsdl:part name="criteria" type="impl:WSUserSearchCriteria" />
+    </wsdl:message>
+
+    <wsdl:message name="findUsersResponse">
+        <wsdl:part name="users" type="impl:ArrayOfWSUser" />
+    </wsdl:message>
+
+    <wsdl:message name="putUserRequest">
+        <wsdl:part name="user" type="impl:WSUser" />
+    </wsdl:message>
+
+    <wsdl:message name="putUserResponse">
+        <wsdl:part name="WSUserReturn" type="impl:WSUser" />
+    </wsdl:message>
+
+    <wsdl:message name="deleteUserRequest">
+        <wsdl:part name="user" type="impl:WSUser" />
+    </wsdl:message>
+
+    <wsdl:message name="deleteUserResponse">
+    </wsdl:message>
+
+    <!-- ROLE -->
+
+    <wsdl:message name="findRolesRequest">
+        <wsdl:part name="criteria" type="impl:WSRoleSearchCriteria" />
+    </wsdl:message>
+
+    <wsdl:message name="findRolesResponse">
+        <wsdl:part name="roles" type="impl:ArrayOfWSRole" />
+    </wsdl:message>
+
+    <wsdl:message name="putRoleRequest">
+        <wsdl:part name="role" type="impl:WSRole" />
+    </wsdl:message>
+
+    <wsdl:message name="putRoleResponse">
+        <wsdl:part name="WSRoleReturn" type="impl:WSRole" />
+    </wsdl:message>
+
+    <wsdl:message name="updateRoleNameRequest">
+        <wsdl:part name="oldRole" type="impl:WSRole" />
+        <wsdl:part name="newName" type="xsd:string" />
+    </wsdl:message>
+
+    <wsdl:message name="updateRoleNameResponse">
+        <wsdl:part name="WSRoleReturn" type="impl:WSRole" />
+    </wsdl:message>
+
+    <wsdl:message name="deleteRoleRequest">
+        <wsdl:part name="role" type="impl:WSRole" />
+    </wsdl:message>
+
+    <wsdl:message name="deleteRoleResponse">
+    </wsdl:message>
+
+	<wsdl:portType name="UserAndRoleManagement">
+
+        <!-- USER -->
+
+        <!--WSUser[] findUsers(WSSearchCriteria criteria) - returns a list of users which match the criteria-->
+		<wsdl:operation name="findUsers" parameterOrder="criteria">
+			<wsdl:input message="impl:findUsersRequest"
+				name="findUsersRequest" />
+			<wsdl:output message="impl:findUsersResponse"
+				name="findUsersResponse" />
+		</wsdl:operation>
+
+        <!--WSUser putUser(WSUser user) - adds / updates a user-->
+		<wsdl:operation name="putUser" parameterOrder="user">
+			<wsdl:input message="impl:putUserRequest"
+				name="putUserRequest" />
+			<wsdl:output message="impl:putUserResponse"
+				name="putUserResponse" />
+		</wsdl:operation>
+
+        <!--void deleteUser(WSUser user) - deletes a user-->
+        <wsdl:operation name="deleteUser" parameterOrder="user">
+            <wsdl:input message="impl:deleteUserRequest"
+                name="deleteUserRequest" />
+            <wsdl:output message="impl:deleteUserResponse"
+                name="deleteUserResponse" />
+        </wsdl:operation>
+
+        <!-- ROLE -->
+
+        <!--WSRole[] findRoles(WSSearchCriteria criteria) - returns a list of roles which match the criteria-->
+		<wsdl:operation name="findRoles" parameterOrder="criteria">
+			<wsdl:input message="impl:findRolesRequest"
+				name="findRolesRequest" />
+			<wsdl:output message="impl:findRolesResponse"
+				name="findRolesResponse" />
+		</wsdl:operation>
+
+        <!--WSRole putRole(WSRole role) - adds / updates a role-->
+		<wsdl:operation name="putRole" parameterOrder="role">
+			<wsdl:input message="impl:putRoleRequest"
+				name="putRoleRequest" />
+			<wsdl:output message="impl:putRoleResponse"
+				name="putRoleResponse" />
+		</wsdl:operation>
+
+        <!--WSRole WSRole updateRoleName(WSRole oldRole, String newName) - updates a role name-->
+		<wsdl:operation name="updateRoleName" parameterOrder="oldRole newName">
+			<wsdl:input message="impl:updateRoleNameRequest"
+				name="updateRoleNameRequest" />
+			<wsdl:output message="impl:updateRoleNameResponse"
+				name="updateRoleNameResponse" />
+		</wsdl:operation>
+
+        <!--void deleteRole(WSRole role) - deletes a role-->
+        <wsdl:operation name="deleteRole" parameterOrder="role">
+            <wsdl:input message="impl:deleteRoleRequest"
+                name="deleteRoleRequest" />
+            <wsdl:output message="impl:deleteRoleResponse"
+                name="deleteRoleResponse" />
+        </wsdl:operation>
+
+	</wsdl:portType>
+
+    <wsdl:binding name="UserAndRoleManagementServiceSoapBinding" type="impl:UserAndRoleManagement">
+
+        <wsdlsoap:binding style="rpc"
+            transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="findUsers">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="findUsersRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="findUsersResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="putUser">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="putUserRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="putUserResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="deleteUser">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="deleteUserRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="deleteUserResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <!-- ROLE -->
+
+        <wsdl:operation name="findRoles">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="findRolesRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="findRolesResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="putRole">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="putRoleRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="putRoleResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="updateRoleName">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="updateRoleNameRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="updateRoleNameResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="deleteRole">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="deleteRoleRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="deleteRoleResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="UserAndRoleManagementService">
+        <wsdl:port binding="impl:UserAndRoleManagementServiceSoapBinding"
+            name="UserAndRoleManagementServicePort">
+            <wsdlsoap:address
+                location="http://localhost:8080/jasperserver/services/UserAndRoleManagementService" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

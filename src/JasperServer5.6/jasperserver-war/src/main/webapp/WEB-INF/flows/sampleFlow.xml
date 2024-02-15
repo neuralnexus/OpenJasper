@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="startHere">
+
+    <!--This is not for shipping -->
+    <!-- Purpose is to test in the jasperserver context any jsp page that you add to the sample directory  -->
+    <!-- example:
+        To test sample/hello.jsp in the jasperserver-pro environment use this address:
+        ".../jasperserver-pro/flow.html?_flowId=sampleFlow&samplePage=hello"
+    -->
+
+
+    <decision-state id="startHere">
+        <if test="requestParameters.page!=null" then="testJSP" else="testDefault"/>
+    </decision-state>
+
+    <view-state id="testJSP" view="modules/sample/${requestParameters.page}">
+    </view-state>
+
+    <view-state id="testDefault" view="modules/sample/do_not_delete_me">
+    </view-state>
+
+</flow>

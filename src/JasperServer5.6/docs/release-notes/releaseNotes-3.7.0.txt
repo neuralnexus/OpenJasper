@@ -1,0 +1,296 @@
+
+JasperServer CE 3.7.0
+
+Table of Contents
+
+1. Introduction
+2. Installation Notes
+3. Upgrade Notes
+4. What's New
+5. Known Issues
+6. Release Distributions
+7. Further Information
+
+
+-----------------------------------------------------------------
+1. Introduction
+
+JasperServer Community Edition is a high-performance,
+standalone and embeddable Business Intelligence (BI) platform 
+that provides rich reporting capabilities. In addition, 
+JasperAnalysis provides OLAP data analysis, running on the same 
+shared JasperServer BI platform. 
+
+These release notes describe the installation and available 
+functionality at a high level; for details, please refer to the 
+documentation, which is available at <js-install>/docs after 
+installation. 
+
+
+-----------------------------------------------------------------
+2. Installation Notes
+
+For information on JasperServer installation, refer to the
+install guide which is found at:
+
+    <js-install>/docs/JasperServer-CE-Install-Guide.pdf
+
+Once JasperServer is installed, the login page URL is:
+
+    http://<hostname>:<port>/jasperserver
+
+The default login page URL for Tomcat is:
+
+    http://<hostname>:8080/jasperserver
+
+During installation, a default administrative user is 
+created:
+
+    Username: jasperadmin
+    Password: jasperadmin
+
+If you install the sample data, an end user is also 
+created:
+
+    Username:  joeuser
+    Password:  joeuser
+
+
+-----------------------------------------------------------------
+3. Upgrade Notes 
+
+For JasperServer Community Edition there are two upgrade paths:
+1. Utilize the import-export utility to move resources
+   from your existing JasperServer instance to your new 3.7 
+   instance. 
+2. Do an "in-place" database upgrade using an SQL upgrade script. 
+
+Refer to these chapters of the JasperServer CE Installation 
+Guide for upgrade instructions: 
+
+    Chapter:  Upgrade from JasperServer 3.5 to 3.7
+  
+    Chapter:  Upgrade Using SQL Upgrade Script
+
+The upgrade scripts are located at:
+
+    <js-install>/scripts/upgrade/      OR
+
+    <js-install>/buildomatic/install_resources/sql/<db-type>/
+
+Supported databases are:
+
+    - MySQL
+    - PostgreSQL
+
+
+-----------------------------------------------------------------
+4. What's New
+
+JasperServer includes new features and fixes in several areas:
+
+
+Reporting
+ * Upgrade to JasperReports 3.7.0
+   - Includes fix for gauge charts
+ * iReport 3.7.0 included in installer
+   - JasperServer web services and iReport plug-in includes 
+     support for cascading input controls when running reports
+ * OpenOffice ODT and ODS output options
+ * Cascading Input Controls for reports 
+   - Setting one parameter affects other parameter options. For
+     example, country -> state -> city
+   - Single and multi-select, radio button and check box query 
+     controls
+   - User profile variables available as query parameters
+   - JasperReports style parameter inclusion in queries: 
+     $P, $X, $P!
+ * Scheduling
+   - Fix for Excel file not named as entered in the schedule 
+     definition
+   - SMTP mail authentication documented
+ * Added hooks to protect from "dangerous" JRXML and scriptlets
+ * JasperReports GZip report virtualizer as an option
+ * Chart themes included as part of sample reports
+ * Support for Microsoft Office 2007 DOCX and XLSX output options
+
+Repository
+ * New Search, Filter, and Browse interface allows users to 
+   search by:
+   - text in label or description
+   - selected folder, all subfolders, or across all repository
+   - reports scheduled, not scheduled, or scheduled by the 
+     current user
+   - Recently viewed or changed by the current user
+   - Type of resource: viewable by user, data sources, other
+   - Today, yesterday, past week, past month
+ * Any user with administer permissions to a resource can assign 
+   permissions
+ * Performance and scalability enhancements for:
+   - Large documents
+   - Large numbers of documents in a folder
+   - Permissions access
+ * JasperServer uses InnoDB by default for repository tables 
+   when the repository database is hosted by MySQL. Some older 
+   scripts did not force InnoDB.
+ * Bug fix: If users clicked Cancel on the Input Control > Data 
+   Type edit page, they were returned to Input Control list, 
+   not to the repository
+ * Bug fix: when a user's roles conflict (one role grants 
+   access to the resource while another denies it) the user is 
+   now granted access to the resource
+
+Analysis (OLAP) 
+ * Upgrade to Mondrian 3.1.1 
+ * Enhanced Mondrian schema and cache management, including 
+   clustering
+ * Drill through performance enhancements
+ * Parent/child hierarchy display fixes
+ * Validation and internationalization on "Save As" name and 
+   description
+ * Support for Infobright as a data source
+
+Web Services
+ * User, Role, and Permissions Administration
+ * Support for Cascading input controls
+ * Run in background scheduled jobs (documented)
+ * Bug fix for getting content documents
+ * Bug fix for 0003451: Image-Attachments missing when supplying 
+   IMAGE_URI in web service requests
+
+Misc.
+ * Changed license to Affero GPL v3
+ * Upgraded libraries to:
+   - Spring 2.5.6
+   - Spring Web Flow 2.0.7
+   - Spring Security 2.0.4, replacing Acegi Security 1.0
+   - Groovy 1.6.3
+   - Hibernate 3.3.2 with patch
+   - FOP 0.95
+   - Batik 1.7
+   - commons-lang 2.4
+   - MySQL JDBC driver 5.1.9 (installer)
+   - other supporting libraries
+
+Tested with:
+ * Servers: Tomcat 6
+ * Browsers: IE 7, IE 8, Safari, Firefox 3.5
+   - Includes fix for Internet Explorer security pop-ups from 
+     external browser links
+
+Note: JasperServer is no longer tested with Microsoft Internet 
+Explorer 6.
+
+
+-----------------------------------------------------------------
+5. Known Issues
+
+* 10254: If your client application uses JasperServer's web
+  services to retrieve JasperReports binary files (JasperPrint
+  objects) your client application may crash when it tries to 
+  retrieve a report that includes a chart. This is caused by an
+  incompatibility between the version of JFreeCharts available  
+  in your client application and the version of JFreeCharts 
+  available in JasperServer (currently 1.0.12). To retrieve 
+  reports with charts using the web services, you must upgrade 
+  your client application to use JFreeCharts version 1.0.12.
+
+  For more information, visit the JFreeCharts website at:
+  http://www.jfree.org/
+      
+* 11847: When JasperServer is installed using the bundled 
+  version of MySQL, and the computer already hosts a version
+  of MySQL, the installer may fail with an error indicating
+  that it couldn't connect to MySQL. This Windows-only 
+  problem occurs intermittently, and is typically seen when
+  the computer where you are installing JasperServer is
+  slow or is otherwise under load. The workaround is to 
+  uninstall JasperServer, reinstall it, and select the 
+  existing MySQL option. You should also stop any services
+  that may be running. 
+
+-----------------------------------------------------------------
+6. Release Distributions
+
+Installer Distribution
+
+    * Installer General Notes
+    
+        The installers contain all components needed to run 
+        the JasperServer Web Application. Bundled components are:
+        
+        * Apache Tomcat 5.5
+        * MySQL 5.0
+        * Java JDK 1.5
+        * JasperServer 3.7.0
+        * iReport 3.7.0
+
+    * Installer Supported Operation Systems
+      (Only 32-bit operating systems are supported)
+    
+        * Linux Installer 
+        
+            * Red Hat Enterprise Linux 5.3, 5.4
+            * Fedora 9, 10
+            * Ubuntu 8.10 Intrepid, 9.04 Jaunty
+            * Debian 5.0
+            * Novell SUSE Linux Enterprise 10.2, 11.1
+            * CentOS 5.2
+        
+        * Windows Installer 
+        
+            * Windows Server 2003 (SP1)
+            * Windows XP (SP2)
+            * Windows Vista (SP1)
+            * Windows 7
+              (Additional requirements apply to Windows Vista 
+              and Windows 7: the user that installs and runs 
+              JasperServer must be an administrative user in 
+              these operating systems.)
+              Note that iReport is not supported with Windows 7.
+        
+    * Installer Supported Installation Configurations
+    
+        * Bundled Tomcat with Bundled MySQL
+        * Bundled Tomcat with Existing MySQL
+        
+        * Existing Tomcat with Bundled MySQL
+        * Existing Tomcat with Existing MySQL
+
+
+War File Binary Distribution
+
+    The War File Binary Distribution zip file contains sample 
+    configurations and database setup scripts to support 
+    the following applications:
+    
+    * Apache Tomcat 5.5 and 6.0
+    * JBoss 4.2, 5.1
+    * Glassfish 2.1
+    * Java JDK 1.5 or 1.6
+    * MySQL 5.0, 5.1, and 5.2
+    * PostgreSQL 8.3 and 8.4
+
+-----------------------------------------------------------------
+7. Further Information
+
+Please contact Jaspersoft by visiting our web site:
+
+    http://www.jaspersoft.com
+
+Jaspersoft also encourages all its users to visit JasperForge, 
+the online home of our community:
+
+    http://jasperforge.org/
+
+
+-----------------------------------------------------------------
+Part Number: 0110-JSO37-7
+© 2010 Jaspersoft Corporation. All rights reserved. Printed in 
+the U.S.A. Jaspersoft, the Jaspersoft logo, JasperAnalysis, 
+JasperServer, JasperETL, JasperReports, iReport, 
+and Jasper4 products are trademarks and/or registered trademarks 
+of Jaspersoft Corporation in the United States and in  
+jurisdictions throughout the world. All other company and 
+product names are or may be trade names or trademarks of their 
+respective owners.

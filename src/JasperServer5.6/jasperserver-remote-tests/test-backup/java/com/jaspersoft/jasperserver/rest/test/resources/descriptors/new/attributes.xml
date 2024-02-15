@@ -1,0 +1,10 @@
+<entityResource>
+    <Item xsi:type="profileAttributeImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <attrName>State</attrName>
+        <attrValue>CA</attrValue>
+    </Item>
+    <Item xsi:type="profileAttributeImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <attrName>Cities</attrName>
+        <attrValue>San Francisco, Oakland, San Jose</attrValue>
+    </Item>
+</entityResource>

@@ -1,0 +1,733 @@
+{
+    "type": "object",
+    "description": "JIVE column component schema",
+    "oneOf": [
+        { "$ref": "#/definitions/numericColumn" },
+        { "$ref": "#/definitions/datetimeColumn" },
+        { "$ref": "#/definitions/booleanColumn" },
+        { "$ref": "#/definitions/stringColumn" },
+        { "$ref": "#/definitions/timeColumn" }
+    ],
+    "definitions": {
+        "numericColumn": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Column component identifier"
+                },
+                "componentType": {
+                    "enum": ["tableColumn"]
+                },
+                "dataType": {
+                    "enum": ["numeric"]
+                },
+                "name": {
+                    "type": "string",
+                     "description": "Persisted id for column"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "sort": {
+                    "$ref": "#/definitions/sort"
+                },
+                "filter": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/singleNumericFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/rangeNumericFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/resetFilter"
+                        }
+                    ]
+                },
+                "headingFormat": {
+                    "$ref": "#/definitions/headingFormat"
+                },
+                "detailsRowFormat": {
+                    "type": "object",
+                    "properties": {
+                        "backgroundColor": {
+                            "type": "string",
+                            "pattern": "^(([a-fA-F0-9]{6})|(transparent))$"
+                        },
+                        "align": {
+                            "enum": ["right", "left", "center"]
+                        },
+                        "font": {
+                            "$ref": "#/definitions/font"
+                        },
+                        "pattern": {
+                            "type": "object",
+                            "properties": {
+                                "negativeFormat": {
+                                    "enum": [
+                                        "-###0",
+                                        "###0-",
+                                        "(###0)",
+                                        "(-###0)",
+                                        "(###0-)"
+                                    ],
+                                    "default": "-###0"
+                                },
+                                "grouping": {
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "percentage": {
+                                    "type": "boolean",
+                                    "default": false
+                                },
+                                "currency": {
+                                    "enum": [
+                                        null,
+                                        "USD",
+                                        "EUR",
+                                        "GBP",
+                                        "YEN",
+                                        "LOCALE_SPECIFIC"
+                                    ]
+                                },
+                                "precision": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "default": 0
+                                }
+                            }
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/singleNumericCondition"
+                            },
+                            {
+                                "$ref": "#/definitions/rangeNumericCondition"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": ["id"]
+        },
+        "booleanColumn": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Column component identifier"
+                },
+                "componentType": {
+                    "enum": ["tableColumn"]
+                },
+                "dataType": {
+                    "enum": ["boolean"]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Persisted id for column"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "sort": {
+                    "$ref": "#/definitions/sort"
+                },
+                "filter": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/booleanFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/resetFilter"
+                        }
+                    ]
+                },
+                "headingFormat": {
+                    "$ref": "#/definitions/headingFormat"
+                },
+                "detailsRowFormat": {
+                    "type": "object",
+                    "properties": {
+                        "backgroundColor": {
+                            "type": "string",
+                            "pattern": "^(([a-fA-F0-9]{6})|(transparent))$"
+                        },
+                        "align": {
+                            "enum": ["right", "left", "center"]
+                        },
+                        "font": {
+                            "$ref": "#/definitions/font"
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/booleanCondition"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": ["id"]
+        },
+        "datetimeColumn": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Column component identifier"
+                },
+                "componentType": {
+                    "enum": ["tableColumn"]
+                },
+                "dataType": {
+                    "enum": ["datetime"]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Persisted id for column"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "sort": {
+                    "$ref": "#/definitions/sort"
+                },
+                "filter": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/singleDatetimeFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/rangeDatetimeFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/resetFilter"
+                        }
+                    ]
+                },
+                "headingFormat": {
+                    "$ref": "#/definitions/headingFormat"
+                },
+                "detailsRowFormat": {
+                    "type": "object",
+                    "properties": {
+                        "backgroundColor": {
+                            "type": "string",
+                            "pattern": "^(([a-fA-F0-9]{6})|(transparent))$"
+                        },
+                        "align": {
+                            "enum": ["right", "left", "center"]
+                        },
+                        "font": {
+                            "$ref": "#/definitions/font"
+                        },
+                        "pattern": {
+                            "enum": [
+                                "dd/MM/yyyy",
+                                "MM/dd/yyyy",
+                                "yyyy/MM/dd",
+                                "EEEEE dd MMMMM yyyy",
+                                "MMMMM dd. yyyy",
+                                "dd/MM",
+                                "dd/MM/yy",
+                                "dd-MMM",
+                                "dd-MMM-yy",
+                                "MMM-yy",
+                                "MMMMM-yy",
+                                "dd/MM/yyyy h.mm a",
+                                "dd/MM/yyyy HH.mm.ss",
+                                "MMM",
+                                "d/M/yyyy",
+                                "dd-MMM-yyyy",
+                                "yyyy.MM.dd G 'at' HH:mm:ss z",
+                                "EEE. MMM d. ''yy",
+                                "yyyy.MMMMM.dd GGG hh:mm aaa",
+                                "EEE. d MMM yyyy HH:mm:ss Z",
+                                "yyMMddHHmmssZ"
+                            ]
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/singleDatetimeCondition"
+                            },
+                            {
+                                "$ref": "#/definitions/rangeDatetimeCondition"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": ["id"]
+        },
+        "stringColumn": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Column component identifier"
+                },
+                "componentType": {
+                    "enum": ["tableColumn"]
+                },
+                "dataType": {
+                    "enum": ["string"]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Persisted id for column"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "sort": {
+                    "$ref": "#/definitions/sort"
+                },
+                "filter": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/stringFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/resetFilter"
+                        }
+                    ]
+                },
+                "headingFormat": {
+                    "$ref": "#/definitions/headingFormat"
+                },
+                "detailsRowFormat": {
+                    "type": "object",
+                    "properties": {
+                        "backgroundColor": {
+                            "type": "string",
+                            "pattern": "^(([a-fA-F0-9]{6})|(transparent))$"
+                        },
+                        "align": {
+                            "enum": ["right", "left", "center"]
+                        },
+                        "font": {
+                            "$ref": "#/definitions/font"
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/stringCondition"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": ["id"]
+        },
+        "timeColumn": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Column component identifier"
+                },
+                "componentType": {
+                    "enum": ["tableColumn"]
+                },
+                "dataType": {
+                    "enum": ["time"]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Persisted id for column"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "sort": {
+                    "$ref": "#/definitions/sort"
+                },
+                "filter": {
+                    "type": "object",
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/singleTimeFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/rangeTimeFilter"
+                        },
+                        {
+                            "$ref": "#/definitions/resetFilter"
+                        }
+                    ]
+                },
+                "headingFormat": {
+                    "$ref": "#/definitions/headingFormat"
+                },
+                "detailsRowFormat": {
+                    "type": "object",
+                    "properties": {
+                        "backgroundColor": {
+                            "type": "string",
+                            "pattern": "^(([a-fA-F0-9]{6})|(transparent))$"
+                        },
+                        "align": {
+                            "enum": ["right", "left", "center"]
+                        },
+                        "font": {
+                            "$ref": "#/definitions/font"
+                        },
+                        "pattern": {
+                            "enum": [
+                                "hh:mm aaa",
+                                "hh:mm:ss aaa",
+                                "HH:mm",
+                                "HH:mm:ss"
+                            ]
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/definitions/singleTimeCondition"
+                            },
+                            {
+                                "$ref": "#/definitions/rangeTimeCondition"
+                            }
+                        ]
+                    }
+                }
+            },
+            "required": ["id"]
+        },
+        "sort": {
+            "type": "object",
+            "properties": {
+                "order": {
+                    "enum": ["asc", "desc"]
+                }
+            }
+        },
+        "singleNumericFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "equal",
+                        "not_equal",
+                        "greater",
+                        "greater_or_equal",
+                        "less",
+                        "less_or_equal"
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "singleNumericCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/singleNumericFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "rangeNumericFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "between",
+                        "not_between"
+                    ]
+                },
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "rangeNumericCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/rangeNumericFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "booleanFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "equal",
+                        "not_equal"
+                    ]
+                },
+                "value": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "booleanCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/booleanFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "stringFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "equal",
+                        "not_equal",
+                        "contain",
+                        "not_contain",
+                        "start_with",
+                        "not_start_with",
+                        "end_with",
+                        "not_end_with"
+                    ]
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "stringCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/stringFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "singleDatetimeFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "equal",
+                        "not_equal",
+                        "on_or_before",
+                        "before",
+                        "on_or_after",
+                        "after"
+                    ]
+                },
+                "value": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "singleDatetimeCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/singleDatetimeFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "rangeDatetimeFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "between",
+                        "not_between"
+                    ]
+                },
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "rangeDatetimeCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/rangeDatetimeFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "singleTimeFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "equal",
+                        "not_equal",
+                        "on_or_before",
+                        "before",
+                        "on_or_after",
+                        "after"
+                    ]
+                },
+                "value": {
+                    "type": "string",
+                    "format": "time"
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "singleTimeCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/singleTimeFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "rangeTimeFilter": {
+            "properties": {
+                "operator": {
+                    "enum": [
+                        "between",
+                        "not_between"
+                    ]
+                },
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "time"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                }
+            },
+            "required": ["operator", "value"]
+        },
+        "rangeTimeCondition": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/rangeTimeFilter"
+                },
+                {
+                    "$ref": "#/definitions/conditionFormat"
+                }
+            ]
+        },
+        "resetFilter": {
+            "properties": {},
+            "additionalProperties": false
+        },
+        "simpleFont": {
+            "type": "object",
+            "properties": {
+                "bold": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "italic": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "underline": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "color": {
+                    "type": "string",
+                    "pattern": "^[a-fA-F0-9]{6}$",
+                    "default": "000000"
+                }
+            }
+        },
+        "font": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/simpleFont"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "size": {
+                            "type": "number",
+                            "minimum": 1,
+                            "default": 11
+                        }
+                    }
+                }
+            ]
+        },
+        "headingFormat": {
+            "type": "object",
+            "properties": {
+                "backgroundColor": {
+                    "type": "string",
+                    "pattern": "^(([a-fA-F0-9]{6})|(transparent))$"
+                },
+                "align": {
+                    "enum": ["right", "left", "center"]
+                },
+                "font": {
+                    "$ref": "#/definitions/font"
+                }
+            },
+            "additionalProperties": false
+        },
+        "conditionFormat": {
+            "type": "object",
+            "properties": {
+                "font": {
+                    "$ref": "#/definitions/simpleFont"
+                },
+                "backgroundColor": {
+                    "type": ["string", "null"],
+                    "pattern": "^(([a-fA-F0-9]{6})|(transparent))$"
+                }
+            }
+        }
+    }
+}

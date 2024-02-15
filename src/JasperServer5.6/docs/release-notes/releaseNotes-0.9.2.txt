@@ -1,0 +1,302 @@
+
+JasperServer 0.9.2 Release
+
+1. Introduction
+
+2. Release Distributions
+	BitRock Installers for Linux and Windows
+	JasperServer Web application WAR
+	JasperServer Web Services WAR and PHP Example Application
+	iReport plugin for JasperServer
+
+3. Further Information
+
+4. Release Notes
+	Web application
+	Create Report
+	View Report
+	Metadata Repository
+	Data Sources for Reports
+	Security
+	Web Services
+	PHP example application
+	iReport plugin for JasperServer
+	Documentation
+	
+
+1. Introduction
+
+JasperServer is specifically designed to provide a Web application around
+JasperReports, the most popular open source reporting solution. Continuing
+the philosophy of JasperReports, JasperServer provides a managed,
+stand alone Web reporting environment, as well as being able to be embedded
+in existing Java Web applications, and services to a variety of technologies
+through Web services, including the LAMP stack. By focusing on a clean
+business API and using an advanced inversion of control architecture, 
+JasperServer can be easily integrated and customized for your needs. 
+
+This first public release of JasperServer provides the ability to define 
+and maintain JasperReports in a Web application and Web services environment.
+An extensible metadata repository defines all needed resources to run
+JasperReports in a secure environment. Report parameters can be defined so
+that the user can be prompted for required inputs as reports are run.
+
+JasperIntelligence is an open source business intelligence platform from 
+JasperSoft built by the team behind JasperReports, providing common services 
+like security and metadata management, and the capability to easily add 
+additional functionality. JasperServer is the first service using the 
+JasperIntelligence platform. Following soon will be:
+
+* JasperServer enhancements based on a defined roadmap and community requirements
+  and contributions
+* Report and metadata designers integrated with the platform
+* OLAP user interfaces
+* Data warehouse management environments
+* Data integration services (ETL)
+
+
+
+
+2. Release Distributions
+
+BitRock Installers for Linux and Windows
+
+These installers contain everything to install JasperServer:
+* Java 1.5
+* Tomcat 5.5
+* MySQL 5.0
+* JasperServer Web application WAR
+
+An installation wizard walks you through the setup. A set of test data, based
+on a SugarCRM database, can optionally be installed. If existing Java, 
+Tomcat or MySQL instances are detected, you can opt to use those instead of 
+the separate versions included in the installer.
+
+The Linux version is certified to work with:
+* RedHat
+* Debian
+* SUSE
+* Gentoo
+
+
+JasperServer Web application WAR
+
+A Web application providing the user interface for JasperServer for 
+installation in Tomcat, JBoss and other Java application servers. Comes with
+an example database creation script for MySQL.
+
+
+
+JasperServer Web Services WAR
+
+Standalone Web application providing Web services access for JasperServer for 
+installation in Tomcat, JBoss and other Java application servers. To be used in 
+conjunction with the Web application WAR, which provides metadata maintenance 
+functions.
+
+A simple PHP application is provide as an example for using Web 
+Services to view reports with JasperServer.
+
+Required:
+* PHP 4 or PHP 5
+* PEAR
+    * SOAP Attachments
+
+
+
+iReport plugin for JasperServer
+
+iReport is the most popular graphical report editor for JasperReports, allowing
+configuration, development and testing of JasperReports reports. It produces
+JasperReports JRXML files. iReport is supported by JasperSoft.
+
+This plugin extends iReport to allow the iReport user to connect to a 
+JasperServer installation to browse the repository, and download and upload 
+resources needed for JasperServer report units. The connection between iReport
+and JasperServer is done through a Web Services interface.
+
+
+
+ 
+3. Further Information
+
+Project web site: 		   http://jasperintel.sourceforge.net
+JasperIntelligence on SourceForge: http://sourceforge.net/projects/jasperintel
+
+JasperReports project web site:    http://jasperreports.sourceforge.net
+JasperReports on SourceForge: 	   http://sourceforge.net/projects/jasperreports 
+
+JasperSoft:			   http://www.jaspersoft.com
+
+
+
+4. Release Notes
+
+Web application
+
+* This has been tested with Tomcat 5.0 and 5.5, running JDK 1.5.
+
+* Cookies need to be allowed to login to the web application. This will be 
+  fixed in a future release.
+
+* Installation into JBoss 4.0.3 has been tested and documentation is 
+  available in this release.
+  
+* Revised menu to be horizontal with JavaScript drop downs.
+  
+  
+Create Report
+
+* Revised report creation/maintenance wizard.
+
+* Additional validation of entries.
+
+* List of values input controls can now be entered as separate objects
+  in the repository, so they can be reused across report units.
+  
+* Date input controls are available.
+
+* Added support for Groovy and JExcelApi.
+
+* Changed validation on JDBC connection URLs to support MySQL, hsqldb,
+  and Oracle
+
+* Allowed classpath references to resources ie. "test/images/dukesign.jpg" to
+  work with included JARs.
+
+
+View Report
+
+* For Data Types of type DATE, a pattern should be supplied, otherwise the 
+  default date format pattern is used for the locale of the server is used. 
+  When specified, the pattern is displayed at the right of the input control 
+  in the parameters input form.
+
+* PDF, Excel and RTF (Word) are supported.
+
+* Made View Report a Web Flow to allow more flexible and customizable viewing.
+
+* The ParametersFormTag by default uses the 
+  WEB-INF/jsp/DefaultParametersForm.jsp, but this can be overridden with the
+  renderJsp attribute so developers can use their own JSP if they want a 
+  different look and feel for parameters.
+  
+* Similarly, the JasperViewerTag by default uses
+  WEB-INF/jsp/DefaultJasperViewer.jsp to position controls around the HTML
+  report. This can be overridden with the renderJsp attribute.
+
+
+
+Metadata Repository
+
+
+* The repository is backed by a database and accessed via Hibernate 3.1.2. 
+  The default implementation is for MySQL 5.0. Through the setting of 
+  configuration parameters, alternate databases can be supported, as database
+  creation scripts are generated through the build process.
+
+
+Data Sources for Reports
+
+
+* Only JDBC data sources for reports are supported in this release.
+
+* Data sources (JDBC or JNDI based) created in the application are not tested
+  at configuration time to ensure they are usable.
+
+* With non JNDI data sources, JDBC drivers need to be either on the
+  application server classpath, or included as resources in report units.
+
+
+Security
+
+* Default administrative user is now "jasperadmin" with default 
+  password "newPassword".
+
+* As installed, the user names and passwords for the application are stored
+  in the metadata repository, and use form based authentication. Based on the 
+  use of the Acegi Security framework, the authentication mechanism can be 
+  changed to use external authentication services like LDAP. The application 
+  does not currently manage the distinction between externally defined users 
+  and roles.
+
+* Passwords are unencrypted in the database.
+
+* Deleting users is not implemented.
+
+* Large user lists for user maintenance can be paged through.
+
+* Object level security is implemented and tested, but not fully integrated
+  into the application at this point.
+
+* Pluggable authentication guide added
+
+
+Web Services
+
+Web services currently implemented:
+
+* Login
+* List of available reports
+* Run report, with optional parameters. HTML only
+* Repository exploring
+* Creation of basic report unit (single jrxml + existing datasource)
+* Add/delete resources to/from folders/reportUnits
+    * JRXML
+    * Image
+    * Resource bundle
+    * JAR
+    * Font
+* Modify resources metadata (label and description)
+* Creation/delete of folders
+* JRXML editing and re-publish
+
+
+* Changed from using Axis 1.3 to Axis2.
+
+* Use of XML serialization of objects, rather than Java serialization.
+
+
+
+PHP example application
+
+* Only HMTL JasperReports can be rendered.
+
+
+
+iReport plugin for JasperServer
+
+Provides:
+
+* Repository exploring
+* Creation of basic report unit (single jrxml + existing datasource)
+* Add/delete resources to/from folders/reportUnits
+    * JRXML
+    * Image
+    * Resource bundle
+    * JAR
+    * Font
+* Modify resources metadata (label and description)
+* Creation/delete of folders
+* JRXML editing and re-publish
+* JDBC connections import: to use a JDBC based connection in iReport
+
+* No support for maintaining input controls.
+
+
+
+Documentation
+
+Added into distributions and on web site.
+
+* User guide
+* Installation guide
+* JBoss 4.0.3 configuration guide
+* Samples directory
+
+Added to web site
+
+* Pluggable authentication guide
+
+Revised roadmap on JasperIntelligence project web site
+http://jasperintel.sourceforge.net reflecting announcements.

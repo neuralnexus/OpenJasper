@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass
+			name="com.jaspersoft.jasperserver.api.metadata.olap.domain.impl.hibernate.RepoMondrianConnection"
+			extends="com.jaspersoft.jasperserver.api.metadata.olap.domain.impl.hibernate.RepoOlapClientConnection"
+			table="JIMondrianConnection">
+		<key column="id"/>
+		<many-to-one column="reportDataSource" name="dataSource" class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"/>
+		<many-to-one column="mondrianSchema" name="schema"/>
+	</joined-subclass>
+</hibernate-mapping>

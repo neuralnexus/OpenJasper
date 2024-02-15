@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    <context:component-scan base-package="com.jaspersoft.jasperserver.remote"/>
+    <alias name="${bean.auditContext}" alias="concreteAuditContext"/>
+    <alias name="${bean.repositoryService}" alias="concreteRepository"/>
+    <alias name="${bean.userAuthorityService}" alias="concreteUserAuthorityService"/>
+    <alias name="${bean.permissionsService}" alias="concretePermissionsService"/>
+    <alias name="${bean.remoteResourceHandlerRegistry}" alias="remoteResourceHandlerRegistry"/>
+    <alias name="${bean.tenantService}" alias="concreteTenantService"/>
+    <alias name="${bean.reportSchedulingService}" alias="concreteReportSchedulingService"/>
+    <alias name="${bean.securityContextProvider}" alias="concreteSecurityContextProvider"/>
+    <alias name="${bean.serverInfoService}" alias="concreteServerInfoService"/>
+    <alias name="${bean.reportExecutor}" alias="reportExecutor"/>
+    <alias name="${bean.reportJobsPersistenceService}" alias="concreteJobsPersistenceService"/>
+    <alias name="${bean.filterResolver}" alias="filterResolver"/>
+
+    <util:list id="defaultRoles">
+        <bean class="com.jaspersoft.jasperserver.api.metadata.user.domain.client.RoleImpl">
+            <property name="roleName" value="ROLE_USER"/>
+        </bean>
+    </util:list>
+
+    <bean id="connectionsCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName">
+            <value>connection.descriptions</value>
+        </property>
+    </bean>
+
+    <bean id="remoteResourceHandlerRegistryCE" class="com.jaspersoft.jasperserver.remote.MapResourceHandlerRegistry">
+        <property name="handlers">
+            <map>
+                <entry key="folder" value-ref="folderHandler"/>
+                <entry key="img" value-ref="fileHandler"/>
+                <entry key="xml" value-ref="fileHandler"/>
+                <entry key="font" value-ref="fileHandler"/>
+                <entry key="jrxml" value-ref="fileHandler"/>
+                <entry key="jar" value-ref="fileHandler"/>
+                <entry key="prop" value-ref="fileHandler"/>
+                <entry key="jrtx" value-ref="fileHandler"/>
+                <entry key="reference" value-ref="fileHandler"/>
+                <entry key="olapMondrianSchema" value-ref="fileHandler"/>
+                <entry key="reportUnit" value-ref="reportUnitHandler"/>
+                <entry key="olapUnit" value-ref="olapUnitHandler"/>
+                <entry key="datasource" value-ref="dataSourceHandler"/>
+                <entry key="jdbc" value-ref="jdbcDataSourceHandler"/>
+                <entry key="aws" value-ref="awsDataSourceHandler"/>
+                <entry key="jndi" value-ref="jndiJdbcDataSourceHandler"/>
+                <entry key="bean" value-ref="beanDataSourceHandler"/>
+                <entry key="virtual" value-ref="remoteVirtualDataSourceHandler"/>
+                <entry key="custom" value-ref="customDataSourceHandler"/>
+                <entry key="inputControl" value-ref="inputControlHandler"/>
+                <entry key="dataType" value-ref="dataTypeHandler"/>
+                <entry key="olapXmlaCon" value-ref="xmlaConnectionHandler"/>
+                <entry key="xmlaConnection" value-ref="xmlaConnectionHandler"/>
+                <entry key="unknow" value-ref="unknownResourceHandler"/>
+                <entry key="lov" value-ref="listOfValuesHandler"/>
+                <entry key="query" value-ref="queryHandler"/>
+                <entry key="contentResource" value-ref="contentResourceHandler"/>
+            </map>
+        </property>
+    </bean>
+    <util:list id="htmlReportHeaderIncludes">
+        <!-- If JRHtmlExporterParameter.HTML_HEADER export parameter is specified in HTML exporter,
+        then JR replaces not content of <header> element, but also <html><head></head><body><table> etc.
+        Putting these elements (htmlHeaderPrefix and htmlHeaderSuffix) here to fix corrupted HTML -->
+        <ref bean="htmlHeaderPrefix"/>
+        <ref bean="htmlHeaderBody"/>
+        <ref bean="htmlHeaderSuffix"/>
+    </util:list>
+
+    <bean id="htmlHeaderPrefix" class="java.lang.String">
+        <constructor-arg index="0">
+            <value>
+                <![CDATA[
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style type="text/css">a {text-decoration: none}</style>
+                ]]>
+            </value>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="htmlHeaderBody" class="java.lang.String">
+        <constructor-arg index="0">
+            <!--{contextPath} placeholder (multiple usage is supported) is replaced by real contextPath in runtime.-->
+            <!--See com.jaspersoft.jasperserver.remote.exporters.HtmlExporter-->
+            <value>
+                <![CDATA[
+                        <style type="text/css">.jrPage{margin-left: auto;margin-right: auto;}</style>
+                ]]>
+            </value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="htmlHeaderSuffix" class="java.lang.String">
+        <constructor-arg index="0">
+            <value>
+                <![CDATA[
+    </head>
+        <body text="#000000" link="#000000" alink="#000000" vlink="#000000">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td width="50%">&nbsp;</td>
+                    <td align="center">
+                ]]>
+            </value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="jasperReportsRemoteContext" class="net.sf.jasperreports.engine.SimpleJasperReportsContext">
+        <property name="parent" ref="${bean.jasperReportsContext}"/>
+        <property name="propertiesMap">
+            <props>
+                <prop key="com.jaspersoft.jasperreports.highcharts.generate.image">false</prop>
+                <!--<prop key="com.jaspersoft.jasperreports.highcharts.html.export.type">standalone</prop>-->
+            </props>
+        </property>
+    </bean>
+
+    <bean id="tempFolder" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="/temp"/>
+    </bean>
+
+    <bean id="roleToAccessTempFolder" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="ROLE_ADMINISTRATOR"/>
+    </bean>
+
+    <bean id="localizedErrorDescriptorBuilder" class="com.jaspersoft.jasperserver.remote.exception.builders.LocalizedErrorDescriptorBuilder">
+        <constructor-arg ref="messageSource" />
+    </bean>
+
+    <util:map id="remoteExportersMap">
+        <entry key="pdf" value-ref="remotePdfExporter"/>
+        <entry key="html" value-ref="remoteHtmlExporter"/>
+        <entry key="xlsx" value-ref="remoteXlsxExporter"/>
+        <entry key="xls" value-ref="remoteXlsExporter"/>
+        <entry key="rtf" value-ref="remoteRtfExporter"/>
+        <entry key="csv" value-ref="remoteCsvExporter"/>
+        <entry key="xml" value-ref="remoteXmlExporter"/>
+        <entry key="odt" value-ref="remoteOdtExporter"/>
+        <entry key="ods" value-ref="remoteOdsExporter"/>
+        <entry key="docx" value-ref="remoteDocxExporter"/>
+        <entry key="pptx" value-ref="remotePptxExporter"/>
+    </util:map>
+
+    <!--The set of file types, which must be created as FileResource.
+    All other type, not specified here will be created as ContentResource-->
+    <util:set id="fileResourceTypes">
+       <value>font</value>
+       <value>jrxml</value>
+       <value>jar</value>
+       <value>prop</value>
+       <value>jrtx</value>
+       <value>xml</value>
+       <value>css</value>
+       <value>accessGrantSchema</value>
+       <value>olapMondrianSchema</value>
+       <value>img</value>
+    </util:set>
+
+    <bean name="waitForFinalJasperPrintMs" class="java.lang.Integer">
+        <constructor-arg type="java.lang.String" value="100"/>
+    </bean>
+
+</beans>

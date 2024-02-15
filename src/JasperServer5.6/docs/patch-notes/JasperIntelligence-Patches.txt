@@ -1,0 +1,83 @@
+===================================================================
+           JasperSoft BI Suite Version 1.1 Patch 1101
+                  Release date: January 12 2007
+             Copyright (c) 2007 JasperSoft Corporation
+
+                   Installation and Configuration
+===================================================================
+
+
+Overview
+========
+
+This archive is a system patch to the JasperSoft BI Suite Version 1.1.
+It also contains all previous patches for 1.1 and can be installed on a 
+standard 1.1 installation or on top of any previous 1.1 patches, if any. 
+
+Files in this archive:
+
+    README.txt
+    jasperserver-war-jar-1.1.0.jar
+
+Installation Instructions
+=========================
+
+1. copy any jar files in this archive to the lib directory of your
+application server for the JasperSoft BI Suite webapp.  For example:
+$TOMCAT_HOME/webapps/jaspersever/WEB-INF/lib/.
+
+2. There was an omission in the security definitions located in the file
+/WEB-INF/applicationContext-security.xml
+
+The following line must be added to the "objectDefinitionSource" property of the
+"filterInvocationInterceptor" to ensure that OLAP views may only be accessed by
+logged in users:
+
+                /olap/**=ROLE_USER
+
+So, after manually adding this line, the security definition should look as follows:
+
+    <bean id="filterInvocationInterceptor"
+          class="org.acegisecurity.intercept.web.FilterSecurityInterceptor">
+        <property name="authenticationManager">
+	    <ref bean="authenticationManager"/>
+	</property>
+        <property name="accessDecisionManager">
+            <ref local="httpRequestAccessDecisionManager"/>
+	</property>
+        <property name="objectDefinitionSource">
+            <value>
+                CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+                PATTERN_TYPE_APACHE_ANT
+                /login.html=ROLE_ANONYMOUS,ROLE_USER
+                /logout.html=ROLE_ANONYMOUS,ROLE_USER
+                /loginerror.html=ROLE_ANONYMOUS,ROLE_USER
+                /home.html=ROLE_USER
+                /flow.html=ROLE_USER
+                /loginsuccess.html=ROLE_USER
+                /fillparams.html=ROLE_USER
+                /fileview/**=ROLE_USER
+                /xmla=ROLE_USER
+                /services/**=ROLE_USER
+                /olap/**=ROLE_USER
+                /*.html=ROLE_ADMINISTRATOR
+                /*.jsp=ROLE_ADMINISTRATOR
+          </value>
+       </property>
+    </bean>
+
+
+Changes
+=======
+
+Patch 1101
+----------
+
+List of changes in this patch:
+
+* [case 4394][bug 8570] mdx parameter in viewOlap.jsp URL
+
+List of changes in patches prior to 1101:
+
+* none
+

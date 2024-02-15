@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- Backing action for input controls flow -->
+	<bean id="inputControlsAction" class="com.jaspersoft.jasperserver.war.action.DefineInputControlsAction">
+		 <property name="repository">
+			<ref bean="${bean.repositoryService}"/>
+		</property>
+		<property name="queryReferenceReqAttrName" value="queryReference"/>
+		<property name="queryReferenceOutpuAttrName" value="queryReference"/>
+		<property name="messageSource" ref="messageSource"/>
+		<property name="validator" ref="inputControlsValidator"/>
+        <property name="dataTypeTreeDataProvider" ref="dataTypeTreeDataProvider" />
+        <property name="listOfValuesTreeDataProvider" ref="listOfValuesTreeDataProvider" />
+        <property name="queryTreeDataProvider" ref="queryTreeDataProvider" />
+        <property name="OLAPTreeDataProvider" ref="OLAPTreeDataProvider" />
+        <property name="configuration" ref="configurationBean"/>
+        <property name="inputControlTypeConfiguration" ref="inputControlTypeConfiguration"/>
+	</bean>
+	<bean id="inputControlsValidator" class="com.jaspersoft.jasperserver.war.validation.InputControlsFlowValidator">
+		<property name="repository">
+		   <ref bean="${bean.repositoryService}"/>
+		</property>
+	</bean>
+
+    <import resource="repositoryExplorerBean.xml"/>
+
+</beans>

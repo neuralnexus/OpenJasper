@@ -1,0 +1,67 @@
+<script id="importMainTemplate" type="text/mustache">
+    <form id="fileUploadForm" method="post" enctype="multipart/form-data" action="rest_v2/import">
+        <fieldset id="importDataFile" class="group">
+            <legend class="">
+                <span>Import Data File:</span>
+            </legend>
+            <input type="file" id="uploadFile" name="uploadFile"/>
+            <input type="submit" id="submitButton" style="display: none;"/>
+            <iframe id="uploadTarget" src="" name="uploadTargetName" style="display: none;"></iframe>
+        </fieldset>
+        <fieldset id="importOptions" class="group">
+            <legend class="">
+                <span>Import Options:</span>
+            </legend>
+            <ul class="list inputSet">
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for=""> Update Repository </label>
+                        <input id="update" class="" type="checkbox" value="" name="" checked>
+                    </div>
+                    <ul class="list inputSet">
+                        <li class="leaf">
+                            <div class="control checkBox">
+                                <label class="wrap" title="" for=""> Skip User Updates </label>
+                                <input id="skipUserUpdate" class="" type="checkbox" value="" name="">
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Include Audit Events</label>
+                        <input id="" class="" type="checkbox" value="" name="" checked>
+                    </div>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Include Access Events</label>
+                        <input id="" class="" type="checkbox" value="" name="" checked>
+                    </div>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Include Monitoring Events</label>
+                        <input id="includeMonitoringEvents" class="" type="checkbox" value="" name="include-monitoring-events" {{#includeMonitoringEvents}}checked="checked"{{/includeMonitoringEvents}} >
+                    </div>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="Adobe Acrobat" for="box_1">Include Configuration Settings (Settings will take effect immediately.)</label>
+                        <input id="" class="" type="checkbox" value="" name="">
+                    </div>
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit">
+    </form>
+</script>
+
+<script id="importFooterTemplate" type="text/mustache">
+    <fieldset id="controlButtons">
+        <button id="importButton" class="button action primary up">
+            <span class="wrap">Import</span>
+            <span class="icon"></span>
+        </button>
+    </fieldset>
+</script>

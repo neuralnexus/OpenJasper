@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <!-- SiteMesh -->
+    <filter>
+        <filter-name>sitemesh</filter-name>
+        <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>sitemesh</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Samples -->
+    <!-- Connection parameters-->
+    <context-param>
+        <param-name>protocol</param-name>
+        <param-value>http://</param-value>
+    </context-param>
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>127.0.0.1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>8080</param-value>
+    </context-param>
+    <context-param>
+        <param-name>appName</param-name>
+        <param-value>jasperserver</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>webServiceUrl</param-name>
+        <param-value>http://127.0.0.1:8080/jasperserver/services/repository</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>reportSchedulingWebServiceUrl</param-name>
+        <param-value>http://127.0.0.1:8080/jasperserver/services/ReportScheduler</param-value>
+    </context-param>
+
+    <!-- <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>net.sf.jasperreports.j2ee.servlets.ImageServlet</servlet-class>
+    </servlet> -->
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>com.jaspersoft.jasperserver.sample.ImageServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ContentResourceDataServlet</servlet-name>
+        <servlet-class>com.jaspersoft.jasperserver.sample.ContentResourceDataServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.jaspersoft.jasperserver.sample.controller.UserServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RoleServlet</servlet-name>
+        <servlet-class>com.jaspersoft.jasperserver.sample.controller.RoleServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PermissionsServlet</servlet-name>
+        <servlet-class>com.jaspersoft.jasperserver.sample.controller.PermissionsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/image</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ContentResourceDataServlet</servlet-name>
+        <url-pattern>/content/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/authority/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RoleServlet</servlet-name>
+        <url-pattern>/authority/role</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PermissionsServlet</servlet-name>
+        <url-pattern>/authority/permissions</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>
+            index.jsp
+        </welcome-file>
+    </welcome-file-list>
+</web-app>

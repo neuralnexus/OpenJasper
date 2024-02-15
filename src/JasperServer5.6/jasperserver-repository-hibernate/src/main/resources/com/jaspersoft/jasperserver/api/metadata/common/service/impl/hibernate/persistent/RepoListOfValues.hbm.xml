@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoListOfValues"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIListOfValues">
+		<key column="id"/>
+		<list table="JIListOfValuesItem" name="values">
+			<key column="id"/>
+			<list-index/>
+			<composite-element class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoListOfValuesItem">
+				<property name="label"/>
+				<property name="value" type="serializable"/>
+			</composite-element>
+		</list>
+	</joined-subclass>
+</hibernate-mapping>

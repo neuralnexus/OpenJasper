@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="CassandraDataSource"
+        class="com.jaspersoft.jasperserver.api.engine.jasperreports.util.CustomDataSourceDefinition">
+        <property name="factory" ref="customDataSourceServiceFactory" />
+        <property name="name" value="CassandraDataSource" />
+        <property name="serviceClassName"
+            value="com.jaspersoft.cassandra.jasperserver.CassandraDataSourceService" />
+        <property name="validator">
+            <bean
+                class="com.jaspersoft.cassandra.jasperserver.CassandraDataSourceValidator" />
+        </property>
+        <property name="propertyDefinitions">
+            <list>
+                <map>
+                    <entry key="name" value="hostname" />
+                    <entry key="default" value="localhost" />
+                    <entry key="mandatory" value="true" />
+                </map>
+                <map>
+                    <entry key="name" value="port" />
+                    <entry key="default" value="9042" />
+                    <entry key="mandatory" value="true" />
+                </map>
+                <map>
+                    <entry key="name" value="keyspace" />
+                    <entry key="default" value="test" />
+                    <entry key="mandatory" value="true" />
+                </map>
+                <map>
+                    <entry key="name" value="username" />
+                    <entry key="default" value="" />
+                </map>
+                <map>
+                    <entry key="name" value="password" />
+                    <entry key="default" value="" />
+                </map>
+                <map>
+                    <entry key="name" value="connectionManager" />
+                    <entry key="hidden" value="true" />
+                    <entry key="default">
+                        <ref bean="CassandraConnectionManager" />
+                    </entry>
+                </map>
+            </list>
+        </property>
+        <property name="queryExecuterMap">
+            <map>
+                <entry key="CassandraQuery"
+                    value="com.jaspersoft.cassandra.query.CassandraQueryExecuterFactory" />
+            </map>
+        </property>
+    </bean>
+
+    <bean name="CassandraConnectionManager"
+        class="com.jaspersoft.connectors.cassandra.connection.CassandraConnectionManager"
+        destroy-method="shutdown">
+        <!-- <property name="maxIdle" value="" /> -->
+        <!-- <property name="minIdle" value="" /> -->
+        <!-- <property name="maxActive" value="" /> -->
+    </bean>
+</beans>

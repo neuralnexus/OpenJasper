@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="displayOlapModel">
+
+    <view-state id="displayOlapModel" view="modules/olap/viewOlap">
+        <!-- remove DisplayOlapModel -->
+        <on-entry>
+            <set name="flowScope.prevForm" value="'displayOlapModel'"/>
+            <evaluate expression="displayOlapModelAction.displayOlapModel"/>
+        </on-entry>
+        <transition on="success" to="done"/>
+        <transition on="error" to="displayError"/>
+    </view-state>
+
+    <end-state id="done"/>
+
+    <end-state id="displayError"/>
+
+    <!-- exceptions handling -->
+    <decision-state id="backFromError">
+        <if test="not (flowScope.prevForm == null or flowScope.prevForm == '')" then="${flowScope.prevForm}"
+            else="done"/>
+    </decision-state>
+
+    <view-state id="errorPage" view="modules/system/errorPage"/>
+
+    <global-transitions>
+        <transition on="backFromErrorPage" to="backFromError"/>
+        <transition on-exception="java.lang.Throwable" to="errorPage"/>
+    </global-transitions>
+
+    <!-- end exceptions handling -->
+    <bean-import resource="actionBeans.xml"/>
+
+</flow>

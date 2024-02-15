@@ -1,0 +1,10 @@
+<tenant>
+	<alias>JOrg_newORG</alias>
+	<id>JOrg_newORG</id>
+	<parentId>organization_1</parentId>
+	<tenantDesc />
+	<tenantFolderUri>/organizations/JOrg_newORG</tenantFolderUri>
+	<tenantName>JOrg_newORG</tenantName>
+	<tenantUri>/JOrg_newORG</tenantUri>
+	<theme>default</theme>
+</tenant>

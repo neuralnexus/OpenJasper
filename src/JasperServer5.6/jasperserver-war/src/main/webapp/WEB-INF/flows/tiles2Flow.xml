@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="enter">
+
+    <view-state id="renderPage" view="${requestParameters.page}">
+    </view-state>
+
+    <view-state id="enter" view="modules/sample/tiles2/enter">
+        <transition on="proceed" to="thankYou"/>
+        <transition on="renderPage" to="renderPage"/>
+    </view-state>
+
+    <end-state id="thankYou" view="modules/sample/tiles2/thankYou"/>
+
+</flow>

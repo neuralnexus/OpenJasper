@@ -1,0 +1,54 @@
+
+PLEASE READ THIS AGREEMENT CAREFULLY. BY DOWNLOADING, COPYING, 
+INSTALLING OR USING ALL OR ANY PORTION OF THIS PROGRAM YOU ACCEPT ALL
+THE TERMS AND CONDITIONS OF THIS AGREEMENT, INCLUDING WITHOUT LIMITATION
+THE GNU AFFERO GENERAL PUBLIC LICENSE VERSION 3. YOU AGREE THAT THIS 
+AGREEMENT IS LIKE ANY WRITTEN NEGOTIATED AGREEMENT SIGNED BY YOU. THIS 
+AGREEMENT IS ENFORCEABLE AGAINST YOU AND ANY LEGAL ENTITY THAT OBTAINED 
+THIS PROGRAM AND ON WHOSE BEHALF IT IS USED: FOR EXAMPLE, IF APPLICABLE, 
+YOUR EMPLOYER. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO 
+NOT USE THIS PROGRAM. VISIT http://www.jaspersoft.com AND 
+http://www.fsf.org/licensing/licenses/agpl-3.0.html FOR TERMS
+AND CONDITIONS.
+ 
+IF YOU HAVE PURCHASED A COMMERCIAL LICENSE AGREEMENT FROM TIBCO JASPERSOFT, 
+YOU MAY HAVE ANOTHER WRITTEN AGREEMENT DIRECTLY WITH TIBCO JASPERSOFT THAT 
+SUPERSEDES ALL OR PORTIONS OF THIS AGREEMENT.
+ 
+TIBCO JASPERSOFT PERMITS YOU TO DOWNLOAD, COPY, INSTALL, USE, OR OTHERWISE 
+BENEFIT FROM THE FUNCTIONALITY OR INTELLECTUAL PROPERTY OF THIS PROGRAM 
+ONLY IN ACCORDANCE WITH THE TERMS OF THIS AGREEMENT.  USE OF SOME THIRD 
+PARTY MATERIALS AND SERVICES INCLUDED IN OR ACCESSED THROUGH THIS 
+PROGRAM MAY BE SUBJECT TO OTHER TERMS AND CONDITIONS TYPICALLY FOUND IN 
+A SEPARATE LICENSE AGREEMENT, TERMS OF USE OR "READ ME" FILE LOCATED 
+WITHIN OR NEAR SUCH MATERIALS AND SERVICES.
+ 
+Copyright (C) 2014 TIBCO JASPERSOFT INC. 
+All rights reserved.
+ 
+Unless you have purchased a commercial license agreement from
+Jaspersoft, the following license terms apply:
+ 
+This program is free software; you can redistribute it and/or modify 
+it under the terms of the GNU Affero General Public License version 3 
+as published by the Free Software Foundation.
+ 
+This program is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
+Affero General Public License version 3 for more details.
+ 
+You can view a complete copy of the GNU Affero General Public 
+License version 3 at 
+http://www.fsf.org/licensing/licenses/agpl-3.0.html. You also should 
+receive a copy of the GNU Affero General Public License version 3 
+along with the program; if not, write to the Free Software Foundation, 
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ 
+Contact TIBCO JASPERSOFT INC.
+350 Rhode Island St, Ste 250
+San Francisco, CA 94103
+Web: www.jaspersoft.com
+General Inquiries: info@jaspersoft.com
+Sales Inquiries: sales@jaspersoft.com
+

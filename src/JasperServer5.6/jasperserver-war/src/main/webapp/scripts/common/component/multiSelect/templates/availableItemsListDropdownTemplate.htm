@@ -1,0 +1,9 @@
+<div class="mSelect-dropDown mSelect-listContainer {{ if (isIPad) print('ipad'); }}">
+    <!-- list position -->
+    <div class="mSelect-footer">
+        <a class="mSelect-footer-selectOptions all" {{ if (disabled) { }}disabled="disabled"{{ } }} >{{=i18n['sic.multiselect.all']}}</a>
+        <a class="mSelect-footer-selectOptions none" {{ if (disabled) { }}disabled="disabled"{{ } }}>{{=i18n['sic.multiselect.none']}}</a>
+        <a class="mSelect-footer-selectOptions invert" {{ if (disabled) { }}disabled="disabled"{{ } }}>{{=i18n['sic.multiselect.inverse']}}</a>
+        <button tabindex="-1" class="mSelect-footer-button">{{=i18n['sic.multiselect.close']}}</button>
+    </div>
+</div>

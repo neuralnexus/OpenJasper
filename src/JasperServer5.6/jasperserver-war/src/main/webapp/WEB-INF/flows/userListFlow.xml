@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="initEvent">
+
+    <action-state id="initEvent">
+        <evaluate expression="userManagerAction"/>
+        <transition on="success" to="userListView"/>
+    </action-state>
+
+    <view-state id="userListView" view="modules/manage/users">
+        <on-entry>
+            <set name="flowScope.prevForm" value="'userListView'"/>
+        </on-entry>
+
+        <transition on="browse" to="next">
+            <evaluate expression="userManagerAction.browse"/>
+        </transition>
+        <transition on="search" to="next">
+            <evaluate expression="userManagerAction.search"/>
+        </transition>
+        <transition on="next" to="next"/>
+
+        <transition on="selectAndGetDetails" to="getDetails">
+            <evaluate expression="userManagerAction.select"/>
+        </transition>
+
+        <transition on="searchAssigned" to="nextAssigned">
+            <evaluate expression="userManagerAction.searchAssigned"/>
+        </transition>
+
+        <transition on="searchAvailable" to="nextAvailable">
+            <evaluate expression="userManagerAction.searchAvailable"/>
+        </transition>
+
+        <transition on="nextAssigned" to="nextAssigned"/>
+        <transition on="nextAvailable" to="nextAvailable"/>
+
+        <transition on="add" to="editUser"/>
+        <transition on="edit" to="editUser"/>
+        <transition on="delete" to="ajaxView">
+            <evaluate expression="userManagerAction.delete"/>
+        </transition>
+        <transition on="deleteAll" to="ajaxView">
+            <evaluate expression="userManagerAction.deleteAll"/>
+        </transition>
+        <transition on="enableAll" to="ajaxView">
+            <evaluate expression="userManagerAction.enableAll"/>
+        </transition>
+        <transition on="disableAll" to="ajaxView">
+            <evaluate expression="userManagerAction.disableAll"/>
+        </transition>
+        <transition on="getAvailableRoles" to="ajaxView">
+            <evaluate expression="userManagerAction.getAvailableRoles"/>
+        </transition>
+        <transition on="update" to="ajaxView">
+            <evaluate expression="userManagerAction.updateUser"/>
+        </transition>
+        <transition on="create" to="ajaxView">
+            <evaluate expression="userManagerAction.create"/>
+        </transition>
+        <transition on="exist" to="ajaxView">
+            <evaluate expression="userManagerAction.exist"/>
+        </transition>
+        <transition on="goToPage" to="goToPage"/>
+    </view-state>
+
+    <action-state id="next">
+        <evaluate expression="userManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <action-state id="getDetails">
+        <evaluate expression="userManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <action-state id="nextAssigned">
+        <evaluate expression="userManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <action-state id="nextAvailable">
+        <evaluate expression="userManagerAction"/>
+        <transition on="success" to="ajaxView"/>
+    </action-state>
+
+    <view-state id="ajaxView" view="ajax/ajaxresponse"/>
+
+    <view-state id="ajaxError" view="ajax/ajaxerror"/>
+
+    <!-- exceptions handling -->
+    <decision-state id="backFromError">
+        <if test="not (flowScope.prevForm == null or flowScope.prevForm == '')" then="${flowScope.prevForm}"
+            else="userList"/>
+    </decision-state>
+
+    <view-state id="errorPage" view="modules/system/errorPage"/>
+
+    <global-transitions>
+        <transition on="backFromErrorPage" to="backFromError"/>
+        <transition on-exception="java.lang.Throwable" to="errorPage"/>
+    </global-transitions>
+
+    <!-- end exceptions handling -->
+
+    <bean-import resource="spring-config.xml"/>
+    <bean-import resource="userBeans.xml"/>
+
+</flow>

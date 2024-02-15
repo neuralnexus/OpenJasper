@@ -1,0 +1,91 @@
+<div class="panel dialog overlay addUser moveable centered_horz centered_vert hidden" id="addUser">
+	 
+
+
+
+<!--cosmetic-->
+<div class="corner top right"></div>
+<div class="corner top left"></div>
+<div class="corner bottom right"></div>
+<div class="corner bottom left"></div>
+<div class="edge rl right"></div>
+<div class="edge rl left"></div>
+<div class="edge tb top"></div>
+<div class="edge tb bottom"></div>
+<!--/cosmetic-->
+
+	 
+	<div class="content">
+		<div class="header mover">
+			<div class="cosmetic"></div>
+			
+			<div class="title">
+				
+        Add User
+    
+			</div>
+			
+		</div>
+		<div class="body  ">
+            
+			    
+            <fieldset class="group">
+                <legend class="offLeft"><span>Name and Description</span></legend>
+                <label title="This is the displayed name of the user and can be changed." for="addUserFullName" class="control input text">
+                    <span class="wrap">User name:</span>
+                    <input type="text" value="" maxlength="100" id="addUserFullName">
+                    <span class="message warning">error message here</span>
+                </label>
+                <label title="This is the permanent ID of the user and cannot be changed." for="addUserID" class="control input text">
+                    <span class="wrap">User ID (required):</span>
+                    <input type="text" value="" maxlength="100" id="addUserID">
+                    <span class="hint">Once created, this value cannot be changed.</span>
+                    <span class="message warning">error message here</span>
+                </label>
+                <label title="User email can be changed later." for="addUserEmail" class="control input text">
+                    <span class="wrap">Email:</span>
+                    <input type="text" value="" maxlength="100" id="addUserEmail">
+                    <span class="message warning">error message here</span>
+                </label>
+			</fieldset>
+			<fieldset class="group" id="passwords">
+				<legend class="offLeft"><span>Password</span></legend>
+				<label title="Password" for="addUserPassword" class="control input password">
+				    <span class="wrap">Password (required):</span>
+                    
+				    <input type="password" value="" maxlength="47" id="addUserPassword" class="">
+				    <span class="message warning">error message here</span>
+				    <span class="message hint"></span>
+				</label>
+				<label title="Password" for="addUserConfirmPassword" class="control input password">
+				    <span class="wrap">Confirm Password (required):</span>
+                    
+				    <input type="password" value="" maxlength="47" id="addUserConfirmPassword" class="">
+				    <span class="message warning">error message here</span>
+				    <span class="message hint"></span>
+				</label>
+            </fieldset>
+            <fieldset class="group">
+                <div class="control checkBox">
+                    <label title="Enable this user." for="addUserEnableUser" class="wrap">
+                        User is enabled.
+                    </label>
+                    <input type="checkbox" checked="checked" id="addUserEnableUser">
+                </div>
+			</fieldset>
+    
+            
+        </div>
+		<div class="footer ">
+			
+             <!--NOTE: label of #addUserBtn is dynamic with [Organization Name] token replaced with name of org to which user will be added -->
+            <button class="button action primary up" id="addUserBtn">
+                <span class="wrap"></span><span class="icon"></span>
+            </button>
+            <button class="button action up" id="cancelUserBtn">
+                <span class="wrap">Cancel</span><span class="icon"></span>
+            </button>
+    
+		</div>
+	</div>
+</div>

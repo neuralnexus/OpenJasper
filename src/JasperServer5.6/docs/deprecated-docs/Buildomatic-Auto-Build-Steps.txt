@@ -1,0 +1,357 @@
+Buildomatic Auto-Build Steps
+============================
+
+
+1) Introduction
+===============
+
+The JasperServer 3.1 release has been enhanced with a new set of Apache Ant based 
+auto-build scripts which are known as "Buildomatic". These scripts are found at the root of
+the source tree in the "buildomatic" directory (in the trunk source and in the source 
+code distribution package from www.jasperforge.org).
+
+These buildomatic scripts simplify and automate many aspects of the configuration and setup of the
+JasperServer source code build. 
+
+This document describes the setup, build, and deploy of JasperServer under the buildomatic scripts.
+
+
+2) Supported Configurations
+===========================
+
+The auto-build scripts support the following configurations.
+
+  Tomcat + MySQL
+  
+  JBoss + MySQL
+  
+  Tomcat + PostgreSQL
+  
+  JBoss + PostgreSQL
+
+
+3) Get JasperServer Source Code
+===============================
+
+On the www.jasperforge.org site, go the the JasperServer downloads area. Here you can download 
+the following file:
+
+  jasperserver-3.1.0-src.zip package.
+
+Create a directory that you will use for building the source code. Examples would be:
+
+  mkdir C:\js-src
+  
+  mkdir /home/<username>/js-src
+  
+
+Unzip the jasperserver-3.1.0-src.zip to the development directory location:
+
+  Unzip jasperserver-3.1.0-src.zip  to  <js-src>
+  
+After the unzip operation, you should have the following structure in your development directory:
+
+  <js-src>/
+             jasperserver
+             jasperserver-repo
+             
+japserserver - source directory for JasperServer.
+
+jasperserver-repo - JAR files used in the build that are not (or were not) easily available publicly.
+
+
+4) Pre-Build Setup Steps
+========================
+
+Install Maven
+-------------
+
+The Apache Maven tool is used in conjunction with Apache Ant to build the JasperServer source code.
+You should download and install the most current stable GA version of Maven. The maven binary
+should be put on your path so that it is accessible from the command line.
+
+For more information on Maven, refer to section 1.3, "Install Maven", in the JasperServer Source
+Build Guide PDF.
+
+Note: All of the maven configuration such as creating a maven "settings.xml" file is
+automatically handled by the auto-build scripts.
+
+
+Apache Ant: Copy ant-contrib jar:
+---------------------------------
+
+Make sure that you have Ant version 1.7.0 or higher.
+
+Your Ant installation will need to be updated to add the ant-contrib jar (which is used to enable
+conditional logic in the Ant scripts).
+
+Copy:
+
+  <js-src>/jasperserver/buildomatic/install_resources/extra-jars/ant-contrib-1.0b3.jar
+
+To:
+
+  <ant-home>/lib
+
+To check your ant version:
+
+  ant -version
+
+
+Java JDK
+--------
+
+Make sure that you have Java 1.5 or Java 1.6. 
+
+To check your Java version:
+
+  java -version
+
+Make sure and set you JAVA_HOME variable. It will be used by Apache Ant.
+
+Database Server
+---------------
+
+The configuration steps in the next section will require settings for your DB username, 
+DB passsword, and DB host.
+
+
+Application Server
+------------------
+
+The auto build scripts support both Apache Tomcat and JBoss. The configuration steps in the next
+section will require settings for the home directory of you application server.
+
+
+5) Build Configuration Steps
+============================
+
+ a) Setup js-build.properties:
+
+  cd <js-src>/jasperserver/buildomatic
+
+  Copy 
+  
+    sample_conf/js-build.properties  
+  
+  To  
+    
+    js-build.properties
+
+  Edit js-build.properties:
+
+  set maven 
+  set svn             (optional)
+  set svn-user        (optional)
+  set js-base-path
+  set js-repo-path
+
+ Note: make sure there are no spaces at the end of the js-*-path property values.
+
+
+ b) Setup default_master.properties:
+
+  cd <js-src>/jasperserver/buildomatic
+
+  Copy 
+  
+    sample_conf/mysql_master.properties       or
+    sample_conf/postgresql_master.properties 
+    
+  To  
+  
+    default_master.properties
+
+  Edit default_master.properties:
+  
+  set appServerDir
+  set dbUsername
+  set dbPassword
+  set dbHost  
+
+
+ c) Setup init.properties:
+
+  cd <js-src>/jasperserver/buildomatic
+  
+  Copy 
+  
+    sample_conf/dev_init.properties  
+  
+  To  
+  
+    init.properties
+
+  No edits are required.
+
+
+6) Build JasperServer Steps
+===========================
+
+  cd <js-src>/buildomatic       (ie /home/user/js-builds/jasperserver/buildomatic)
+
+  ant add-jdbc-driver           (install jdbc driver to mvn local repository)
+
+  ant build-js                  (build source code)
+
+  ant drop-js-db                (if necessary)
+
+  ant create-js-db 
+  
+  ant build-js-ddl              (generate db schema script)
+                                (ignore the source file missing error)
+  
+  ant init-js-db                (run schema script)
+
+  ant create-sugarcrm-db        (optional: needed for unit-tests)
+
+  ant create-foodmart-db        (optional: needed for unit-tests)
+
+  ant load-sugarcrm             (optional: needed for unit-tests)
+
+  ant load-foodmart             (optional: needed for unit-tests - runs for 5 minutes or so)
+
+  ant update-foodmart           (optional: needed for unit-tests)
+
+  ant run-js-unit-test
+
+  ant deploy-webapp
+
+
+The deploy-webapp target will deploy the jasperserver war file to the application server.
+It will do the following actions:
+
+  - attempt to delete any existing jasperserver war already existing in
+    the application server
+   
+  - attempt to copy the appropriate jdbc driver to Tomcat 5.5, Tomcat 6,
+    or JBoss 4.2
+   
+  - attempt to remove the application server's work directory  (in order
+    to remove old JSP files, etc.).
+   
+  - deploy the newly built jasperserver war file
+  
+  - delete the app server work directory (to clear compiled JSP files, etc)
+
+
+7) Post-Build Steps
+===================
+
+Set Java Options
+----------------
+
+For JasperServer to run effectivly, the Java JVM runtime options should be increased.
+
+For information on the JAVA_OPTS settings, for both Java 1.5 and Java 1.6, refer to section 5.12,
+"Set Java JVM Options", in the JasperServer Install Guide PDF.
+
+Sample Options:
+
+ set JAVA_OPTS=%JAVA_OPTS% -Xms128m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=128m -Xss2m (Windows)
+
+ JAVA_OPTS="$JAVA_OPTS -Xms128m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=128m -Xss2m "   (Linux)
+
+    
+Start Application Server
+------------------------
+
+Start up your Tomcat or JBoss.
+
+
+Clear Browser Cache
+-------------------
+
+If you have previously logged into a version of JasperServer you should clear your Browser cache. 
+This will remove any JavaScript files that may be out of date.
+
+
+Login to JasperServer
+---------------------
+
+You can now login to JasperServer via a web browser.
+
+Use the following URL:
+
+  http://localhost:8080/jasperserver
+
+Use the following login credentials: 
+
+  Username: jasperadmin   (admin user)
+  
+  Password: jasperadmin
+
+
+8) Trouble Shooting
+===================
+
+
+A) Path Setup Problem
+
+Your build fails with an error like the one below:
+
+BUILD FAILED
+c:\SVN_PUBLIC/\jasperserver-src\jasperserver\buildomatic\bin\dev.xml:141: 
+c:\SVN_PUBLIC/\jasperserver-src\jasperserver \jasperserver-war\target\jasperserver not found.
+
+
+Solution:
+
+The configuration file js-build.properties, has an extra space at the end of the property definition
+
+  js-base-path = c:/SVN_PUBLIC/jasperserver-3.1.0-src/jasperserver
+
+Remove the space at the end. 
+
+
+B) Problem Generating Correct DB Schema
+
+The Buildomatic scripts use a maven settings file that is auto-generated via the buildomatic scripts.
+
+The location of the settings file used is:
+
+  <js-src>/buildomatic/build_conf/default/maven-settings.xml
+
+However, there is a maven bug where if you have a maven settings file at the following location:
+
+  <maven-home>/conf/settings.xml
+
+it gets used instead of the one specified in the by the dev.xml script via the maven "-s" parameter.
+
+Solution:
+
+If you are using the buildomatic scripts, make sure you don't have a conflict with the settings.xml
+mentioned above.
+
+
+C) Bad jasperserver-repo Path Property Setting
+
+If you get a build error (on the "ant build-js" step) similar to the following, 
+you may not have specified your js-repo property correctly:
+
+     [exec] [ERROR] BUILD ERROR
+     [exec] [INFO] -----------------------------------------------
+     [exec] [INFO] Failed to resolve artifact.
+     [exec]
+     [exec] Missing:
+     [exec] ----------
+     [exec] 1) jasperreports:jasperreports:jar:3.1.2
+
+Solution:
+
+Check the following file: 
+
+  <js-src>/buildomatic/js-build.properties
+
+Validate that the js-repo property file is correctly set:
+
+  repo-path = c:/<my-js-src-path>/jasperserver-repo
+
+Make any necessary updates, delete the following generated directory:
+
+  <js-src/buildomatic/build_conf
+  
+Then, re-start your build.
+
+
+===

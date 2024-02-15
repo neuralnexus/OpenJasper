@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- define a custom data source -->
+	<bean id="HiveDataSource"
+		class="com.jaspersoft.jasperserver.api.engine.jasperreports.util.CustomDataSourceDefinition">
+		<property name="factory" ref="customDataSourceServiceFactory" />
+		<property name="name" value="HiveDataSource" />
+		<property name="serviceClassName"
+			value="com.jaspersoft.hadoop.hive.jasperserver.HiveDataSourceService" />
+		<property name="validator">
+			<bean
+				class="com.jaspersoft.hadoop.hive.jasperserver.HiveDataSourceValidator" />
+		</property>
+		<property name="propertyDefinitions">
+			<list>
+				<map>
+					<entry key="name" value="jdbcURL" />
+					<entry key="default" value="jdbc:hive://localhost:10000/default" />
+                    <entry key="mandatory" value="true" />
+				</map>
+				<map>
+					<entry key="name" value="username" />
+					<entry key="default" value="" />
+				</map>
+				<map>
+					<entry key="name" value="password" />
+					<entry key="default" value="" />
+				</map>
+				<map>
+					<entry key="name" value="connectionManager" />
+					<entry key="hidden" value="true" />
+					<entry key="default">
+						<ref bean="HiveConnectionManager" />
+					</entry>
+				</map>
+			</list>
+		</property>
+		<property name="queryExecuterMap">
+			<map>
+				<entry key="HiveQL"
+					value="com.jaspersoft.connectors.hive.query.HiveQueryExecuterFactory" />
+			</map>
+		</property>
+	</bean>
+
+	<bean name="HiveConnectionManager"
+		class="com.jaspersoft.connectors.hive.connection.HiveConnectionManager"
+		destroy-method="shutdown">
+		<!-- <property name="maxIdle" value="" /> -->
+		<!-- <property name="minIdle" value="" /> -->
+		<!-- <property name="maxActive" value="" /> -->
+	</bean>
+</beans>

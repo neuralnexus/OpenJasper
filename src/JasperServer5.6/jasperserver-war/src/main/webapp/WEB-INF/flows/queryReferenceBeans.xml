@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="queryReferenceAction" class="com.jaspersoft.jasperserver.war.action.QueryReferenceAction">
+		<property name="formObjectClass" value="com.jaspersoft.jasperserver.war.dto.ResourceReferenceDTO"/>
+		<property name="formObjectName" value="queryReference"/>
+		<property name="formObjectScope" value="FLOW"/>
+		<property name="repository" ref="${bean.repositoryService}"/>
+		<property name="queryLookupsRequestAttrName" value="queryLookups"/>
+		<property name="queryWrapperRequestAttrName" value="queryWrapper"/>
+        <property name="validator" ref="queryValidator"/>
+	</bean>
+
+    <bean id="queryValidator" class="com.jaspersoft.jasperserver.war.validation.ResourceQueryValidator">
+        <property name="repository" ref="${bean.repositoryService}"/>
+        <property name="repositoryServiceSecurityChecker" ref="${bean.repositoryServiceSecurityChecker}"/>
+    </bean>
+</beans>

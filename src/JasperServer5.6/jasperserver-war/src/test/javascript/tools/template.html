@@ -1,0 +1,64 @@
+<!--
+  ~ Copyright (C) 2005 - 2014 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased  a commercial license agreement from Jaspersoft,
+  ~ the following license terms  apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or  modify
+  ~ it under the terms of the GNU Affero General Public License  as
+  ~ published by the Free Software Foundation, either version 3 of  the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero  General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public  License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+    ###template###
+    <link rel="shortcut icon" type="image/png" href="../lib/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="../lib/jasmine/jasmine.css">
+    ###import###
+    <script type="text/javascript" src="../lib/html.jasmine.reporter.js"></script>
+
+    <script type="text/javascript" src="../lib/console.jasmine.reporter.js"></script>
+    <script type="text/javascript" src="../lib/junitxml.jasmine.reporter.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+    (function () {
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        jasmineEnv.addReporter(new jasmine.JUnitXmlReporter());
+        var trivialReporter = new jasmine.TrivialReporter();
+        jasmineEnv.addReporter(trivialReporter);
+        jasmineEnv.specFilter = function (spec) {
+            return trivialReporter.specFilter(spec);
+        };
+        //keep as last reporter because phantomjs rely on it
+        jasmineEnv.addReporter(new jasmine.ConsoleReporter());
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function () {
+            if (currentWindowOnload) {
+                currentWindowOnload();
+            }
+            jasmineEnv.execute();
+        };
+
+    })();
+</script>
+</body>
+</html>

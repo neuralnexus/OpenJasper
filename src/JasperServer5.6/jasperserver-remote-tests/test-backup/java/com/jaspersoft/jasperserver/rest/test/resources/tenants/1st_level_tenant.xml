@@ -1,0 +1,9 @@
+<tenant>
+    <alias>2</alias>
+    <id>2</id>
+    <parentId>organization_1</parentId>
+    <tenantDesc> </tenantDesc>
+    <tenantName>2</tenantName>
+    <tenantUri>/2</tenantUri>
+    <theme>default</theme>
+</tenant>

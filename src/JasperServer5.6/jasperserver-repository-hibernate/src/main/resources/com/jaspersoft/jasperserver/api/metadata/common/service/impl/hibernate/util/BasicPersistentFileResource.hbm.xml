@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!-- mapping a simple (non inherited) class on the same table as RepoFileResource for the update below -->
+	<class
+		name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.util.BasicPersistentFileResource"
+		table="JIFileResource">
+		<id name="id" type="long">
+			<generator class="native"/>
+		</id>
+		<property name="data" type="binary" length="20971520" column="data"/>
+	</class>
+	
+	<query name="FileResourceReplaceDataById">
+		update com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.util.BasicPersistentFileResource 
+		set data = :data
+		where id = :id
+	</query>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.jaspersoft.jasperserver.api.metadata.user.domain.client.TenantImpl">
+		<map-to xml="organization"/>
+		<field name="id" type="string">
+			<bind-xml name="id" node="element"/>
+		</field>
+		<field name="alias" type="string">
+			<bind-xml name="alias" node="element"/>
+		</field>
+		<field name="parentId" type="string">
+			<bind-xml name="parentId" node="element"/>
+		</field>
+		<field name="tenantName" type="string">
+			<bind-xml name="tenantName" node="element"/>
+		</field>
+		<field name="tenantDesc" type="string">
+			<bind-xml name="tenantDesc" node="element"/>
+		</field>
+		<field name="tenantNote" type="string">
+			<bind-xml name="tenantNote" node="element"/>
+		</field>
+		<field name="tenantUri" type="string">
+			<bind-xml name="tenantUri" node="element"/>
+		</field>
+		<field name="tenantFolderUri" type="string">
+			<bind-xml name="tenantFolderUri" node="element"/>
+		</field>
+        <field name="theme" type="string">
+            <bind-xml name="theme" node="element"/>
+        </field>
+	</class>
+</mapping>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<bean id="managementServiceConfiguration"
+			class="com.jaspersoft.jasperserver.ws.axis2.DefaultManagementServiceConfiguration">
+		<property name="exportParametersMap" ref="exportParametersMap"/>
+		<property name="exportersMap" ref="exportersMap"/>
+        <property name="tempFolder" value="/temp"/>
+        <property name="roleToAccessTempFolder" value="ROLE_ADMINISTRATOR"/>
+	</bean>
+
+	<bean id="resourceHandlerRegistry" class="com.jaspersoft.jasperserver.ws.axis2.MapResourceHandlerRegistry">
+		<property name="typeHandlers">
+			<map>
+				<entry key="folder" value="com.jaspersoft.jasperserver.ws.axis2.repository.FolderHandler"/>
+				<entry key="reportUnit">
+                    <bean class="com.jaspersoft.jasperserver.ws.axis2.repository.ReportUnitHandler" p:reportLoadingService-ref="reportLoadingService"/>
+                </entry>
+                <entry key="olapUnit" value="com.jaspersoft.jasperserver.ws.axis2.repository.OlapUnitHandler"/>
+				<entry key="datasource" value="com.jaspersoft.jasperserver.ws.axis2.repository.DataSourceHandler"/>
+				<entry key="jdbc" value="com.jaspersoft.jasperserver.ws.axis2.repository.JdbcDataSourceHandler"/>
+				<entry key="aws" value="com.jaspersoft.jasperserver.ws.axis2.repository.AwsDataSourceHandler"/>
+				<entry key="jndi" value="com.jaspersoft.jasperserver.ws.axis2.repository.JndiJdbcDataSourceHandler"/>
+				<entry key="bean" value="com.jaspersoft.jasperserver.ws.axis2.repository.BeanDataSourceHandler"/>
+                <entry key="virtual" value="com.jaspersoft.jasperserver.ws.axis2.repository.VirtualDataSourceHandler"/>
+                <entry key="custom" value="com.jaspersoft.jasperserver.ws.axis2.repository.CustomDataSourceHandler"/>
+				<entry key="img" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="font" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="jrxml" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="xml" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="jar" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="prop" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="jrtx" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="reference" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+				<entry key="inputControl" value="com.jaspersoft.jasperserver.ws.axis2.repository.InputControlHandler"/>
+				<entry key="dataType" value="com.jaspersoft.jasperserver.ws.axis2.repository.DataTypeHandler"/>
+				<entry key="olapXmlaCon" value="com.jaspersoft.jasperserver.ws.axis2.repository.XmlaConnectionHandler"/>
+				<entry key="olapMondrianCon" value="com.jaspersoft.jasperserver.ws.axis2.repository.MondrianConnectionHandler"/>
+				<entry key="xmlaConnection" value="com.jaspersoft.jasperserver.ws.axis2.repository.XmlaConnectionHandler"/>
+				<entry key="unknow" value="com.jaspersoft.jasperserver.ws.axis2.repository.UnknownResourceHandler"/>
+				<entry key="lov" value="com.jaspersoft.jasperserver.ws.axis2.repository.ListOfValuesHandler"/>
+				<entry key="query" value="com.jaspersoft.jasperserver.ws.axis2.repository.QueryHandler"/>
+				<entry key="contentResource" value="com.jaspersoft.jasperserver.ws.axis2.repository.ContentResourceHandler"/>
+				<entry key="olapMondrianSchema" value="com.jaspersoft.jasperserver.ws.axis2.repository.FileResourceHandler"/>
+			</map>
+		</property>
+        <property name="resourceActionResolver" ref="${bean.resourceActionResolver}"/>
+	</bean>
+
+    <bean id="resourceActionResolver" class="com.jaspersoft.jasperserver.ws.axis2.repository.RepositoryResourceActionResolver">
+    </bean>
+
+    <bean id="addWSResourceHandler" class="com.jaspersoft.jasperserver.api.common.util.spring.GenericBeanUpdaterDefinition">
+    	<property name="order" value="10"/>
+    	<property name="beanName" value="resourceHandlerRegistry"/>
+    	<property name="propertyName" value="typeHandlers"/>
+    	<property name="operation" value="append"/>
+    </bean>
+
+	<bean id="reportSchedulerServiceAccessor" class="com.jaspersoft.jasperserver.ws.axis2.scheduling.BeanReportSchedulerAccessor">
+		<property name="schedulerService" ref="${bean.reportSchedulerService}"/>
+	</bean>
+
+	<bean id="reportSchedulerServiceImpl" class="com.jaspersoft.jasperserver.ws.axis2.scheduling.ReportSchedulerServiceImpl">
+		<property name="jobsService" ref="jobsService"/>
+		<property name="beanTraslator" ref="reportJobBeanTraslator"/>
+	</bean>
+
+    <alias name="${bean.reportSchedulerService}" alias="concreteReportSchedulerService"/>
+
+	<bean id="webServiceExceptionAdvice" class="com.jaspersoft.jasperserver.ws.axis2.util.WebServiceExceptionAdvice"/>
+
+	<bean id="reportSchedulerService" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<list>
+				<value>com.jaspersoft.jasperserver.ws.axis2.scheduling.ReportSchedulerService</value>
+			</list>
+		</property>
+		<property name="target" ref="reportSchedulerServiceImpl"/>
+		<property name="interceptorNames">
+			<list>
+				<value>webServiceExceptionAdvice</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="reportJobBeanTraslator" class="com.jaspersoft.jasperserver.ws.axis2.scheduling.ReportJobBeanTraslator">
+		<property name="engine" ref="engineService"/>
+		<property name="timezones" ref="userTimeZonesList"/>
+	</bean>
+
+	<bean id="wsMessageCodesResolver" class="org.springframework.validation.DefaultMessageCodesResolver"/>
+
+    <bean id="userAndRoleManagementServiceMethodSecurity" class="com.jaspersoft.jasperserver.api.common.util.spring.SimplePropertyFactoryBean">
+        <property name="objectType" value="org.springframework.security.intercept.method.MethodDefinitionSource"/>
+        <property name="value">
+            <value>
+                com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementService.findUsers=ROLE_ADMINISTRATOR
+                com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementService.putUser=ROLE_ADMINISTRATOR
+                com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementService.deleteUser=ROLE_ADMINISTRATOR
+                com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementService.findRoles=ROLE_ADMINISTRATOR
+                com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementService.putRole=ROLE_ADMINISTRATOR
+                com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementService.deleteRole=ROLE_ADMINISTRATOR
+            </value>
+        </property>
+    </bean>
+
+    <bean id="userAndRoleManagementServiceSecurity"
+        class="org.springframework.security.intercept.method.aopalliance.MethodSecurityInterceptor">
+        <property name="authenticationManager"><ref bean="authenticationManager"/></property>
+        <property name="accessDecisionManager"><ref bean="aclAccessDecisionManager"/></property>
+        <property name="afterInvocationManager"><ref bean="afterInvocationManager"/></property>
+        <property name="objectDefinitionSource"><ref local="userAndRoleManagementServiceMethodSecurity"/></property>
+    </bean>
+
+    <bean id="userAndRoleManagementServiceTarget" class="com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementServiceImpl">
+        <property name="userAndRoleService" ref="${bean.userAndRoleService}"/>
+    </bean>
+
+    <bean id="userAndRoleManagementService" class="org.springframework.aop.framework.ProxyFactoryBean">
+      <property name="proxyInterfaces">
+          <value>com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagementService</value>
+      </property>
+      <property name="interceptorNames">
+        <list>
+          <idref local="userAndRoleManagementServiceSecurity"/>
+          <idref local="userAndRoleManagementServiceTarget"/>
+        </list>
+      </property>
+    </bean>
+
+
+    <bean id="permissionsManagementService" class="com.jaspersoft.jasperserver.ws.axis2.authority.PermissionsManagementServiceImpl">
+        <property name="permissionsService" ref="${bean.permissionsService}"/>
+    </bean>
+
+    <bean id="managementServiceImpl" class="com.jaspersoft.jasperserver.ws.axis2.ManagementServiceImpl">
+        <property name="repository" ref="${bean.repositoryService}"/>
+        <property name="engine">
+            <ref bean="engineService"/>
+        </property>
+        <property name="runReportEngine">
+            <ref bean="${bean.engineService}"/>
+        </property>
+        <property name="attachmentsTempFolder" value="{java.io.tmpdir}/jasperserver/axis_attachments"/>
+        <property name="handlerRegistry" ref="resourceHandlerRegistry"/>
+        <property name="auditContext" ref="${bean.auditContext}"/>
+        <property name="serviceConfiguration" ref="managementServiceConfiguration"/>
+        <property name="jasperReportsContext" ref="wsJasperReportsContext"/>
+    </bean>
+    
+    <alias alias="wsJasperReportsContext" name="${bean.wsJasperReportsContext}"/>
+
+	<bean id="pdfExporter" class="com.jaspersoft.jasperserver.ws.axis2.PdfWSExporter" scope="prototype">
+		<property name="exportParams" ref="pdfExportParameters"/>
+	</bean>
+	<bean id="htmlExporter" class="com.jaspersoft.jasperserver.ws.axis2.HtmlWSExporter" scope="prototype">
+		<property name="jasperReportsContext" ref="${bean.jasperReportsContext}"/>
+	</bean>
+	<bean id="xlsExporter" class="com.jaspersoft.jasperserver.ws.axis2.XlsWSExporter" scope="prototype">
+		<property name="exportParams" ref="xlsExportParameters"/>
+		<property name="jasperReportsContext" ref="${bean.jasperReportsContext}"/>
+	</bean>
+	<bean id="rtfExporter" class="com.jaspersoft.jasperserver.ws.axis2.RtfWSExporter" scope="prototype">
+		<property name="jasperReportsContext" ref="${bean.jasperReportsContext}"/>
+	</bean>
+	<bean id="csvExporter" class="com.jaspersoft.jasperserver.ws.axis2.CsvWSExporter" scope="prototype">
+		<property name="exportParams" ref="csvExportParameters"/>
+		<property name="jasperReportsContext" ref="${bean.jasperReportsContext}"/>
+	</bean>
+	<bean id="xmlExporter" class="com.jaspersoft.jasperserver.ws.axis2.XmlWSExporter" scope="prototype">
+		<property name="jasperReportsContext" ref="${bean.jasperReportsContext}"/>
+	</bean>
+	<!-- bean id="odtExporter" class="com.jaspersoft.jasperserver.ws.axis2.OdtWSExporter" scope="prototype"/>
+	<bean id="txtExporter" class="com.jaspersoft.jasperserver.ws.axis2.TextWSExporter" scope="prototype"/>
+	<bean id="docxExporter" class="com.jaspersoft.jasperserver.ws.axis2.DocxWSExporter" scope="prototype"/>
+	<bean id="odsExporter" class="com.jaspersoft.jasperserver.ws.axis2.OdsWSExporter" scope="prototype"/>
+	<bean id="xlsxExporter" class="com.jaspersoft.jasperserver.ws.axis2.XlsxWSExporter" scope="prototype"/>
+	<bean id="pptxExporter" class="com.jaspersoft.jasperserver.ws.axis2.PptxWSExporter" scope="prototype">
+		<property name="exportParams" ref="pptxExportParameters"/>
+		<property name="jasperReportsContext" ref="${bean.jasperReportsContext}"/>
+	</bean-->
+
+    <util:map id="exportersMap">
+        <entry key="pdf" value-ref="pdfExporter"/>
+        <entry key="html" value-ref="htmlExporter"/>
+        <entry key="xls" value-ref="xlsExporter"/>
+        <entry key="rtf" value-ref="rtfExporter"/>
+        <entry key="csv" value-ref="csvExporter"/>
+        <entry key="xml" value-ref="xmlExporter"/>
+        <!-- entry key="odt" value-ref="odtExporter"/>
+		<entry key="txt" value-ref="txtExporter"/>        
+        <entry key="docx" value-ref="docxExporter"/>
+        <entry key="ods" value-ref="odsExporter"/>
+        <entry key="xlsx" value-ref="xlsxExporter"/>
+        <entry key="pptx" value-ref="pptxExporter"/-->
+    </util:map> 
+
+    <util:map id="exportParametersMap">
+        <entry key="pdf" value-ref="pdfExportParameters"/>
+        <entry key="xls" value-ref="xlsExportParameters"/>
+        <entry key="csv" value-ref="csvExportParameters"/>
+        <entry key="txt" value-ref="txtExportParameters"/>
+        <entry key="ods" value-ref="odsExportParameters"/>
+        <entry key="xlsx" value-ref="xlsExportParameters"/>
+    </util:map>
+
+    <util:list id="adminRoles">
+        <value>ROLE_ADMINISTRATOR</value>
+    </util:list>
+
+</beans>

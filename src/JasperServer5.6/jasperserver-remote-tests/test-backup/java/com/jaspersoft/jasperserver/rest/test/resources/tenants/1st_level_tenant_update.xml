@@ -1,0 +1,10 @@
+<tenant>
+    <alias>2_updated</alias>
+    <id>2</id>
+    <parentId>organization_1</parentId>
+    <tenantDesc> this is an updated organization</tenantDesc>
+    <tenantFolderUri>/organizations/2</tenantFolderUri>
+    <tenantName>2_updated</tenantName>
+    <tenantUri>/2</tenantUri>
+    <theme></theme>
+</tenant>

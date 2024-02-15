@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.jaspersoft.jasperserver.export.modules.repository.beans.MondrianConnectionBean" extends="com.jaspersoft.jasperserver.export.modules.repository.beans.ResourceBean">
+		<map-to xml="mondrianConnection"/>
+		<field name="schema" type="com.jaspersoft.jasperserver.export.modules.repository.beans.ResourceReferenceBean">
+			<bind-xml name="schema" node="element"/>
+		</field>
+		<field name="dataSource" type="com.jaspersoft.jasperserver.export.modules.repository.beans.ResourceReferenceBean">
+			<bind-xml name="dataSource" node="element"/>
+		</field>
+	</class>
+</mapping>

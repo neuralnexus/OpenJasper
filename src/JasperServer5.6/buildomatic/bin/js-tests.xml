@@ -1,0 +1,585 @@
+<!--
+  ~ Copyright (C) 2005 - 2014 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased  a commercial license agreement from Jaspersoft,
+  ~ the following license terms  apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or  modify
+  ~ it under the terms of the GNU Affero General Public License  as
+  ~ published by the Free Software Foundation, either version 3 of  the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero  General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public  License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+<project name="js-tests">
+
+    <property name="testsRoot" value="${js-path}/buildomatic/jstests"/>
+    <property name="ourSources" value="${testsRoot}/ourSources"/>
+    <property name="testsSrc" value="${testsRoot}/src"/>
+    <property name="testsSrcTools" value="${testsRoot}/srcTools"/>
+    <property name="testsTools" value="${testsRoot}/tools"/>
+    <property name="testsLib" value="${testsRoot}/lib"/>
+    <property name="testsTemplate" value="${testsRoot}/templates"/>
+    <property name="testsTest" value="${testsRoot}/test"/>
+    <property name="testsStandalone" value="${testsRoot}/standalone"/>
+    <property name="testsOutputDir" value="${testsRoot}/reports"/>
+    <property name="testsDeployDestination" value="${testsRoot}/jasper-ui.war"/>
+    <property name="testsReports" value="${testsRoot}/target/reports/junitxml"/>
+    <property name="testsCoverageReports" value="${testsRoot}/target/reports/coverage"/>
+
+    <!--JavaScript Optimization -->
+    <property name="warSrcCe" value="${js-path}/jasperserver-war/src/main/"/>
+    <property name="warSrcPro" value="${js-pro-path}/jasperserver-war/src/main/"/>
+    <property name="webappTools" value="${warSrcCe}/tools"/>
+    <property name="webappToolsTemp" value="${warSrcCe}/tools/temp"/>
+
+
+    <!--EXPERIMENTAL-->
+
+    <!--File servers settings-->
+    <property name="portForHttp" value="8082"/>
+    <property name="filesBaseCe" value="${js-path}/jasperserver-war/src"/>
+    <property name="filesBasePro" value="${js-pro-path}/jasperserver-war/src"/>
+
+    <property name="testsCoverageViewerOutputDir" value="${testsRoot}/coverage"/>
+
+
+    <target name="jstest-clean"
+            description="Clean buildomatic/jstests">
+        <delete dir="${testsRoot}"/>
+        <mkdir dir="${testsRoot}"/>
+    </target>
+
+
+    <target name="jstest-copy-js-source-files-for-coverage-ce"
+            description="Copy all javascript source files which belongs to coverage process">
+        <echo>Copying JavaScript files which belongs to coverage process</echo>
+
+        <delete dir="${ourSources}"/>
+        <mkdir dir="${ourSources}"/>
+
+        <copy todir="${ourSources}">
+            <fileset dir="${js-path}/jasperserver-war/src/main/webapp/scripts" >
+                <include name="*"/>
+                <exclude name="namespace.js"/>
+                <exclude name="ext.*"/>
+                <exclude name="i18n"/>
+                <exclude name="jquery*"/>
+                <exclude name="backbone*"/>
+                <exclude name="underscore*"/>
+                <exclude name="mustache*"/>
+                <exclude name="Owasp.CsrfGuard.js"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+    <target name="jstest-copy-js-source-files-for-coverage-pro"
+            depends="jstest-copy-js-source-files-for-coverage-ce"
+            description="Copy all javascript source files which belongs to coverage process">
+        <echo>Copying JavaScript files which belongs to coverage process</echo>
+
+        <copy todir="${ourSources}">
+            <fileset dir="${js-pro-path}/jasperserver-war/src/main/webapp/scripts" >
+                <include name="*"/>
+                <exclude name="namespace.js"/>
+                <exclude name="ext.*"/>
+                <exclude name="i18n"/>
+                <exclude name="jquery*"/>
+                <exclude name="backbone*"/>
+                <exclude name="underscore*"/>
+                <exclude name="mustache*"/>
+                <exclude name="Owasp.CsrfGuard.js"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+
+    <target name="jstest-copy-testing-resources"
+            description="Copy all tools and resources except source files">
+        <echo>Copy Testing Resources</echo>
+
+        <copy todir="${testsTools}">
+            <fileset dir="${js-path}/jasperserver-war/src/test/javascript/tools">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${testsSrc}/themes">
+            <fileset dir="${js-path}/jasperserver-war/src/main/webapp/themes"/>
+        </copy>
+
+    </target>
+
+    <target name="jstest-copy-src-ce"
+            depends="jstest-copy-testing-resources"
+            description="Copy CE javascript sources and themes. Instruments javascript if 'instrument.javascript' set to 'true'">
+
+        <copy todir="${testsSrcTools}">
+            <fileset dir="${js-path}/jasperserver-war/src/main/tools"/>
+        </copy>
+
+        <if>
+
+            <equals arg1="${instrument.javascript}" arg2="true"/>
+
+            <then>
+                <jstest-code-instrumentation src="${js-path}/jasperserver-war/src/main/webapp/scripts" dst="${testsSrc}"/>
+            </then>
+            <else>
+                <copy todir="${testsSrc}">
+                    <fileset dir="${js-path}/jasperserver-war/src/main/webapp/scripts"/>
+                </copy>
+            </else>
+        </if>
+
+    </target>
+
+    <target name="jstest-copy-src-pro"
+            depends="jstest-copy-testing-resources"
+            description="Copy CE and PRO javascript sources and themes. Instruments javascript if 'instrument.javascript' set to 'true'">
+
+        <copy todir="${testsSrcTools}">
+            <fileset dir="${js-path}/jasperserver-war/src/main/tools"/>
+        </copy>
+
+        <if>
+
+            <equals arg1="${instrument.javascript}" arg2="true"/>
+
+            <then>
+                <property name="tmpTestSrc" value="${testsRoot}/tmpTestSrc"/>
+                <copy todir="${tmpTestSrc}">
+                    <fileset dir="${js-path}/jasperserver-war/src/main/webapp/scripts"/>
+                </copy>
+                <copy todir="${tmpTestSrc}" overwrite="true">
+                    <fileset dir="${js-pro-path}/jasperserver-war/src/main/webapp/scripts"/>
+                </copy>
+                <jstest-code-instrumentation src="${tmpTestSrc}" dst="${testsSrc}"/>
+                <delete dir="${tmpTestSrc}"/>
+            </then>
+            <else>
+                <copy todir="${testsSrc}">
+                    <fileset dir="${js-path}/jasperserver-war/src/main/webapp/scripts"/>
+                </copy>
+                <copy todir="${testsSrc}" overwrite="true">
+                    <fileset dir="${js-pro-path}/jasperserver-war/src/main/webapp/scripts"/>
+                </copy>
+            </else>
+        </if>
+
+    </target>
+
+
+    <target name="jstest-copy-test-ce"
+            description="Copy CE javascript tests, html markup templates, libs and tools to buildomatic/jstests">
+
+        <copy todir="${testsRoot}" overwrite="true">
+            <fileset dir="${js-path}/jasperserver-war/src/test/javascript"/>
+        </copy>
+
+    </target>
+
+    <target name="jstest-copy-test-pro"
+            depends="jstest-copy-test-ce"
+            description="Copy CE and PRO javascript tests, html markup templates, libs and tools to buildomatic/jstests">
+
+        <copy todir="${testsRoot}" overwrite="true">
+            <fileset dir="${js-pro-path}/jasperserver-war/src/test/javascript"/>
+        </copy>
+
+    </target>
+
+    <target name="jstest-prepare-dir-ce"
+            description="Copy all tests resources from CE to buildomatic/jstests"
+            depends="jstest-clean, jstest-copy-src-ce, jstest-copy-test-ce"/>
+
+    <target name="jstest-prepare-dir-pro"
+            description="Copy all tests resources from CE and PRO to buildomatic/jstests"
+            depends="jstest-clean, jstest-copy-src-pro, jstest-copy-test-pro"/>
+
+
+    <target name="run-fileserver-for-jstests-ce"
+            description="Start fileserver for javascript testing in CE">
+
+        <mkdir dir="${testsRoot}/target"/>
+
+        <java jar="${js-path}/jasperserver-war/src/test/javascript/tools/http.jar" failonerror="true" fork="true" spawn="false"  dir="${js-path}/buildomatic">
+            <arg value="--start"/>
+            <arg value="--port"/>
+            <arg value="${portForHttp}"/>
+            <arg value="--files.base"/>
+            <arg value="${filesBaseCe},${testsRoot}/target"/>
+            <arg value="--welcome.file"/>
+            <arg value="test/javascript/tools/index.html"/>
+        </java>
+
+    </target>
+
+
+    <target name="run-fileserver-for-jstests-pro"
+            description="Start fileserver for javascript testing in PRO">
+
+        <mkdir dir="${testsRoot}/target"/>
+
+        <java jar="${js-path}/jasperserver-war/src/test/javascript/tools/http.jar" failonerror="true" fork="true" spawn="false"  dir="${js-path}/buildomatic">
+            <arg value="--start"/>
+            <arg value="--port"/>
+            <arg value="${portForHttp}"/>
+            <arg value="--files.base"/>
+            <arg value="${filesBasePro},${filesBaseCe},${testsRoot}/target"/>
+            <arg value="--welcome.file"/>
+            <arg value="test/javascript/tools/index.html"/>
+        </java>
+
+    </target>
+
+    <target name="run-global-coverage"
+            description="Calculate coverage metrics">
+
+        <run-javascript-in-phantom
+                scriptToExecute="${js-path}/jasperserver-war/src/test/javascript/lib/tests.coverage.metrics.phantom.js"
+                arguments="${js-path}/jasperserver-war/src/main/webapp/scripts
+                ${ourSources}
+                ${testsCoverageReports}/"
+                />
+    </target>
+
+    <target name="run-javascript-tests-ce"
+            depends="jstest-prepare-dir-ce"
+            description="Run all CE javascript tests in headless environment with RequireJS. Can take additional param -Dtest='/path/to/some/testSuite /another/path,/third/one' to run single test">
+        <launch-headless-tests resource="tests.html" edition="ce"/>
+    </target>
+
+    <target name="run-javascript-tests-pro"
+            depends="jstest-prepare-dir-pro"
+            description="Run all CE and PRO javascript tests in headless environment with RequireJS. Can take additional param -Dtest='/path/to/some/testSuite /another/path,/third/one' to run single test">
+        <launch-headless-tests resource="tests.html" edition="pro"/>
+    </target>
+
+
+    <target name="jstest-generate-code-coverage-ce"
+            description="Generate code coverage reports for CE with RequireJS">
+        <property name="instrument.javascript" value="true"/>
+        <antcall target="jstest-prepare-dir-ce"/>
+
+        <generate-code-coverage-reports
+                docToOpen="src/jscoverage.html"
+                docWithTests="tests.html"
+                output="${testsCoverageReports}/"/>
+
+        <move todir="${testsCoverageReports}">
+            <fileset dir="${testsSrc}">
+                <include name="**/jscoverage*"/>
+            </fileset>
+        </move>
+
+        <antcall target="jstest-copy-js-source-files-for-coverage-ce"/>
+
+        <antcall target="run-global-coverage"/>
+
+        <delete dir="${ourSources}"/>
+
+    </target>
+
+    <target name="jstest-generate-code-coverage-pro"
+            description="Generate code coverage reports for PRO with RequireJS">
+
+        <property name="instrument.javascript" value="true"/>
+        <antcall target="jstest-prepare-dir-pro"/>
+
+        <generate-code-coverage-reports
+                docToOpen="src/jscoverage.html"
+                docWithTests="tests.html"
+                output="${testsCoverageReports}/"/>
+
+        <move todir="${testsCoverageReports}">
+            <fileset dir="${testsSrc}">
+                <include name="**/jscoverage*"/>
+            </fileset>
+        </move>
+
+        <antcall target="jstest-copy-js-source-files-for-coverage-pro"/>
+
+        <antcall target="run-global-coverage"/>
+
+        <delete dir="${ourSources}"/>
+
+    </target>
+
+
+    <!--MACRODEFS-->
+
+    <macrodef name="jstest-code-instrumentation">
+        <attribute name="src"/>
+        <attribute name="dst"/>
+        <sequential>
+            <mkdir dir="${testsSrc}"/>
+            <echo>Run JavaScript code instrumentation</echo>
+            <java jar="${testsTools}/JSCover-all.jar" failonerror="true" fork="true" dir="${testsRoot}">
+                <arg value="-fs"/>
+                <arg value="--no-instrument=namespace.js"/>
+                <arg value="--no-instrument=require.config.js"/>
+                <!--Exclude external CE libraries-->
+                <arg value="--no-instrument=lib/json2.js"/>
+                <arg value="--no-instrument=lib/json3.js"/>
+                <arg value="--no-instrument=lib/require-2.1.10.js"/>
+                <arg value="--no-instrument=lib/jquery-1.11.0.js"/>
+                <arg value="--no-instrument=lib/underscore-1.3.3.js"/>
+                <arg value="--no-instrument=lib/mustache-0.4.0.js"/>
+                <arg value="--no-instrument=lib/requirejs-domReady-2.0.1.js"/>
+                <arg value="--no-instrument=lib/requirejs-text-plugin-2.0.9.js"/>
+                <arg value="--no-instrument=lib/lodash-1.1.1.js"/>
+                <arg value="--no-instrument=lib/underscore.string-2.3.0.js"/>
+                <arg value="--no-instrument=lib/builder-1.9.0.js"/>
+                <arg value="--no-instrument=lib/dragdrop-1.9.0-patched.js"/>
+                <arg value="--no-instrument=lib/dragdropextra-0.2-patched.js"/>
+                <arg value="--no-instrument=lib/effects-1.9.0.js"/>
+                <arg value="--no-instrument=lib/iscroll-4.1.7.js"/>
+                <arg value="--no-instrument=lib/prototype-1.7.1-patched.js"/>
+                <arg value="--no-instrument=lib/touch.controller.js"/>
+                <arg value="--no-instrument=lib/unittest-1.9.0.js"/>
+                <arg value="--no-instrument=lib/xregexp.unicode.min-2.0.0.js"/>
+                <arg value="--no-instrument=lib/yui-3.1.0.js"/>
+                <arg value="--no-instrument=lib/yui.console-3.1.0.js"/>
+                <arg value="--no-instrument=lib/yui.console-filters-3.1.0.js"/>
+                <arg value="--no-instrument=lib/yui.test-3.1.0.js"/>
+                <!--Exclude our sources-->
+                <arg value="--no-instrument=Owasp.CsrfGuard.js"/>
+
+                <!--PRO-->
+                <!--TODO: remove from ignorelist after covering with tests-->
+                <arg value="--no-instrument=adhoc.start.js"/>
+                <arg value="--no-instrument=administer.cache.js"/>
+                <arg value="--no-instrument=administer.options.js"/>
+                <arg value="--no-instrument=commons.main.js"/>
+                <arg value="--no-instrument=controls.adhoc.js"/>
+                <arg value="--no-instrument=core.edition.js"/>
+                <arg value="--no-instrument=dashboard.designer.frame.main.js"/>
+                <arg value="--no-instrument=dashboard.designer.frame.page.js"/>
+                <arg value="--no-instrument=dashboard.designer.js"/>
+                <arg value="--no-instrument=dashboard.designer.main.js"/>
+                <arg value="--no-instrument=dashboard.designer.page.js"/>
+                <arg value="--no-instrument=dashboard.runtime.frame.page.js"/>
+                <arg value="--no-instrument=dashboard.runtime.js"/>
+                <arg value="--no-instrument=dashboard.runtime.main.js"/>
+                <arg value="--no-instrument=dashboard.runtime.page.js"/>
+                <arg value="--no-instrument=designer.base.js"/>
+                <arg value="--no-instrument=dialog.definitions.js"/>
+                <arg value="--no-instrument=domain.base.js"/>
+                <arg value="--no-instrument=domain.chooser.display.js"/>
+                <arg value="--no-instrument=domain.chooser.fields.js"/>
+                <arg value="--no-instrument=domain.chooser.filters.js"/>
+                <arg value="--no-instrument=domain.chooser.js"/>
+                <arg value="--no-instrument=domain.chooser.saveAsTopic.js"/>
+                <arg value="--no-instrument=domain.components.js"/>
+                <arg value="--no-instrument=domain.designer.calculatedFields.js"/>
+                <arg value="--no-instrument=domain.designer.calculatedFields.main.js"/>
+                <arg value="--no-instrument=domain.designer.calculatedFields.page.js"/>
+                <arg value="--no-instrument=domain.designer.derivedTables.js"/>
+                <arg value="--no-instrument=domain.designer.derivedTables.main.js"/>
+                <arg value="--no-instrument=domain.designer.derivedTables.page.js"/>
+                <arg value="--no-instrument=domain.designer.display.js"/>
+                <arg value="--no-instrument=domain.designer.display.main.js"/>
+                <arg value="--no-instrument=domain.designer.display.page.js"/>
+                <arg value="--no-instrument=domain.designer.display.validators.js"/>
+                <arg value="--no-instrument=domain.designer.filters.js"/>
+                <arg value="--no-instrument=domain.designer.filters.main.js"/>
+                <arg value="--no-instrument=domain.designer.filters.page.js"/>
+                <arg value="--no-instrument=domain.designer.joins.js"/>
+                <arg value="--no-instrument=domain.designer.joins.main.js"/>
+                <arg value="--no-instrument=domain.designer.joins.page.js"/>
+                <arg value="--no-instrument=domain.designer.joins.validators.js"/>
+                <arg value="--no-instrument=domain.designer.js"/>
+                <arg value="--no-instrument=domain.designer.tables.dialogs.js"/>
+                <arg value="--no-instrument=domain.designer.tables.js"/>
+                <arg value="--no-instrument=domain.designer.tables.main.js"/>
+                <arg value="--no-instrument=domain.designer.tables.page.js"/>
+                <arg value="--no-instrument=domain.designer.tables.validators.js"/>
+                <arg value="--no-instrument=domain.designer.validators.js"/>
+                <arg value="--no-instrument=domain.filters.js"/>
+                <arg value="--no-instrument=domain.setup.dialogs.js"/>
+                <arg value="--no-instrument=domain.setup.js"/>
+                <arg value="--no-instrument=domain.setup.main.js"/>
+                <arg value="--no-instrument=domain.setup.page.js"/>
+                <arg value="--no-instrument=highcharts.js"/>
+                <arg value="--no-instrument=home.main.js"/>
+                <arg value="--no-instrument=home/AdminWorkflowPage.js"/>
+                <arg value="--no-instrument=nested.js"/>
+                <arg value="--no-instrument=old_adhoc.chart.js"/>
+                <arg value="--no-instrument=old_adhoc.crosstab.js"/>
+                <arg value="--no-instrument=old_adhoc.designer.js"/>
+                <arg value="--no-instrument=old_adhoc.displayManager.js"/>
+                <arg value="--no-instrument=old_adhoc.displayManager.model.js"/>
+                <arg value="--no-instrument=old_adhoc.displayManager.view.js"/>
+                <arg value="--no-instrument=old_adhoc.filter.js"/>
+                <arg value="--no-instrument=old_adhoc.table.js"/>
+                <arg value="--no-instrument=old_components.display.manager.js"/>
+                <arg value="--no-instrument=report.execution.count.js"/>
+                <arg value="--no-instrument=report.view.pro.js"/>
+                <arg value="--no-instrument=repository.search.pro.js"/>
+                <arg value="--no-instrument=utils.expandutils.js"/>
+
+                <arg line="@{src}"/>
+                <arg line="@{dst}"/>
+            </java>
+            <!--TODO: output errors.log to stdout -->
+            <!--<record name="${testsSrc}/errors.log"/>-->
+        </sequential>
+    </macrodef>
+
+    <macrodef name="launch-headless-tests">
+        <attribute name="resource"/>
+        <attribute name="edition"/>
+        <sequential>
+
+            <condition property="headless.browser.set" else="false">
+                <isset property="headless.browser"/>
+            </condition>
+
+            <condition property="test" else="">
+                <isset property="test"/>
+            </condition>
+
+            <if>
+                <not>
+                    <equals arg1="${headless.browser.set}" arg2="false"/>
+                </not>
+                <then>
+                    <echo>====================================================</echo>
+                    <echo>Start JavaScript Headless Testing</echo>
+                    <echo>====================================================</echo>
+                    <echo message="Directory to execute tests in is: ${testsRoot}"/>
+                    <echo message="Headless browsers is: ${headless.browser}"/>
+                    <echo message="CMD is: ${headless.browser} ${testsLib}/tests.runner.phantom.js @{resource} ${testsReports}/TESTS-JRS-JavaScript.xml"/>
+                    <exec dir="${testsRoot}" executable="${headless.browser}" failonerror="true">
+                        <arg value="${testsLib}/tests.runner.phantom.js"/>
+                        <arg value="@{resource}"/> <!-- an html file to be loaded (probably it's a 'tests.html') -->
+                        <arg value="@{edition}"/> <!-- this variable defines is it's CE or PRO edition -->
+                        <arg value="${testsReports}/TESTS-JRS-JavaScript.xml"/>
+                        <arg value="${test}"/> <!-- relative path to the tests that should be run-->
+                    </exec>
+                </then>
+                <else>
+                    <echo>
+                        =========================================================================================================
+                    </echo>
+                    <echo>Can't start JavaScript Headless Testing</echo>
+                    <echo>1. Download PhantomJS from http://phantomjs.org/download.html</echo>
+                    <echo>2. Add 'headless.browser' property to 'default_master.properties' with location to PhantomJS
+                        executable
+                    </echo>
+                    <echo>
+                        =========================================================================================================
+                    </echo>
+                </else>
+            </if>
+
+        </sequential>
+    </macrodef>
+
+    <macrodef name="generate-code-coverage-reports">
+        <attribute name="docToOpen"/>
+        <attribute name="docWithTests"/>
+        <attribute name="output"/>
+        <sequential>
+
+            <condition property="headless.browser.set" else="false">
+                <isset property="headless.browser"/>
+            </condition>
+
+            <if>
+                <not>
+                    <equals arg1="${headless.browser.set}" arg2="false"/>
+                </not>
+                <then>
+                    <echo>====================================================</echo>
+                    <echo>Generating Code Coverage Reports</echo>
+                    <echo>====================================================</echo>
+                    <echo message="Loading @{docToOpen}"/>
+                    <exec dir="${testsRoot}" executable="${headless.browser}" failonerror="true">
+                        <arg value="${testsLib}/tests.jscover.phantom.js"/>
+                        <arg value="@{docToOpen}"/>
+                        <arg value="@{docWithTests}"/>
+                        <arg value="@{output}"/>
+                    </exec>
+                </then>
+                <else>
+                    <echo>=========================================================================================================</echo>
+                    <echo>Can't start code coverage generation</echo>
+                    <echo>1. Upload PhantomJS from http://phantomjs.org/download.html</echo>
+                    <echo>2. Add 'headless.browser' property to 'default_master.properties' with location to PhantomJS executable</echo>
+                    <echo>=========================================================================================================</echo>
+                </else>
+            </if>
+
+        </sequential>
+    </macrodef>
+
+
+    <macrodef name="run-javascript-in-phantom">
+        <attribute name="scriptToExecute"/>
+        <attribute name="arguments"/>
+        <sequential>
+
+            <condition property="headless.browser.set" else="false">
+                <isset property="headless.browser"/>
+            </condition>
+
+            <if>
+                <not>
+                    <equals arg1="${headless.browser.set}" arg2="false"/>
+                </not>
+                <then>
+                    <echo>====================================================</echo>
+                    <echo>Running JavaScript file: @{scriptToExecute}</echo>
+                    <echo>====================================================</echo>
+                    <echo message="Executing @{scriptToExecute}"/>
+                    <exec dir="${testsRoot}" executable="${headless.browser}" failonerror="true">
+                        <arg line="@{scriptToExecute} @{arguments}"/>
+                    </exec>
+                </then>
+                <else>
+                    <echo>=========================================================================================================</echo>
+                    <echo>Can't execute script because there is no definition of PhantomJS.</echo>
+                    <echo>1. Upload PhantomJS from http://phantomjs.org/download.html</echo>
+                    <echo>2. Add 'headless.browser' property to 'default_master.properties' with location to PhantomJS executable</echo>
+                    <echo>=========================================================================================================</echo>
+                </else>
+            </if>
+
+        </sequential>
+    </macrodef>
+
+    <!--EXPERIMANTAL-->
+
+    <target name="jstest-copy-coverage-viewer"
+            description="Experimental: Copy coverage viewer">
+        <delete dir="${testsCoverageViewerOutputDir}/viewer"/>
+        <mkdir dir="${testsCoverageViewerOutputDir}/viewer"/>
+        <copy todir="${testsCoverageViewerOutputDir}/viewer">
+            <fileset dir="${js-path}/jasperserver-war/src/test/javascript/tools/coverage-viewer"/>
+        </copy>
+    </target>
+
+    <target name="jstest-make-reports-war"
+            depends="jstest-copy-coverage-viewer"
+            description="Experimental: Pack javascript resources as standalone web application">
+        <delete file="${testsDeployDestination}"/>
+        <war destfile="${testsDeployDestination}"
+             webxml="${js-path}/jasperserver-war/src/test/javascript/tools/ui-reports-web.xml">
+            <fileset dir="${testsRoot}">
+                <include name="**/*.*"/>
+                <exclude name="lib"/>
+            </fileset>
+        </war>
+    </target>
+</project>

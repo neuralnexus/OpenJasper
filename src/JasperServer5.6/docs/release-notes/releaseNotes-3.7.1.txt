@@ -1,0 +1,286 @@
+
+JasperServer CE 3.7.1
+
+Table of Contents
+
+1. Introduction
+2. Installation Notes
+3. Upgrade Notes
+4. What's New
+5. Known Issues
+6. Release Distributions
+7. Further Information
+
+
+-----------------------------------------------------------------
+1. Introduction
+
+JasperServer Community Edition is a high-performance,
+standalone and embeddable Business Intelligence (BI) platform 
+that provides rich reporting capabilities. In addition, 
+JasperAnalysis provides OLAP data analysis, running on the same 
+shared JasperServer BI platform. 
+
+These release notes describe the installation and available 
+functionality at a high level; for details, please refer to the 
+documentation, which is available at <js-install>/docs after 
+installation. 
+
+
+-----------------------------------------------------------------
+2. Installation Notes
+
+After running the JasperServer CE installer, you can find
+information about the installation in the Installation Guide:
+
+    <js-install>/docs/JasperServer-CE-Install-Guide.pdf
+
+For instructions to install the binary WAR file, refer to the
+Installation Guide in the ZIP archive:
+
+    <js-bin>/docs/JasperServer-CE-Install-Guide.pdf
+
+Once JasperServer is installed, the login page URL is:
+
+    http://<hostname>:<port>/jasperserver
+
+The default login page URL for Tomcat is:
+
+    http://<hostname>:8080/jasperserver
+
+During installation, a default administrative user is 
+created:
+
+    Username: jasperadmin
+    Password: jasperadmin
+
+If you install the sample data, an end user is also 
+created:
+
+    Username:  joeuser
+    Password:  joeuser
+
+
+-----------------------------------------------------------------
+3. Upgrade Notes 
+
+
+Upgrading from 3.7.0 to 3.7.1
+-----------------------------
+
+If you are upgrading from 3.7.0 to 3.7.1, you will need to 
+update the jasperserver war file in your application server
+deployment location. The jasperserver repository database
+has not changed between 3.7.0 and 3.7.1. So, there are
+no database changes required.
+
+You will need to pay attention to any local configurations
+and customizations that you have in your environment. 
+
+If you start with the War File Distribution zip 
+(jasperserver-ce-3.7.1-bin.zip), you can look at the 
+JasperServer Install Guide, sections 5.6 and 5.7. 
+These describe how to use the "buildomatic" scripts
+to handle an installation. 
+
+Since there are no database updates between 3.7.0
+and 3.7.1, you would only need to run the following
+buildomatic target (from section 5.7):
+
+ js-ant deploy-webapp-ce
+
+
+Upgrading from 3.5 to 3.7.1
+---------------------------
+
+The version upgrade steps to go from JasperServer 3.5 to 
+JasperServer 3.7.1 are the same as they were for the 
+3.7.0 release. 
+
+For JasperServer Community Edition there are two upgrade paths:
+1. Utilize the import-export utility to move resources
+   from your existing JasperServer instance to your new 3.7.1 
+   instance. 
+2. Do an "in-place" database upgrade using an SQL upgrade script.
+
+Refer to these chapters of the JasperServer CE Installation 
+Guide for upgrade instructions: 
+
+    Chapter:  Upgrade from JasperServer 3.5 to 3.7
+  
+    Chapter:  Upgrade Using SQL Upgrade Script
+
+The upgrade scripts are located at:
+
+    <js-install>/scripts/upgrade/      OR
+
+    <js-install>/buildomatic/install_resources/sql/<db-type>/
+
+Supported databases are:
+
+    - MySQL
+    - PostgreSQL
+
+
+-----------------------------------------------------------------
+4. What's New
+
+JasperServer 3.7.1 includes the following:
+
+* Maintenance updates for defects in various areas, including:
+  * Cascading Input Controls
+  * SSL based communication compatibility
+  
+
+* New portal certified for the JasperServer portlet: JBoss is
+  now certified or use with the JasperServer portlet. for 
+  deployment instructions, refer to the JasperServer
+  Administrator Guide and to the portlet readme.
+
+
+* iReport 3.7.1, which is bundled in the 3.7.1 installers,
+  is now certified on Windows Vista and Windows 7.
+    - See Known Issues section below (item 17253)
+
+
+* Improved Web Services Sample Application. Illustrates usage
+  of users, roles, permissions, and cascading
+  input controls. See the readme files in:
+    - samples/java-webapp-sample
+
+
+* JasperReports bug fixes included. JasperReports version jar 
+  incremented to 3.7.1.1.
+
+Tested with:
+ * Servers: Tomcat 6
+ * Browsers: IE 7, IE 8, Safari, Firefox 3.5
+   - Includes fix for Internet Explorer security pop-ups from 
+     external browser links
+
+Note: JasperServer is no longer tested with Microsoft Internet 
+Explorer 6.
+
+
+-----------------------------------------------------------------
+5. Known Issues
+
+* 17253: iReport 3.7.1, which is bundled with the JasperServer
+  installer, needs special handling in order to run with Vista or
+  Windows 7. On these OS platforms, iReport  must run with the
+  most current versions of Java 1.6 or the current version
+  of the Java 1.7 beta. On these OS platforms, iReport will 
+  require JDKs greater or equal to: 1.6.0_18-b03 or 1.7.0-b74.
+  Additionally, you will need to modify the iReport loader script
+  to point to this higher Java version. Edit the following file
+  file: <js-install>\ireport\bin\iReportLoader.bat
+  
+  Change this line: SET JAVADIR=%CD%\java
+  To this line: SET JAVADIR=<path-to-java-1.7>\java
+  For example: SET JAVADIR=C:\Program Files\Java\jdk1.7.0
+
+* 10254: If your client application uses JasperServer's web
+  services to retrieve JasperReports binary files (JasperPrint
+  objects) your client application may crash when it tries to 
+  retrieve a report that includes a chart. This is caused by an
+  incompatibility between the version of JFreeCharts available in 
+  your client application and the version of JFreeCharts 
+  available in JasperServer (currently 1.0.12). To retrieve 
+  reports with charts using the web services, you must upgrade 
+  your client application to use JFreeCharts version 1.0.12.
+
+  For more information, visit the JFreeCharts website at:
+  http://www.jfree.org/
+
+
+
+-----------------------------------------------------------------
+6. Release Distributions
+
+Installer Distribution
+
+    * Installer General Notes
+    
+        The installers contain all components needed to run 
+        the JasperServer Web Application. Bundled components are:
+        
+        * Apache Tomcat 5.5
+        * MySQL 5.0
+        * Java JDK 1.5
+        * JasperServer 3.7.1
+        * iReport 3.7.1
+
+    * Installer Supported Operation Systems
+      (Only 32-bit operating systems are supported)
+    
+        * Linux Installer 
+        
+            * Red Hat Enterprise Linux 5.3, 5.4
+            * Fedora 9, 10
+            * Ubuntu 8.10 Intrepid, 9.04 Jaunty
+            * Debian 5.0
+            * Novell SUSE Linux Enterprise 10.2, 11.1
+            * CentOS 5.2
+        
+        * Windows Installer 
+        
+            * Windows Server 2003 (SP1)
+            * Windows XP (SP2)
+            * Windows Vista (SP1)
+            * Windows 7
+              (Additional requirements apply to Windows Vista 
+              and Windows 7: the user that installs and runs 
+              JasperServer must be an administrative user in 
+              these operating systems.)
+              Note that iReport is not supported with Windows 7.
+        
+    * Installer Supported Installation Configurations
+    
+        * Bundled Tomcat with Bundled MySQL
+        * Bundled Tomcat with Existing MySQL
+        
+        * Existing Tomcat with Bundled MySQL
+        * Existing Tomcat with Existing MySQL
+
+
+War File Binary Distribution
+
+    The War File Binary Distribution zip file contains sample 
+    configurations and database setup scripts to support 
+    the following applications:
+    
+    * Apache Tomcat 5.5 and 6.0
+    * JBoss 4.2, 5.1
+    * Glassfish 2.1
+    * Java JDK 1.5 or 1.6
+    * MySQL 5.0, 5.1, and 5.2
+    * PostgreSQL 8.3 and 8.4
+
+-----------------------------------------------------------------
+7. Further Information
+
+Please contact Jaspersoft by visiting our web site:
+
+    http://www.jaspersoft.com
+
+Jaspersoft also encourages all its users to visit JasperForge, 
+the online home of our community:
+
+    http://jasperforge.org/
+
+If you do not already have a commercial license, you can
+obtain one by contacting your Sales representative.
+
+
+-----------------------------------------------------------------
+Part Number: 0910-JSO37-10
+Copyright (C) 2010 Jaspersoft Corporation. All rights reserved.
+Printed in the U.S.A. Jaspersoft, the Jaspersoft logo, 
+JasperAnalysis, JasperServer, JasperETL, JasperReports, 
+JasperStudio, iReport, and Jasper4 products are trademarks 
+and/or registered trademarks of Jaspersoft Corporation in 
+the United States and in  jurisdictions throughout the world. 
+All other company and product names are or may be trade 
+names or trademarks of their respective owners.
+
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>server</artifactId>
+        <groupId>com.jaspersoft.jasperserver</groupId>
+        <version>5.6.1</version>
+    </parent>
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>jasperserver-connectors</artifactId>
+    <name>Jasperserver Connectors</name>
+    <modules>
+       <module>mongodb-connector</module>
+       <module>hive-connector</module>
+       <module>cassandra-connector</module>
+    </modules>
+
+</project>

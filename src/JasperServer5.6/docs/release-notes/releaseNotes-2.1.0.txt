@@ -1,0 +1,202 @@
+
+JasperServer 2.1 Release 
+
+Table of Contents
+
+1. Introduction
+2. Installation Notes
+3. What's New
+4. Known Issues
+5. Release Distributions
+6. Further Information
+
+
+-----------------------------------------------------------------
+1. Introduction
+
+JasperServer builds on JasperReports as a comprehensive family of
+Business Intelligence (BI) products, providing robust static and 
+interactive reporting, report server, and data analysis 
+capabilities. For business intelligence users, JasperSoft offers
+JasperAnalysis, which runs seamlessly on JasperServer. 
+
+These release notes describe the installation and available 
+functionality at a high level; for details, please refer to the 
+documentation, which is available at <install-dir>/docs
+after installation. In particular, refer to the installation 
+guide for instructions about installation tasks, such as running 
+the installer, creating and updating the database, and deploying 
+the WAR file.
+
+
+-----------------------------------------------------------------
+2. Installation Notes
+
+Once JasperServer is installed, the login page URL is:
+
+    http://<hostname>:<port>/jasperserver
+
+The default login page URL for Tomcat is:
+
+    http://<hostname>:8080/jasperserver
+
+During installation, a default administrative user is 
+created:
+
+    Username: jasperadmin
+    Password: <password specified during installation>
+
+If you install the sample data, two default end users are also 
+created:
+
+    Username:  joeuser
+    Password:  joeuser
+
+
+-----------------------------------------------------------------
+3. What's New
+
+JasperServer now includes these features:
+
+    * Better Output to Excel - Excel output is now much more 
+      data-centric.
+
+    * Custom Data Source Improvements - Adding a custom data 
+      source to JasperServer is now much simpler and well-
+      documented. The custom data source can be used both by 
+      JasperServer reports and by the Ad Hoc Editor. 
+
+    * Import/Export uses Ant - Import and export now use Ant, 
+      which is more portable and fixes the input line too long
+      problem (defect 8106).
+
+    * JasperServer Plugin for iReport enhancements - The 
+      plugin now walks users through adding reports with 
+      subreports. Also, the plugin now checks to make sure 
+      report names follow JasperServer's naming rules.
+
+    * Log in as - JasperServer administrators can now log in as 
+      other users; this feature is available on the User page. It  
+      allows administrators to make sure the security rules for 
+      users are working as expected.
+
+    * Report Wizard Usability Improvements - When creating or 
+      editing a report unit using the Report Wizard, users can 
+      click "Finish" if all required fields are complete, and 
+      can jump to each step on which they want to work.
+
+    * Name/Label Improvements - End users now see only business-
+      friendly labels for reports instead of seeing file names.
+
+    * Revamped Login Page - The out of the box Login page for 
+      JasperServer is now much more informative. It includes 
+      links to online demos, documentation, and the Support 
+      Portal.
+
+    * Scheduling via Web Services - Custom applications can now 
+      call JasperServer scheduling functions via web services.
+
+    * Web Services Can Run Locale-sensitive Reports - If 
+      REPORT_LOCALE is passed in to runReport via web services 
+      and the report in question has a resource bundle for the 
+      specific locale, the report output is returned in the 
+      relevant language.
+
+
+-----------------------------------------------------------------
+4. Known Issues
+
+    * If your client application uses JasperServer's web 
+      services to retrieve JasperReports, your client application 
+      may crash when it tries to retrieve a report that includes 
+      a chart. caused by an incompatibility between JFreeCharts 
+      1.0.0 and This is JFreeCharts 1.0.3. To retrieve reports 
+      with charts using the web services, you must upgrade your 
+      client application to use JFreeCharts version 1.0.3.
+
+      For more information, visit the JFreeCharts website at:
+      http://www.jfree.org/
+
+   * The JasperServer installers (Windows and Linux) do not 
+     special characters at the end of user entered passwords.
+     Such characters include: & ; $
+
+-----------------------------------------------------------------
+5. Release Distributions
+
+
+Installer Distribution
+
+    * Installer General Notes
+    
+        The installers contain all components needed to run 
+        the JasperServer Web Application. Bundled components
+        are the following:
+        
+        * Apache Tomcat 5.5
+        * MySQL 5.0
+        * Java JDK 1.5
+        * JasperServer 2.1
+        * iReport 2.0.2
+
+    * Installer Supported Operation Systems
+    
+        * Linux Installer 
+        
+            * Red Hat Enterprise Linux 4.3 AS & ES
+            * Red Hat Enterprise Linux 5.0 AS & ES
+            * Novell SUSE Linux Enterprise 10.2
+            * Ubuntu 7.04 feisty
+        
+        * Windows Installer 
+        
+            * Windows Server 2003 (SP1)
+            * Windows XP (SP2)
+        
+    * Installer Supported Installation Configurations
+    
+        * Bundled Tomcat with Bundled MySQL
+        * Bundled Tomcat with Existing MySQL
+        
+        * Existing Tomcat with Bundled MySQL
+        * Existing Tomcat with Existing MySQL
+
+
+War File Binary Distribution
+
+    The War File Binary Distrbution zip contains sample 
+    configurations and database setup scripts to support 
+    the following applications:
+    
+    * Apache Tomcat 5.5
+    * JBoss 4.2
+    * MySQL 5.0
+    * PostgreSQL 8.2
+
+
+-----------------------------------------------------------------
+6. Further Information
+
+Please contact JasperSoft by visiting our web site:
+
+    http://www.jaspersoft.com
+
+Please visit the JasperSoft Support Portal:
+
+    http://www.jaspersoft.com/support_login.php
+
+JasperSoft also encourages all its users to visit JasperForge, 
+the online home of our community:
+
+    http://jasperforge.org/
+
+-----------------------------------------------------------------
+Part Number: 1107-JSO21-1x
+© 2007 JasperSoft Corporation. All rights reserved. Printed in 
+the U.S.A. JasperSoft, the JasperSoft logo, JasperAnalysis, 
+JasperServer, JasperETL, JasperReports, JasperStudio, iReport, 
+and Jasper4 products are trademarks and/or registered trademarks 
+of JasperSoft Corporation in the United States and in  
+jurisdictions throughout the world. All other company and 
+product names are or may be trade names or trademarks of their 
+respective owners.

@@ -1,0 +1,16 @@
+<resourceDescriptor name="public" wsType="folder" uriString="/public" isNew="false">
+	<label><![CDATA[Public]]></label>
+	<creationDate>1317832318985</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value><![CDATA[com.jaspersoft.jasperserver.api.metadata.common.domain.Folder]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value><![CDATA[/]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value><![CDATA[0]]></value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value><![CDATA[false]]></value>
+	</resourceProperty>
+</resourceDescriptor>

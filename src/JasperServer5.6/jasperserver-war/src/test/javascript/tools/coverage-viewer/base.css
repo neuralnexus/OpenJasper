@@ -1,0 +1,165 @@
+h3{
+    margin-top: 3px;
+    margin-bottom: 0px;
+}
+
+body{
+    /*background-color: #FBFBFB;*/
+    overflow: hidden;
+}
+
+.toolButton {
+    margin: 3px;
+    padding: 1px;
+    position:relative;
+    top:8px;
+    width:20px;
+    height:20px;
+}
+
+.selected {
+    background-color:  #717a7e;
+}
+
+.entries{
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+.entry{
+    padding-left: 20px;
+    /*margin: 2px;*/
+    position: relative;
+    border: solid grey;
+    border-top-width: 1px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 1px;
+}
+
+.report{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+.fail{
+    padding-left: 28px;
+    background-image: url("fail.png");
+    background-repeat: no-repeat;
+    color: #BBB;
+}
+
+.high{
+    padding-left: 28px;
+    background-image: url("high.png");
+    background-repeat: no-repeat;
+    color: #111;
+    cursor: pointer;
+}
+
+.med{
+    padding-left: 28px;
+    background-image: url("med.png");
+    background-repeat: no-repeat;
+    color: #111;
+    cursor: pointer;
+}
+
+.low{
+    padding-left: 28px;
+    background-image: url("low.png");
+    background-repeat: no-repeat;
+    color: #111;
+    cursor: pointer;
+}
+
+.pointer{
+    /*position: absolute;*/
+    display: none;
+    /*background-image: url("pointer.png");*/
+    /*background-repeat: no-repeat;*/
+}
+
+#wrap{
+    /*width: 100%;*/
+    /*margin: 0 auto;*/
+    /*background-color: #FFF;*/
+    overflow: hidden;
+}
+
+#filter{
+    padding: 5px;
+    padding-bottom: 12px;
+    background-image:  url("filter_bkg.png");
+    border-radius: 10px;
+}
+
+#sidebar{
+    width: 24%;
+    float: left;
+    max-width: 380px;
+}
+
+#list {
+    float: left;
+    width: 75%;
+    height: 100%;
+    border: 2px solid grey;
+    margin: 0 5px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.failFilter{
+    width: 20px;
+    height: 20px;
+    background-image: url("fail.png");
+    float: left;
+}
+
+.lowFilter{
+    background-image: url("low.png");
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.filterInput{
+    float: left;
+}
+
+.filterControls{
+    float: left;
+}
+
+.filterControls div{
+    margin: 1px;
+    border: 1px solid #808080;
+    cursor: pointer;
+}
+
+.filters{
+    height: 35px;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    padding: 10px 0 0 7px;
+}
+
+.medFilter{
+    width: 20px;
+    height: 20px;
+    float: left;
+    background-image: url("med.png");
+}
+
+.highFilter{
+    width: 20px;
+    height: 20px;
+    float: left;
+    background-image: url("high.png");
+}

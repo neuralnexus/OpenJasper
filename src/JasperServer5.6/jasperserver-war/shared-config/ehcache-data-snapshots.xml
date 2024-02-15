@@ -1,0 +1,23 @@
+<ehcache name="dataSnapshots">
+
+    <diskStore path="${ehcache.disk.store.dir}/dataSnapshots"/>
+
+	<cache name="snapshotMetadata"
+		maxElementsInMemory="1000"
+		eternal="false" 
+		overflowToDisk="false"
+		timeToIdleSeconds="600"
+		timeToLiveSeconds="7200"
+		diskPersistent="false"
+        statistics="true"/>
+
+	<cache name="snapshotContents"
+		maxElementsInMemory="20"
+		eternal="false" 
+		overflowToDisk="false"
+		timeToIdleSeconds="600"
+		timeToLiveSeconds="7200"
+		diskPersistent="false"
+        statistics="true"/>
+
+</ehcache>

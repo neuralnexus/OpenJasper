@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<project name="production-tests" default="list_theme_files" basedir=".">
+    <description>Lists all theme file to be used by production tests. Files get into the JS repository</description>
+
+    <property name="name" value="production-tests"/>
+
+    <target name="list_theme_files">
+        <pathconvert targetos="unix" property="theme_files" pathsep="${line.separator}">
+            <path>
+                <fileset dir="${base_folder}">
+                    <filename name="themes/**" />
+                    <exclude name="**/reset.css"/>
+                </fileset>
+            </path>
+            <map from="${base_folder}${file.separator}" to="" />
+        </pathconvert>
+        <echo file="${output_folder}/theme_files_list.txt" message="${theme_files}" />
+        <echo message="Theme file list is stored in ${output_folder}/theme_files_list.txt" />
+    </target>
+
+</project>
+

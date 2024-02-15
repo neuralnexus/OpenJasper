@@ -1,0 +1,191 @@
+
+JasperIntelligence 1.1.0 Release
+
+1. Introduction
+
+2. Release Distributions
+	BitRock Installers for Linux and Windows
+	JasperIntelligence Web application WAR
+	iReport plugin for JasperServer
+
+3. Further Information
+
+4. Release Notes
+
+   Queries as Resources
+   Query-backed Input Controls
+   Enhanced Input Controls
+   Drill-through Reports
+   Drill-through Charts
+   Reports by Direct URL
+	
+
+1. Introduction
+
+
+JasperIntelligence is an open source business intelligence platform from 
+JasperSoft built by the team behind JasperReports, providing common services 
+like security and metadata management, and the capability to easily add 
+additional functionality. JasperIntelligence provides a managed,
+stand alone Web reporting environment, as well as being able to be embedded
+in existing Java Web applications, and services to a variety of technologies
+through Web services, including the LAMP stack. By focusing on a clean
+business API and using an advanced inversion of control architecture, 
+JasperIntelligence can be easily integrated and customized for your needs.
+
+The JasperServer Edition is specifically designed to provide a Web application
+around JasperReports, the most popular open source reporting solution. The 
+JasperServer Edition provides the ability to define and maintain JasperReports
+in a Web application and Web services environment.
+
+An extensible metadata repository defines all needed resources to run
+JasperReports in a secure environment. Report parameters can be defined so
+that the user can be prompted for required inputs as reports are run. Reports
+can be scheduled to run at required times and report output can be stored in
+a content repository and emailed.
+
+The JasperAnalysis Edition adds OLAP capabilities, leveraging the underlying
+services of the JasperIntelligence platform and extending the JasperServer 
+Edition. The metadata repository can contain and manage OLAP metadata and 
+connections. The JasperAnalysis Edition runs with an integrated ROLAP engine
+and can connect to other OLAP services through the XML/A Web Services protocol,
+such as Microsoft Analysis Services, SAP, SAS and Hyperion. The OLAP server can 
+run standalone providing secure, managed access to data warehouses and 
+providing options to address server scalability and reliability.
+
+Following soon will be:
+
+* Enhancements based on a defined roadmap and community requirements
+  and contributions
+* Metadata designers integrated with the platform
+* Data integration services (ETL)
+
+
+
+
+2. Release Distributions
+
+BitRock Installers for Linux and Windows
+
+These installers contain everything to install JasperIntelligence:
+* Java 1.5
+* Tomcat 5.5
+* MySQL 5.0
+* JasperIntelligence Web application WAR
+* iReport with JasperIntelligence plugin
+
+An installation wizard walks you through the setup, including:
+
+* JasperServer Edition
+* JasperAnalysis Edition
+* iReport with JasperIntelligence plugin
+* Server parameters
+* Example data
+
+If existing Java, Tomcat or MySQL instances are detected, you can opt 
+to use those instead of the separate versions included in the installer.
+
+The Linux version is certified to work with:
+* RedHat
+* Debian
+* SUSE
+* Gentoo
+
+
+
+JasperIntelligence Web application WAR
+
+A Web application providing the user interface for JasperIntelligence for 
+installation in Tomcat, JBoss and other Java application servers. Comes with
+an example database creation script for MySQL. Web services and scheduled jobs
+are provided by this WAR.
+
+
+
+
+iReport plugin for JasperIntelligence
+
+iReport is the most popular graphical report editor for JasperReports, allowing
+configuration, development and testing of JasperReports reports. It produces
+JasperReports JRXML files. iReport is supported by JasperSoft.
+
+This plugin extends iReport to allow the iReport user to connect to a 
+JasperIntelligence installation to browse the repository, and download and 
+upload resources needed for JasperServer report units. Reports can be tested
+by running them from iReport in the server. The connection between iReport and 
+JasperIntelligence is done through a Web Services interface.
+
+
+
+ 
+3. Further Information
+
+Project web site: 		   http://jasperintel.sourceforge.net
+JasperIntelligence on SourceForge: http://sourceforge.net/projects/jasperintel
+
+JasperReports project web site:    http://jasperreports.sourceforge.net
+JasperReports on SourceForge: 	   http://sourceforge.net/projects/jasperreports 
+
+iReport project web site:    	   http://ireport.sourceforge.net
+iReport on SourceForge: 	   http://sourceforge.net/projects/ireport 
+
+JasperSoft:			   http://www.jaspersoft.com
+
+
+
+4. Release Notes
+
+
+Queries as Resources
+
+Reusable queries can now be stores as resource in the repository. A report unit
+can reference an existing query from the repository, instead of relying on the
+query from the associated JRXML file. Furthermore, the queries can be written
+in other query languages than SQL, as long as the corresponding data source 
+they are executed against, supports it.
+
+
+
+Query-backed Input Controls
+
+List input controls can be filled with values returned by a reusable query from
+the repository, instead of a normal, predefined list of values.
+
+
+
+Enhanced Input Controls
+
+In addition to the existing single select input controls, radio button input
+controls, multi-select lists and checkbox list are now available, both backed
+by predefined list of values or by queries.
+
+
+
+Drill-through Reports
+
+The support for hyperlinks was enhanced so that other reports could be easily 
+linked from currently viewed report and the end user could navigate and drill
+through from one report to another to view more detailed information.
+Parameter values are passed along automatically from one report to the next 
+using a session context and in case mandatory parameters for a given report
+are missing, the input controls form that correspond to that particular report
+pops up and prompts for those missing parameters at the appropriate moment.
+
+
+
+Drill-through Charts
+
+The chart component in JasperReports was also enhanced so that it supports
+associating different hyperlinks to the different items that make up the chart
+graphic and be able to navigate to a different report by clicking on a specific
+are of the chart. This is now leveraged in JasperIntelligence where reports
+can be chained up and parameter information be passed automatically to achieve
+the drill-thought effect.
+
+
+
+Reports by Direct URL
+
+Reports from the repository can be now called directly and all their required
+parameters can be encoded in the URL, to avoid the intermediate input control
+form and/or the repository browser navigation to the report.

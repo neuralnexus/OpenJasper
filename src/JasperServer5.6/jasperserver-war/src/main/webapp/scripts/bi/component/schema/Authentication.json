@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "description": "Authentication Properties",
+    "properties":{
+        "url": {
+            "type" : "string",
+            "description": "Jasper Reports Server deployment URL"
+        },
+        "name": {
+            "type" : "string",
+            "description": "Name of the user to authenticate"
+        },
+        "password": {
+            "type" : "string",
+            "description": "Password of the user to authenticate"
+        },
+        "organization": {
+            "type": ["string", "null"],
+            "description": "Organization of the user to authenticate"
+        },
+        "locale": {
+            "type": "string",
+            "description": "Default user locale to use for this session. Can be overridden for particular user action"
+        },
+        "timezone": {
+            "type": "string",
+            "description": "Default user timezone to use for this session. Can be overridden for particular user action"
+        },
+        "token" : {
+            "type": "string",
+            "description": "SSO authentication token. If present, then all the rest parameters are ignored"
+        },
+        "loginFn": {
+            "type": "function",
+            "description": "A function to process login"
+        },
+        "logoutFn": {
+            "type": "function",
+            "description": "A function to process logout"
+        }
+    },
+    "required": ["url"]
+}

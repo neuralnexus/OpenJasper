@@ -1,0 +1,20 @@
+<resourceDescriptor name="SugarCRMDataSourceJNDI" wsType="jndi" uriString="/analysis/datasources/SugarCRMDataSourceJNDI"
+	isNew="false">
+	<label>SugarCRM Data Source JNDI</label>
+	<description>SugarCRM Data Source JNDI</description>
+	<creationDate>1318380229907</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.JndiJdbcReportDataSource
+		</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/analysis/datasources</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>0</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_DATASOURCE_JNDI_NAME">
+		<value>jdbc/sugarcrm</value>
+	</resourceProperty>
+</resourceDescriptor>
+</resourceDescriptor>

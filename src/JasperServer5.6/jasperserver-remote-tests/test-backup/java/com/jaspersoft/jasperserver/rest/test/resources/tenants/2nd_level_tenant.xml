@@ -1,0 +1,10 @@
+<tenant>
+    <alias>2_chiled</alias>
+    <id>2_chiled</id>
+    <parentId>2</parentId>
+    <tenantDesc>this is a 2_chiled</tenantDesc>
+    <tenantFolderUri>/organizations/2/organizations/2_chiled</tenantFolderUri>
+    <tenantName>2_chiled</tenantName>
+    <tenantUri>/2/2_chiled</tenantUri>
+    <theme>default</theme>
+</tenant>

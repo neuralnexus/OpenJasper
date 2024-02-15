@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- Backing action for edit folder flow -->
+	<bean id="editFolderAction" class="com.jaspersoft.jasperserver.war.action.EditFolderAction">
+		<property name="repository">
+			<ref bean="${bean.repositoryService}"/>
+		</property>
+		<property name="validator" ref="folderValidator"/>
+	</bean>
+
+	<bean id="folderValidator" class="com.jaspersoft.jasperserver.war.validation.FolderValidator">
+		<property name="repository">
+			<ref bean="${bean.repositoryService}"/>
+		</property>
+	</bean>
+</beans>

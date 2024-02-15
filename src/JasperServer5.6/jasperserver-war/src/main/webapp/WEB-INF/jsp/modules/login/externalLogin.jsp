@@ -1,0 +1,46 @@
+<%@ page import="com.jaspersoft.jasperserver.api.security.externalAuth.ExternalAuthProperties" %>
+<%--
+  ~ Copyright (C) 2005 - 2014 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased  a commercial license agreement from Jaspersoft,
+  ~ the following license terms  apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or  modify
+  ~ it under the terms of the GNU Affero General Public License  as
+  ~ published by the Free Software Foundation, either version 3 of  the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero  General Public License for more details.
+  ~
+  ~  You should have received a copy of the GNU Affero General Public  License
+  ~  along with this program. If not, see <http://www.gnu.org/licenses/>.
+  --%>
+
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+   <%
+       //force Ajax to reload the page during error handling in core.ajax.js
+       response.setHeader("LoginRequested","true");
+
+       //pass external login url to the page
+       String externalLoginUrl = "login.html";
+       if (request.getAttribute("externalAuthPropertiesBean") != null) {
+           final ExternalAuthProperties externalAuthPropertiesBean = (ExternalAuthProperties)request.getAttribute("externalAuthPropertiesBean");
+           final StringBuffer requestURL = request.getRequestURL();
+           final String authProcessingUrl = requestURL.substring(0, requestURL.indexOf(request.getContextPath()) + request.getContextPath().length()) + externalAuthPropertiesBean.getAuthenticationProcessingUrl();
+           externalLoginUrl = externalAuthPropertiesBean.getExternalLoginUrl() + "?" + externalAuthPropertiesBean.getServiceParameterName() + "=" + authProcessingUrl;
+       }
+
+       request.setAttribute("externalLoginUrl", externalLoginUrl);
+   %>
+  <%-- This allows us to avoid crossdomain redirects from ajax --%>
+  <c:if test="${not empty externalLoginUrl}">
+      <script type="text/javascript">
+          location='${externalLoginUrl}';
+      </script>
+  </c:if>
+

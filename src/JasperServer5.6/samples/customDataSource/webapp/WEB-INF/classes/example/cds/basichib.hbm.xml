@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="example.cds.BasicHib" table="basichib">
+		<id name="id" column="EVENT_ID">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="value"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jaspersoft.mondrian.workbench</groupId>
+    <artifactId>distribution</artifactId>
+    <packaging>pom</packaging>
+    <version>4.5.0</version>
+    <name>JasperAnalysis CE Schema Workbench</name>
+    <parent>
+        <groupId>com.jaspersoft.jasperserver</groupId>
+        <artifactId>server</artifactId>
+        <version>4.5.0</version>
+    </parent>
+    <modules>
+        <module>branding</module>
+        <module>package</module>
+    </modules>
+    <description>JasperAnalysis CE Schema Workbench</description>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <mondrian-version>3.6.4-JS-1</mondrian-version>
+    </properties>
+</project>

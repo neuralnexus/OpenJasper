@@ -1,0 +1,5 @@
+<role>
+    <externallyDefined>false</externallyDefined>
+    <roleName>ROLE_JUNIT</roleName>
+    <tenantId>organization_1</tenantId>
+</role>

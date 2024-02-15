@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Jasperserver Full CE Production Tests Test Suite">
+
+  <!-- this class creates the core CE data -->
+  <test name="CoreDataCreateTestNG">
+    <classes>
+      <class name="com.jaspersoft.jasperserver.test.CoreDataCreateTestNG" />
+    </classes>
+  </test>
+
+  <!-- this class exports resources associated with the core CE data -->
+  <test name="ExportResourcesCoreTestNG">
+    <classes>
+      <class name="com.jaspersoft.jasperserver.test.ExportResourcesCoreTestNG" />
+    </classes>
+  </test>
+
+  <!-- this class creates the full CE data -->
+  <test name="FullDataCreateTestNG">
+    <classes>
+      <class name="com.jaspersoft.jasperserver.test.FullDataCreateTestNG" />
+    </classes>
+  </test>
+
+  <!-- this class exports resources associated with the full CE data -->
+  <test name="ExportResourcesFullTestNG">
+    <classes>
+      <class name="com.jaspersoft.jasperserver.test.ExportResourcesFullTestNG" />
+    </classes>
+  </test>
+
+</suite>
+
+

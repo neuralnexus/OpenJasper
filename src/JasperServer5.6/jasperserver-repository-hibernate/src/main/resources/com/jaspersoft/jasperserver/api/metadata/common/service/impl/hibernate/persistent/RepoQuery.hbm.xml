@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoQuery"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIQuery">
+		<key column="id"/>
+		<many-to-one column="dataSource" name="dataSource" class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"/>
+		<property name="language" column="query_language" type="string" not-null="true" length="40"/>
+		<property name="sql" column="sql_query" type="text"  not-null="true" length="400000" />
+	</joined-subclass>
+</hibernate-mapping>

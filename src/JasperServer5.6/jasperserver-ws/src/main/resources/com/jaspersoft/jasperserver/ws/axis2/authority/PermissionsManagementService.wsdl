@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+	targetNamespace="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap"
+	xmlns:impl="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:intf="http://www.jasperforge.org/jasperserver/ws"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <wsdl:types>
+        <schema
+            targetNamespace="http://www.jasperforge.org/jasperserver/ws"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+            <import
+                namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+
+            <complexType name="WSObjectPermission">
+                <sequence>
+                    <element name="uri"
+                        type="xsd:string" />
+                    <element name="permissionRecipient" nillable="true"/>
+                    <element name="permissionMask"
+                        type="xsd:int" />
+                </sequence>
+            </complexType>
+
+            <complexType name="ArrayOfWSObjectPermission">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType"
+                            wsdl:arrayType="impl:WSObjectPermission[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+
+            <complexType name="WSUser">
+                <sequence>
+                    <element name="username"
+                        type="xsd:string" />
+                    <element name="fullName" nillable="true"
+                        type="xsd:string" />
+                    <element name="password" nillable="true"
+                        type="xsd:string" />
+                    <element name="emailAddress" nillable="true"
+                        type="xsd:string" />
+                    <element name="externallyDefined" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="enabled" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="previousPasswordChangeTime" nillable="true"
+                        type="xsd:date" />
+                    <element name="tenantId" nillable="true"
+                        type="xsd:string" />
+                     <element name="roles" nillable="true"
+                        type="impl:ArrayOfWSRole" />
+                </sequence>
+            </complexType>
+
+            <complexType name="WSRole">
+                <sequence>
+                    <element name="roleName" nillable="false"
+                        type="xsd:string" />
+                    <element name="externallyDefined" nillable="true"
+                        type="xsd:boolean" />
+                    <element name="tenantId" nillable="true"
+                        type="xsd:string" />
+                    <element name="users" nillable="true"
+                        type="impl:ArrayOfWSUser" />
+                </sequence>
+            </complexType>
+            
+            <complexType name="ArrayOfWSUser">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType"
+                            wsdl:arrayType="impl:WSUser[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+
+            <complexType name="ArrayOfWSRole">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType"
+                            wsdl:arrayType="impl:WSRole[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
+
+        </schema>
+    </wsdl:types>
+
+    <wsdl:message name="getPermissionsForObjectRequest">
+        <wsdl:part name="targetURI" type="xsd:string" />
+    </wsdl:message>
+
+    <wsdl:message name="getPermissionsForObjectResponse">
+        <wsdl:part name="permissions" type="impl:ArrayOfWSObjectPermission" />
+    </wsdl:message>
+
+    <wsdl:message name="putPermissionRequest">
+        <wsdl:part name="objectPermission" type="impl:WSObjectPermission" />
+    </wsdl:message>
+
+    <wsdl:message name="putPermissionResponse">
+        <wsdl:part name="WSObjectPermissionReturn" type="impl:WSObjectPermission" />
+    </wsdl:message>
+
+    <wsdl:message name="deletePermissionRequest">
+        <wsdl:part name="objectPermission" type="impl:WSObjectPermission" />
+    </wsdl:message>
+
+    <wsdl:message name="deletePermissionResponse">
+    </wsdl:message>
+
+	<wsdl:portType name="PermissionsManagement">
+
+        <!--WSObjectPermission[] getPermissionsForObject(String targetURI) - returns a list of permissions for a given repository object-->
+		<wsdl:operation name="getPermissionsForObject" parameterOrder="targetURI">
+			<wsdl:input message="impl:getPermissionsForObjectRequest"
+				name="getPermissionsForObjectRequest" />
+			<wsdl:output message="impl:getPermissionsForObjectResponse"
+				name="getPermissionsForObjectResponse" />
+		</wsdl:operation>
+
+        <!--WSObjectPermission putPermission(WSObjectPermission objPerm) - adds / updates a permission-->
+		<wsdl:operation name="putPermission" parameterOrder="objectPermission">
+			<wsdl:input message="impl:putPermissionRequest"
+				name="putPermissionRequest" />
+			<wsdl:output message="impl:putPermissionResponse"
+				name="putPermissionResponse" />
+		</wsdl:operation>
+
+        <!--void deletePermission(WSObjectPermission objPerm) - deletes a permission-->
+        <wsdl:operation name="deletePermission" parameterOrder="objectPermission">
+            <wsdl:input message="impl:deletePermissionRequest"
+                name="deletePermissionRequest" />
+            <wsdl:output message="impl:deletePermissionResponse"
+                name="deletePermissionResponse" />
+        </wsdl:operation>
+
+	</wsdl:portType>
+
+    <wsdl:binding name="PermissionsManagementServiceSoapBinding" type="impl:PermissionsManagement">
+
+        <wsdlsoap:binding style="rpc"
+            transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="getPermissionsForObject">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="getPermissionsForObjectRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="getPermissionsForObjectResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="putPermission">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="putPermissionRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="putPermissionResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="deletePermission">
+            <wsdlsoap:operation soapAction="" />
+            <wsdl:input name="deletePermissionRequest">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:input>
+            <wsdl:output name="deletePermissionResponse">
+                <wsdlsoap:body
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://www.jasperforge.org/jasperserver/ws"
+                    use="encoded" />
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+
+    <wsdl:service name="PermissionsManagementService">
+        <wsdl:port binding="impl:PermissionsManagementServiceSoapBinding"
+            name="PermissionsManagementServicePort">
+            <wsdlsoap:address
+                location="http://localhost:8080/jasperserver/services/PermissionsManagementService" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,458 @@
+<div id="addRole" class="error">
+    <input class="" id="addRoleName" type="text" maxlength="100" value=""/>
+    <button id="addRoleBtn" class="button action primary up">
+        <span class="wrap">Add Role to [Organization Name]</span>
+    </button>
+    <button id="cancelAddRoleBtn" class="button action up">dialog.file.cancel</button>
+</div>
+
+<div id="properties" class="column decorated tertiary sizeable maximized" style="width: 768px; ">
+
+
+<div class="sizer horizontal"></div>
+<button class="button minimize"></button>
+
+
+<div class="content hasFooter">
+
+
+<div class="header ">
+    <div class="title">
+        Properties
+    </div>
+
+
+</div>
+
+<div class="body  ">
+
+
+
+
+
+
+
+
+
+
+
+
+<!--/WEB-INF/jsp/templates/nothingToDisplay.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--/WEB-INF/jsp/templates/container.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="nothingToDisplay" class="panel info nothingToDisplay centered_vert centered_horz" style="position: absolute; top: 50%; left: 50%; bottom: 33%; right: 25%; min-width: 100px; margin-left: -187.5px; margin-top: -133.5px; ">
+
+
+
+
+    <div class="content">
+
+        <div class="header ">
+            <div class="title">
+
+            </div>
+
+
+        </div>
+
+        <div class="body  ">
+
+
+
+            <p class="message">Select a role to display its properties.</p>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<fieldset class="group">
+    <legend class="offLeft"><span>Name and Description</span></legend>
+    <label class="control input text" for="roleName" title="This is the permanent ID of the role. It cannot be changed.">
+        <span class="wrap">Role Name:</span>
+        <input class="" id="roleName" type="text" maxlength="100" value="" readonly="readonly">
+        <span class="message warning"></span>
+    </label>
+</fieldset>
+<fieldset class="group">
+    <div class="control checkBox">
+        <label class="wrap" for="externalRole" title="The role is defined externally.">
+            The role is defined externally.
+        </label>
+        <input id="externalRole" type="checkbox" checked="checked" disabled="disabled">
+    </div>
+</fieldset>
+<fieldset id="attributes" class="oneColumn">
+
+
+
+
+
+
+
+
+
+
+    <!--/WEB-INF/jsp/templates/container.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="assignedView" class="column decorated primary showingSubHeader">
+
+
+
+
+        <div class="content">
+
+            <div class="header ">
+                <div class="title">
+                    Users with Role
+                </div>
+
+                <div class="sub header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="anonymous_element_1" class="control searchLockup ">
+	<label for="assignedViewSearchInput" class="offLeft">Search</label>
+    <div class="wrap"><input type="text" class="" id="assignedViewSearchInput" tabindex="-1"></div>
+    <b class="right"><a class="button searchClear"></a></b>
+    <a class="button search up"></a>
+</span>
+
+
+
+
+                </div>
+
+
+            </div>
+
+            <div class="body  " id="anonymous_element_4">
+
+
+                <ul id="assignedViewList" class="list fields"></ul>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</fieldset>
+<fieldset id="editUsers" class="row twoColumn_equal pickWells" style="">
+<!-- start two columns -->
+<div id="moveButtons" class="centered_horz">
+    <button id="addToAssigned" class="button action square move right up"><span class="wrap"><b class="icon"></b></span></button>
+    <button id="removeFromAssigned" class="button action square move left up"><span class="wrap"><b class="icon"></b></span></button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--/WEB-INF/jsp/templates/container.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="assigned" class="column decorated primary showingSubHeader">
+
+
+
+
+    <div class="content">
+
+        <div class="header ">
+            <div class="title">
+                Users Assigned
+            </div>
+
+            <div class="sub header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="anonymous_element_3" class="control searchLockup ">
+	<label for="assignedSearchInput" class="offLeft">Search</label>
+    <div class="wrap"><input type="text" class="" id="assignedSearchInput" tabindex="-1"></div>
+    <b class="right"><a class="button searchClear"></a></b>
+    <a class="button search up"></a>
+</span>
+
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="body  " id="anonymous_element_6">
+
+
+            <ul id="assignedList" class="list collapsible fields"></ul>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--/WEB-INF/jsp/templates/container.jsp revision A-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="available" class="column decorated secondary sizeable showingSubHeader">
+
+
+    <div class="sizer horizontal"></div>
+    <button class="button minimize"></button>
+
+
+
+    <div class="content">
+
+        <div class="header ">
+            <div class="title">
+                Users Available
+            </div>
+
+            <div class="sub header">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="anonymous_element_2" class="control searchLockup ">
+	<label for="availableSearchInput" class="offLeft">Search</label>
+    <div class="wrap"><input type="text" class="" id="availableSearchInput" tabindex="-1"></div>
+    <b class="right"><a class="button searchClear"></a></b>
+    <a class="button search up"></a>
+</span>
+
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="body  " id="anonymous_element_5">
+
+
+            <ul id="availableList" class="list collapsible fields"></ul>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!-- end two columns -->
+</fieldset>
+
+
+</div>
+
+<div id="propertiesButtons" class="footer ">
+
+    <button id="edit" type="submit" class="button action primary up"><span class="wrap">Edit</span><span class="icon"></span></button>
+    <button id="save" type="submit" class="button action primary up"><span class="wrap">Save</span><span class="icon"></span></button>
+    <button id="delete" type="submit" class="button action up"><span class="wrap">Delete Role</span><span class="icon"></span></button>
+    <button id="cancel" type="submit" class="button action up"><span class="wrap">Cancel</span><span class="icon"></span></button>
+
+</div>
+
+</div>
+</div>

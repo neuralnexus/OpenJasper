@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="acceptConfirmation">
+    <action-state id="acceptConfirmation">
+        <evaluate expression="repositoryConfirmAction"/>
+        <transition on="success" to="redirect"/>
+    </action-state>
+    <end-state id="redirect" view="externalRedirect:flow.html?_flowId=searchFlow"/>
+    <bean-import resource="spring-config.xml"/>
+    <bean-import resource="repositoryConfirmBeans.xml"/>
+</flow>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class 
+			table="JIResourceFolder" 
+			name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoFolder">
+		<id name="id" type="long" >
+			<generator class="native"/>
+		</id>
+		<natural-id mutable="true">
+			<property name="URI" not-null="true" length="250" type="string" column="uri"/>
+		</natural-id>
+		<version column="version" unsaved-value="negative" name="version"/>
+		<set inverse="true" cascade="save-update,delete,delete-orphan" name="children">
+			<key column="parent_folder"/>
+			<one-to-many class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"/>
+		</set>
+		<set inverse="true" cascade="delete" name="subFolders">
+			<key column="parent_folder"/>
+			<one-to-many class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoFolder"/>
+		</set>
+		<property name="hidden" type="boolean" column="hidden"/>
+		<property name="name" not-null="true" length="100" type="string" column="name"/>
+		<property name="label" not-null="true" length="100" type="string" column="label"/>
+		<property name="description" length="250" type="string" column="description"/>
+		<many-to-one column="parent_folder" name="parent"/>
+		<property name="creationDate" not-null="true" type="timestamp" column="creation_date"/>
+		<property name="updateDate" not-null="true" type="timestamp" column="update_date"/>
+	</class>
+</hibernate-mapping>

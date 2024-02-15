@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <!-- Backing action for edit mondrian properties flow -->
+  <bean id="editMondrianPropertiesAction" class="com.jaspersoft.jasperserver.war.action.EditMondrianPropertiesAction">
+    <property name="repository">
+      <ref bean="${bean.repositoryService}"/>
+    </property>
+    <property name="auditContext" ref="${bean.auditContext}"/>
+    <property name="propertiesManagementService" ref="propertiesManagementService"/>
+  </bean>
+</beans>

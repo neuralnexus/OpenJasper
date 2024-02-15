@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.impl.RepoReportUnit"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIReportUnit">
+		<key column="id"/>
+		<many-to-one column="reportDataSource" name="dataSource" class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"/>
+		<many-to-one column="query" name="query"/>
+		<list table="JIReportUnitInputControl" name="inputControls">
+			<key column="report_unit_id"/>
+			<list-index column="control_index"/>
+			<many-to-many column="input_control_id" class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoInputControl"/>
+		</list>
+		<list table="JIReportUnitResource" name="resources">
+			<key column="report_unit_id"/>
+			<list-index column="resource_index"/>
+			<many-to-many column="resource_id" class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoFileResource"/>
+		</list>
+		<many-to-one column="mainReport" name="mainReport"/>
+		<property name="inputControlRenderingView" length="100" type="string" column="controlrenderer"/>
+		<property name="reportRenderingView" length="100" type="string" column="reportrenderer"/>
+		<property name="alwaysPromptControls" column="promptcontrols"/>
+		<property name="controlsLayout" column="controlslayout"/>
+		<property name="dataSnapshotId" column="data_snapshot_id" type="long"/>
+	</joined-subclass>
+</hibernate-mapping>

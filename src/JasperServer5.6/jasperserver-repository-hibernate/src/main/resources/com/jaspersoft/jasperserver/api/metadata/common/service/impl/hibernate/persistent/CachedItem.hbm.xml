@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class 
+			table="JIRepositoryCache" 
+			name="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.CachedItem">
+		<id name="id" type="long">
+			<generator class="native"/>
+		</id>
+		<natural-id mutable="false">
+			<property name="uri" not-null="true" length="250" type="string" column="uri"/>
+			<property name="cacheName" not-null="true" length="20" type="string" column="cache_name"/>
+		</natural-id>
+		<property name="data" type="com.jaspersoft.hibernate.ByteWrappingBlobType" length="20971520" column="data"/>
+		<property name="version" not-null="true" column="version"/>
+		<property name="versionDate" not-null="true" type="timestamp" column="version_date"/>
+		<many-to-one name="reference" column="item_reference" not-null="false" class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.CachedItem"/>
+		<set name="referrers" inverse="true" cascade="delete">
+			<key column="item_reference"/>
+			<one-to-many class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.CachedItem"/>
+		</set>
+	</class>
+</hibernate-mapping>

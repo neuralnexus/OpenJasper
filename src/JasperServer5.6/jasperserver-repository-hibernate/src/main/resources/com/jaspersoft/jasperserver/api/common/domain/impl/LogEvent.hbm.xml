@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="JILogEvent" name="com.jaspersoft.jasperserver.api.common.domain.impl.RepoLogEvent">
+    <id name="id"  type="long" unsaved-value="0">
+      <generator class="native"/>
+    </id>
+    <property name="occurrenceDate" column="occurrence_date" type="timestamp" not-null="true"/>
+    <property name="type" column="event_type" type="byte" not-null="true"/>
+    <property name="component" column="component" type="string" length="100"/>
+    <property name="messageCode" column="message" type="string" length="250" not-null="true"/>
+    <property name="resourceURI" column="resource_uri" type="string" length="250"/>
+    <property name="text" column="event_text" type="text" length="400000"/>
+    <property name="dataBlob" column="event_data" type="com.jaspersoft.hibernate.ByteWrappingBlobType" length="1048576"/>
+    <property name="state" column="event_state" type="byte"/>
+    <many-to-one name="user" column="userId" class="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoUser"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,196 @@
+
+JasperServer 3.1 Release Candidate
+
+Table of Contents
+
+1. Introduction
+2. Installation Notes
+3. What's New
+4. Known Issues
+5. Release Distributions
+6. Further Information
+
+
+-----------------------------------------------------------------
+1. Introduction
+
+JasperServer builds on JasperReports as a comprehensive family of
+Business Intelligence (BI) products, providing robust static and 
+interactive reporting, report server, and data analysis 
+capabilities. For business intelligence users, JasperSoft offers
+JasperAnalysis, which runs seamlessly on JasperServer. 
+
+These release notes describe the installation and available 
+functionality at a high level; for details, please refer to the 
+documentation, which is available at <install-dir>/docs
+after installation. In particular, refer to the installation 
+guide for instructions about installation tasks, such as running 
+the installer, creating and updating the database, and deploying 
+the WAR file.
+
+
+-----------------------------------------------------------------
+2. Installation Notes
+
+Once JasperServer is installed, the login page URL is:
+
+    http://<hostname>:<port>/jasperserver
+
+The default login page URL for Tomcat is:
+
+    http://<hostname>:8080/jasperserver
+
+During installation, a default administrative user is 
+created:
+
+    Username: jasperadmin
+    Password: jasperadmin
+
+If you install the sample data, and end user is also 
+created:
+
+    Username:  joeuser
+    Password:  joeuser
+
+
+-----------------------------------------------------------------
+3. What's New
+
+JasperServer now includes these features:
+
+    * iReport for NetBeans - The latest version of iReport is 
+      implemented using Sun's NetBeans technology. It also 
+      includes an improved user interface. This version of 
+      JasperServer includes the latest version of iReport.
+
+    * Chart Themes - JasperServer's default charting look and
+      feel has been updated and improved. Administrators can
+      also create new chart themes and apply them at the level
+      of either the server or the individual report.
+
+     * Components API - JasperServer now supports an Application Programming
+      Interface to allow the use of third party visual components, including
+      but not limited to charting solutions other than JFreeCharts
+      (JasperServer's default charting package). Using a different charting
+      package can allow you to create a wider range of charts or support
+      different appearances and behavior.
+
+    * 508 Complaint PDF output - JasperReports now can now 
+      produce PDF output that is compliant with Section 508 
+      Amendment to the Rehabilitation Act of 1973, which 
+      governs accessibility of software solutions for people 
+      with disabilities. This version of JasperServer includes 
+      the latest version of JasperReports. For more information,
+      about Section 508 Amendment to the Rehabilitation Act of 
+      1973, see http://www.section508.gov.
+
+
+
+
+-----------------------------------------------------------------
+4. Known Issues
+
+    * 10254: If your client application uses JasperServer's web 
+      services to retrieve JasperReports, your client application 
+      may crash when it tries to retrieve a report that includes 
+      a chart. This is caused by an incompatibility between 
+      JFreeCharts 1.0.0 and JFreeCharts 1.0.3. To retrieve 
+      reports with charts using the web services, you must 
+      upgrade your client application to use JFreeCharts version 
+      1.0.3.
+
+      For more information, visit the JFreeCharts website at:
+      http://www.jfree.org/
+
+    * 11634: The JasperServer installers (Windows and Linux) do 
+      not support special characters at the end of user entered 
+      passwords. Such characters include: & ; $
+      
+    * 11847: When JasperServer is installed using the bundled 
+      version of MySQL, and the computer already hosts a version
+      of MySQL, the installer may fail with an error indicating
+      that it couldn't connect to MySQL. This Windows-only problem
+      occurs intermittently. The workaround is to uninstall
+      JasperServer, reinstall it, and select the existing MySQL
+      option. JasperSoft will address this issue in a subsequent
+      release.      
+
+
+-----------------------------------------------------------------
+5. Release Distributions
+
+
+Installer Distribution
+
+    * Installer General Notes
+    
+        The installers contain all components needed to run 
+        the JasperServer Web Application. Bundled components
+        are the following:
+        
+        * Apache Tomcat 5.5
+        * MySQL 5.0
+        * Java JDK 1.5
+        * JasperServer 3.1
+        * iReport 3.1.2
+
+    * Installer Supported Operation Systems
+      (Only 32-bit operating systems are supported)
+    
+        * Linux Installer 
+        
+            * Red Hat Enterprise Linux 4.3 AS & ES
+            * Red Hat Enterprise Linux 5.0 AS & ES
+            * Novell SUSE Linux Enterprise 10.2
+            * Ubuntu 7.04 feisty
+        
+        * Windows Installer 
+        
+            * Windows Server 2003 (SP1)
+            * Windows XP (SP2)
+            * Windows Vista (SP1)
+              (The user that installs and runs JasperServer
+              must be an administrative user in Vista)
+        
+    * Installer Supported Installation Configurations
+    
+        * Bundled Tomcat with Bundled MySQL
+        * Bundled Tomcat with Existing MySQL
+        
+        * Existing Tomcat with Bundled MySQL
+        * Existing Tomcat with Existing MySQL
+
+
+War File Binary Distribution
+
+    The War File Binary Distrbution zip contains sample 
+    configurations and database setup scripts to support 
+    the following applications:
+    
+    * Apache Tomcat 5.5 and 6.0
+    * Java JDK 1.5 or 1.6
+    * MySQL 5.0
+
+
+-----------------------------------------------------------------
+6. Further Information
+
+Please contact JasperSoft by visiting our web site:
+
+    http://www.jaspersoft.com
+
+JasperSoft also encourages all its users to visit JasperForge, 
+the online home of our community:
+
+    http://jasperforge.org/
+
+-----------------------------------------------------------------
+Part Number: 1108-JSO31-3
+© 2008 JasperSoft Corporation. All rights reserved. Printed in 
+the U.S.A. JasperSoft, the JasperSoft logo, JasperAnalysis, 
+JasperServer, JasperETL, JasperReports, iReport, 
+and Jasper4 products are trademarks and/or registered trademarks 
+of JasperSoft Corporation in the United States and in  
+jurisdictions throughout the world. All other company and 
+product names are or may be trade names or trademarks of their 
+respective owners.

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<jboss-web>
+
+    <context-root>/jasperserver</context-root>
+    
+    <resource-ref>
+        <res-ref-name>jdbc/jasperserver</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/jdbc/jasperserver</jndi-name>
+    </resource-ref>
+    
+    <resource-ref>
+            <res-ref-name>jdbc/sugarcrm</res-ref-name>
+            <res-type>javax.sql.DataSource</res-type>
+            <jndi-name>java:/jdbc/sugarcrm</jndi-name>
+    </resource-ref>
+    
+    <resource-ref>
+        <res-ref-name>jdbc/foodmart</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/jdbc/foodmart</jndi-name>
+    </resource-ref>
+    
+</jboss-web>

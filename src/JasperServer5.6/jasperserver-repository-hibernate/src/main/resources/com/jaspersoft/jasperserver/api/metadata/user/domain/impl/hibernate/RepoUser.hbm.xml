@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="JIUser" name="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoUser">
+    <id type="long" column="id" name="id">
+      <generator class="native"/>
+    </id>
+    <natural-id mutable="true">
+      <property name="username" not-null="true" length="100" type="string" column="username"/>
+      <many-to-one name="tenant" column="tenantId" not-null="true"
+        class="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoTenant"/>
+    </natural-id>
+    <property name="fullName" not-null="true" length="100" type="string" column="fullname"/>
+    <property name="emailAddress" length="100" type="string" column="emailAddress"/>
+    <set table="JIUserRole" lazy="false" inverse="false" name="roles">
+      <key column="userId"/>
+      <many-to-many column="roleId" class="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoRole"/>
+    </set>
+    <property name="password" length="100" type="string" column="password"/>
+    <property name="externallyDefined" type="boolean" column="externallyDefined"/>
+    <property name="enabled" type="boolean" column="enabled"/>
+    <property name="previousPasswordChangeTime" type="timestamp" column="previousPasswordChangeTime"/>
+  </class>
+</hibernate-mapping>

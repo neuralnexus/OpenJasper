@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="JITenant" name="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoTenant">
+    <id type="long" column="id" name="id">
+      <generator class="native"/>
+    </id>
+    <natural-id>
+    	<property name="tenantId" type="string" length="100"/>
+    </natural-id>
+    <property name="tenantAlias" not-null="true" length="100" type="string" column="tenantAlias"/>
+    <many-to-one name="parent" column="parentId" not-null="false"
+      class="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoTenant"/>
+    <property name="tenantName" not-null="true" length="100" type="string" column="tenantName"/>
+    <property name="tenantDesc" not-null="false" length="250" type="string" column="tenantDesc"/>
+    <property name="tenantNote" not-null="false" length="250" type="string" column="tenantNote"/>
+    <property name="tenantUri" not-null="true" length="250" type="string" column="tenantUri"/>
+    <property name="tenantFolderUri" not-null="true" length="250" type="string" column="tenantFolderUri"/>
+    <property name="theme" not-null="false" length="250" type="string" column="theme"/>
+    <set name="subTenants" inverse="true">
+      <key column="parentId"/>
+      <one-to-many
+        class="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoTenant"/>
+    </set>
+    <set name="users" inverse="true" cascade="delete">
+      <key column="tenantId"/>
+      <one-to-many
+        class="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoUser"/>
+    </set>
+    <set name="roles" inverse="true">
+      <key column="tenantId"/>
+      <one-to-many
+        class="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoRole"/>
+    </set>
+  </class>
+</hibernate-mapping>

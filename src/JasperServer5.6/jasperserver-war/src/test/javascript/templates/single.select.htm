@@ -1,0 +1,20 @@
+<div class="sSelect collapsed" style="width: 250px;">
+    <label>{{=label}}{{ if (label) print(':'); }}</label>
+    <a class="sSelect-input" style="display: block;">
+        {{ print(value ? value : 'Select one...'); }}
+        <div class="sSelect-disclosureContainer">
+            <span class="sSelect-disclosure"></span>
+        </div>
+    </a>
+    <div class="sSelect-listContainer" style="width: 250px; position: absolute; z-index: 1001;">
+        <div class="sSelect-sSearch" style="z-index: 1010;white-space: nowrap;">
+                <span data-component-type="search" class="control searchLockup " >
+                    <div class="wrap">
+                        <input type="text" autocomplete="off">
+                    </div>
+                    <a class="button search up"></a>
+                </span>
+        </div>
+        <!-- list position -->
+    </div>
+</div>

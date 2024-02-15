@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- =============================================================== -->
+<!-- Ant own build file                                              -->
+<!-- =============================================================== -->
+
+<project name="jasperserver" default="all" basedir=".">
+  <description>Misc. operations</description>
+
+    
+  <!-- ============================================================= -->
+  <!-- Set timestamp                                                 -->
+  <!-- ============================================================= -->
+  <target name="timestamp">
+    
+    <!-- set timestamps -->
+    <tstamp/>
+    <!-- append some build related props to a prop file -->
+    <property name="ji_pro_props" value="${target}/internal/jasperserver.properties"/>
+    <echo file="${ji_pro_props}" append="true">
+<!-- PROJECT_VERSION=${project.version}-->
+OS_BUILD_DATE_STAMP=${DSTAMP}
+OS_BUILD_TIME_STAMP=${TSTAMP}
+</echo>
+  </target> 
+
+
+  <target name="all" depends="timestamp"/>
+
+</project>

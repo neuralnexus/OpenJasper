@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+    <globalConfiguration>
+        <parameter name="sendMultiRefs" value="false"/>
+        <parameter name="disablePrettyXML" value="true"/>
+        <parameter name="adminPassword" value="admin"/>
+        <!--<parameter name="attachments.Directory" value="attachments"/>-->
+        <parameter name="dotNetSoapEncFix" value="true"/>
+        <parameter name="enableNamespacePrefixOptimization" value="false"/>
+        <parameter name="sendXMLDeclaration" value="true"/>
+        <parameter name="sendXsiTypes" value="true"/>
+        <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+        <requestFlow>
+            <handler type="java:org.apache.axis.handlers.JWSHandler">
+                <parameter name="scope" value="session"/>
+            </handler>
+            <handler type="java:org.apache.axis.handlers.JWSHandler">
+                <parameter name="scope" value="request"/>
+                <parameter name="extension" value=".jwr"/>
+            </handler>
+        </requestFlow>
+    </globalConfiguration>
+    <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+    <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+    <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+    <handler name="LocaleContextSetter" type="java:com.jaspersoft.jasperserver.ws.axis2.util.LocaleHandler"/>
+    <service name="AdminService" provider="java:MSG">
+        <parameter name="allowedMethods" value="AdminService"/>
+        <parameter name="enableRemoteAdmin" value="false"/>
+        <parameter name="className" value="org.apache.axis.utils.Admin"/>
+        <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+    </service>
+    <service name="Version" provider="java:RPC">
+        <parameter name="allowedMethods" value="getVersion"/>
+        <parameter name="className" value="org.apache.axis.Version"/>
+    </service>
+    <service name="repository" provider="java:RPC">
+        <parameter name="allowedMethods" value="list get put delete runReport move copy"/>
+        <parameter name="className" value="com.jaspersoft.jasperserver.ws.axis2.ManagementService"/>
+    </service>
+    <service name="ReportScheduler" provider="java:RPC">
+        <requestFlow>
+            <handler type="LocaleContextSetter"/>
+        </requestFlow>
+        <responseFlow>
+            <handler type="LocaleContextSetter"/>
+        </responseFlow>
+        <parameter name="allowedMethods"
+                   value="getJob scheduleJob updateJob deleteJob deleteJobs getAllJobs getReportJobs"/>
+        <parameter name="className" value="com.jaspersoft.jasperserver.ws.axis2.scheduling.ReportScheduler"/>
+        <wsdlFile>/com/jaspersoft/jasperserver/ws/axis2/scheduling/ReportScheduler.wsdl</wsdlFile>
+        <namespace>http://www.jasperforge.org/jasperserver/ws</namespace>
+        <beanMapping qname="js:Job" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.Job"/>
+        <beanMapping qname="js:JobParameter" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.JobParameter"/>
+        <arrayMapping qname="js:JobParameters" innerType="js:JobParameter"
+                      xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                      languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.JobParameter[]"/>
+        <beanMapping qname="js:JobSimpleTrigger" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.JobSimpleTrigger"/>
+        <beanMapping qname="js:JobCalendarTrigger" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.JobCalendarTrigger"/>
+        <beanMapping qname="js:JobMailNotification" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.JobMailNotification"/>
+        <beanMapping qname="js:JobRepositoryDestination" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.JobRepositoryDestination"/>
+        <beanMapping qname="js:JobSummary" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.scheduling.JobSummary"/>
+    </service>
+    <service name="UserAndRoleManagementService" provider="java:RPC">
+        <requestFlow>
+            <handler type="LocaleContextSetter"/>
+        </requestFlow>
+        <responseFlow>
+            <handler type="LocaleContextSetter"/>
+        </responseFlow>
+
+        <parameter name="allowedMethods"
+                   value="findUsers putUser deleteUser findRoles putRole updateRoleName deleteRole"/>
+        <parameter name="className" value="com.jaspersoft.jasperserver.ws.axis2.authority.UserAndRoleManagement"/>
+        <wsdlFile>/com/jaspersoft/jasperserver/ws/axis2/authority/UserAndRoleManagementService.wsdl</wsdlFile>
+
+        <namespace>http://www.jasperforge.org/jasperserver/ws</namespace>
+
+        <beanMapping qname="js:WSUserSearchCriteria" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSUserSearchCriteria"/>
+        <beanMapping qname="js:WSRoleSearchCriteria" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSRoleSearchCriteria"/>
+        <beanMapping qname="js:WSUser" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSUser"/>
+        <beanMapping qname="js:WSRole" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSRole"/>
+        <arrayMapping qname="js:ArrayOfWSUser" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                      languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSUser[]"/>
+        <arrayMapping qname="js:ArrayOfWSRole" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                      languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSRole[]"/>
+    </service>
+
+    <service name="PermissionsManagementService" provider="java:RPC">
+        <requestFlow>
+            <handler type="LocaleContextSetter"/>
+        </requestFlow>
+        <responseFlow>
+            <handler type="LocaleContextSetter"/>
+        </responseFlow>
+
+        <parameter name="allowedMethods" value="*"/>
+        <parameter name="className" value="com.jaspersoft.jasperserver.ws.axis2.authority.PermissionsManagement"/>
+        <wsdlFile>/com/jaspersoft/jasperserver/ws/axis2/authority/PermissionsManagementService.wsdl</wsdlFile>
+
+        <namespace>http://www.jasperforge.org/jasperserver/ws</namespace>
+
+        <arrayMapping qname="js:ArrayOfWSObjectPermission" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                      languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSObjectPermission[]"/>
+        <beanMapping qname="js:WSObjectPermission" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSObjectPermission"/>
+        <beanMapping qname="js:WSUser" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSUser"/>
+        <beanMapping qname="js:WSRole" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                     languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSRole"/>
+        <arrayMapping qname="js:ArrayOfWSUser" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                      languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSUser[]"/>
+        <arrayMapping qname="js:ArrayOfWSRole" xmlns:js="http://www.jasperforge.org/jasperserver/ws"
+                      languageSpecificType="java:com.jaspersoft.jasperserver.ws.authority.WSRole[]"/>
+
+    </service>
+
+    <transport name="http">
+        <requestFlow>
+            <handler type="URLMapper"/>
+            <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+        </requestFlow>
+        <parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+        <parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+        <parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+        <parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+        <parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+        <parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+    </transport>
+    <transport name="local">
+        <responseFlow>
+            <handler type="LocalResponder"/>
+        </responseFlow>
+    </transport>
+</deployment>

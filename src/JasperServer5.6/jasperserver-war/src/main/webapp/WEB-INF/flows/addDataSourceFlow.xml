@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd" start-state="initAction">
+
+    <action-state id="initAction">
+        <evaluate expression="dataSourceAction"/>
+        <transition on="success" to="addNewDataSource"/>
+    </action-state>
+
+    <view-state id="addNewDataSource" view="modules/addResource/newDataSource/addNewDataSource">
+        <transition on="upload" to="ajaxView">
+            <evaluate expression="dataSourceAction.uploadJDBCDrivers"/>
+        </transition>
+    </view-state>
+
+    <!-- ajax views -->
+    <view-state id="ajaxView" view="ajax/ajaxresponse"/>
+
+    <view-state id="ajaxError" view="ajax/ajaxerror"/>
+
+    <bean-import resource="spring-config.xml"/>
+    <bean-import resource="reportDataSourceBeans.xml"/>
+
+</flow>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+    <class name="com.jaspersoft.jasperserver.export.modules.repository.beans.AwsDataSourceBean" extends="com.jaspersoft.jasperserver.export.modules.repository.beans.JdbcDataSourceBean">
+        <map-to xml="awsDataSource"/>
+        <field name="accessKey" type="string">
+            <bind-xml name="accessKey" node="element"/>
+        </field>
+        <field name="secretKey" type="string">
+            <bind-xml name="secretKey" node="element"/>
+        </field>
+        <field name="roleARN" type="string">
+            <bind-xml name="roleARN" node="element"/>
+        </field>
+        <field name="region" type="string">
+            <bind-xml name="region" node="element"/>
+        </field>
+        <field name="dbName" type="string">
+            <bind-xml name="dbName" node="element"/>
+        </field>
+        <field name="dbInstanceIdentifier" type="string">
+            <bind-xml name="dbInstanceIdentifier" node="element"/>
+        </field>
+        <field name="dbService" type="string">
+            <bind-xml name="dbService" node="element"/>
+        </field>
+    </class>
+</mapping>

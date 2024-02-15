@@ -1,0 +1,343 @@
+/*
+.overrides_custom css
+
+Place styles for simple UI customization in this file
+
+*/
+
+/* themes.css */
+
+body {
+	background-color:#5bcbf0;
+	position:relative;
+}
+
+
+#metaLinks li {
+	border-right:1px solid #666;
+}
+
+.palette08, 
+.button.action.primary.disabled, 
+.button.action.primary[disabled],  
+.tabSet.buttons.vertical [disabled]  {
+	color:#86a64e;
+}
+
+.palette08_bkgd { 
+	background-color:#a2c664; 
+}
+
+button.action.primary.up,
+.menu.primaryNav .up,
+.menu.primaryNav .wrap,
+.tabSet.vertical.buttons .button,
+.tabSet.horizontal.buttons .selected>.button>.wrap {
+	color:#559502;
+}
+
+.palette10_bkgd { 
+	background-color:#559502; 
+}
+
+.content .header>.title,
+.column.decorated.minimized .vtitle {
+    color: #666666;
+}
+
+
+.tabSet.vertical.buttons .button.over,
+.tabSet.vertical.buttons .button.pressed,
+.tabSet.vertical.buttons>.tab.selected>.button {
+	color:#FFF;
+}
+
+.palette14_bkgd,
+.palette15_bkgd,
+.palette16_bkgd {
+	background-color: transparent;
+}
+
+
+.selected:focus .resourcePath {
+	color:#68A4E1;
+}
+
+.selected .resourcePath {
+	color:#aaa;
+}
+
+.launcher {
+	color:#4698be;
+}
+
+.palette15, .button.capsule.down {
+	color:#004400;
+}
+
+.palette16, 
+.button.capsule.down.disabled, 
+.button.capsule.down[disabled], 
+.resourcePath {
+	color:#306F04;
+}
+
+.sky_bkgd {
+	background-color:#4698be;
+}
+
+.royal,
+.textAccent02,
+.tabSet .selected .button,
+.list.filters>li.selected>.wrap,
+.list.filters>.leaf>.wrap.pressed,
+.list.stepIndicator .selected>.wrap,
+.panel.info.system .message,
+.data.table .label,
+.control.path .step.pressed,
+a:focus, a:hover, a:active,
+a#about:hover, a#about:active  {
+	color:#217EB5;
+}
+
+.royal_bkgd,
+.menu.vertical li>.wrap.over,
+.list.responsive>li>.wrap.pressed,
+.list.responsive>li.selected:focus>.wrap,
+.list.responsive>li.selected:focus>.wrap.over,
+div:focus li.selected>.wrap {
+	background-color:#217EB5;
+}
+
+
+#metaLinks li,
+#metaLinks li a {
+	color:#373737;
+}
+
+.list.responsive>li.selected>.wrap {
+	background-color:#666;
+}
+
+
+.cerulean {
+	color:#134F91;
+}
+
+.cerulean_bkgd,
+.menu.vertical li>.wrap.pressed,
+.list.responsive>li>.wrap.pressed {
+	background-color:#134f91;
+}
+
+.button.action.jumbo {
+	color:#44c6f1;
+}
+
+#frame>.content>.header {
+	height:37px;
+	-moz-border-radius: 10px 10px 0px 0px;
+	-webkit-border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#e1edba), to(#8fbd04));
+	background: -moz-linear-gradient(top,#e1edba,#8fbd04);
+	border:1px solid f2f7e1;
+	border-bottom:1px solid #4eae00;
+}
+
+a#about, 
+a#about:hover, 
+a#about:active, 
+#frameFooter {
+	color:#3f5d3b;
+}
+
+#copyright {
+    color: #559502;
+}
+
+#about {
+    font-weight: bold;
+    left: 10px;
+    position: absolute;
+    top: 2px;
+}
+
+
+/* containers.css */
+
+.column.decorated {
+	margin:8px;
+}
+
+.banner {
+	background: url("images/banner_bkgd.png") repeat-y scroll 0 0 #94c011;
+	border-top: 1px solid #b5d261;
+	border-bottom: 1px solid #559502;
+   	height: 26px;
+	position: relative;
+}
+
+.menu.primaryNav .node > .wrap > .icon {
+	background-position:0 -719px;
+}
+
+.menu.primaryNav .node > .wrap.over > .icon {
+	background-position:0 -79px;
+}
+
+body:nth-of-type(1) .menu.primaryNav .node > .wrap > .icon {
+    background-position: 0 -719px;  /* Chrome + Safari hack */
+}
+
+body:nth-of-type(1) .menu.primaryNav .node > .wrap.over > .icon {
+    background-position: 0 -79px;  /* Chrome + Safari hack */
+}
+
+.menu.primaryNav #main_home .wrap.over > .icon, 
+.menu.primaryNav #main_home .wrap.pressed > .icon {
+	background-position:left -121px;
+}
+
+body:nth-of-type(1) .menu.primaryNav #main_home .wrap.over > .icon,
+body:nth-of-type(1) .menu.primaryNav #main_home .wrap.pressed > .icon {
+	background-position: left -121px; /* Chrome + Safari hack */
+}
+
+.menu.primaryNav .wrap.over,
+.menu.primaryNav .wrap.pressed {
+	background-image: url(images/menu_primaryNav_sprite.png)\9;  /* for all ie browsers */	
+	background-position: center top\9;                           /* for all ie browsers */	
+}
+
+.menu.primaryNav .wrap.over,
+.menu.primaryNav .wrap.pressed {
+	/* gradient end values are from #94c011 to #439000 */
+	background: url("images/menu_primaryNav_sprite.png") repeat-x scroll 0 0 #439000;
+}
+
+.menu.vertical {
+	border:none \9; /* for all ie browsers */	
+}
+
+#frameFooter {
+	background: url("images/footer_bkgd.png") repeat-y scroll 0 0 #e1eebb;
+	border-top: 1px solid #559502;
+	border-bottom: 1px solid #b5d261;
+}
+
+/* buttons.css */
+
+.action {
+	*height:29px; /* prevents misalignment of footer buttons in IE7 */
+}
+
+.action.jumbo {
+	*height:auto;
+}
+
+.action.jumbo.up.over {   
+	color:#8FBD04;
+	border:1px solid #8FBD04;
+}
+
+.action.jumbo.up.pressed {   
+	color:#439000;
+	border:1px solid #439000;
+}
+
+.action.jumbo.pressed {
+	background-color: #6db000;  
+	-moz-box-shadow: 0px 0px 0px;
+	-webkit-box-shadow: 0px 0px 0px ;
+	box-shadow: 0px 0px 0px;
+}
+
+.action.jumbo>.wrap {
+	left:-5px;
+}
+
+.action.primary {
+	background: url("images/button_action_primary_sprite.png") repeat-x scroll 0 0 #85c404;
+	*height:29px;
+}
+
+.action.primary.over {
+	background-color:#139600;
+}
+
+.action.primary.pressed {
+	background-color:#109600;
+}
+
+.button.capsule.up.over {
+	*background-color:#98cb00; /* prevents orange outline from appearing in IE7 */
+}
+
+
+/* pages.css */
+
+.twoColumn > .primary.column, .body.twoColumn > .primary.column, .row.twoColumn > .primary.column {
+    display: block;
+    left: 200px;
+    margin-left: 18px;
+    right: 0;
+}
+
+.threeColumn > .primary.column, .body.threeColumn > .primary.column, .row.threeColumn > .primary.column {
+    display: block;
+    left: 200px;
+    margin-left: 18px;
+    margin-right: 18px;
+    right: 200px;
+}
+
+
+/* controls.css */
+
+#globalSearch.searchLockup > .wrap {
+    border: 1px solid #559502;
+    padding-left: 0;
+    padding-right: 22px;
+}
+
+#globalSearch .button.search {
+    border-left: 2px solid #559502;
+}
+
+.tabSet.horizontal.buttons li {
+	margin:0 3px;
+}
+
+
+/* pageSpecific.css */
+
+#loginPage .wrapper {
+    bottom: 8px;
+    left: 8px;
+    margin: 0;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+#manage_users .twoColumn.manager > .primary.column,
+#manage_roles .twoColumn.manager > .primary.column {
+	left:0;
+	margin-left:5px;
+	margin-right:15px;
+}
+
+
+/* samples.css */
+
+#menus .horizontalNav .header {
+	position: relative;
+	height:35px;
+	line-height: 35px;
+	-moz-border-top-left-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#e1edba), to(#8fdb04));
+	background: -moz-linear-gradient(top,#e1edba,#8fdb04);
+}

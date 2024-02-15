@@ -1,0 +1,69 @@
+<div id="users" class="column decorated primary showingToolBar">
+    <!--cosmetic-->
+    <div class="corner top right"></div>
+    <div class="corner top left"></div>
+    <div class="corner bottom right"></div>
+    <div class="corner bottom left"></div>
+    <div class="edge rl right"></div>
+    <div class="edge rl left"></div>
+    <div class="edge tb top"></div>
+    <div class="edge tb bottom"></div>
+    <!--/cosmetic-->
+    <div class="content">
+        <div class="header ">
+            <div class="cosmetic"></div>
+
+            <div class="title">
+
+                Users
+
+            </div>
+    <span id="secondarySearchBox" class="control searchLockup ">
+        <label for="secondarySearchInput" class="offLeft">Search</label>
+        <div class="wrap"><input type="text" class="" id="secondarySearchInput" tabIndex="-1"/></div>
+        <b class="right"><a class="button searchClear"></a></b>
+        <a class="button search up"></a>
+    </span>
+            <div class="toolbar">
+                <ul class="list buttonSet">
+                    <li class="node open">
+                        <ul class="list buttonSet">
+
+                            <li class="leaf">
+                                <button id="addNewUserBtn" class="button capsule up"><span
+                                        class="wrap">Add User...</span><span class="icon"></span></button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="node open">
+                        <!-- NOTE: This node here in reference to bugzilla#13160, do not include unless bug given target/priority for Ruby -->
+                        <ul class="list buttonSet">
+                            <li class="leaf">
+                                <button id="enableAllUsersBtn" class="button capsule first up" disabled="disabled"><span
+                                        class="wrap">Enable</span><span class="icon"></span></button>
+                            </li>
+                            <li class="leaf">
+                                <button id="disableAllUsersBtn" class="button capsule middle up" disabled="disabled">
+                                    <span class="wrap">Disable</span><span class="icon"></span></button>
+                            </li>
+                            <li class="leaf">
+                                <button id="deleteAllUsersBtn" class="button capsule last up" disabled="disabled"><span
+                                        class="wrap">Delete</span><span class="icon"></span></button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="listContainer" class="body  ">
+            <ol id="entitiesList"></ol>
+        </div>
+        <div class="footer ">
+        </div>
+    </div>
+</div>
+
+<form name="loginAsForm" id="loginAsForm" method="post" action="j_spring_switch_user">
+    <input type="hidden" name="j_username" id="j_username">
+</form>

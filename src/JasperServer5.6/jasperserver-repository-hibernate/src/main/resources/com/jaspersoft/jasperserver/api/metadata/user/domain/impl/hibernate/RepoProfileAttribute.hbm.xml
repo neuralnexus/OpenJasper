@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class table="JIProfileAttribute" name="com.jaspersoft.jasperserver.api.metadata.user.domain.impl.hibernate.RepoProfileAttribute">
+    <id name="id" type="long" >
+      <generator class="native"/>
+    </id>
+    <property column="attrName" name="attrName" type="string" length="255" not-null="true" />
+    <property column="attrValue" name="attrValue" type="string" length="255" not-null="true" />
+    <any name="principal" id-type="long">
+      <column name="principalobjectclass" length="255" not-null="true"/>
+      <column name="principalobjectid" not-null="true"/>
+    </any>
+  </class>
+</hibernate-mapping>

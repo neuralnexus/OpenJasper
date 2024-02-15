@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user>
+	<enabled>true</enabled>
+	<externallyDefined>false</externallyDefined>
+	<fullName>JUNIT_USER</fullName>
+	<password>JUNIT_USER</password>
+	<previousPasswordChangeTime>2011-10-03T16:54:30.887-07:00
+	</previousPasswordChangeTime>
+	<roles>
+		<externallyDefined>false</externallyDefined>
+		<roleName>ROLE_USER</roleName>
+	</roles>
+	<roles>
+		<externallyDefined>false</externallyDefined>
+		<roleName>ROLE_ADMINISTRATOR</roleName>
+	</roles>
+	<username>JUNIT_USER</username>
+</user>

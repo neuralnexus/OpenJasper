@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+       xmlns:util="http://www.springframework.org/schema/util"
+       default-lazy-init="true">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:js.spring.properties" />
+    </bean>
+
+    <bean id="exportImportMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="useCodeAsDefaultMessage" value="true"/>
+        <property name="basenames">
+            <list>
+                <value>bundles.ji-export-messages</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="helpPrintBean" class="com.jaspersoft.jasperserver.export.CommandHelpImpl">
+        <property name="messageSource" ref="exportImportMessageSource"/>
+        <property name="startMessage" value="ji.export.help.header"/>
+        <property name="argDescriptionMessagePrefix" value="ji.export.arg.description."/>
+        <property name="argLinePrefix" value="  "/>
+        <property name="argLineSeparator" value="  "/>
+    </bean>
+
+    <bean id="importCommandMetadata" class="com.jaspersoft.jasperserver.export.CommandMetadataImpl">
+        <property name="argumentNames" ref="${list.importCommandMetadataArgNames}" />
+    </bean>
+
+    <util:list id="importCommandMetadataArgNames">
+        <value>help</value>
+        <value>input-dir</value>
+        <value>input-zip</value>
+        <value>update</value>
+        <value>update-core-users</value>
+        <value>skip-user-update</value>
+        <value>include-access-events</value>
+        <value>include-server-settings</value>
+        <value>skip-themes</value>
+    </util:list>
+
+    <bean id="exportCommandMetadata" class="com.jaspersoft.jasperserver.export.CommandMetadataImpl">
+        <property name="argumentNames" ref="${list.exportCommandMetadataArgNames}" />
+    </bean>
+
+    <util:list id="exportCommandMetadataArgNames">
+        <value>help</value>
+        <value>output-dir</value>
+        <value>output-zip</value>
+        <value>everything</value>
+        <value>roles</value>
+        <value>role-users</value>
+        <value>users</value>
+        <value>uris</value>
+        <value>repository-permissions</value>
+        <value>report-jobs</value>
+        <value>calendars</value>
+        <value>include-access-events</value>
+        <value>include-server-settings</value>
+    </util:list>
+
+</beans>

@@ -1,0 +1,19 @@
+<permissions>
+	<users>
+		<user>
+			<username>joeuser</username>
+			<name>Joe User</name>
+			<permission>2</permission>
+		</user>
+	</users>
+	<roles>
+		<role>
+			<name>ROLE_ETL_ADMIN</name>
+			<permission>2</permission>
+		</role>
+		<role>
+			<name>ROLE_USER</name>
+			<permission>2</permission>
+		</role>
+	</roles>
+</permissions>

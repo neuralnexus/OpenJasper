@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.impl.datasource.RepoVirtualDataSource"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIVirtualDatasource">
+		<key column="id"/>
+        <map name="dataSourceUriMap" table="JIVirtualDataSourceUriMap">
+            <key column="virtualDS_id"/>
+            <map-key column="data_source_name" type="string" length="100"/>
+            <many-to-many column="resource_id" class="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"/>
+        </map>
+		<property name="timezone" length="100" type="string" column="timezone"/>
+	</joined-subclass>
+</hibernate-mapping>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JRS - JavaScript Unit Tests</title>
+        <link rel="shortcut icon" type="image/png" href="lib/jasmine/jasmine_favicon.png">
+        <link rel="stylesheet" type="text/css" href="lib/jasmine/jasmine.css">
+        <!--Workaround for CSS-->
+        <link rel="stylesheet" type="text/css" href="tools/testEnvironment.css">
+
+
+        <script>
+            // Define paths for resources to be loaded during unit testing.
+            // (define them as a module).
+            jrsConfigs = {};
+            if (document.cookie.indexOf("phantomJS=true") == -1) {
+                // yes, we are running in native-browser environment
+                jrsConfigs = {
+                    srcPath : "/main/webapp/scripts",
+					srcRequireJSPath : "/main/webapp/scripts",
+                    srcTools : "/main/tools",
+                    testPath :   "/test/javascript/test",
+                    testTemplatePath :   "/test/javascript/templates",
+                    testLibPath :   "/test/javascript/lib"
+                };
+            }
+            else {
+                // we are running in PhantomJS environment
+                jrsConfigs = {
+                    srcPath : "src",
+					srcRequireJSPath : ".",
+                    srcTools : "srcTools",
+                    testPath :   "../test",
+                    testTemplatePath :   "../templates",
+                    testLibPath :   "../lib"
+                };
+            }
+
+            // Now, check in what edition (CE or PRO) we are running.
+            // For now here goes simple logic: if not CE, then PRO !
+            // The CE edition can be set in 'js-tests.xml' file, since it's the only place where
+            // CE-specific unit tests can be launched. Usually we launch PRO tests.
+            __edition__ = "ce";
+            if (document.cookie.indexOf("edition=ce") !== -1) {
+                __edition__ = "ce";
+            }
+
+            console.log("Edition to perform JS Unit tests: ", __edition__);
+        </script>
+
+        <!-- Setup dependency manager -->
+        <script data-main="app.tests.main" type="text/javascript" src="require-jquery.js"></script>
+    </head>
+    <body>
+    </body>
+</html>

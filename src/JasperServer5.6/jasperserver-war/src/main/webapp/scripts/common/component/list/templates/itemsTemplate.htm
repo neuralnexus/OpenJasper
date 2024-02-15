@@ -1,0 +1,7 @@
+<ul class="list" style="top: {{= top}}px; position: relative;">
+    {{_.each(items, function(item) { }}
+    <li class="leaf {{ if (item.selected) print('selected'); }}" data-index="{{= item.index}}">
+        <div>{{ print(item.label && item.label.trim() ? item.label : '&nbsp;')}}</div>
+    </li>
+    {{ }); }}
+</ul>

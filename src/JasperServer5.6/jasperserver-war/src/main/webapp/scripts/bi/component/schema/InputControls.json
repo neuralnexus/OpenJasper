@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "server": {
+            "type": "string",
+            "description": "Url to JRS instance."
+        },
+        "resource": {
+            "type": "string",
+            "description": "URI of resource with input controls.",
+            "pattern": "^/[^/~!#\\$%^|\\s`@&*()\\-+={}\\[\\]:;\"'<>,?/\\|\\\\]+(/[^/~!#\\$%^|\\s`@&*()\\-+={}\\[\\]:;\"'<>,?/\\|\\\\]+)*$"
+        },
+        "params": {
+            "type": "object",
+            "description": "Parameters for input controls.",
+            "additionalProperties": {
+                "type": "array"
+            }
+        }
+    },
+    "required": ["server", "resource"]
+}

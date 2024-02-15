@@ -1,0 +1,28 @@
+<resourceDescriptor name="JUNIT_LIST_OF_VALUES" wsType="lov" uriString="/ContentFiles/JUNIT_LIST_OF_VALUES" isNew="false">
+	<label>UPDATED JUNIT LIST OF VALUES</label>
+	<description>UPDATED PART OF JUNIT</description>
+	<creationDate>1310164227000</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.common.domain.ListOfValues</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/ContentFiles</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>0</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_IS_REFERENCE">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_LOV">
+		<resourceProperty name="1">
+			<value>1</value>
+		</resourceProperty>
+		<resourceProperty name="2">
+			<value>2</value>
+		</resourceProperty>
+	</resourceProperty>
+</resourceDescriptor>

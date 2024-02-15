@@ -1,0 +1,20 @@
+<resourceDescriptor name="JUNIT_OLAP_CLIENT_CONNECTION_TEST" wsType="olapMondrianCon" uriString="/ContentFiles/JUNIT_OLAP_CLIENT_CONNECTION_TEST" isNew="true">
+	<label>JUNIT OLAP CLIENT CONNECTION</label>
+	<description>PART OF JUNIT</description>
+	<creationDate>1310165425000</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.olap.domain.MondrianConnection</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/ContentFiles</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>1</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_IS_REFERENCE">
+		<value>false</value>
+	</resourceProperty>
+</resourceDescriptor>

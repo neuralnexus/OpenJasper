@@ -1,0 +1,254 @@
+
+JasperServer 3.5.0 Release
+
+Table of Contents
+
+1. Introduction
+2. Installation Notes
+3. Upgrade Notes
+4. What's New
+5. Known Issues
+6. Release Distributions
+7. Further Information
+
+
+-----------------------------------------------------------------
+1. Introduction
+
+JasperServer builds on JasperReports as a comprehensive family
+of Business Intelligence (BI) products, providing robust static
+and interactive reporting, report server, and data analysis 
+capabilities. For business intelligence users, Jaspersoft offers
+JasperAnalysis, which runs seamlessly on JasperServer. 
+
+These release notes describe the installation and available 
+functionality at a high level; for details, please refer to the 
+documentation, which is available at <js-install>/docs
+after installation. 
+
+
+-----------------------------------------------------------------
+2. Installation Notes
+
+For information on JasperServer installation, refer to the
+install guide which is found at:
+
+    <js-install>/docs/JasperServer-Install-Guide.pdf
+
+Once JasperServer is installed, the login page URL is:
+
+    http://<hostname>:<port>/jasperserver
+
+The default login page URL for Tomcat is:
+
+    http://<hostname>:8080/jasperserver
+
+During installation, a default administrative user is 
+created:
+
+    Username: jasperadmin
+    Password: jasperadmin
+
+If you install the sample data, an end user is also 
+created:
+
+    Username:  joeuser
+    Password:  joeuser
+
+
+-----------------------------------------------------------------
+3. Upgrade Notes
+
+In JasperServer 3.5, user password encryption has been turned 
+on by default to enhance security. Because most pre-3.5 
+customers have not been running with encryption enabled, the 
+upgrade steps need to account for this change. After the 
+completed upgrade, users will not be able to login to 
+JasperServer if the JIUser.password column has plain text
+passwords.
+
+In the Install Guide the recommended upgrade procedure uses the
+new buildomatic scripts (and import-export) to handle upgrade.
+In this case, password encryption from 3.1 to 3.5 is handled
+automatically. 
+
+See section 7, "Upgrade from JasperServer 3.0 or 3.1 to 3.5"
+in the <js-install>/docs/JasperServer-Install-Guide.pdf for
+detailed upgrade steps.
+
+The script: 
+
+<js-install>/scripts/upgrade/upgrade-mysql-3.1.0-3.5.0-WARNING.sql
+
+does not handle password encryption automatically. If this script
+is run, all passwords will still be unencrypted. See the comments
+at the top of the script file for hints on how to handle 
+encryption on the upgrade scenario.
+
+
+-----------------------------------------------------------------
+4. What's New
+
+JasperServer now includes these features:
+
+ * Upgrade Mondrian to 3.0
+   - Dimension sharing within a cube
+   - Support for dozens of new scalar functions in MDX
+
+ * New JasperAnalysis UI 
+   - Improved look and feel as well as an improved tool bar 
+     within analysis views. 
+
+ * Encrypt JDBC password
+   - Export/Import now supports encryption of JDBC passwords.
+   
+ * Encrypt User password
+   - User password encryption is now turned on by default.
+
+ * Configurable Scheduler Intervals
+   - The admin can decide which recurrence options are 
+     displayed to users by editing the recurrenceIntervalUnits 
+     bean in the WEB-INF/flows/reportJobBeans.xml.
+
+ * Support for Gantt Charts in JasperReports (and bundled 
+   iReport)
+   - JasperReports, the Java reporting library at the heart 
+     of JasperServer now supports Gantt charts.
+
+ * Revamped user and role pages
+   - Includes support for large numbers of users, including 
+     search.
+
+ * XML-based Chart Themes
+   - iReport includes the ability to create and edit chart themes
+     in a visual editor (rather than requiring programming 
+     skills as was previously the case).
+
+ * Font Extensions
+   - JasperReports leverages its existing extension support to 
+     allow the use of TTF files in report templates without 
+     installing them into the system; the same logical font 
+     name can be resolved into different TTF files depending 
+     on the locale, covering multiple languages.
+
+ * Multiple Scriplets per Report and Report Governors
+   - JasperReports now allows multiple scriplet instances per 
+     report template. Some such scriptlets can be declared 
+     globally to act as report governors, preventing invalid 
+     report layouts from causing infinite loops when the report
+     is filled. JasperServer also provides default governor 
+     implementations that limit report execution based on a 
+     maximum number of pages and/or timeout.
+
+
+-----------------------------------------------------------------
+5. Known Issues
+
+ * 10254: If your client application uses JasperServer's web 
+   services to retrieve JasperReports, your client application 
+   may crash when it tries to retrieve a report that includes 
+   a chart. This is caused by an incompatibility between 
+   JFreeCharts 1.0.0 and JFreeCharts 1.0.3. You man encounter 
+   this issue when upgrading from JasperServer 2.1. To retrieve 
+   reports with charts using the web services, you must 
+   upgrade your client application to use JFreeCharts version 
+   1.0.3.
+
+   For more information, visit the JFreeCharts website at:
+   http://www.jfree.org/
+
+ * 11634: The JasperServer installers (Windows and Linux) do 
+   not support special characters at the end of user entered 
+   passwords. Such characters include: & ; $
+      
+ * 11847: When JasperServer is installed using the bundled 
+   version of MySQL, and the computer already hosts a version
+   of MySQL, the installer may fail with an error indicating
+   that it couldn't connect to MySQL. This Windows-only problem
+   occurs intermittently. The workaround is to uninstall
+   JasperServer, reinstall it, and select the existing MySQL
+   option.     
+
+
+-----------------------------------------------------------------
+6. Release Distributions
+
+
+Installer Distribution
+
+    * Installer General Notes
+    
+        The installers contain all components needed to run 
+        the JasperServer Web Application. Bundled components
+        are the following:
+        
+        * Apache Tomcat 5.5
+        * MySQL 5.0
+        * Java JDK 1.5
+        * JasperServer 3.5.0
+        * iReport 3.5.0
+
+    * Installer Supported Operation Systems
+      (Only 32-bit operating systems are supported)
+    
+        * Linux Installer 
+        
+            * Red Hat Enterprise Linux 4.3 AS & ES
+            * Red Hat Enterprise Linux 5.2 AS & ES
+            * Fedora 9, 10
+            * Ubuntu 7.04, Feisty, 8.04 Hardy
+            * Debian 5.0
+            * Novell SUSE Linux Enterprise 10.2, 11.1
+            * CentOS 5.2
+        
+        * Windows Installer 
+        
+            * Windows Server 2003 (SP1)
+            * Windows XP (SP2)
+            * Windows Vista (SP1)
+              (The user that installs and runs JasperServer
+              must be an administrative user in Vista)
+        
+    * Installer Supported Installation Configurations
+    
+        * Bundled Tomcat with Bundled MySQL
+        * Bundled Tomcat with Existing MySQL
+        
+        * Existing Tomcat with Bundled MySQL
+        * Existing Tomcat with Existing MySQL
+
+
+War File Binary Distribution
+
+    The War File Binary Distribution zip contains sample 
+    configurations and database setup scripts to support 
+    the following applications:
+    
+    * Apache Tomcat 5.5 and 6.0
+    * Java JDK 1.5 or 1.6
+    * MySQL 5.0
+
+
+-----------------------------------------------------------------
+7. Further Information
+
+Please contact Jaspersoft by visiting our web site:
+
+    http://www.jaspersoft.com
+
+Jaspersoft also encourages all its users to visit JasperForge, 
+the online home of our community:
+
+    http://jasperforge.org/
+
+
+-----------------------------------------------------------------
+Part Number: 0409-JSO35-5
+© 2009 Jaspersoft Corporation. All rights reserved. Printed in 
+the U.S.A. Jaspersoft, the Jaspersoft logo, JasperAnalysis, 
+JasperServer, JasperETL, JasperReports, iReport, 
+and Jasper4 products are trademarks and/or registered trademarks 
+of Jaspersoft Corporation in the United States and in  
+jurisdictions throughout the world. All other company and 
+product names are or may be trade names or trademarks of their 
+respective owners.

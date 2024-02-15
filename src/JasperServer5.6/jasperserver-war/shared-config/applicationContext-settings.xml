@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    <alias name="${bean.settingsGroups}" alias="settingsGroups"/>
+    <bean id="settingsGroupsCE" class="java.util.HashMap">
+        <constructor-arg index="0">
+            <map>
+                <entry key="dataSourcePatterns" value-ref="dataSourcePatterns"/>
+                <entry key="userTimeZones" value-ref="userTimeZonesSettingsProvider"/>
+                <entry key="globalConfiguration" value-ref="configurationBean"/>
+                <entry key="awsSettings" value-ref="awsSettingsProvider"/>
+                <entry key="jasperreports" value-ref="jasperreports"/>
+                <entry key="clientLogging" value-ref="clientLogging"/>
+                <entry key="dateTimeSettings" value-ref="dateTimeSettingsProvider"/>
+                <entry key="decimalFormatSymbols" value-ref="decimalFormatSymbolsProvider"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <util:map id="dataSourcePatterns">
+        <entry key="dbHost">
+            <value><![CDATA[^[\p{L}\p{M}\p{N}_.,\-]+$]]></value>
+        </entry>
+        <entry key="dbPort">
+            <value><![CDATA[^[\p{L}\p{M}\p{N}_.,\-]+$]]></value>
+        </entry>
+        <entry key="dbName">
+            <value><![CDATA[^[\p{L}\p{M}\p{N}\s_.,\-}{]+$]]></value>
+        </entry>
+        <entry key="sName">
+            <value><![CDATA[^[\p{L}\p{M}\p{N}\s_.,\-}{]+$]]></value>
+        </entry>
+        <entry key="driverType">
+            <value><![CDATA[^[1|2|3|4]{1}$]]></value>
+        </entry>
+        <entry key="schemaName">
+            <value><![CDATA[^[\p{L}\p{M}\p{N}\s_.,\-}{]+$]]></value>
+        </entry>
+        <entry key="informixServerName">
+            <value><![CDATA[^[\p{L}\p{M}\p{N}\s_.,\-}{]+$]]></value>
+        </entry>
+        <entry key="dynamicUrlPartPattern" value-ref="dynamicJdbcUrlPartPattern"/>
+    </util:map>
+    <util:properties id="jasperreports" location="/WEB-INF/classes/jasperreports.properties"/>
+    <bean id="dynamicJdbcUrlPartPattern" class="java.lang.String">
+        <constructor-arg>
+        <!-- /^jdbc:ingres://([\w.]*):([\w.]*)/([\w.]*)/ -->
+        <value><![CDATA[([\p{L}\p{M}\p{N}\s\_.,\-}{]+)]]></value>
+        </constructor-arg>
+    </bean>
+    <util:map id="clientLogging">
+        <entry key="enabled" value="true"/>
+        <entry key="level" value="error"/>
+    </util:map>
+    <bean id="dateTimeSettingsProvider" class="com.jaspersoft.jasperserver.remote.settings.DateTimeSettingsProvider">
+        <property name="datePickerSettingsPattern">
+            <bean class="java.util.regex.Pattern" factory-method="compile">
+                <constructor-arg index="0">
+                    <value><![CDATA[(\$|jQuery)\.datepicker.regional['"\w\-\[\]]+\s+=\s+(.*);.*(\$|jQuery)\.datepicker.setDefaults\(]]></value>
+                </constructor-arg>
+                <constructor-arg index="1">
+                    <util:constant static-field="java.util.regex.Pattern.DOTALL"/>
+                </constructor-arg>
+            </bean>
+        </property>
+        <property name="datePickerSettingsPatternGroup" value="2"/>
+        <property name="datePickerDefaultLocale" value="en"/>
+        <property name="datePickerSettingsPathTemplate" value="/scripts/lib/jquery/ui/i18n/jquery.ui.datepicker-%s.js"/>
+        <property name="datePickerPropertiesMapping">
+            <map>
+                <entry key="dateFormat" value="calendar.date.format"/>
+            </map>
+        </property>
+        <property name="timePickerPropertiesMapping">
+            <map>
+                <entry key="timeText" value="CAL_time"/>
+                <entry key="hourText" value="CAL_hour"/>
+                <entry key="minuteText" value="CAL_min"/>
+                <entry key="secondText" value="CAL_second"/>
+                <entry key="currentText" value="CAL_now"/>
+                <entry key="closeText" value="CAL_close"/>
+                <entry key="timeFormat" value="calendar.time.format"/>
+                <entry key="dateFormat" value="calendar.date.format"/>
+                <entry key="separator" value="calendar.datetime.separator"/>
+            </map>
+        </property>
+        <property name="messageSource" ref="messageSource"/>
+        <property name="enableCache" value="true"/>
+    </bean>
+</beans>

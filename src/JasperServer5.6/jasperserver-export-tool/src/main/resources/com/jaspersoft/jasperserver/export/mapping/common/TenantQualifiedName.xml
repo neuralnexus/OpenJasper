@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="com.jaspersoft.jasperserver.export.modules.common.TenantQualifiedName">
+		<map-to xml="tenantQualifiedName"/>
+		<field name="name" type="string">
+			<bind-xml node="text"/>
+		</field>
+		<field name="tenantId" type="string">
+			<bind-xml name="tenantId" node="attribute"/>
+		</field>
+	</class>
+</mapping>

@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "description": "Report Properties",
+    "properties": {
+        "server": {
+            "type": "string",
+            "description": "URL of JRS instance."
+        },
+        "resource": {
+            "type": "string",
+            "description": "Report resource URI.",
+            "pattern": "^/[^/~!#\\$%^|\\s`@&*()\\+={}\\[\\]:;\"'<>,?/\\|\\\\]+(/[^/~!#\\$%^|\\s`@&*()\\+={}\\[\\]:;\"'<>,?/\\|\\\\]+)*$"
+        },
+        "container": {
+            "type": "string",
+            "description": "CSS selector for container to render report to."
+        },
+        "params": {
+            "type": "object",
+            "description": "Report's parameters values",
+            "additionalProperties": {
+                "type": "array"
+            }
+        },
+        "pages": {
+            "type": ["string", "integer"],
+            "description": "Range of report's pages or single report page",
+            "pattern": "^[1-9]\\d*(\\-\\d+)?$",
+            "default": 1,
+            "minimum": 1
+        },
+        "defaultJiveUi": {
+            "type": "object",
+            "description": "Default JIVE UI options.",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Enable default JIVE UI.",
+                    "default": "true"
+                }
+            }
+        },
+        "isolateDom": {
+            "type": "boolean",
+            "description": "Isolate report in iframe.",
+            "default": "false"
+        },
+        "linkOptions": {
+            "type": "object",
+            "description": "Report's parameters values",
+            "properties": {
+                "beforeRender": {
+                    "type": "function",
+                    "description": "A function to process link - link element pairs."
+                },
+                "events": {
+                    "type": "object",
+                    "description": "Backbone-like events object to be applied to JR links",
+                    "additionalProperties" : true
+                }
+            }
+        }
+    },
+    "required": ["server", "resource"]
+}

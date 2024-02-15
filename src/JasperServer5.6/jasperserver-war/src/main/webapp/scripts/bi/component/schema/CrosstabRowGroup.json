@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "description": "JIVE crosstab row group component schema",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Crosstab component identifier"
+        },
+        "componentType": {
+            "enum": ["crosstabRowGroup"]
+        },
+        "sort": {
+            "type": "object",
+            "properties": {
+                "order": {
+                    "enum": ["asc", "desc"]
+                }
+            }
+        },
+        "groupIndex" : {
+            "type": "number",
+            "description": "Absolute offset the row group in crosstab",
+            "minimum": 0
+        }
+    },
+    "required": ["id"]
+}

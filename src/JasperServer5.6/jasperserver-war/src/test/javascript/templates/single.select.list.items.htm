@@ -1,0 +1,7 @@
+<ul class="sSelect-list" style="top: {{=top}}px;">
+    {{_.each(items, function(item) { }}
+    <li class="{{ if (item.selected) print('selected'); }}" style="white-space: nowrap;" data-index="{{=item.index}}" title="{{=item.label}}">
+        <div><a title="{{=item.label}}">{{=item.label}}</a></div>
+    </li>
+    {{ }); }}
+</ul>

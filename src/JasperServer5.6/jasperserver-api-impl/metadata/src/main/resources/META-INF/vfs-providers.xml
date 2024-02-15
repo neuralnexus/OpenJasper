@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Document   : vfs-providers.xml
+    Created on : December 23, 2008, 10:20 AM
+    Author     : swood
+    Description:
+        configure RepositoryFileSystem for Apache VFS.
+-->
+
+<providers>
+    <provider class-name="com.jaspersoft.jasperserver.api.metadata.common.util.RepositoryFileProvider">
+        <scheme name="repo"/>
+    </provider>
+    <provider class-name="com.jaspersoft.jasperserver.api.metadata.common.util.InternalRepositoryFileProvider">
+        <scheme name="repoint"/>
+    </provider>
+</providers>

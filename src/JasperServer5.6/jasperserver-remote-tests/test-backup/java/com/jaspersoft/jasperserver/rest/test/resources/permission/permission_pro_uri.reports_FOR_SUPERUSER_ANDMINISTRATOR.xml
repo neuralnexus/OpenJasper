@@ -1,0 +1,46 @@
+<entityResource>
+    <Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <permissionMask>30</permissionMask>
+        <permissionRecipient xsi:type="roleImpl">
+            <externallyDefined>false</externallyDefined>
+            <roleName>ROLE_ANONYMOUS</roleName>
+        </permissionRecipient>
+        <URI>repo:/JUNIT_NEW_FOLDER</URI>
+    </Item>
+    <Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <permissionMask>30</permissionMask>
+        <permissionRecipient xsi:type="roleImpl">
+            <externallyDefined>false</externallyDefined>
+            <roleName>ROLE_SUPERUSER</roleName>
+        </permissionRecipient>
+        <URI>repo:/JUNIT_NEW_FOLDER</URI>
+    </Item>
+    <Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <permissionMask>30</permissionMask>
+        <permissionRecipient xsi:type="roleImpl">
+            <externallyDefined>false</externallyDefined>
+            <roleName>ROLE_ADMINISTRATOR</roleName>
+        </permissionRecipient>
+        <URI>repo:/JUNIT_NEW_FOLDER</URI>
+    </Item>
+    <Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <permissionMask>30</permissionMask>
+        <permissionRecipient xsi:type="userImpl">
+            <externallyDefined>false</externallyDefined>
+            <fullName>Joe User</fullName>
+            <tenantId>organization_1</tenantId>
+            <username>superuser</username>
+        </permissionRecipient>
+        <URI>repo:/JUNIT_NEW_FOLDER</URI>
+    </Item>
+    <Item xsi:type="objectPermissionImpl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <permissionMask>30</permissionMask>
+        <permissionRecipient xsi:type="userImpl">
+            <externallyDefined>false</externallyDefined>
+            <fullName>Demo User</fullName>
+            <tenantId>organization_1</tenantId>
+            <username>japseradmin</username>
+        </permissionRecipient>
+        <URI>repo:/JUNIT_NEW_FOLDER</URI>
+    </Item>
+</entityResource>

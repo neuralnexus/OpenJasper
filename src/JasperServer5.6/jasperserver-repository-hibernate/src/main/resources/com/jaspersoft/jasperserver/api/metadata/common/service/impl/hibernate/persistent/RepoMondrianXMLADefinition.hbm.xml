@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<joined-subclass 
+			name="com.jaspersoft.jasperserver.api.metadata.olap.domain.impl.hibernate.RepoMondrianXMLADefinition"
+			extends="com.jaspersoft.jasperserver.api.metadata.common.service.impl.hibernate.persistent.RepoResource"
+			table="JIMondrianXMLADefinition">
+		<key column="id"/>
+		<property name="catalog" not-null="true" length="100" type="string" column="catalog"/>
+		<many-to-one column="mondrianConnection" name="mondrianConnection"/>
+	</joined-subclass>
+</hibernate-mapping>

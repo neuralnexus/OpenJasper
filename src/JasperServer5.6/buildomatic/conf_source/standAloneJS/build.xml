@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!-- =============================================================== -->
+<!-- demo of running js standalone from Ant                          -->
+<!-- =============================================================== -->
+
+<project name="jasperserver-pro" default="tweakWar" basedir=".">
+   <target name="tweakWar">
+      <java classname="org.mozilla.javascript.tools.shell.Main">
+        <arg value="${basedir}/tweakWar.js"/>
+        <arg value="${webapp}"/>
+        <arg value="${config}"/>
+        <classpath>
+          <fileset dir="lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+      </java>
+  </target>
+</project>

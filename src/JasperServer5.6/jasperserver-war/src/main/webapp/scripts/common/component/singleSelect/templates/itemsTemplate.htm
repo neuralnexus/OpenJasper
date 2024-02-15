@@ -1,0 +1,7 @@
+<ul class="sSelect-list" style="top: {{=top}}px;">
+    {{_.each(items, function(item) { }}
+    <li class="{{ if (item.selected) print('selected'); }}" data-index="{{=item.index}}" title="{{ print(item.label && item.label.trim() ? _.escape(item.label) : '&nbsp;')}}">
+        <div><a title="{{ print(item.label && item.label.trim() ? _.escape(item.label) : '&nbsp;')}}">{{ print(item.label && item.label.trim() ? item.label : '&nbsp;')}}</a></div>
+    </li>
+    {{ }); }}
+</ul>

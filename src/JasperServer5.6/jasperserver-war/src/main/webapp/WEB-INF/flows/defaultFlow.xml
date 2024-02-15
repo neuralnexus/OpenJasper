@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow" xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"
+      ns0:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="home">
+
+    <!--  a flow used as default flow, e.g. after a session expiration -->
+    <!--  all it does is to redirect to home.html  -->
+    <end-state id="home" view="externalRedirect:home.html"/>
+
+</flow>

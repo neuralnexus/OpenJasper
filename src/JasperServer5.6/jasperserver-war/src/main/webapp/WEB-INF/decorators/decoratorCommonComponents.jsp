@@ -1,0 +1,71 @@
+<%--
+  ~ Copyright (C) 2005 - 2014 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased  a commercial license agreement from Jaspersoft,
+  ~ the following license terms  apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or  modify
+  ~ it under the terms of the GNU Affero General Public License  as
+  ~ published by the Free Software Foundation, either version 3 of  the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero  General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public  License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  --%>
+
+<%-- Markup that is common to full-decorated pages --%>
+
+<%@ include file="decoratorMinimalComponents.jsp" %>
+
+<!-- logo -->
+<div id="logo"></div>
+
+<!-- about dialog -->
+<jsp:include page="../jsp/modules/about/about.jsp"/>
+
+<!-- global search box -->
+<t:insertTemplate template="/WEB-INF/jsp/templates/control_searchLockup.jsp">
+    <t:putAttribute name="containerID" value="globalSearch"/>
+    <t:putAttribute name="containerAttr" value="data-tab-index='1' data-component-type='search'"/>
+    <t:putAttribute name="inputID" value="searchInput"/>
+</t:insertTemplate>
+
+<c:if test="${isProVersion}">
+    <c:if test='<%= ((NavigationActionModelSupport)application.getAttribute("concreteNavigationActionModelSupport")).isUsersExceeded() %>'>
+        <t:insertTemplate template="/WEB-INF/jsp/templates/userCountExceeded.jsp">
+            <t:putAttribute name="containerID" value="userCountExceeded"/>
+            <t:putAttribute name="containerClass" value="userCountExceeded"/>
+        </t:insertTemplate>
+    </c:if>
+</c:if>
+
+	
+<%--
+***********************************************************************
+authorization for logged in user
+***********************************************************************
+--%>
+<ul id="metaLinks" class="horizontal">
+    <li id="userID">
+        <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+            <span id="casted">
+                <c:if test="<%= com.jaspersoft.jasperserver.api.metadata.user.service.impl.UserAuthorityServiceImpl.isUserSwitched() %>">
+                    <%= ((com.jaspersoft.jasperserver.api.metadata.user.domain.User)
+                          com.jaspersoft.jasperserver.api.metadata.user.service.impl.UserAuthorityServiceImpl.
+                          getSourceAuthentication().getPrincipal()).getFullName() %>
+                    <spring:message code="jsp.main.as"/>
+                </c:if>
+            </span>
+            <authz:authentication property="principal.fullName"/>
+        </authz:authorize>
+    </li>
+    <c:set var="isShowHelp" scope="page"><%= WebHelpLookup.getInstance().isShowHelpTrue() %></c:set>
+	<c:if test="${isProVersion && isShowHelp}"><li id="help"><a href="#" id="helpLink"><spring:message code="decorator.helpLink"/></a></li></c:if>
+    <li id="main_logOut" class="last"><a id="main_logOut_link" href="#" onclick="javascript:return false;"><spring:message code="menu.logout"/></a></li>
+</ul>

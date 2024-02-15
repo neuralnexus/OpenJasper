@@ -1,0 +1,20 @@
+<resourceDescriptor name="JUNIT_PROPERTIES.properties" wsType="prop" uriString="/ContentFiles/JUNIT_PROPERTIES.properties" isNew="true">
+	<label>supermart_de.properties</label>
+	<description>German resource bundle</description>
+	<creationDate>1311982957000</creationDate>
+	<resourceProperty name="PROP_RESOURCE_TYPE">
+		<value>com.jaspersoft.jasperserver.api.metadata.common.domain.FileResource</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_PARENT_FOLDER">
+		<value>/ContentFiles</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_VERSION">
+		<value>0</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_IS_REFERENCE">
+		<value>false</value>
+	</resourceProperty>
+	<resourceProperty name="PROP_HAS_DATA">
+		<value>true</value>
+	</resourceProperty>
+</resourceDescriptor>

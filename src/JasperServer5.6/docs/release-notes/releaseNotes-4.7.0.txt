@@ -1,0 +1,835 @@
+
+JasperReports Server 4.7.0 Release
+
+Table of Contents
+
+1.  Introduction
+2.  What's New
+3.  Installation Overview
+4.  Login
+5.  Starting and Stopping
+6.  Upgrade Notes
+7.  Known Issues
+8.  Release Distributions
+9.  Further Information
+
+
+-----------------------------------------------------------------
+1. Introduction
+
+JasperReports Server Community Project is a high-performance,
+standalone and embeddable Business Intelligence (BI) platform 
+that provides rich reporting capabilities. In addition, 
+Jaspersoft OLAP provides data analysis running on the same 
+shared BI platform. 
+
+These release notes describe the installation and available 
+functionality at a high level; for details, please refer to the 
+documentation, which is available at <js-install>/docs after 
+installation. In particular, refer to the Installation Guide for 
+instructions about running the installer, creating and updating 
+the database, deploying the WAR file, and upgrading from 
+previous versions.
+
+Note: JasperReports Server is governed by a License Agreement,
+the text of which is found at <js-install>/license.txt. Please 
+read it before you login to JasperReports Server for the first 
+time. If you installed the server using the installer binary 
+(rather than deploying a WAR file), you have already agreed to 
+this license.
+
+
+-----------------------------------------------------------------
+2. What's New
+
+
+JasperReports Server 4.7 offers these improvements:
+
+  * Improved user interface - The look-and-feel of the 
+    JasperReports Server web interface has been redesigned to 
+    increase usable space and be more compatible across browsers. 
+    In addition, navigation has been improved with simplified 
+    menus and a new Library page that provides quick access to 
+    all reports and views a user may access. Note 
+    that custom themes developed for the previous interface may 
+    need to be updated for the new interface.
+
+  * Interactive Viewer - The report viewer provides more inter-
+    active features designed for customizing the layout
+    and formatting of a table report. New controls allow the user 
+    to change the font, color, and alignment of both headers and
+    column values. The new appearance of the report can be saved,
+    either overwriting the existing report or as a new report,
+    depending on permissions. A new button allows users to
+    refresh the report data from within the viewer.
+
+  * Encapsulated Data Snapshots - Reports in JasperReports 
+    Server can now store snapshots of the report data in their 
+    repository resource. Data snapshots load quickly without 
+    querying the data source, thus increasing performance and 
+    reducing database load. Data snapshots can be refreshed on-
+    demand, by scheduling, or by setting server-wide or report-
+    specific policies. For compatibility with existing reports, 
+    data snapshots are not enabled by default. New installations 
+    should enable data snapshots to benefit from this feature. 
+    Existing installations should use the upgrade procedure and 
+    resolve any upgrade issues before enabling data snapshots.
+  
+  * MongoDB - This release adds support for MongoDB as a native
+    data source. Jaspersoft has defined a query language for
+    MongoDB so that users can define queries for reports and
+    input controls that rely on MongoDB.
+  
+  * Jaspersoft Mobile SDK for Android - Jaspersoft continues to
+    expand our mobile BI solutions with an SDK for the Google 
+    Android platform. The Mobile SDK provides native classes for 
+    interacting with the JasperReports Server web services APIs. 
+    The JasperMobile App for Android demonstrates the use of the
+    Mobile SDK and provides a BI client on Android devices. The
+    Mobile SDK for Android app is available as a separate 
+    download from jasperforge.org.
+
+  * Enterprise-grade Security - JasperReports Server includes a
+    security framework that filters invalid input and blocks
+    potential security threats. This release implements input
+    validation blacklists to simplify rules for blocking
+    dangerous input. A new feature also provides password
+    encryption so that cleartext passwords cannot be intercepted,
+    even with non-secure HTTP.
+
+  * Scheduling - The scheduling architecture has been improved 
+    to provide more options and flexibility via the web services 
+    API. The new architecture also makes it easier to customize 
+    the scheduler interface in embedded applications. However, 
+    the web user interface for the scheduler does not yet 
+    include the new functionality. Jaspersoft will add this
+    functionality to the web user interface in subsequent 
+    releases.
+    
+  * Editable OLAP settings. The OLAP settings can now be edited
+    on-the-fly without the need to restart the server. This 
+    change facilitates troubleshooting activities that rely on
+    such settings. Note that your changes made in the UI are not 
+    persisted when the server is restarted. To make permanent
+    changes to these settings, you must still edit a properties
+    file located on the server's host. For more information, 
+    refer to the Jaspersoft OLAP User Guide.
+  
+  * Input Control Optimizations - This release improves the
+    server's performance when displaying and submitting input 
+    controls, in particular those that rely on cascading. In 
+    addition, the code for input controls has been refactored 
+    to make it simpler to customize the processing and 
+    rendering of input controls.
+  
+  * Spring Framework - JasperReports Server relies on the Spring
+    Framework for web-based applications. In this release, the
+    server was upgraded to the latest core libraries of Spring
+    Framework 3.1.
+    
+  * Expanded documentation. New content has been added to the
+    documentation set that accompanies JasperReports Server. In 
+    addition to changes to the user guides, Jaspersoft now also 
+    provides an administrator guide. You can refer to these 
+    documents at <js-install>/docs on the servers' host.
+    
+
+JasperReports Server 4.5.0 added the following improvements:
+
+  * Evaluation Central - Jaspersoft is pleased to provide this
+    resource as a gateway to new users exploring the Jaspersoft
+    BI Suite. Point your browser to
+    http://www.jaspersoft.com/getting-started for tools,
+    documentation, and support to evaluate our solutions. This
+    one-stop shop helps you complete your evaluation and engage
+    with the Jaspersoft team when you need us. Note that this 
+    location covers both Community and Commercial features. 
+
+  * Improved Report Viewer:
+
+    * Interactivity - Reports created with JRXML table components
+      are now interactive directly in the server's Report Viewer.
+      Users can sort the table by clicking one or more column
+      names and filter displayed rows by right-clicking the
+      column name, selecting an operator, and entering a value.
+
+    * Excel output format - New export options in the Report
+      Viewer produce true single-page spreadsheet output in Excel
+      and XLSX format. These options run the report again to
+      seamlessly fill tables and crosstabs, so that the spread-
+      sheet is ready for further data manipulation in Excel. The
+      previous Excel and XLSX options are still available with
+      the Paginated label. The paginated options do not run the
+      report again (faster), but may contain page artifacts such
+      as column or row breaks.
+
+    * Interface - The Report Viewer has been improved to show the
+      report name at the top and move pagination controls above
+      the report contents.
+
+  * Web Services REST API - In this release, new REST 
+    (Representational State Transfer) web services provide 
+    complete access to repository resources and server 
+    administration. Remote applications can now manage users 
+    and roles through RESTful methods. In addition, the REST 
+    methods are enhanced to interact with scheduled jobs.
+
+  * Security - JasperReports Server now has enterprise-grade
+    security through the integration of a comprehensive security
+    framework. This new security framework protects the server
+    against common security threats. Customers can configure the
+    security settings (switch on/off or change the security
+    rules) based on their perceived threat level.
+
+  * Database Server Support - JasperReports Server now supports
+    MySQL 5.5 as an RDBMS host for the repository database. You
+    must provide the required JDBC driver for this platform.
+    Refer to the Installation Guide for details.
+
+  * Code compilation support for Java 1.6. With this release, 
+    JasperReports Server no longer supports Java 1.5. This means 
+    that all Java 1.6 code syntax is now fully supported.
+
+  * Fix to issue found in 4.2.1 where the View > Repository
+    context menu was missing the Add Resource > File option. 
+    The menu option has been restored. 
+
+JasperReports Server 4.2.1 added these improvements:
+
+  * iPad Support - JasperReports Server's web application now
+    supports the Apple iPad running the Safari browser. In 
+    this release, the server supports viewing content (such as
+    browsing the repository, running and copying reports, and 
+    viewing dashboards) and creating Ad Hoc reports. 
+ 
+  * Interactive HTML reports - Using JasperReports Server, you
+    can now publish reports that allow users to sort or filter 
+    in the browser. Users click to modify these reports 
+    on-the-fly. Interactivity is available for all reports 
+    that use the table component. 
+
+  * New HTML Output - The server includes a new XHTML exporter
+    that is less strict with regard to overlapping HTML
+    elements. You can specify whether the server uses the
+    pre-existing HTML exporter or the new XHTML exporter. If
+    you want your table component reports to be interactive,
+    JasperReports Server must use the XHTML exporter.
+    
+  * REST API - JasperReports Server now includes web services
+    based on the REST style of architecture. In this release, 
+    the RESTful services allow you to access repository 
+    functionality, such as getting, putting, posting, and 
+    deleting objects in the repository. 
+
+  * Database Server Support:
+  
+    * PostgreSQL - The bundled database installed by default with
+      JasperReports Server has changed from MySQL to PostgreSQL
+      9.0.4. JasperReports Server continues to support a wide
+      range of databases, including MySQL. MySQL users can set up
+      JasperReports Server during installation to connect to their
+      existing MySQL database. 
+
+      In earlier releases, Jaspersoft also provided and installed
+      the driver for the MySQL database. The installer no longer
+      provides this driver. MySQL 5.1 users can download the JDBC
+      driver, mysql-connector-java-5.1.17-bin.jar, from this web
+      site: http://dev.mysql.com/downloads/connector/j/
+
+    * An existing (unbundled) PostgreSQL instance can be 
+      located on a remote host. You need to enable remote 
+      connections in the PostgreSQL configuration. See the 
+      JasperReports Server Installation Guide for more 
+      information. 
+
+    * JasperReports Server now supports MySQL 5.5 as a data
+      source. Note that MySQL 5.5 was not supported by 4.2.1 as 
+      a repository database.
+      
+  * Application Server Support - JasperReports Server now 
+    supports Tomcat 7.0, and recommends version 7.0.19 or later.
+
+  * Updated versions of JasperReports Library and iReport 
+    Designer - JasperReports Server 4.2.1 includes JasperReports 
+    Library and iReport Designer 4.2.1, which include support for 
+    PDF/A compliant PDF export, and the ability to apply 
+    interactivity (sorting or filtering) to report components.
+
+JasperReports Server 4.1 added these improvements:
+
+  * Support for five additional languages - In this release, we 
+    added language resource bundles for Chinese, French, German, 
+    Japanese, and Spanish. This is in addition to the default 
+    English language bundles.
+
+  * Support for 64 bit Installers - You can now download either 
+    32 bit or 64 bit installers. The 64 bit installers contain 
+    a 64 bit version of Java 6 and a 64 bit version of PostgreSQL 
+    5.1 as bundled components. The 64 bit Java 6 JVM is known to 
+    run JasperReports Server with greater speed and performance. 
+
+  * Localization of Input Controls - In previous releases, the 
+    labels applied to a report's input controls could only 
+    support a single language. Now, you can supply resource 
+    bundles that define the input control's labels in various 
+    languages. In addition, if the input control relies on a 
+    fixed list of values, the list of values can also support 
+    multiple languages. For more information, refer to the 
+    JasperReports Server Community Project User Guide.
+
+  * Templates. Some changes have been made to the server's UI 
+    components:
+     
+    * In order to support certain application servers, some 
+      JSP files (in /templates) have been renamed so that
+      the names do not include the hash mark (#). These pages
+      represent all types of dialogs (such as the About
+      dialog and the Save As dialog), as opposed to generic
+      components, such as page.jsp or container.jsp. All
+      references to these JSPs in the other pages have also
+      been updated.
+       
+    * In the file system of the server's host, the templates 
+      folder has been moved from:
+        jasperserver/WEB-INF/jsp/modules/templates/ 
+          to 
+        jasperserver/WEB-INF/jsp/templates/ 
+         
+      That is, it has been moved up one level.
+      
+ JasperReports Server 4.0 added these improvements:
+ 
+   * Product Naming. Several changes have been made to  
+     Jaspersoft's product names; in particular: 
+     * The former "JasperServer" is called "JasperReports Server" 
+     * The former "JasperAnalysis" is called "Jaspersoft OLAP" 
+   
+   These changes are reflected by our products, documentation, 
+   and web content. 
+   
+   * Improved User Interface. The usability and look and feel of 
+     the JasperReports Server web user interface has been 
+     improved to simplify many user tasks and to make it more 
+     visually appealing. The underlying framework introduced as 
+     part of this feature (Jaspersoft Interface Framework (JIF)) 
+     allows the application's look and feel to be modified more 
+     quickly and easily than in previous releases. Note that some 
+     types of customization may need to be implemented in a 
+     different way in this version than in previous versions.
+ 
+   * Application Themes. JasperReports Server now supports the 
+     ability to define themes that control the web interface's
+     look and feel. These themes take advantage of JIF to let 
+     users define Cascading Style Sheets (CSS), images, and other 
+     graphical elements of the application. Themes can be stored in 
+     the repository and can be updated without the need to restart 
+     the server. 
+ 
+   * Macintosh Installer Support. This release includes a new 
+     installer for Macintosh computers. For more information, 
+     refer to the Installation Notes section of this doc and to
+     the JasperReports Server Installation Guide. 
+     
+   * Installer Components Updated. The JasperReports Server
+     installers have been updated to provide more current 
+     applications:
+     * Tomcat has been updated from 5.5 to 6.0. 
+     * MySQL has been updated from 5.0 to 5.1. 
+     * Java has been updated from 1.5 to 1.6.
+     
+   * Buildomatic Ant Install Scripts Updated. In addition to the 
+     binary installers (Windows, Linux, and Mac) the buildomatic 
+     installation files have been upgraded with auto-install and
+     auto-upgrade batch/shell scripts. Now a single properties 
+     file and a single script execution complete most steps for 
+     installing or upgrading the server.
+ 
+   * Updated OLAP Engine. This release includes a new version of 
+     Mondrian, the OLAP engine underlying Jaspersoft OLAP. The 
+     new version of Mondrian is 3.2.0. Major improvements 
+     include:
+     
+      * Improved native performance
+      * olap4j drill through support
+      * Improved XML/A support
+      * Greenplum Dialect
+      * Improved parameter support
+ 
+   * Execute-only Permission. A new level of access has been added 
+     for repository objects. Execute-only permission gives 
+     administrators finer control over what users see in the 
+     repository. As in a file system, execute-only permission 
+     allows regular users to access resources at run-time but 
+     not browse or search for them in the repository. For example, 
+     placing data sources in an execute-only folder allows users  
+     to run reports and access the data, but hides the data 
+     sources from the end user. Administrators can use the
+     execute-only permission to hide supporting resources so that 
+     end-users interact with only reports, dashboards, and OLAP 
+     views in the repository. 
+ 
+   * Log Settings Page. The new log settings page, accessible to 
+     administrators by clicking Manage > Log Settings, lets you
+     change the  logging levels without restarting JasperReports
+     Server.
+     
+   * New JasperReports version 4.0.0 is included in JasperReports 
+     Server. A new CSV query executer is added to simplify the
+     configuring of CSV data sources. Also, a new CSV metadata
+     exporter has been added to better control the CSV export. 
+     The version of iReport included here has also been updated
+     to 4.0.0.
+
+      
+-----------------------------------------------------------------
+3. Installation Overview
+
+Binary Installer
+----------------
+
+To install JasperReports Server, you can use the binary
+installer, which is available for Windows, Linux, and Mac OS X.
+This installer optionally puts Tomcat, Java, and PostgreSQL
+onto your system so that JasperReports Server is ready to run.
+
+Download this installer from
+http://jasperforge.org/projects/jasperserver/downloads:
+
+ jasperreports-server-cp-4.7.0-<osType>-x86-installer.<ext> (32 bit)
+
+ jasperreports-server-cp-4.7.0-<osType>-x64-installer.<ext> (64 bit)
+
+To install, double-click the installer and click Next on all
+pages to perform a default installation. The installer can also
+be run from the command line.
+
+For more information on JasperReports Server installation,
+refer to the Installation Guide, which is found at:
+
+  <js-install>/docs/JasperReports-Server-CP-Install-Guide.pdf
+
+
+War File Distribution ZIP js-install Script Installation
+--------------------------------------------------------
+
+NOTE: You can use the auto-install command-line shell scripts
+if you are installing to the following databases:
+
+  * MySQL
+  * PostgreSQL
+
+And the following application servers:
+
+  * Glassfish
+  * JBoss
+  * Tomcat
+
+For information on the auto-install scripts, see Chapter 5 of the
+Installation Guide. To run the auto-install scripts, download
+the WAR File Distribution ZIP file from JasperForge:
+http://tinyurl.com/3n3rlyo
+
+
+The file name is:
+
+  jasperreports-server-cp-4.7.0-bin.zip
+
+To install, go to the buildomatic folder, create and edit a 
+default_master.properties file, and run js-install-ce.bat/sh:
+
+  cd <js-install>/buildomatic
+  
+  cp sample_conf/<dbType>_master.properties  default_master.properties
+
+  edit default_master.properties  (with your app server and db properties)
+
+  ./js-install-ce.sh  (or js-install-ce.bat)
+
+  Then setup increased JAVA_OPT memory options for your application
+  server following instructions from the Install Guide section 6.2:
+  
+    For example under Linux:
+  
+    export JAVA_OPTS="$JAVA_OPTS -Xms1024m -Xmx2048m -XX:PermSize=32m
+    -XX:MaxPermSize=512m -Xss2m -XX:+UseConcMarkSweepGC 
+    -XX:+CMSClassUnloadingEnabled"
+
+For full information on the js-install-ce script installation, 
+refer to the Installation Guide, which is found at:
+
+  <js-install>/docs/JasperReports-Server-Install-Guide.pdf
+
+Note: For the js-install installation to the MySQL database, you 
+must provide a MySQL JDBC driver, which can be downloaded from
+the MySQL website.
+
+
+-----------------------------------------------------------------
+4. Login
+
+To login after installation, use the following URL:
+
+  http://<hostname>:8080/jasperserver
+
+During installation, a default administrative user is created:
+
+  User: jasperadmin  Password: jasperadmin
+
+If you install the sample data, a sample end-user is also
+created:
+
+  User: joeuser      Password: joeuser
+
+CAUTION: For security reasons, always change the default
+passwords immediately after installing JasperReports Server.
+
+
+-----------------------------------------------------------------
+5. Starting and Stopping
+
+If you installed using the binary installer, refer to this
+section for information about starting and stopping the server.
+For other configurations, refer to the Installation Guide.
+
+Windows:
+
+  You can start and stop from the Windows menus:
+
+  Programs > JasperReports Server > Start and Stop > 
+   (Start or Stop Service)
+
+Linux:
+
+  You can start and stop from the command line:
+
+  ./<js-install>/ctlscript.sh (start|stop)
+
+Mac OS X:
+
+  From Finder, double-click the start, stop, or login apps:
+
+  /Applications/jasperreports-server/jasperServerStart.app
+  /Applications/jasperreports-server/jasperServerStop.app
+  /Applications/jasperreports-server/jasperServerLogin.app
+
+  Alternatively, you can start/stop from the OS X command line:
+
+  ./<js-install>/ctlscript.sh (start|stop)
+  
+
+-----------------------------------------------------------------
+6. Upgrade Notes
+
+You can upgrade directly to 4.7.0 if your instance is one of the
+following:
+
+  * 3.7.0
+  * 3.7.1
+  * 4.0.0
+  * 4.1.0
+  * 4.2.1
+  * 4.5.0
+
+To upgrade, start with the WAR File Distribution ZIP:
+
+  jasperreports-server-cp-4.7.0-bin.zip
+  
+It can be downloaded from JasperForge.org at Releases/Downloads area.
+
+The recommended upgrade procedures are fully described in the
+Installation Guide. See chapters 7 and 8.
+
+
+Database Changes
+----------------
+
+The jasperserver repository database has changed between version
+4.5.0 and 4.7.0. These changes support the upgrade of the quartz 
+scheduler component version as well as feature updates, such as 
+scheduled report job enhancements.
+
+
+3.7.0, 4.0.0, 4.1.0, 4.2.1, or 4.5.0 to 4.7
+-------------------------------------------
+
+You can upgrade directly to 4.7.0 if you are at a version number 
+listed above.
+
+The recommended procedure is described in the Installation Guide 
+Chapter 7. In this procedure, you run the js-upgrade script:
+
+  js-upgrade-newdb-ce.bat/sh
+
+
+NOTE: This procedure sets your jasperadmin login password back to its
+default (jasperadmin). This issue will be fixed in a subsequent release.
+
+
+4.5.0 to 4.7
+------------
+
+To upgrade from 4.5, the recommended procedure is described in 
+the Installation Guide Chapter 8. In this procedure, you run the 
+js-upgrade script:
+
+  js-upgrade-samedb-ce.bat/sh
+
+
+Upgrading Input Controls to 4.7.0
+---------------------------------
+
+Prior to release 4.7, query-based input controls of type string
+were allowed for queries that returned dates. As of release 4.7,
+the type of the input control must match exactly the type of
+the field returned by the query. You must manually update your
+query-based input controls to use only controls of type date for
+date values.
+
+Query-based input controls also support the $X{} syntax now to
+handle equality comparisons with null values as input. The
+following query will fail when the value of <parameter> is null:
+
+  select * where <column> = $P{<parameter>} 
+
+Instead, use the following syntax:
+
+  select * where $X{EQUAL, <column>, <parameter>}
+
+The $X{EQUAL...} syntax will generate the correct SQL to compare
+the value of the parameter when it is null. For any other types
+of comparison, such as greater than, use the $P{} syntax.
+  
+
+Security After Upgrading to versions 4.5.0 and later
+----------------------------------------------------
+
+With the security framework introduced in JasperReports Server 
+4.5.0, user input and values passed to reports are restricted to 
+avoid potential security threats. In particular:
+
+* Parameter names and values cannot have tags (that is, the 
+  < and > characters). If your business data contains tags, you 
+  need to update the security configuration to allow them.
+
+* SQL queries must start with SELECT and cannot have comments.
+  If your reports or Domains have queries with comments, you
+  must either remove the comments or update the security
+  configuration to allow them.
+
+These restrictions were added to comply with security guidelines
+for web applications. Removing the restrictions may make the
+application more vulnerable to attacks.
+
+
+-----------------------------------------------------------------
+7. Known Issues
+
+* 10254: If your client application uses JasperReports Server's 
+  web services to retrieve JasperReports binary files 
+  (JasperPrint objects) your client application may crash when it  
+  tries to retrieve a report that includes a chart. This is 
+  caused by an incompatibility between the version of   
+  JFreeCharts in your client application and the version of  
+  JFreeCharts in JasperReports Server (currently 1.0.12). To  
+  retrieve reports with charts using the web services, you  
+  must upgrade your client application to use JFreeCharts 
+  version 1.0.12.
+
+  For more information, visit the JFreeCharts website at:
+  http://www.jfree.org/
+
+* 21798: Performance in Internet Explorer. When 
+  JasperReports Server is accessed through Microsoft 
+  Internet Explorer 7, performance may be impaired. 
+  Jaspersoft recommends version 8 of Internet Explorer.
+  
+* 23235: JasperReports Server detects a conflict between JAR
+  files when the application is hosted by Glassfish version 2.
+  The JasperReports Server JARs in question are WEB-INF/lib/
+  jackson-core-lgpl-1.7.4 and jackson-mapper-lgpl-1.7.4. See the
+  Installation Guide for instructions to resolve this issue.
+  
+* 24226: If the JasperReports Server repository is hosted by
+  PostgreSQL, your users' names are case-sensitive. This is not
+  so for some other types of RDBMS. This is because PostgreSQL 
+  defaults to case-sensitive. Jaspersoft will address this issue
+  in a subsequent release.
+
+* 24762: When installing JasperReports Server with the default
+  settings on a Window 7 system that has a locale specified
+  (such as Italian), the installer will fail with an error in
+  initdb.exe. A bug in the Microsoft libraries prevents
+  PostgreSQL from installing to a folder that is a symbolic link,
+  such as the localized name of the default folder, "Program
+  Files". As a workaround, specify a folder other than "Program
+  Files" for the installation.
+
+* 25644: Reset Admin passwords on upgrade operation. When using
+  the js-upgrade-newdb.bat/sh upgrade script (described in
+  the Installation Guide) the procedure sets the passwords for 
+  the jasperadmin user back to its default value (jasperadmin). 
+  Jaspersoft will address this issue in a subsequent release. 
+
+* 28508: When JasperReports Server is hosted by some versions of 
+  JBoss 7 (including 7.1.1), its log information isn't written 
+  to the correct location. Instead of being written to 
+  JasperReports Server's log (<jboss7-home>\jasperserver-pro.war\
+  WEB-INF\logs\server.log), JBoss writes to its own log
+  (<jboss7-home>\standalone\log\server.log). Because Red Hat 
+  acknowledges this issue, and fixed it in a later release of 
+  JBoss, Jaspersoft as no plans to address it. 
+  
+  For more information on this JBoss issue, please see:
+  https://issues.jboss.org/browse/AS7-4925
+  
+
+These defects, which were listed in the release notes of previous
+versions, were fixed in JasperReports Server versions from 4.0
+to 4.5.1:
+
+* 11847: (fixed) When JasperReports Server was installed using
+  the bundled version of MySQL, and the computer already hosted a
+  version of MySQL, the installer sometimes failed with an error
+  indicating that it couldn't connect to MySQL. Now, the error
+  no longer occurs.
+
+* 17559: (fixed) Glassfish2 with PostgreSQL and Java 1.6. When
+  using PostgreSQL, Java 1.6, and JDBC, you had to set the
+  jdbc-connection-pool so that 1.6 JDBC methods were not called
+  This requirement has been removed.
+
+* 20412: (fixed) Import-Export Help. The --help option for the
+  js-import and js-export utilities was not displayed if database
+  connection couldn't be made. Now, the --help option returns
+  information even if the database connection fails.
+  
+* 21580: (fixed) Import operation, cached permissions. After an
+  import operation, if the import included permission changes to
+  files or folders, cached permissions could interfere with the
+  new permissions. Now, permission changes made during import are
+  properly applied.
+  
+* 21835: (obsolete) Mac OS X Installer. When installing to an
+  existing MySQL instance, users reported errors if the computer
+  once hosted a previous installation of JasperReports Server.
+  Because the installers no longer include MySQL, the problem
+  no longer occurs.
+  
+* 21953: (fixed) JasperReports Server now supports MySQL 5.5
+  as a repository database host as well as a data source. Note
+  that Jaspersoft no longer provides the JDBC driver for MySQL. 
+  Download it (http://dev.mysql.com/downloads/connector/j/)
+  and copy it to your installation while the server is stopped.
+
+* 24876: (fixed) The Foodmart OLAP schema included an incorrect
+  level definition that caused PostgreSQL to return an error. In
+  this case, the server indicated that the previous request 
+  encountered an error. The schema in the Foodmart OLAP
+  connection has been corrected. 
+  
+  Note that previous release notes reported this problem as
+  occurring much more widely than is actually the case. While 
+  Jaspersoft reported the problem occurring in all OLAP-based
+  Ad Hoc reports that returned data from PostgreSQL, in
+  actuality, the error only occurred in a single OLAP schema.
+  
+
+-----------------------------------------------------------------
+8. Release Distributions
+
+Installer Distributions:
+
+    * Installer General Notes
+
+      The installers contain all components needed to run the
+      JasperReports Server web application. Bundled
+      components are:
+
+      * Apache Tomcat 6.0
+      * PostgreSQL 9.0.4 (32 or 64 bit)
+      * Sun JDK 1.6 (32 or 64 bit)
+      * JasperReports Server Web Application file
+      * iReport 4.7.0
+
+    * Installer Supported Operating Systems (32 bit and 64 bit)
+
+      * Linux Installer
+
+        * Red Hat Enterprise Linux 5.4, 5.5
+        * Fedora 13, 14
+        * Ubuntu 10.10 Meerkat, 11.04 Narwhal
+        * Debian 5.0, 6.0
+        * Novell SUSE Linux Enterprise 10.2, 11.1
+        * CentOS 5.4, 5.5
+        * Windows Installer
+
+        * Windows XP (SP2)
+        * Windows 7 (SP1)
+
+      * Mac OS X Installer
+
+        * Snow Leopard (10.6)
+        * Lion (10.7)
+
+    * Installer Supported Application Configurations
+
+      * Bundled Tomcat with Bundled PostgreSQL
+      * Bundled Tomcat with Existing PostgreSQL
+
+      * Existing Tomcat with Bundled PostgreSQL
+      * Existing Tomcat with Existing PostgreSQL
+
+War File Binary Distribution:
+
+    The War File Binary Distribution zip currently contains
+    sample configurations and repository database setup
+    scripts that support the following applications:
+
+     * Apache Tomcat 5.5, 6.0, and 7.0 (Jaspersoft recommends
+       7.0.19 and higher)
+       * Tomcat 6.0 is also supported with the Linux advanced 
+         packageing tool format (apt-get tomcat)
+     * SpringSource tc Server 2.0.x bundle (6.0.x runtime) and
+       2.1.5
+     * JBoss 5.1, 7.1, and EAP 6
+     * Sun Glassfish 2.1 and 3.0
+     
+     * MySQL 5.1 and 5.5
+     * PostgreSQL 9.0 and 9.1
+     
+     * Sun JDK 1.6 and 1.7
+
+End of Support Notice:
+
+    This version of JasperReports Server does not support
+    JDK 1.5.
+
+
+-----------------------------------------------------------------
+7. Further Information
+
+Please contact Jaspersoft by visiting our web site:
+
+    http://www.jaspersoft.com
+    
+When evaluating our solutions, please visit Evaluation Central:
+
+    http://www.jaspersoft.com/getting-started 
+
+Jaspersoft also encourages all its users to visit JasperForge, 
+the online home of our community:
+
+    http://jasperforge.org/
+    
+
+-----------------------------------------------------------------
+Part Number: 0812-JSO47-17
+
+Copyright (C) 2012 Jaspersoft Corporation. All rights reserved.
+Printed in the U.S.A. Jaspersoft, the Jaspersoft logo,
+Jaspersoft iReport Designer, JasperReports Library,
+JasperReports Server, Jaspersoft OLAP, and Jaspersoft ETL
+are trademarks and/or registered trademarks of Jaspersoft
+Corporation in the United States and in jurisdictions
+throughout the world. All other company and product names are
+or may be trade names or trademarks of their respective owners.
