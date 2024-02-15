@@ -1,0 +1,12 @@
+{
+  "name": "TEST_NAME",
+  "type": "TEST_TYPE",
+  "format": "TEST_FORMAT",
+  "hierarchyName": "TEST_HIERARCHY_NAME",
+  "aggregateFunction": "TEST_AGGREGATE_FUNCTION",
+  "aggregateExpression": "TEST_AGGREGATE_EXPRESSION",
+  "aggregateFirstLevelFunction": "TEST_AGGREGATE_FIRST_LEVEL_FUNCTION",
+  "aggregateArg": "TEST_AGGREGATE_ARG",
+  "aggregateType": "TEST_AGGREGATE_TYPE",
+  "dimensionName": "TEST_DIMENSION_NAME"
+}

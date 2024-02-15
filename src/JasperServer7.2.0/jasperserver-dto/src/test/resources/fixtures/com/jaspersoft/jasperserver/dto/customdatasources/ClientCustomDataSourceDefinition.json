@@ -1,0 +1,12 @@
+{
+  "name":"TEST_NAME",
+  "testable":true,
+  "queryTypes":[
+    "TEST_QUERY_TYPE"
+  ],
+  "propertyDefinitions":[
+    {
+      "name":"TEST_NAME"
+    }
+  ]
+}

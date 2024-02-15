@@ -1,0 +1,16 @@
+{{- message }}
+
+{{
+var errorLbl = (typeof errorLabel !== 'undefined' ? errorLabel : 'The reason is');
+}}
+
+{{ if (typeof message2 !== 'undefined') { }}
+<br/>{{- errorLbl }}: {{- message2 }}
+{{ } else if (errorCode) { }}
+<br/>{{- errorLbl }}: {{- errorCode }}
+{{ } else if (errorMsg) { }}
+<br/>{{- errorLbl }}: {{- errorMsg }}
+{{ } }}
+
+{{ var respTextLbl = (typeof respTextLabel  !== 'undefined' ? respTextLabel : 'The full response from the server is') }}
+<br/><br/>{{- respTextLbl }}: {{- respText }}

@@ -1,0 +1,18 @@
+{
+  "axisNode": {
+    "all": false
+  },
+  "levels": [
+    {
+      "level": {
+        "members": []
+      }
+    },
+    {
+      "aggregation": {
+        "fields": [],
+        "members": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+define({INFO:"info",ERROR:"error",WARNING:"warning",ATTENTION:"attention"});

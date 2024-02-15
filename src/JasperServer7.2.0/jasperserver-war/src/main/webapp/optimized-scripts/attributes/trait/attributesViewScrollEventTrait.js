@@ -1,0 +1,1 @@
+define(["require","attributes/enum/attributesTypesEnum"],function(t){var e=t("attributes/enum/attributesTypesEnum");return{initScrollEvent:function(t){var n=t.type===e.SERVER?t.$el.parent():t.$container.parent(),r=t.$el.find(".addNewItem");n.scroll(function(t){r.css("margin-right",20-n.scrollLeft()+"px")})},detachScrollEvent:function(t){t.off()}}});

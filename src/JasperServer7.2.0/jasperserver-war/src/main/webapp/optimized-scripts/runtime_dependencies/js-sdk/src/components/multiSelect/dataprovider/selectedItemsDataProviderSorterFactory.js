@@ -1,0 +1,1 @@
+define([],function(){return{create:function(e){return function(l,n){return l.label===e?-1:n.label===e?1:l.label.localeCompare(n.label)}}}});

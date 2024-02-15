@@ -1,0 +1,1 @@
+define(["require","bi/repository/enum/repositoryResourceTypes"],function(e){var r=e("bi/repository/enum/repositoryResourceTypes");return[r.MONDRIAN_CONNECTION,r.SECURE_MONDRIAN_CONNECTION,r.XMLA_CONNECTION]});

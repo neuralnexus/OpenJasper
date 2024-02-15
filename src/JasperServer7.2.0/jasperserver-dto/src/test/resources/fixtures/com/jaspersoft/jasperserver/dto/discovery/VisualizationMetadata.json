@@ -1,0 +1,16 @@
+{
+  "parameters":[
+    {
+      "id":"TEST_ID",
+      "multipleValues":false
+    }
+  ],
+  "outputParameters":[
+    {
+      "id":"TEST_ID",
+      "multipleValues":false
+    }
+  ],
+  "repositoryType":"TEST_REPOSITORY_TYPE"
+}
+

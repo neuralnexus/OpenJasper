@@ -1,0 +1,11 @@
+{
+  "version": 23,
+  "permissionMask": 23,
+  "creationDate": "creationDate",
+  "updateDate": "updateDate",
+  "label": "label",
+  "description": "description",
+  "uri": "uri",
+  "sql": "sql",
+  "dataSourceUri": "dataDourceUri"
+}

@@ -1,0 +1,16 @@
+{
+  "start": {
+    "boundary": {
+      "number": {
+        "value": "23.0"
+      }
+    }
+  },
+  "end": {
+    "boundary": {
+      "number": {
+        "value": "24.0"
+      }
+    }
+  }
+}

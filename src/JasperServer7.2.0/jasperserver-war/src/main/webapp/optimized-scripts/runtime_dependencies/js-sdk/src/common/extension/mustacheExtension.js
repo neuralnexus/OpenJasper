@@ -1,0 +1,1 @@
+define(["mustache.original","jrs.configs"],function(e,t){"use strict";var n=RegExp(/(<js-templateNonce>\s*<\/js-templateNonce>)|(<js-templateNonce\s*\/>)/gi),s="\x3c!-- "+t.xssNonce+" (xss nonce htm) --\x3e",c=e.to_html;return e.to_html=function(e,t,o,r){var a=c.call(this,e,t,o,r);return a?a.replace(n,s):a},e});

@@ -1,0 +1,15 @@
+{
+  "name": "name",
+  "label": "label",
+  "available": true,
+  "jdbcUrl": "url",
+  "jdbcDriverClass": "class",
+  "allowSpacesInDbName": true,
+  "defaultValues": [
+    {
+      "value": "value"
+    },
+    {}
+  ],
+  "isDefault": true
+}

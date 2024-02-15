@@ -1,0 +1,10 @@
+{
+  "dashboardParameter":[
+    {
+      "name":"TEST_NAME",
+      "value":[
+        "TEST_VALUE"
+      ]
+    }
+  ]
+}

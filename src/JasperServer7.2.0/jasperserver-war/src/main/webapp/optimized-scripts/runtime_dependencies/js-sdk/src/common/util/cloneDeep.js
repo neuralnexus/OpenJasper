@@ -1,0 +1,1 @@
+define([],function(){var n=["string","number","boolean","undefined"];return function r(e,t){if(null===e)return e;var f=typeof e;if(n.indexOf(f)>=0)return e;var i,o,u;if("function"==typeof t&&(i=t(e)))return i;i=Array.isArray(e)?[]:{};for(u in e)e.hasOwnProperty(u)&&(o=e[u],i[u]="object"==typeof o?"function"==typeof t?t(o,u)||r(o):r(o):o);return i}});

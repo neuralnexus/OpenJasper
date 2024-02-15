@@ -1,0 +1,1 @@
+define([],function(){"use strict";return{extension:{},onConstructor:function(){},beforeInitialize:function(){},afterInitialize:function(){},beforeSetElement:function(){},afterSetElement:function(){},beforeOpen:function(){},afterOpen:function(){},beforeClose:function(){},afterClose:function(){},onRemove:function(){}}});

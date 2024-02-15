@@ -1,0 +1,7 @@
+{
+  "id":"TEST_ID",
+  "properties":{
+    "TEST_KEY":"TEST_VALUE"
+  },
+  "label":"TEST_LABEL"
+}

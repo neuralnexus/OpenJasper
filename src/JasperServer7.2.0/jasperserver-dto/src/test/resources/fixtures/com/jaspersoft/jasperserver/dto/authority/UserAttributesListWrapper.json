@@ -1,0 +1,13 @@
+{
+  "attribute": [
+    {
+      "secure": false,
+      "inherited": false
+    },
+    {
+      "name": "name",
+      "secure": false,
+      "inherited": false
+    }
+  ]
+}

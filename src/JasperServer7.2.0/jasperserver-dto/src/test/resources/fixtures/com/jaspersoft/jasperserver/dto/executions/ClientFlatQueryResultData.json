@@ -1,0 +1,14 @@
+{
+  "truncated": true,
+  "totalCounts": 23,
+  "dataset": {
+    "fields": [],
+    "counts": 23
+  },
+  "params": {
+    "offset": [
+      2,
+      3
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "userId": "id",
+  "sessionId": "sessionId",
+  "resource": {
+    "uri": "resourceUri"
+  }
+}

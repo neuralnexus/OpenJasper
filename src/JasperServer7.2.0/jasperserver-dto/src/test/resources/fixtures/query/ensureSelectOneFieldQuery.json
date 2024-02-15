@@ -1,0 +1,13 @@
+{
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "id": "fieldName",
+          "field": "sales"
+        }
+      ],
+      "aggregations": []
+    }
+  }
+}

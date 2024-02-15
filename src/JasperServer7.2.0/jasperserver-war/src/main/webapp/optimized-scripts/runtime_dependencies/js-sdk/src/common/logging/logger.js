@@ -1,0 +1,1 @@
+define(["require","exports","module","common/logging/LoggerManager"],function(e,g,n){"use strict";return new(e("common/logging/LoggerManager"))(n.config())});

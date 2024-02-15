@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <context:annotation-config />
+    <bean name="jdbcMetaConfiguration" class="com.jaspersoft.jasperserver.api.engine.common.domain.JdbcMetaConfigurationImpl">
+        <property name="jdbc2JavaTypeMapping">
+            <map>
+                <!--entry key="ARRAY" value=""/-->
+                <entry key="BIGINT" value="java.lang.Long"/>
+                <!--entry key="BINARY" value=""/-->
+                <entry key="BIT" value="java.lang.Boolean"/>
+                <entry key="BOOLEAN" value="java.lang.Boolean"/>
+                <!--entry key="BLOB" value=""/-->
+                <entry key="CHAR" value="java.lang.String"/>
+                <!--entry key="CLOB" value=""/-->
+                <entry key="DATE" value="java.util.Date"/>
+                <entry key="DECIMAL" value="java.math.BigDecimal"/>
+                <!--entry key="DISTINCT" value=""/-->
+                <entry key="DOUBLE" value="java.lang.Double"/>
+                <entry key="FLOAT" value="java.lang.Float"/>
+                <entry key="INTEGER" value="java.lang.Integer"/>
+                <!--entry key="JAVA_OBJECT" value=""/-->
+                <!--entry key="LONGVARBINARY" value=""/-->
+                <entry key="LONGVARCHAR" value="java.lang.String"/>
+                <!--entry key="NULL" value=""/-->
+                <entry key="NUMERIC" value="java.math.BigDecimal"/>
+                <entry key="OTHER">
+                    <map>
+                        <entry key="NVARCHAR2" value="java.lang.String"/>
+                        <entry key="uuid" value="java.lang.String"/>
+                    </map>
+                </entry>
+                <entry key="REAL" value="java.lang.Double"/>
+                <!--entry key="REF" value=""/-->
+                <entry key="SMALLINT" value="java.lang.Short"/>
+                <!--entry key="STRUCT" value=""/-->
+                <entry key="TIME" value="java.sql.Time"/>
+                <entry key="TIMESTAMP" value="java.sql.Timestamp"/>
+                <entry key="TINYINT" value="java.lang.Byte"/>
+                <!--entry key="VARBINARY" value=""/-->
+                <entry key="VARCHAR" value="java.lang.String"/>
+                <entry key="NVARCHAR" value="java.lang.String"/>
+                <entry key="ARRAY" value="java.lang.String"/>
+            </map>
+        </property>
+        <!-- This mapping is an addition to default mapping java.sql.Types,
+             it means that application takes information from java.sql.Types,
+             but you can override them here -->
+        <property name="codeToJdbcTypeMapping">
+            <map>
+                <!-- entry key="<code>" value="<field name>" -->
+                <!-- -101 is TIMESTAMP WITH TIME ZONE in Oracle, mapped to TIMESTAMP -->
+                <entry key="-101" value="TIMESTAMP"/>
+                <!-- -102 is TIMESTAMP WITH LOCAL TIME ZONE in Oracle, mapped to TIMESTAMP -->
+                <entry key="-102" value="TIMESTAMP"/>
+                <!-- 1111 is TIMESTAMP WITH PRECISION OF FRANCTIONAL SECONDS in Oracle, mapped to TIMESTAMP -->
+                <entry key="1111" value="TIMESTAMP"/>
+                <!-- 100 is BINARY_FLOAT in Oracle, mapped to FLOAT -->
+                <entry key="100" value="FLOAT"/>
+                <!-- 101 is BINARY_DOUBLE in Oracle, mapped to DOUBLE -->
+                <entry key="101" value="DOUBLE"/>
+                <!-- 2005 is CLOB in Teiid VDS, mapped to LONGVARCHAR -->
+                <entry key="2005" value="LONGVARCHAR"/>
+            </map>
+        </property>
+        <property name="tableTypes">
+            <list>
+                <value>TABLE</value>
+                <value>VIEW</value>
+                <!--value>SYSTEM TABLE</value-->
+                <!--value>GLOBAL TEMPORARY</value-->
+                <!--value>LOCAL TEMPORARY</value-->
+                <value>ALIAS</value>
+                <value>SYNONYM</value>
+            </list>
+        </property>
+        <property name="excludeTablesPattern">
+            <value><![CDATA[^BIN\$.*]]></value>
+        </property>
+        <property name="includeTablesPattern">
+            <value><![CDATA[.*]]></value>
+        </property>
+        <property name="includeSynonymsForOracle">
+            <!-- set 'true' if you use Oracle synonyms in Domains  -->
+            <value>false</value>
+        </property>
+        <property name="useColumnLabelInDerivedTables">
+            <!-- set 'true' to use getColumnLabel() for column references, 'false' to use getColumnName()  -->
+            <value>true</value>
+        </property>
+        <property name="columnNameEscapingRegexp" value="\s|#|%|&amp;|\(|\)|\[|\]|:|,|'|&gt;|&lt;|\+|\-|/" />    <!--    replacing chars: <space> # % & ( ) [ ] : , < > + - /  -->
+    </bean>
+</beans>

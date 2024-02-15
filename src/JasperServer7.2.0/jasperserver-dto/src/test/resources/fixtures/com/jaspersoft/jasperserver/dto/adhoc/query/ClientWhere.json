@@ -1,0 +1,21 @@
+{
+  "filterExpression": {
+    "object": {
+      "string": {
+        "value": "expressionString"
+      }
+    }
+  },
+  "parameters": [
+    {
+      "name": "key",
+      "expression": {
+        "object": {
+          "string": {
+            "value": "parametErsexpressionString"
+          }
+        }
+      }
+    }
+  ]
+}

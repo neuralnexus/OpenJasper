@@ -1,0 +1,12 @@
+{
+  "properties":{
+    "TEST_KEY":"TEST_VALUE"
+  },
+  "rootLevel":{
+    "subLevels":[
+      {
+        "id":"TEST_ID"
+      }
+    ]
+  }
+}

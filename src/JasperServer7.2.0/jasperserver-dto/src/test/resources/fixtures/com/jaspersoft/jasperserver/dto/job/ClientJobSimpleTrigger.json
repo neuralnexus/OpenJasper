@@ -1,0 +1,13 @@
+{
+  "id": 100,
+  "version": 2,
+  "timezone": "Europe/Dublin",
+  "calendarName": "TEST_CALENDAR_NAME",
+  "startType": 1,
+  "startDate": "2010-05-23 01:01",
+  "endDate": "2010-05-23 01:01",
+  "misfireInstruction": 0,
+  "occurrenceCount": 100,
+  "recurrenceInterval": 101,
+  "recurrenceIntervalUnit": "HOUR"
+}

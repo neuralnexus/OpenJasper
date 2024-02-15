@@ -1,0 +1,1 @@
+!function(e,n){"function"==typeof define&&define.amd?define(["../numeral"],n):n("object"==typeof module&&module.exports?require("../numeral"):e.numeral)}(this,function(e){e.register("locale","bg",{delimiters:{thousands:" ",decimal:","},abbreviations:{thousand:"хил",million:"млн",billion:"млрд",trillion:"трлн"},ordinal:function(e){return""},currency:{symbol:"лв"}})});

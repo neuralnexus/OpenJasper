@@ -1,0 +1,6 @@
+{
+  "categorizer": "TEST_CATEGORIZER",
+  "includeAll": true,
+  "dimension": "TEST_DIMENSION",
+  "hierarchy": "TEST_HIERARCHY_NAME"
+}

@@ -1,0 +1,10 @@
+{
+  "name":"TEST_NAME",
+  "label":"TEST_LABEL",
+  "defaultValue":"TEST_DEFAULT_VALUE",
+  "properties":[
+    {
+      "key":"TEST_KEY"
+    }
+  ]
+}

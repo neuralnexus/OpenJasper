@@ -1,0 +1,16 @@
+{
+    "closeText": "Închide",
+    "prevText": "&laquo; Luna precedentă",
+    "nextText": "Luna următoare &raquo;",
+    "currentText": "Azi",
+    "monthNames": ["Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie",
+        "Iulie","August","Septembrie","Octombrie","Noiembrie","Decembrie"],
+    "dayNamesShort": ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sâm"],
+    "dayNamesMin": ["Du","Lu","Ma","Mi","Jo","Vi","Sâ"],
+    "weekHeader": "Săpt",
+    "dateFormat": "yy-mm-dd",
+    "firstDay": 1,
+    "isRTL": false,
+    "showMonthAfterYear": false,
+    "yearSuffix": ""
+}

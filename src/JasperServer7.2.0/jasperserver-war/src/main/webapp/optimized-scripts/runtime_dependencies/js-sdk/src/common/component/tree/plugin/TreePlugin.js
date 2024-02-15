@@ -1,0 +1,1 @@
+define(["require","backbone"],function(e){"use strict";return e("backbone").View.extend({dataLayerObtained:function(){},itemsRendered:function(){}},{processors:null,treeInitialized:function(){},treeRemoved:function(){}})});

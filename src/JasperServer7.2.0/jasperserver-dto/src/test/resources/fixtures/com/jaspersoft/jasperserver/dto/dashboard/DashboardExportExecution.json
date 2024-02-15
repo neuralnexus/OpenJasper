@@ -1,0 +1,24 @@
+{
+  "width": 100,
+  "height": 101,
+  "referenceWidth": 102,
+  "referenceHeight": 103,
+  "format": "pdf",
+  "uri": "TEST_URI",
+  "id": "TEST_ID",
+  "parameters": {
+    "dashboardParameter": [
+      {
+        "name": "TEST_NAME",
+        "value": []
+      }
+    ]
+  },
+  "markup": "TEST_MARKUP",
+  "jrStyle": [
+    "TEST_JR_STYLE_1",
+    "TEST_JR_STYLE_2"
+  ],
+  "outputTimeZone": "TEST_OUTPUT_TIME_ZONE",
+  "outputLocale": "TEST_OUTPUT_LOCALE"
+}

@@ -1,0 +1,1 @@
+!function(e,i){"function"==typeof define&&define.amd?define(["../numeral"],i):i("object"==typeof module&&module.exports?require("../numeral"):e.numeral)}(this,function(e){e.register("locale","da-dk",{delimiters:{thousands:".",decimal:","},abbreviations:{thousand:"k",million:"mio",billion:"mia",trillion:"b"},ordinal:function(e){return"."},currency:{symbol:"DKK"}})});

@@ -1,0 +1,39 @@
+{
+  "select": {
+    "fields": [
+      {
+        "id": "id"
+      }
+    ]
+  },
+  "from": {
+    "dataSource": "dataSource"
+  },
+  "where": {
+    "filterExpression": {}
+  },
+  "limit": 23,
+  "orderBy": [
+    {
+      "level": {
+        "aggregation": true
+      }
+    },
+    {
+      "level": {
+        "ascending": true
+      }
+    }
+  ],
+  "groupBy": {
+    "columns": {
+      "items": [
+        {
+          "level": {
+            "id": "idLevel"
+          }
+        }
+      ]
+    }
+  }
+}

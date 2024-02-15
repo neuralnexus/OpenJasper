@@ -1,0 +1,55 @@
+{
+  "dataSource": {
+    "reference": {
+      "uri": "/organizations/organization_1/analysis/datasources/SugarCRMDataSourceJNDI"
+    }
+  },
+  "query": {
+    "select": {
+      "aggregations": [
+        {
+          "functionName": "CountAll",
+          "timeBalanceFunctionName": "TimeBalanceDefault",
+          "type": "long",
+          "fieldRef": "newSet1.billing_address_postalcode"
+        },
+        {
+          "functionName": "CountAll",
+          "timeBalanceFunctionName": "TimeBalanceDefault",
+          "type": "long",
+          "fieldRef": "newSet1.billing_address_city"
+        }
+      ]
+    },
+    "groupBy": {
+      "rows": {
+        "items": [
+          {
+            "level": {
+              "categorizer": "all",
+              "includeAll": true,
+              "field": "newSet1.billing_address_state",
+              "dimension": "newSet1.billing_address_state"
+            }
+          },
+          {
+            "level": {
+              "id": "newSet1.billing_address_city_JRS_Group",
+              "categorizer": "all",
+              "includeAll": true,
+              "field": "newSet1.billing_address_city",
+              "dimension": "newSet1.billing_address_city"
+            }
+          }
+        ]
+      },
+      "columns": {
+        "items": [
+          {
+            "aggregations": {}
+          }
+        ]
+      }
+    }
+  }
+}

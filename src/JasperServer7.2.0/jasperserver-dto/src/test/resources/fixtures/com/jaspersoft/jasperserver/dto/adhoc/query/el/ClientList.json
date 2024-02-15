@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "string": {
+        "value": "string"
+      }
+    },
+    {
+      "number": {
+        "value": "23"
+      }
+    }
+  ]
+}

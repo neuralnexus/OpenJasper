@@ -1,0 +1,30 @@
+{
+  "dataSource": {
+    "reference": {
+      "uri": "/organizations/organization_1/adhoc/topics/topicsRD/EqualsDate_2"
+    }
+  },
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "field": "column_string"
+        }
+      ]
+    },
+    "where": {
+      "parameters": [
+        {
+          "name": "DateP",
+          "expression": {
+            "object": {
+              "relativeDateRange": {
+                "value": "WEEK-1"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "query": {
+    "select": {
+      "fields": [],
+      "aggregations": []
+    }
+  }
+}

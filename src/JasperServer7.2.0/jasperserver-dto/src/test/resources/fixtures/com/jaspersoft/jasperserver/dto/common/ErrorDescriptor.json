@@ -1,0 +1,21 @@
+{
+  "message": "message",
+  "errorCode": "401",
+  "errorUid": "121",
+  "parameters": [
+    "1",
+    "2"
+  ],
+  "properties": [
+    {},
+    {
+      "key": "key"
+    }
+  ],
+  "details": [
+    {},
+    {
+      "errorCode": "403"
+    }
+  ]
+}

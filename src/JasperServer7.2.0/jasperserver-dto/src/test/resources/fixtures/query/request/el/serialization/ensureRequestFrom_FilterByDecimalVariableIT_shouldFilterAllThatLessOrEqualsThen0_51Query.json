@@ -1,0 +1,43 @@
+{
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "id": "sales1",
+          "field": "sales_fact_ALL.sales_fact_ALL__store_sales_2013"
+        }
+      ]
+    },
+    "where": {
+      "filterExpression": {
+        "object": {
+          "lessOrEqual": {
+            "operands": [
+              {
+                "variable": {
+                  "name": "sales1"
+                }
+              },
+              {
+                "number": {
+                  "value": "0.51"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "orderBy": [
+      {
+        "ascending": true,
+        "fieldRef": "sales1"
+      }
+    ]
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "/public/Samples/Ad_Hoc_Views/04__Product_Results_by_Store_Type"
+    }
+  }
+}

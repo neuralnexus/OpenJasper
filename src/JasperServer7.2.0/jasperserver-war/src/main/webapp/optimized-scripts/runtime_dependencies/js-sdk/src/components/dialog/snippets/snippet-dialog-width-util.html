@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Dialog</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <link type="text/css" href="../../../../demos/css/jasper-ui-dev.css" rel="stylesheet">
+    <link type="text/css" href="../../../../themes/default/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../../requireSnippetsConfig.js"></script>
+    <script type="text/javascript" src="../../../runtime_dependencies/requirejs/require.js"></script>
+    <script type="text/javascript" src="../../../../config.js"></script>
+
+</head>
+
+<body>
+
+<div id="myDialog" class="jr-mDialog jr-isHidden jr-uWidth-475px jr-uHeight-250px jr-uMaxheight-375px jr">
+    <div class="jr-mDialog-header jr jr-jDialogDraggable">
+        <h1 class="jr-mDialog-header-title jr jr-jDialogTitle">Dialog Title</h1>
+    </div>
+
+    <div class="jr-mDialog-body jr">
+        <div class="jr-mDialog-body-wrapper jr jr-jDialogContent"></div>
+    </div>
+
+    <div class="jr-mDialog-footer jr">
+        <button class="jr-mButton jr-mButtonText jr-mButtonPrimary jr jr-jDialogClose">
+            <span class="jr-mButton-label jr">OK</span>
+        </button>
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr jr-jDialogClose">
+            <span class="jr-mButton-label jr">Cancel</span>
+        </button>
+        <div class="jr-mDialog-footer-sizer jr jr-jDialogResizer"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    require(["components/dialog/Dialog", "jquery"], function(Dialog, $){
+
+        var dialog = new Dialog({
+            el: "#myDialog"
+        });
+
+        dialog.open();
+
+    });
+
+</script>
+
+</body>
+</html>

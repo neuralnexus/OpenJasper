@@ -1,0 +1,17 @@
+{
+  "folderURI":"TEST_FOLDER_URI",
+  "id":100,
+  "outputDescription":"TEST_OUTPUT_DESCRIPTION",
+  "overwriteFiles":true,
+  "sequentialFilenames":true,
+  "version":101,
+  "timestampPattern":"TEST_TIMESTAMP_PATTERN",
+  "saveToRepository":true,
+  "defaultReportOutputFolderURI":"TEST_DEFAULT_REPORT_OUTPUT_FOLDER_URI",
+  "usingDefaultReportOutputFolderURI":true,
+  "outputLocalFolder":"TEST_OUTPUT_LOCAL_FOLDER",
+  "outputFTPInfo":{
+    "userName":"USERNAME"
+  }
+}
+
