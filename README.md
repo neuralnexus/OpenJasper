@@ -1,7 +1,7 @@
 # OpenJasper
 This repository was created to organize aGPL licensed jasperreports server, client, and source code folowing the mass deletion of the official project repositoiries in January 2024. 
 
-While the Iiitial efforts will be focused on recovering code from public sources still avaialble, we should consider organizing and maintaining an open source fork of the JasperReports software. Contbutors are welcomed. 
+While the initial efforts will be focused on recovering code from public sources still avaialble, we should consider organizing and maintaining an open source fork of the JasperReports software. Contbutors are welcomed. 
 
 ----
 
