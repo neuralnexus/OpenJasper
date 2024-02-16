@@ -1,3 +1,4 @@
 *.dmg filter=lfs diff=lfs merge=lfs -text
 JasperStudio6.8.0 filter=lfs diff=lfs merge=lfs -text
 *.exe filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
