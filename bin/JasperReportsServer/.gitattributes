@@ -1,0 +1,1 @@
+bin/JasperReportsServer/jasperreports-server-cp-6.0.1-windows-x64-installer.zip filter=lfs diff=lfs merge=lfs -text
