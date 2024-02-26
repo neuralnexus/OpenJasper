@@ -1,0 +1,11 @@
+TIBCO JasperReports(R) Server - Community Edition Reminder Notice 
+
+Unless you are current on Maintenance, you may not use any new Software version releases or components made available after the Maintenance expiration date. Access to new versions of platforms post initial delivery of the Software is limited to Customers current on Maintenance. 
+
+Bill of Materials Change History
+
+     No Change 
+
+Supported Platforms Change History
+
+     No Change

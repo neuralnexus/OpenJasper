@@ -1,0 +1,24 @@
+======================================================================
+Product Name	 : TIBCO JasperReports(R) Server - Community Edition
+Release Version	 : 7.8.0
+Release Date	 : August 2020
+
+======================================================================
+Minimum Hardware Requirements
+
+   Disk Space: 10 GB
+
+   Memory:     8 GB RAM
+
+   CPU:        2 Core Processor
+
+======================================================================
+TIBCO Product Compatibilities
+
+   TIBCO JasperReports(R) Server 7.8.0
+
+======================================================================
+Copyright (c) 2020. TIBCO Software Inc. All Rights Reserved.
+
+
+

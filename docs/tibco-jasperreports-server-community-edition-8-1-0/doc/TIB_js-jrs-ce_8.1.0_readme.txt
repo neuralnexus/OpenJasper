@@ -1,0 +1,40 @@
+======================================================================
+Product Name	 : TIBCO JasperReports(R) Server - Community Edition
+Release Version	 : 8.1.0
+Release Date	 : July 2022
+
+======================================================================
+Introduction 
+
+TIBCO JasperReports(R) Server is a stand-alone and embeddable
+reporting server. It provides reporting and analytics that can
+be embedded into a web or mobile application as well as operate
+as a central information hub for the enterprise by delivering
+mission critical information on a real-time or scheduled basis
+to the browser, mobile device, or email inbox in a variety of
+file formats. Jaspersoft’s Community releases are freely
+available. Everyone is free to download the binary
+distributions, source code, samples,  and documentation that
+accompany the Community release software.  However, it does not
+contain the additional functionality found in commercial
+editions.
+
+======================================================================
+Minimum Hardware Requirements
+
+   Disk Space: 10 GB
+
+   Memory:     8 GB RAM
+
+   CPU:        2 Core Processor
+
+======================================================================
+TIBCO Product Compatibilities
+
+   TIBCO JasperReports(R) Server 8.1.0 - 8.1.x
+
+======================================================================
+Copyright (c) 2022. TIBCO Software Inc. All Rights Reserved.
+
+
+
