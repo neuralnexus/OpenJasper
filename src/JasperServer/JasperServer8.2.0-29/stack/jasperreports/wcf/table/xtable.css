@@ -1,0 +1,119 @@
+table.xtable  {
+	border: 2px solid #000033;
+	background-color:#D0D6D9;
+	font-family: Arial, Helvetica, Tahoma, sans-serif;
+        
+}
+
+th.xtable-title {
+   color : #033669;
+   background-color : #D0D6D9;
+   font-weight: bold;
+   font-size: 90%;
+   vertical-align:middle;
+   padding-top:3px;
+   padding-bottom:3px;
+   font-family: Arial, Helvetica, Tahoma, sans-serif;
+}
+
+th.xtable-heading {
+  background-color: #E6EAED;
+  color : #000000;
+  font-weight: bold;
+  font-size: 80%;
+  font-family: Arial, Helvetica, Tahoma, sans-serif;
+  padding:4px;
+  white-space:nowrap;
+}
+
+td.xtable-data,
+td.xtable-data-even,
+td.xtable-data-odd{
+  font-size: 80%;
+  color : #000000;
+  background-color: #FFFFFF;
+  vertical-align: top;
+  font-family: Arial, Helvetica, Tahoma, sans-serif;
+  padding-left:4px;
+  padding-right:4px;
+}
+
+td.xtable-data-even {
+  background-color: #FAFAF7;
+}
+
+td.xtable-footer {
+   color : #000000;
+   background-color : #E6EAED;
+   font-weight: bold;
+   font-size: 80%;
+   vertical-align:middle;
+   padding-top:3px;
+   padding-bottom:3px;
+   font-family: Arial, Helvetica, Tahoma, sans-serif;
+}
+
+th.xtable-error {
+   background-color: #FFFFFF;
+   font-weight: bold;
+   color:#993200;
+   font-family: Arial, Helvetica, Tahoma, sans-serif;
+}
+
+.insidebutton {
+         background-color:#E6EAED; 
+         color: #000000; 
+         FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+         FONT-SIZE:90%; 
+         font-weight:bold;
+         border: solid 1px #687F99;  
+         padding:0px;
+         margin:0px;
+         _cursor:hand;
+         cursor:pointer;
+         margin-top:0; margin-bottom: 0; margin-left:0; margin-right:0;
+}
+
+.insidebuttonhover {
+         background-color:#D0D6D9; 
+         color: #033669; 
+         FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+         FONT-SIZE:90%; 
+         font-weight:bold;
+         border: solid 1px #033669;         
+         padding:0px;
+         _cursor:hand;
+         cursor:pointer;
+         margin-top:0; margin-bottom: 0; margin-left:0; margin-right:0;
+}
+
+.footerbutton {
+         background-color:#D0D6D9; 
+         color: #000000; 
+         FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+         FONT-SIZE:90%; 
+         font-weight:bold;
+         border: solid 1px #687F99;  
+         padding-left:0px;
+         padding-right:0px;
+         padding-top:2px;
+         padding-bottom:2px;
+         margin:0px;
+         _cursor:hand;
+         cursor:pointer;
+}
+
+.footerbuttonhover {
+         background-color:#E6EAED; 
+         color: #033669; 
+         FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; 
+         FONT-SIZE:90%; 
+         font-weight:bold;
+         border: solid 1px #033669;         
+         padding-left:0px;
+         padding-right:0px;
+         padding-top:2px;
+         padding-bottom:2px;
+         _cursor:hand;
+         cursor:pointer;
+}

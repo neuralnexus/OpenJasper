@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<xform style="manual">
+<div style="position: absolute; left: 250px; top: 276px;">
+
+<table id="outterTable" border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+<table id="saveasTable" border="0" cellspacing="0" cellpadding="2">
+ <!-- title -->
+ <tr>
+  <th colspan="8" class="xform-title">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <th align="left" class="xform-title">fmt:JAJ_000_jsp.jpivot.toolb.saveas.saveastt</th>
+     <td align="right" class="xform-close-button">
+      <imgButton src="wcf/form/cancel.png" action="revert" label="fmt:JAJ_000_jsp.close" hide="true" handler="com.tonbeller.wcf.form.ButtonHandler" onclick="pageAlert=false"/>
+     </td>
+    </tr>
+   </table>
+  </th>
+ </tr>
+ 
+ <tr>
+  <td colspan="8" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+ 
+ 
+ <tr>
+  <td colspan="8" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+ 
+ <tr>
+  <td colspan="8" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+  <td nowrap="yes" class="xform-input" valign="top" width="33%">fmt:JAJ_000_jsp.jpivot.toolb.saveas.viewNamec</td>
+  <td class="xform-both" valign="top" width="67%">
+   <textField id="viewName" type="string" modelReference="viewName" size="40" title="fmt:JAJ_000_jsp.jpivot.toolb.saveas.viewName" required="true"/>
+  </td>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+  <td nowrap="yes" class="xform-input" valign="top" width="33%" style="background-color:#FFFFFF">
+    fmt:JAJ_000_jsp.jpivot.toolb.saveas.locationc
+  </td>
+  <td class="xform-title" valign="top" style="background-color:#FFFFFF">
+   <listBox1 id="location" type="string" modelReference="location" title="fmt:JAJ_000_jsp.jpivot.toolb.saveas.location" label="Title font style" handler="com.tonbeller.jpivot.table.RepoFolderList"/>
+  </td>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+ 
+   
+ <tr>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td> 
+  <td nowrap="yes" class="xform-input" valign="top" width="33%">fmt:JAJ_000_jsp.jpivot.toolb.saveas.descriptionc</td>
+  <td class="xform-both" valign="top" width="67%">
+   <textArea id="description" type="string" modelReference="description"  class="xform-textarea" cols="44" rows="5" title="fmt:JAJ_000_jsp.jpivot.toolb.saveas.description"/>
+  </td>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td> 
+ </tr>
+ 
+ <tr>
+  <td colspan="8" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+ 
+ <tr>
+  <td colspan="8" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+ 
+ 
+ <tr>
+  <td colspan="8" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+  <td colspan="2" class="xform-title" style="background-color:#FFFFFF">
+    <span class="xform-error">
+      <error-message/>
+    </span> 
+  </td>  
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>  
+ </tr> 
+
+ <tr>
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>
+  <td colspan="2" class="xform-title" style="background-color:#FFFFFF">
+  </td>  
+  <td colspan="3" class="xform-title" style="background-color:#FFFFFF">
+  </td>  
+ </tr> 
+  
+ 
+ <tr>
+  <td align="right" class="xform-close-button" colspan="8">
+    <button action="validate" label="fmt:JAJ_000_jsp.ok"  handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+    <button action="revert" label="fmt:JAJ_000_jsp.cancel" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+  </td>
+ </tr>
+
+
+</table>
+<script type="text/javascript">
+  var viewName = document.getElementById("viewName");
+  if (viewName != null) {
+     viewName.select();
+  }
+</script>
+</td>
+</tr>
+</table>
+</div>
+</xform>

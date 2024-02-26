@@ -1,0 +1,2 @@
+(self.webpackChunkjrs_ui=self.webpackChunkjrs_ui||[]).push([[656],{80656:(e,i,n)=>{"use strict";n.r(i);var r=n(72157);n.n(r)()("#closeErrorPage").on("click",(function(){window.isEmbeddedDesigner&&window.parent.postMessage({event_id:"errorPage:close"},window.location.origin)}))}}]);
+//# sourceMappingURL=chunk.656.js.map

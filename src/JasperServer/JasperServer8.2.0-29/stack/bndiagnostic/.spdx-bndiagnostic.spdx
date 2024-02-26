@@ -1,0 +1,42 @@
+{
+    "SPDXID": "SPDXRef-bndiagnostic",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2024-01-28T12:23:20.514Z",
+        "creators": [
+            "Organization: VMware, Inc."
+        ]
+    },
+    "name": "SPDX document for Bndiagnostic Tool 1.0.3",
+    "dataLicense": "CC0-1.0",
+    "documentDescribes": [
+        "SPDXRef-bndiagnostic"
+    ],
+    "documentNamespace": "bndiagnostic-1.0.3",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-bndiagnostic",
+            "name": "Bndiagnostic Tool",
+            "versionInfo": "1.0.3-1",
+            "downloadLocation": "https://github.com/bitnami/bndiagnostic/archive/refs/tags/v1.0.3.tar.gz",
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:bndiagnostic:bndiagnostic:1.0.3:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/bndiagnostic@1.0.3-1?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        }
+    ],
+    "files": [],
+    "relationships": []
+}

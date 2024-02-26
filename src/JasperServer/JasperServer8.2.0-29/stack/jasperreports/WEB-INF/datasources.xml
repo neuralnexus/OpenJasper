@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<DataSources>
+	<DataSource>
+		<DataSourceName>Provider=Mondrian;DataSource=MondrianFoodMart;</DataSourceName>
+		<DataSourceDescription>Mondrian FoodMart Data Warehouse</DataSourceDescription>
+		<URL>http://localhost:8080/jpivot/xmla</URL>
+		<DataSourceInfo>Provider=mondrian;Jdbc=jdbc:odbc:MondrianFoodMart;JdbcDrivers=sun.jdbc.odbc.JdbcOdbcDriver;Catalog=/WEB-INF/queries/FoodMart.xml</DataSourceInfo>
+                <Catalogs>
+                    <Catalog name="FoodMart" >/WEB-INF/queries/FoodMart.xml</Catalog>
+                </Catalogs>
+		<ProviderName>Mondrian</ProviderName>
+		<ProviderType>MDP</ProviderType>
+		<AuthenticationMode>Unauthenticated</AuthenticationMode>
+	</DataSource>
+</DataSources>

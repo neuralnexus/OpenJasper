@@ -1,0 +1,184 @@
+/* -------------------------------------------------------------------------------
+    ABOUT CUSTOM OVERRIDES
+
+    .overrides_custom css
+
+    Place styles for simple UI customization in this file.
+
+    This file is loaded after all other CSS, so selectors here will override
+    rules in all other Jaspersoft css files.
+
+    Using this file to customize your theme is the method most likely to
+    preserve your customizations even if markup changes in future releases.
+
+    Extensive customizations may be easier to implement by replacing one or
+    more of the standard theme files in your custom theme folder.
+
+    Future product releases may introduce new components. Styles for any new
+    components will be in css files that you have overridden or replaced. Your
+    theme will not have these new styles, so the new components may not display
+    as desired until you add your own customizations for these components.
+
+    All keyboard focus styles have been added to the section "ACCESSIBILITY
+    FOCUS STYLES" below. If you wish to change these styles, simply uncomment
+    and change the values to suit your needs.
+   --------------------------------------------------------------------------------  */
+
+/* GENERAL THEME */
+
+
+
+
+
+
+/* ---------------------------- */
+/*  ACCESSIBILITY FOCUS STYLES  */
+/* ---------------------------- */
+/*   1. Global Elements         */
+/* ---------------------------- */
+.menu.primaryNav .leaf.focus-visible .wrap,
+.menu.primaryNav .node.focus-visible .wrap,
+#metaLinks li.focus-visible:not(select) {
+ /* Uncomment and change values to customize
+    background-color: #0078bd; */
+}
+
+#globalSearch.control.searchLockup > .wrap > input[type=text]:focus,
+#globalSearch .button.search.focus-visible,
+#globalSearch .button.searchClear.focus-visible {
+ /* Uncomment and change values to customize
+    border: 1px solid #0098f0 !important;
+    outline: 2px solid #0098f0 !important; */
+}
+
+#frameFooter #about a.focus-visible {
+ /* Uncomment and change values to customize
+    box-shadow:  0 -2px #bde7ff, 0 2px #0078bd; */
+}
+
+/* ---------------- */
+/*   2. Buttons     */
+/* ---------------- */
+.action:focus-visible {
+ /* Uncomment and change values to customize
+    outline: 2px solid #666666; */
+}
+
+.action.primary:focus-visible,
+.action.simple.focus-visible,
+.toolbar > .list.buttonSet .leaf .focus-visible,
+.button.search.focus-visible,
+.button.searchClear.focus-visible {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79; */
+}
+
+/* ----------------------------- */
+/*   3. Controls and Inputs      */
+/* ----------------------------- */
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+.control.combo > select.button:focus {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79 !important; */
+}
+
+input[type="text"][readonly]:focus,
+input[type="password"][readonly]:focus,
+textarea[readonly]:focus {
+ /* Uncomment and change values to customize
+    outline-style: dotted !important; */
+}
+
+.control.switch .focus-visible + .wrap .track,
+select.focus-visible,
+input[type=checkbox].focus-visible,
+input[type=radio].focus-visible,
+#sortMode > .tab.selected:focus-visible:after,
+#viewMode > .tab.selected.focus-visible:after {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79; */
+}
+
+/* ---------------- */
+/*   4. Menu        */
+/* ---------------- */
+.menu.vertical li > .wrap.over.focus-visible {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79; */
+}
+
+/* ----------------------- */
+/*   6. Text Elements      */
+/* ----------------------- */
+/* link */
+a:focus-visible:not(.button) {
+ /* Uncomment and change values to customize
+    background-color: #bde7ff;
+    box-shadow: 0 -2px #bde7ff, 0 2px #062e79;
+    color: #062e79 !important;
+    text-decoration: none; */
+}
+
+/* non-link text that requires focus */
+.message.focus-visible {
+ /* Uncomment and change values to customize
+    background-color: #bde7ff;
+    color: #212121;
+    outline: 2px solid #062e79; */
+}
+
+/* ------------------------------- */
+/*   7. Page & Dialog Specific     */
+/* ------------------------------- */
+/* Home Page */
+.resourceBlock .buttonIconToggle:focus-visible,
+.resourceBlock .buttonIconToggle.focus-visible,
+.workflow-iconContainer .button.focus-visible {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79; */
+}
+
+.workflowsBlock .focus-visible .workflow {
+ /* Uncomment and change values to customize
+    outline: 3px solid #062e79; */
+}
+
+/* Permissions Dialog */
+.dialog.permissions .list.tabular .selected.subfocus > .wrap,
+.dialog.permissions .list.tabular .focus-visible.subfocus:not(select) {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79; */
+}
+
+.message.focus-visible {
+ /* Uncomment and change values to customize
+    background-color: #bde7ff;
+    color: #212121;
+    outline: 2px solid #062e79; */
+}
+
+
+/* ---------------------------------------------- */
+/*   8. Library, Search, and Repository Pages     */
+/* ---------------------------------------------- */
+/* resource table rows and cells */
+.list.tabular.resources .leaf.focus-visible > .wrap,
+.list.tabular.resources .node.focus-visible > .wrap,
+.list.tabular.resources .focus-visible.subfocus:not(li),
+.list.tabular.resources .scheduled.selected > .wrap .scheduled.icon.focus-visible {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79; */
+}
+
+/* Filter and Folder panel elements */
+#repoBrowse .button.minimize.focus-visible,
+#repoSearch .button.minimize.focus-visible,
+#repoSearch .list.filters li.selected.subfocus.focus-visible > .wrap,
+#filtersPanel .buttonIconToggle.focus-visible,
+.folders .list > li.selected.focus-visible > .wrap,
+.folders.selected.focus-visible > .wrap {
+ /* Uncomment and change values to customize
+    outline: 2px solid #062e79; */
+}

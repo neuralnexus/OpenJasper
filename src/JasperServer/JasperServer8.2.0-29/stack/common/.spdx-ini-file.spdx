@@ -1,0 +1,131 @@
+{
+    "SPDXID": "SPDXRef-ini-file",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2024-01-29T19:03:03.583Z",
+        "creators": [
+            "Organization: VMware, Inc."
+        ]
+    },
+    "name": "SPDX document for ini-file 1.4.6",
+    "dataLicense": "CC0-1.0",
+    "documentDescribes": [
+        "SPDXRef-ini-file"
+    ],
+    "documentNamespace": "ini-file-1.4.6",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-ini-file",
+            "name": "ini-file",
+            "versionInfo": "1.4.6-7",
+            "downloadLocation": "https://github.com/bitnami/ini-file/archive/refs/tags/v1.4.6.tar.gz",
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:ini-file:ini-file:1.4.6:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/ini-file@1.4.6-7?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/go-ini/ini",
+            "SPDXID": "SPDXRef-Package-b8d17a6c665e04ef",
+            "versionInfo": "v1.67.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/go-ini/ini@v1.67.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/jessevdk/go-flags",
+            "SPDXID": "SPDXRef-Package-a5905e1d9b89bd2d",
+            "versionInfo": "v1.5.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/jessevdk/go-flags@v1.5.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "gobinary",
+            "SPDXID": "SPDXRef-Application-28112f9f13838593-ini-file",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "sourceInfo": "opt/bitnami/common/bin/ini-file",
+            "primaryPackagePurpose": "APPLICATION",
+            "copyrightText": "NOASSERTION",
+            "licenseConcluded": "NOASSERTION",
+            "licenseDeclared": "NOASSERTION"
+        },
+        {
+            "name": "golang.org/x/sys",
+            "SPDXID": "SPDXRef-Package-1860405fa528f817",
+            "versionInfo": "v0.2.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/golang.org/x/sys@v0.2.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        }
+    ],
+    "files": [],
+    "relationships": [
+        {
+            "spdxElementId": "SPDXRef-ini-file",
+            "relationshipType": "CONTAINS",
+            "relatedSpdxElement": "SPDXRef-Application-28112f9f13838593-ini-file"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-28112f9f13838593-ini-file",
+            "relatedSpdxElement": "SPDXRef-Package-b8d17a6c665e04ef",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-28112f9f13838593-ini-file",
+            "relatedSpdxElement": "SPDXRef-Package-a5905e1d9b89bd2d",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-28112f9f13838593-ini-file",
+            "relatedSpdxElement": "SPDXRef-Package-1860405fa528f817",
+            "relationshipType": "CONTAINS"
+        }
+    ]
+}

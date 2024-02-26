@@ -1,0 +1,203 @@
+{
+    "SPDXID": "SPDXRef-gonit",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2024-01-29T17:58:21.037Z",
+        "creators": [
+            "Organization: VMware, Inc."
+        ]
+    },
+    "name": "SPDX document for Gonit 0.2.9",
+    "dataLicense": "CC0-1.0",
+    "documentDescribes": [
+        "SPDXRef-gonit"
+    ],
+    "documentNamespace": "gonit-0.2.9",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-gonit",
+            "name": "Gonit",
+            "versionInfo": "0.2.9-6",
+            "downloadLocation": "https://github.com/bitnami/gonit/archive/refs/tags/v0.2.9.tar.gz",
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:bitnami:gonit:0.2.9:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/gonit@0.2.9-6?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/VividCortex/godaemon",
+            "SPDXID": "SPDXRef-Package-11de37a0aad7a137",
+            "versionInfo": "v1.0.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/vividcortex/godaemon@v1.0.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/julienschmidt/httprouter",
+            "SPDXID": "SPDXRef-Package-7b5ff77d98872f0e",
+            "versionInfo": "v1.3.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/julienschmidt/httprouter@v1.3.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/sirupsen/logrus",
+            "SPDXID": "SPDXRef-Package-4f976a5bbfc76db3",
+            "versionInfo": "v1.9.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/sirupsen/logrus@v1.9.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/spf13/cobra",
+            "SPDXID": "SPDXRef-Package-6d060b366a519ece",
+            "versionInfo": "v1.6.1",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/spf13/cobra@v1.6.1"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/spf13/pflag",
+            "SPDXID": "SPDXRef-Package-6f9a94cf45406856",
+            "versionInfo": "v1.0.5",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/spf13/pflag@v1.0.5"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "gobinary",
+            "SPDXID": "SPDXRef-Application-149c277664266d55-gonit",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "sourceInfo": "opt/bitnami/gonit/bin/gonit",
+            "primaryPackagePurpose": "APPLICATION",
+            "copyrightText": "NOASSERTION",
+            "licenseConcluded": "NOASSERTION",
+            "licenseDeclared": "NOASSERTION"
+        },
+        {
+            "name": "golang.org/x/sys",
+            "SPDXID": "SPDXRef-Package-f0dadf906cc997b0",
+            "versionInfo": "v0.2.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/golang.org/x/sys@v0.2.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        }
+    ],
+    "files": [],
+    "relationships": [
+        {
+            "spdxElementId": "SPDXRef-gonit",
+            "relationshipType": "CONTAINS",
+            "relatedSpdxElement": "SPDXRef-Application-149c277664266d55-gonit"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-149c277664266d55-gonit",
+            "relatedSpdxElement": "SPDXRef-Package-11de37a0aad7a137",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-149c277664266d55-gonit",
+            "relatedSpdxElement": "SPDXRef-Package-7b5ff77d98872f0e",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-149c277664266d55-gonit",
+            "relatedSpdxElement": "SPDXRef-Package-4f976a5bbfc76db3",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-149c277664266d55-gonit",
+            "relatedSpdxElement": "SPDXRef-Package-6d060b366a519ece",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-149c277664266d55-gonit",
+            "relatedSpdxElement": "SPDXRef-Package-6f9a94cf45406856",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-149c277664266d55-gonit",
+            "relatedSpdxElement": "SPDXRef-Package-f0dadf906cc997b0",
+            "relationshipType": "CONTAINS"
+        }
+    ]
+}

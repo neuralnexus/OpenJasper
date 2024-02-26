@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2005-2023. Cloud Software Group, Inc. All Rights Reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!DOCTYPE resources PUBLIC "-//Sun Microsystems Inc.//DTD Application Server 9.0 Domain//EN" "*<install directory>/lib/dtds/sun-resources_1_3.dtd*">
+
+
+<resources>
+    <jdbc-connection-pool 
+        name="jasperserver_pool" 
+        datasource-classname="org.mariadb.jdbc.MySQLDataSource"
+        res-type="javax.sql.ConnectionPoolDataSource"
+        max-pool-size="50">
+        <property name="serverName" value="127.0.0.1"/>
+        <property name="user" value="bn_jasperreports"/>
+        <property name="password" value="68412ab9f0532ba4b6cede08bc7a500e38511adf7b48d896f5186c3cd7846ab3"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/bitnami_jasperreports?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnectForPools=true&amp;tinyInt1isBit=false&amp;allowPublicKeyRetrieval=true&amp;user=bn_jasperreports&amp;password=68412ab9f0532ba4b6cede08bc7a500e38511adf7b48d896f5186c3cd7846ab3"/>
+        <property name="databaseName" value="bitnami_jasperreports"/>
+        <property name="driverType" value="${db2.driverType}"/>
+        <property name="portNumber" value="3306"/>
+        <property name="currentSchema" value="bitnami_jasperreports"/>
+        <property name="fullyMaterializeLobData" value="${db2.fullyMaterializeLobData}"/>
+        <property name="fullyMaterializeInputStreams" value="${db2.fullyMaterializeInputStreams}"/>
+        <property name="progressiveStreaming" value="${db2.progressiveStreaming}"/>
+        <property name="progresssiveLocators" value="${db2.progresssiveLocators}"/>
+		<property name="JDBC30DataSource" value="true"/>
+    </jdbc-connection-pool>
+
+    <jdbc-resource enabled="true" jndi-name="jdbc/jasperserver" object-type="user" pool-name="jasperserver_pool"/>
+
+
+    <jdbc-connection-pool 
+        name="sugarcrm_pool" 
+        datasource-classname="org.mariadb.jdbc.MySQLDataSource"
+        res-type="javax.sql.ConnectionPoolDataSource"
+        max-pool-size="50">
+        <property name="serverName" value="127.0.0.1"/>
+        <property name="user" value="bn_jasperreports"/>
+        <property name="password" value="68412ab9f0532ba4b6cede08bc7a500e38511adf7b48d896f5186c3cd7846ab3"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/sugarcrm?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnectForPools=true&amp;tinyInt1isBit=false&amp;allowPublicKeyRetrieval=true&amp;user=bn_jasperreports&amp;password=68412ab9f0532ba4b6cede08bc7a500e38511adf7b48d896f5186c3cd7846ab3"/>
+        <property name="databaseName" value="sugarcrm"/>
+        <property name="driverType" value="${db2.driverType}"/>
+        <property name="portNumber" value="3306"/>
+        <property name="currentSchema" value="sugarcrm"/>
+		 <property name="JDBC30DataSource" value="true"/>
+    </jdbc-connection-pool>
+
+    <jdbc-resource enabled="true" jndi-name="jdbc/sugarcrm" object-type="user" pool-name="sugarcrm_pool"/>
+
+
+    <jdbc-connection-pool 
+        name="foodmart_pool" 
+        datasource-classname="org.mariadb.jdbc.MySQLDataSource"
+        res-type="javax.sql.ConnectionPoolDataSource"
+        max-pool-size="50">
+        <property name="serverName" value="127.0.0.1"/>
+        <property name="user" value="bn_jasperreports"/>
+        <property name="password" value="68412ab9f0532ba4b6cede08bc7a500e38511adf7b48d896f5186c3cd7846ab3"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/foodmart?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnectForPools=true&amp;tinyInt1isBit=false&amp;allowPublicKeyRetrieval=true&amp;user=bn_jasperreports&amp;password=68412ab9f0532ba4b6cede08bc7a500e38511adf7b48d896f5186c3cd7846ab3"/>
+        <property name="databaseName" value="foodmart"/>
+        <property name="driverType" value="${db2.driverType}"/>
+        <property name="portNumber" value="3306"/>
+        <property name="currentSchema" value="foodmart"/>
+		<property name="JDBC30DataSource" value="true"/>
+    </jdbc-connection-pool>
+
+    <jdbc-resource enabled="true" jndi-name="jdbc/foodmart" object-type="user" pool-name="foodmart_pool"/>
+
+
+</resources> 

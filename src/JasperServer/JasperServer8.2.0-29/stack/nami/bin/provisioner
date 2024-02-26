@@ -1,0 +1,15 @@
+#!/bin/bash
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: GPL-2.0-only
+
+NODE_OPTS="--max_semi_space_size=150 --stack_size=16000"
+
+SCRIPT=$0
+if [[ -h $SCRIPT ]]; then
+    SCRIPT=`readlink $SCRIPT`
+fi
+
+ROOTDIR=`cd $(dirname $SCRIPT)/.. && pwd`
+
+exec $ROOTDIR/runtime/node $NODE_OPTS $ROOTDIR/bin/cli.js "$@"
+

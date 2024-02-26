@@ -1,0 +1,2 @@
+(self.webpackChunkjrs_ui=self.webpackChunkjrs_ui||[]).push([[3542],{63542:function(n,i,l){var o,e,r;e=[l(85546)],void 0===(r="function"==typeof(o=function(n){n.register("locale","pl",{delimiters:{thousands:" ",decimal:","},abbreviations:{thousand:"tys.",million:"mln",billion:"mld",trillion:"bln"},ordinal:function(n){return"."},currency:{symbol:"PLN"}})})?o.apply(i,e):o)||(n.exports=r)}}]);
+//# sourceMappingURL=chunk.3542.js.map

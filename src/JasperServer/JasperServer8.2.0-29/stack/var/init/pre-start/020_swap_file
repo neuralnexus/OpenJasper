@@ -1,0 +1,30 @@
+#!/bin/sh
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+#
+# Creates swap file in micro instances
+#
+
+. /opt/bitnami/scripts/init/functions
+
+SWAPFILE=/mnt/.bitnami.swap
+SWAPSIZE=650000
+
+configure_swap () {
+  ephemeral_mount_available=$(df -kP '/mnt' | tail -1 |awk '{print $4}')
+  if !(swapon -s | grep -q $SWAPFILE) && test $SWAPSIZE -lt ${ephemeral_mount_available}; then
+    rm -f $SWAPFILE
+    dd if=/dev/zero of=$SWAPFILE bs=1K count=$SWAPSIZE
+    chmod 0600 $SWAPFILE
+    mkswap $SWAPFILE
+    swapon $SWAPFILE
+  fi
+}
+
+
+instance_type=`get_generic_instance_type`
+if [ "x$instance_type" = "xmicro" ] || [ "x$1" = "x--force" ]; then
+  configure_swap
+else
+  rm -f $SWAPFILE
+fi

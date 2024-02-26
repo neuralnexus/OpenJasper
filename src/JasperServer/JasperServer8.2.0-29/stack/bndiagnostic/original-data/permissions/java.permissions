@@ -1,0 +1,1739 @@
+java:
+total 51608
+drwxr-xr-x 11 root root     4096 Jan 30 15:28 .
+drwxr-xr-x 15 root root     4096 Feb  1 12:01 ..
+-rw-r--r--  1 root root     1522 Jan 29 20:27 ASSEMBLY_EXCEPTION
+drwxr-xr-x  2 root root     4096 Jan 29 20:46 bin
+-rw-r--r--  1 root root        0 Jan 29 20:27 .buildcomplete
+drwxr-xr-x 10 root root     4096 Jan 29 20:46 demo
+drwxr-xr-x  3 root root     4096 Jan 29 20:46 include
+drwxr-xr-x  4 root root     4096 Jan 29 20:46 jre
+drwxr-xr-x  3 root root     4096 Jan 29 20:46 legal
+drwxr-xr-x  3 root root     4096 Jan 29 20:46 lib
+drwxr-xr-x  2 root root     4096 Jan 29 20:46 licenses
+drwxr-xr-x  4 root root     4096 Jan 29 20:46 man
+-rw-r--r--  1 root root      251 Jan 29 20:27 readme.txt
+-rw-r--r--  1 root root      103 Jan 29 20:27 release
+drwxr-xr-x 10 root root     4096 Jan 29 20:46 sample
+-rw-r--r--  1 root root     1394 Jan 30 15:28 .spdx-java.spdx
+-rw-r--r--  1 root root 52621349 Jan 29 20:27 src.zip
+-rw-r--r--  1 root root   158253 Jan 29 20:27 THIRD_PARTY_README
+
+java/bin:
+total 704
+drwxr-xr-x  2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root   4096 Jan 30 15:28 ..
+-rwxr-xr-x  1 root root   8992 Jan 29 20:27 appletviewer
+-rwxr-xr-x  1 root root   9000 Jan 29 20:27 clhsdb
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 extcheck
+-rwxr-xr-x  1 root root   9000 Jan 29 20:27 hsdb
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 idlj
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jar
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jarsigner
+-rwxr-xr-x  1 root root   8848 Jan 29 20:27 java
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 javac
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 javadoc
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 javah
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 javap
+-rwxr-xr-x  1 root root   2806 Jan 29 20:27 java-rmi.cgi
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jcmd
+-rwxr-xr-x  1 root root   9008 Jan 29 20:27 jconsole
+-rwxr-xr-x  1 root root   9000 Jan 29 20:27 jdb
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jdeps
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jfr
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jhat
+-rwxr-xr-x  1 root root   9048 Jan 29 20:27 jinfo
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jjs
+-rwxr-xr-x  1 root root   9048 Jan 29 20:27 jmap
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jps
+-rwxr-xr-x  1 root root   8992 Jan 29 20:27 jrunscript
+-rwxr-xr-x  1 root root   9000 Jan 29 20:27 jsadebugd
+-rwxr-xr-x  1 root root   9048 Jan 29 20:27 jstack
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jstat
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 jstatd
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 keytool
+-rwxr-xr-x  1 root root   8992 Jan 29 20:27 native2ascii
+-rwxr-xr-x  1 root root   9056 Jan 29 20:27 orbd
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 pack200
+-rwxr-xr-x  1 root root   8992 Jan 29 20:27 policytool
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 rmic
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 rmid
+-rwxr-xr-x  1 root root   8992 Jan 29 20:27 rmiregistry
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 schemagen
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 serialver
+-rwxr-xr-x  1 root root   8992 Jan 29 20:27 servertool
+-rwxr-xr-x  1 root root   9056 Jan 29 20:27 tnameserv
+-rwxr-xr-x  1 root root 191312 Jan 29 20:27 unpack200
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 wsgen
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 wsimport
+-rwxr-xr-x  1 root root   8984 Jan 29 20:27 xjc
+
+java/demo:
+total 44
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root 4096 Jan 30 15:28 ..
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 applets
+drwxr-xr-x 11 root root 4096 Jan 29 20:46 jfc
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 jpda
+drwxr-xr-x 11 root root 4096 Jan 29 20:46 jvmti
+drwxr-xr-x  6 root root 4096 Jan 29 20:46 management
+drwxr-xr-x  5 root root 4096 Jan 29 20:46 nbproject
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 nio
+-rw-r--r--  1 root root  680 Jan 29 20:27 README
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 scripting
+
+java/demo/applets:
+total 68
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 ArcTest
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 BarChart
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 Blink
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 CardTest
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 Clock
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 DitherTest
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 DrawTest
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 Fractal
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 GraphicsTest
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 MoleculeViewer
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 NervousText
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 SimpleGraph
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 SortDemo
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 SpreadSheet
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 WireFrame
+
+java/demo/applets/ArcTest:
+total 40
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 1741 Jan 29 20:27 ArcCanvas.class
+-rw-r--r--  1 root root 1410 Jan 29 20:27 ArcControls.class
+-rw-r--r--  1 root root 1705 Jan 29 20:27 ArcTest.class
+-rw-r--r--  1 root root 8405 Jan 29 20:27 ArcTest.java
+-rw-r--r--  1 root root  421 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root 1459 Jan 29 20:27 IntegerTextField.class
+
+java/demo/applets/BarChart:
+total 36
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  6397 Jan 29 20:27 BarChart.class
+-rw-r--r--  1 root root 11227 Jan 29 20:27 BarChart.java
+-rw-r--r--  1 root root  1254 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root  1580 Jan 29 20:27 example2.html
+
+java/demo/applets/Blink:
+total 28
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  403 Jan 29 20:27 Blink$1.class
+-rw-r--r--  1 root root 2653 Jan 29 20:27 Blink.class
+-rw-r--r--  1 root root 5256 Jan 29 20:27 Blink.java
+-rw-r--r--  1 root root  614 Jan 29 20:27 example1.html
+
+java/demo/applets/CardTest:
+total 28
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 1466 Jan 29 20:27 CardPanel.class
+-rw-r--r--  1 root root 2524 Jan 29 20:27 CardTest.class
+-rw-r--r--  1 root root 5955 Jan 29 20:27 CardTest.java
+-rw-r--r--  1 root root  425 Jan 29 20:27 example1.html
+
+java/demo/applets/Clock:
+total 32
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 4951 Jan 29 20:27 Clock.class
+-rw-r--r--  1 root root 8989 Jan 29 20:27 Clock.java
+-rw-r--r--  1 root root 1641 Jan 29 20:27 example1.html
+
+java/demo/applets/DitherTest:
+total 56
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  1462 Jan 29 20:27 CardinalTextField.class
+-rw-r--r--  1 root root  1499 Jan 29 20:27 DitherCanvas.class
+-rw-r--r--  1 root root  2584 Jan 29 20:27 DitherControls.class
+-rw-r--r--  1 root root   988 Jan 29 20:27 DitherMethod.class
+-rw-r--r--  1 root root   708 Jan 29 20:27 DitherTest$1.class
+-rw-r--r--  1 root root  4894 Jan 29 20:27 DitherTest.class
+-rw-r--r--  1 root root 14519 Jan 29 20:27 DitherTest.java
+-rw-r--r--  1 root root   433 Jan 29 20:27 example1.html
+
+java/demo/applets/DrawTest:
+total 36
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 2611 Jan 29 20:27 DrawControls.class
+-rw-r--r--  1 root root 2841 Jan 29 20:27 DrawPanel.class
+-rw-r--r--  1 root root 1184 Jan 29 20:27 DrawTest.class
+-rw-r--r--  1 root root 8998 Jan 29 20:27 DrawTest.java
+-rw-r--r--  1 root root  425 Jan 29 20:27 example1.html
+
+java/demo/applets/Fractal:
+total 48
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  5939 Jan 29 20:27 CLSFractal.class
+-rw-r--r--  1 root root 14789 Jan 29 20:27 CLSFractal.java
+-rw-r--r--  1 root root   792 Jan 29 20:27 CLSRule.class
+-rw-r--r--  1 root root  1074 Jan 29 20:27 CLSTurtle.class
+-rw-r--r--  1 root root  2256 Jan 29 20:27 ContextLSystem.class
+-rw-r--r--  1 root root   781 Jan 29 20:27 example1.html
+
+java/demo/applets/GraphicsTest:
+total 88
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  1311 Jan 29 20:27 AppletFrame.class
+-rw-r--r--  1 root root  3727 Jan 29 20:27 AppletFrame.java
+-rw-r--r--  1 root root   492 Jan 29 20:27 ArcCard.class
+-rw-r--r--  1 root root  1257 Jan 29 20:27 ArcDegreePanel.class
+-rw-r--r--  1 root root  1277 Jan 29 20:27 ArcPanel.class
+-rw-r--r--  1 root root   619 Jan 29 20:27 ColorUtils.class
+-rw-r--r--  1 root root   441 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root   696 Jan 29 20:27 GraphicsCards.class
+-rw-r--r--  1 root root  1540 Jan 29 20:27 GraphicsPanel.class
+-rw-r--r--  1 root root  1895 Jan 29 20:27 GraphicsTest.class
+-rw-r--r--  1 root root 12661 Jan 29 20:27 GraphicsTest.java
+-rw-r--r--  1 root root   408 Jan 29 20:27 OvalShape.class
+-rw-r--r--  1 root root  1293 Jan 29 20:27 PolygonShape.class
+-rw-r--r--  1 root root   408 Jan 29 20:27 RectShape.class
+-rw-r--r--  1 root root   433 Jan 29 20:27 RoundRectShape.class
+-rw-r--r--  1 root root   250 Jan 29 20:27 Shape.class
+-rw-r--r--  1 root root  1283 Jan 29 20:27 ShapeTest.class
+
+java/demo/applets/MoleculeViewer:
+total 80
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root   529 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root   533 Jan 29 20:27 example2.html
+-rw-r--r--  1 root root  1464 Jan 29 20:27 example3.html
+-rw-r--r--  1 root root  7640 Jan 29 20:27 Matrix3D.java
+-rw-r--r--  1 root root 14497 Jan 29 20:27 MoleculeViewer.jar
+-rw-r--r--  1 root root 13051 Jan 29 20:27 src.zip
+-rw-r--r--  1 root root 17736 Jan 29 20:27 XYZApp.java
+
+java/demo/applets/NervousText:
+total 24
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  209 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root 3570 Jan 29 20:27 NervousText.class
+-rw-r--r--  1 root root 6510 Jan 29 20:27 NervousText.java
+
+java/demo/applets/SimpleGraph:
+total 20
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  436 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root  806 Jan 29 20:27 GraphApplet.class
+-rw-r--r--  1 root root 2423 Jan 29 20:27 GraphApplet.java
+
+java/demo/applets/SortDemo:
+total 68
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  751 Jan 29 20:27 BidirBubbleSortAlgorithm.class
+-rw-r--r--  1 root root 3295 Jan 29 20:27 BidirBubbleSortAlgorithm.java
+-rw-r--r--  1 root root  560 Jan 29 20:27 BubbleSortAlgorithm.class
+-rw-r--r--  1 root root 2688 Jan 29 20:27 BubbleSortAlgorithm.java
+-rw-r--r--  1 root root 1658 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root 1044 Jan 29 20:27 QSortAlgorithm.class
+-rw-r--r--  1 root root 4905 Jan 29 20:27 QSortAlgorithm.java
+-rw-r--r--  1 root root 1032 Jan 29 20:27 SortAlgorithm.class
+-rw-r--r--  1 root root 3395 Jan 29 20:27 SortAlgorithm.java
+-rw-r--r--  1 root root 4875 Jan 29 20:27 SortItem.class
+-rw-r--r--  1 root root 9550 Jan 29 20:27 SortItem.java
+
+java/demo/applets/SpreadSheet:
+total 72
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  5006 Jan 29 20:27 Cell.class
+-rw-r--r--  1 root root  1587 Jan 29 20:27 CellUpdater.class
+-rw-r--r--  1 root root   754 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root  2010 Jan 29 20:27 InputField.class
+-rw-r--r--  1 root root  1671 Jan 29 20:27 Node.class
+-rw-r--r--  1 root root  7542 Jan 29 20:27 SpreadSheet.class
+-rw-r--r--  1 root root  1688 Jan 29 20:27 SpreadSheetInput.class
+-rw-r--r--  1 root root 28219 Jan 29 20:27 SpreadSheet.java
+
+java/demo/applets/WireFrame:
+total 132
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 17 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root   486 Jan 29 20:27 example1.html
+-rw-r--r--  1 root root   500 Jan 29 20:27 example2.html
+-rw-r--r--  1 root root   498 Jan 29 20:27 example3.html
+-rw-r--r--  1 root root   491 Jan 29 20:27 example4.html
+-rw-r--r--  1 root root  7640 Jan 29 20:27 Matrix3D.java
+-rw-r--r--  1 root root 37882 Jan 29 20:27 src.zip
+-rw-r--r--  1 root root 16493 Jan 29 20:27 ThreeD.java
+-rw-r--r--  1 root root 38566 Jan 29 20:27 WireFrame.jar
+
+java/demo/jfc:
+total 44
+drwxr-xr-x 11 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 CodePointIM
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 FileChooserDemo
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 Font2DTest
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 Metalworks
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 Notepad
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 SampleTree
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 SwingApplet
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 TableExample
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 TransparentRuler
+
+java/demo/jfc/CodePointIM:
+total 56
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 12658 Jan 29 20:27 CodePointIM.jar
+-rw-r--r--  1 root root  3230 Jan 29 20:27 README.html
+-rw-r--r--  1 root root  4499 Jan 29 20:27 README_ja.html
+-rw-r--r--  1 root root  3041 Jan 29 20:27 README_zh_CN.html
+-rw-r--r--  1 root root 15270 Jan 29 20:27 src.zip
+
+java/demo/jfc/FileChooserDemo:
+total 48
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 20447 Jan 29 20:27 FileChooserDemo.jar
+-rw-r--r--  1 root root   586 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 15301 Jan 29 20:27 src.zip
+
+java/demo/jfc/Font2DTest:
+total 108
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  1132 Jan 29 20:27 Font2DTest.html
+-rw-r--r--  1 root root 49465 Jan 29 20:27 Font2DTest.jar
+-rw-r--r--  1 root root  6777 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 32843 Jan 29 20:27 src.zip
+
+java/demo/jfc/Metalworks:
+total 100
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 43858 Jan 29 20:27 Metalworks.jar
+-rw-r--r--  1 root root  2083 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 43428 Jan 29 20:27 src.zip
+
+java/demo/jfc/Notepad:
+total 72
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 36549 Jan 29 20:27 Notepad.jar
+-rw-r--r--  1 root root   356 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 20703 Jan 29 20:27 src.zip
+
+java/demo/jfc/SampleTree:
+total 52
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root   952 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 19620 Jan 29 20:27 SampleTree.jar
+-rw-r--r--  1 root root 16510 Jan 29 20:27 src.zip
+
+java/demo/jfc/SwingApplet:
+total 24
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  651 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 2528 Jan 29 20:27 src.zip
+-rw-r--r--  1 root root  199 Jan 29 20:27 SwingApplet.html
+-rw-r--r--  1 root root 2811 Jan 29 20:27 SwingApplet.jar
+
+java/demo/jfc/TableExample:
+total 68
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  1718 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 25048 Jan 29 20:27 src.zip
+-rw-r--r--  1 root root 26006 Jan 29 20:27 TableExample.jar
+
+java/demo/jfc/TransparentRuler:
+total 24
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  362 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 4039 Jan 29 20:27 src.zip
+-rw-r--r--  1 root root 7919 Jan 29 20:27 TransparentRuler.jar
+
+java/demo/jpda:
+total 648
+drwxr-xr-x  3 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root   4096 Jan 29 20:46 ..
+drwxr-xr-x  3 root root   4096 Jan 29 20:46 com
+-rw-r--r--  1 root root 321399 Jan 29 20:27 examples.jar
+-rw-r--r--  1 root root 327091 Jan 29 20:27 src.zip
+
+java/demo/jpda/com:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 sun
+
+java/demo/jpda/com/sun:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 tools
+
+java/demo/jpda/com/sun/tools:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 example
+
+java/demo/jpda/com/sun/tools/example:
+total 12
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root   55 Jan 29 20:27 README
+
+java/demo/jvmti:
+total 60
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 compiledMethodLoad
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 gctest
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 heapTracker
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 heapViewer
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 hprof
+-rw-r--r--  1 root root 12734 Jan 29 20:27 index.html
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 minst
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 mtrace
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 versionCheck
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 waiters
+
+java/demo/jvmti/compiledMethodLoad:
+total 28
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root  1859 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 11202 Jan 29 20:27 src.zip
+
+java/demo/jvmti/compiledMethodLoad/lib:
+total 112
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 104920 Jan 29 20:27 libcompiledMethodLoad.so
+
+java/demo/jvmti/gctest:
+total 28
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root  2407 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 10897 Jan 29 20:27 src.zip
+
+java/demo/jvmti/gctest/lib:
+total 108
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 100928 Jan 29 20:27 libgctest.so
+
+java/demo/jvmti/heapTracker:
+total 72
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 15122 Jan 29 20:27 heapTracker.jar
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root  1997 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 38886 Jan 29 20:27 src.zip
+
+java/demo/jvmti/heapTracker/lib:
+total 256
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 250888 Jan 29 20:27 libheapTracker.so
+
+java/demo/jvmti/heapViewer:
+total 28
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root  2380 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 11673 Jan 29 20:27 src.zip
+
+java/demo/jvmti/heapViewer/lib:
+total 112
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 103192 Jan 29 20:27 libheapViewer.so
+
+java/demo/jvmti/hprof:
+total 236
+drwxr-xr-x  3 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root   4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root   4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root   5581 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 220469 Jan 29 20:27 src.zip
+
+java/demo/jvmti/hprof/lib:
+total 1544
+drwxr-xr-x 2 root root    4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root    4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 1570856 Jan 29 20:27 libhprof.so
+
+java/demo/jvmti/minst:
+total 64
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root 11420 Jan 29 20:27 minst.jar
+-rw-r--r--  1 root root  2129 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 35037 Jan 29 20:27 src.zip
+
+java/demo/jvmti/minst/lib:
+total 236
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 232664 Jan 29 20:27 libminst.so
+
+java/demo/jvmti/mtrace:
+total 72
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root 13338 Jan 29 20:27 mtrace.jar
+-rw-r--r--  1 root root  2243 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 37212 Jan 29 20:27 src.zip
+
+java/demo/jvmti/mtrace/lib:
+total 252
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 246176 Jan 29 20:27 libmtrace.so
+
+java/demo/jvmti/versionCheck:
+total 28
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root  1907 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 10255 Jan 29 20:27 src.zip
+
+java/demo/jvmti/versionCheck/lib:
+total 104
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 94320 Jan 29 20:27 libversionCheck.so
+
+java/demo/jvmti/waiters:
+total 40
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root  1912 Jan 29 20:27 README.txt
+-rw-r--r--  1 root root 20955 Jan 29 20:27 src.zip
+
+java/demo/jvmti/waiters/lib:
+total 408
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 408928 Jan 29 20:27 libwaiters.so
+
+java/demo/management:
+total 28
+drwxr-xr-x  6 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 FullThreadDump
+-rw-r--r--  1 root root  802 Jan 29 20:27 index.html
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 JTop
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 MemoryMonitor
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 VerboseGC
+
+java/demo/management/FullThreadDump:
+total 36
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 9639 Jan 29 20:27 FullThreadDump.jar
+-rw-r--r-- 1 root root 2019 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root 8351 Jan 29 20:27 src.zip
+
+java/demo/management/JTop:
+total 36
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 11051 Jan 29 20:27 JTop.jar
+-rw-r--r-- 1 root root  2154 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root  8930 Jan 29 20:27 src.zip
+
+java/demo/management/MemoryMonitor:
+total 32
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 11327 Jan 29 20:27 MemoryMonitor.jar
+-rw-r--r-- 1 root root  2226 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root  6531 Jan 29 20:27 src.zip
+
+java/demo/management/VerboseGC:
+total 28
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 1360 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root 5409 Jan 29 20:27 src.zip
+-rw-r--r-- 1 root root 5581 Jan 29 20:27 VerboseGC.jar
+
+java/demo/nbproject:
+total 28
+drwxr-xr-x  5 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 jfc
+drwxr-xr-x  6 root root 4096 Jan 29 20:46 management
+-rw-r--r--  1 root root 3002 Jan 29 20:27 project.xml
+-rw-r--r--  1 root root 1291 Jan 29 20:27 README.txt
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 scripting
+
+java/demo/nbproject/jfc:
+total 40
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 .
+drwxr-xr-x  5 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 FileChooserDemo
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 Font2DTest
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 Metalworks
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 Notepad
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 SampleTree
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 SwingApplet
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 TableExample
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 TransparentRuler
+
+java/demo/nbproject/jfc/FileChooserDemo:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  407 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3575 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/FileChooserDemo/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2051 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3512 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7450 Jan 29 20:27 project.xml
+
+java/demo/nbproject/jfc/Font2DTest:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  433 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3874 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/Font2DTest/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2046 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3502 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7746 Jan 29 20:27 project.xml
+
+java/demo/nbproject/jfc/Metalworks:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  392 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3570 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/Metalworks/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2046 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3502 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7445 Jan 29 20:27 project.xml
+
+java/demo/nbproject/jfc/Notepad:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  383 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3567 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/Notepad/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2043 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3496 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7442 Jan 29 20:27 project.xml
+
+java/demo/nbproject/jfc/SampleTree:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  392 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3570 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/SampleTree/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2046 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3502 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7445 Jan 29 20:27 project.xml
+
+java/demo/nbproject/jfc/SwingApplet:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  427 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3875 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/SwingApplet/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2047 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3504 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7747 Jan 29 20:27 project.xml
+
+java/demo/nbproject/jfc/TableExample:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  398 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3572 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/TableExample/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2048 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3506 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7447 Jan 29 20:27 project.xml
+
+java/demo/nbproject/jfc/TransparentRuler:
+total 20
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  416 Jan 29 20:27 build.properties
+-rw-r--r--  1 root root 3576 Jan 29 20:27 build.xml
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/jfc/TransparentRuler/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2052 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3514 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7451 Jan 29 20:27 project.xml
+
+java/demo/nbproject/management:
+total 24
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 5 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 FullThreadDump
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 JTop
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 MemoryMonitor
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 VerboseGC
+
+java/demo/nbproject/management/FullThreadDump:
+total 20
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  411 Jan 29 20:27 build.properties
+-rw-r--r-- 1 root root 3574 Jan 29 20:27 build.xml
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/management/FullThreadDump/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2050 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3510 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7449 Jan 29 20:27 project.xml
+
+java/demo/nbproject/management/JTop:
+total 20
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  411 Jan 29 20:27 build.properties
+-rw-r--r-- 1 root root 3564 Jan 29 20:27 build.xml
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/management/JTop/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2040 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3490 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7439 Jan 29 20:27 project.xml
+
+java/demo/nbproject/management/MemoryMonitor:
+total 20
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  408 Jan 29 20:27 build.properties
+-rw-r--r-- 1 root root 3573 Jan 29 20:27 build.xml
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/management/MemoryMonitor/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2049 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3508 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7448 Jan 29 20:27 project.xml
+
+java/demo/nbproject/management/VerboseGC:
+total 20
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  396 Jan 29 20:27 build.properties
+-rw-r--r-- 1 root root 3569 Jan 29 20:27 build.xml
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/management/VerboseGC/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2045 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3500 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7444 Jan 29 20:27 project.xml
+
+java/demo/nbproject/scripting:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 5 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 jconsole-plugin
+
+java/demo/nbproject/scripting/jconsole-plugin:
+total 20
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  444 Jan 29 20:27 build.properties
+-rw-r--r-- 1 root root 3803 Jan 29 20:27 build.xml
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 nbproject
+
+java/demo/nbproject/scripting/jconsole-plugin/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2051 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4302 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3512 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 6191 Jan 29 20:27 project.xml
+
+java/demo/nio:
+total 12
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 zipfs
+
+java/demo/nio/zipfs:
+total 168
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 27002 Jan 29 20:27 Demo.java
+-rw-r--r-- 1 root root   835 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root 53879 Jan 29 20:27 src.zip
+-rw-r--r-- 1 root root 72055 Jan 29 20:27 zipfs.jar
+
+java/demo/scripting:
+total 12
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 jconsole-plugin
+
+java/demo/scripting/jconsole-plugin:
+total 76
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  3212 Jan 29 20:27 build.xml
+-rw-r--r-- 1 root root 31266 Jan 29 20:27 jconsole-plugin.jar
+-rw-r--r-- 1 root root  2544 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root 28672 Jan 29 20:27 src.zip
+
+java/include:
+total 220
+drwxr-xr-x  3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 30 15:28 ..
+-rw-r--r--  1 root root 21125 Jan 29 20:27 classfile_constants.h
+-rw-r--r--  1 root root  9687 Jan 29 20:27 jawt.h
+-rw-r--r--  1 root root  7404 Jan 29 20:27 jdwpTransport.h
+-rw-r--r--  1 root root 74698 Jan 29 20:27 jni.h
+-rw-r--r--  1 root root  4771 Jan 29 20:27 jvmticmlr.h
+-rw-r--r--  1 root root 78425 Jan 29 20:27 jvmti.h
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 linux
+
+java/include/linux:
+total 16
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 1992 Jan 29 20:27 jawt_md.h
+-rw-r--r-- 1 root root 1821 Jan 29 20:27 jni_md.h
+
+java/jre:
+total 196
+drwxr-xr-x  4 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root   4096 Jan 30 15:28 ..
+-rw-r--r--  1 root root   1522 Jan 29 20:27 ASSEMBLY_EXCEPTION
+drwxr-xr-x  2 root root   4096 Jan 29 20:46 bin
+drwxr-xr-x 10 root root   4096 Jan 29 20:46 lib
+-rw-r--r--  1 root root  19274 Jan 29 20:27 LICENSE
+-rw-r--r--  1 root root 158253 Jan 29 20:27 THIRD_PARTY_README
+
+java/jre/bin:
+total 316
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root   8848 Jan 29 20:27 java
+-rwxr-xr-x 1 root root   8984 Jan 29 20:27 jjs
+-rwxr-xr-x 1 root root   8984 Jan 29 20:27 keytool
+-rwxr-xr-x 1 root root   9056 Jan 29 20:27 orbd
+-rwxr-xr-x 1 root root   8984 Jan 29 20:27 pack200
+-rwxr-xr-x 1 root root   8992 Jan 29 20:27 policytool
+-rwxr-xr-x 1 root root   8984 Jan 29 20:27 rmid
+-rwxr-xr-x 1 root root   8992 Jan 29 20:27 rmiregistry
+-rwxr-xr-x 1 root root   8992 Jan 29 20:27 servertool
+-rwxr-xr-x 1 root root   9056 Jan 29 20:27 tnameserv
+-rwxr-xr-x 1 root root 191312 Jan 29 20:27 unpack200
+
+java/jre/lib:
+total 73936
+drwxr-xr-x 10 root root     4096 Jan 29 20:46 .
+drwxr-xr-x  4 root root     4096 Jan 29 20:46 ..
+drwxr-xr-x  4 root root     4096 Jan 29 20:46 amd64
+drwxr-xr-x  2 root root     4096 Jan  1  1970 applet
+-rw-r--r--  1 root root     2479 Jan 29 20:27 calendars.properties
+-rw-r--r--  1 root root  3138623 Jan 29 20:27 charsets.jar
+-rw-r--r--  1 root root    84311 Jan 29 20:27 classlist
+drwxr-xr-x  2 root root     4096 Jan 29 20:46 cmm
+-rw-r--r--  1 root root     5916 Jan 29 20:27 content-types.properties
+-rw-r--r--  1 root root     4172 Jan 29 20:27 currency.data
+drwxr-xr-x  2 root root     4096 Jan 29 20:46 ext
+-rw-r--r--  1 root root     3901 Jan 29 20:27 flavormap.properties
+-rw-r--r--  1 root root     1858 Jan 29 20:27 fontconfig.Alpine.bfc
+-rw-r--r--  1 root root     1979 Jan 29 20:27 fontconfig.Alpine.properties.src
+-rw-r--r--  1 root root     5318 Jan 29 20:27 fontconfig.bfc
+-rw-r--r--  1 root root     5130 Jan 29 20:27 fontconfig.Fedora.bfc
+-rw-r--r--  1 root root    16618 Jan 29 20:27 fontconfig.Fedora.properties.src
+-rw-r--r--  1 root root    16931 Jan 29 20:27 fontconfig.properties.src
+-rw-r--r--  1 root root     5458 Jan 29 20:27 fontconfig.SuSE.bfc
+-rw-r--r--  1 root root    17524 Jan 29 20:27 fontconfig.SuSE.properties.src
+-rw-r--r--  1 root root     7248 Jan 29 20:27 fontconfig.Ubuntu.bfc
+-rw-r--r--  1 root root    22751 Jan 29 20:27 fontconfig.Ubuntu.properties.src
+-rw-r--r--  1 root root    14959 Jan 29 20:27 hijrah-config-umalqura.properties
+drwxr-xr-x  3 root root     4096 Jan 29 20:46 images
+-rw-r--r--  1 root root    96898 Jan 29 20:27 jce.jar
+-rwxr-xr-x  1 root root    23080 Jan 29 20:27 jexec
+drwxr-xr-x  2 root root     4096 Jan 29 20:46 jfr
+-rw-r--r--  1 root root   889599 Jan 29 20:27 jfr.jar
+-rw-r--r--  1 root root  1922682 Jan 29 20:27 jsse.jar
+-rw-r--r--  1 root root     4226 Jan 29 20:27 jvm.hprof.txt
+-rw-r--r--  1 root root     2455 Jan 29 20:27 logging.properties
+drwxr-xr-x  2 root root     4096 Jan 29 20:46 management
+-rw-r--r--  1 root root      372 Jan 29 20:27 management-agent.jar
+-rw-r--r--  1 root root     1955 Jan 29 20:27 meta-index
+-rw-r--r--  1 root root     5352 Jan 29 20:27 net.properties
+-rw-r--r--  1 root root    11390 Jan 29 20:27 psfontj2d.properties
+-rw-r--r--  1 root root     3793 Jan 29 20:27 psfont.properties.ja
+-rw-r--r--  1 root root  3530724 Jan 29 20:27 resources.jar
+-rw-r--r--  1 root root 65643919 Jan 29 20:27 rt.jar
+drwxr-xr-x  3 root root     4096 Jan 29 20:46 security
+-rw-r--r--  1 root root     1210 Jan 29 20:27 sound.properties
+-rw-r--r--  1 root root   103797 Jan 29 20:27 tzdb.dat
+
+java/jre/lib/amd64:
+total 6940
+drwxr-xr-x  4 root root    4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root    4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root    4096 Jan 29 20:46 jli
+-rw-r--r--  1 root root    1624 Jan 29 20:27 jvm.cfg
+-rwxr-xr-x  1 root root   19272 Jan 29 20:27 libattach.so
+-rwxr-xr-x  1 root root   39472 Jan 29 20:27 libawt_headless.so
+-rwxr-xr-x  1 root root  763568 Jan 29 20:27 libawt.so
+-rwxr-xr-x  1 root root  470800 Jan 29 20:27 libawt_xawt.so
+-rwxr-xr-x  1 root root   24808 Jan 29 20:27 libdt_socket.so
+-rwxr-xr-x  1 root root  514256 Jan 29 20:27 libfontmanager.so
+-rwxr-xr-x  1 root root  807928 Jan 29 20:27 libfreetype.so
+-rwxr-xr-x  1 root root  175600 Jan 29 20:27 libhprof.so
+-rwxr-xr-x  1 root root   51704 Jan 29 20:27 libinstrument.so
+-rwxr-xr-x  1 root root   47904 Jan 29 20:27 libj2gss.so
+-rwxr-xr-x  1 root root   18512 Jan 29 20:27 libj2pcsc.so
+-rwxr-xr-x  1 root root   88888 Jan 29 20:27 libj2pkcs11.so
+-rwxr-xr-x  1 root root    8416 Jan 29 20:27 libjaas_unix.so
+-rwxr-xr-x  1 root root   26232 Jan 29 20:27 libjava_crw_demo.so
+-rwxr-xr-x  1 root root  215208 Jan 29 20:27 libjava.so
+-rwxr-xr-x  1 root root    8264 Jan 29 20:27 libjawt.so
+-rwxr-xr-x  1 root root  272536 Jan 29 20:27 libjdwp.so
+-rwxr-xr-x  1 root root  257400 Jan 29 20:27 libjpeg.so
+-rwxr-xr-x  1 root root   13000 Jan 29 20:27 libjsdt.so
+-rwxr-xr-x  1 root root   13216 Jan 29 20:27 libjsig.so
+-rwxr-xr-x  1 root root   83480 Jan 29 20:27 libjsoundalsa.so
+-rwxr-xr-x  1 root root    8448 Jan 29 20:27 libjsound.so
+-rwxr-xr-x  1 root root  531720 Jan 29 20:27 liblcms.so
+-rwxr-xr-x  1 root root   52072 Jan 29 20:27 libmanagement.so
+-rwxr-xr-x  1 root root 1048264 Jan 29 20:27 libmlib_image.so
+-rwxr-xr-x  1 root root  122336 Jan 29 20:27 libnet.so
+-rwxr-xr-x  1 root root   98768 Jan 29 20:27 libnio.so
+-rwxr-xr-x  1 root root   17592 Jan 29 20:27 libnpt.so
+-rwxr-xr-x  1 root root   52272 Jan 29 20:27 libsaproc.so
+-rwxr-xr-x  1 root root   29872 Jan 29 20:27 libsctp.so
+-rwxr-xr-x  1 root root  445944 Jan 29 20:27 libsplashscreen.so
+-rwxr-xr-x  1 root root  287760 Jan 29 20:27 libsunec.so
+-rwxr-xr-x  1 root root  197888 Jan 29 20:27 libunpack.so
+-rwxr-xr-x  1 root root   66104 Jan 29 20:27 libverify.so
+-rwxr-xr-x  1 root root  131552 Jan 29 20:27 libzip.so
+drwxr-xr-x  2 root root    4096 Jan 29 20:46 server
+
+java/jre/lib/amd64/jli:
+total 120
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 113032 Jan 29 20:27 libjli.so
+
+java/jre/lib/amd64/server:
+total 17180
+drwxr-xr-x 2 root root     4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root     4096 Jan 29 20:46 ..
+lrwxrwxrwx 1 root root       13 Jan 29 20:27 libjsig.so -> ../libjsig.so
+-rwxr-xr-x 1 root root 17577128 Jan 29 20:27 libjvm.so
+-rw-r--r-- 1 root root     1423 Jan 29 20:27 Xusage.txt
+
+java/jre/lib/applet:
+total 8
+drwxr-xr-x  2 root root 4096 Jan  1  1970 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+
+java/jre/lib/cmm:
+total 260
+drwxr-xr-x  2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root   4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root    784 Jan 29 20:27 CIEXYZ.pf
+-rw-r--r--  1 root root    556 Jan 29 20:27 GRAY.pf
+-rw-r--r--  1 root root    488 Jan 29 20:27 LINEAR_RGB.pf
+-rw-r--r--  1 root root 234080 Jan 29 20:27 PYCC.pf
+-rw-r--r--  1 root root   6876 Jan 29 20:27 sRGB.pf
+
+java/jre/lib/ext:
+total 7648
+drwxr-xr-x  2 root root    4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root    4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 3862626 Jan 29 20:27 cldrdata.jar
+-rw-r--r--  1 root root    8344 Jan 29 20:27 dnsns.jar
+-rw-r--r--  1 root root   44508 Jan 29 20:27 jaccess.jar
+-rw-r--r--  1 root root 1183359 Jan 29 20:27 localedata.jar
+-rw-r--r--  1 root root     617 Jan 29 20:27 meta-index
+-rw-r--r--  1 root root 2033828 Jan 29 20:27 nashorn.jar
+-rw-r--r--  1 root root   38957 Jan 29 20:27 sunec.jar
+-rw-r--r--  1 root root  277281 Jan 29 20:27 sunjce_provider.jar
+-rw-r--r--  1 root root  281834 Jan 29 20:27 sunpkcs11.jar
+-rw-r--r--  1 root root   72055 Jan 29 20:27 zipfs.jar
+
+java/jre/lib/images:
+total 12
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 cursors
+
+java/jre/lib/images/cursors:
+total 40
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 1274 Jan 29 20:27 cursors.properties
+-rw-r--r-- 1 root root  153 Jan 29 20:27 invalid32x32.gif
+-rw-r--r-- 1 root root  158 Jan 29 20:27 motif_CopyDrop32x32.gif
+-rw-r--r-- 1 root root  153 Jan 29 20:27 motif_CopyNoDrop32x32.gif
+-rw-r--r-- 1 root root  162 Jan 29 20:27 motif_LinkDrop32x32.gif
+-rw-r--r-- 1 root root  153 Jan 29 20:27 motif_LinkNoDrop32x32.gif
+-rw-r--r-- 1 root root  141 Jan 29 20:27 motif_MoveDrop32x32.gif
+-rw-r--r-- 1 root root  153 Jan 29 20:27 motif_MoveNoDrop32x32.gif
+
+java/jre/lib/jfr:
+total 72
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 29075 Jan 29 20:27 default.jfc
+-rw-r--r--  1 root root 29033 Jan 29 20:27 profile.jfc
+
+java/jre/lib/management:
+total 36
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root  4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  3998 Jan 29 20:27 jmxremote.access
+-rw-r--r--  1 root root  2856 Jan 29 20:27 jmxremote.password.template
+-rw-r--r--  1 root root 14749 Jan 29 20:27 management.properties
+-rw-r--r--  1 root root  3376 Jan 29 20:27 snmp.acl.template
+
+java/jre/lib/security:
+total 252
+drwxr-xr-x  3 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root   4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root   2488 Jan 29 20:27 blacklisted.certs
+-rw-r--r--  1 root root 177979 Jan 29 20:27 cacerts
+-rw-r--r--  1 root root   2665 Jan 29 20:27 java.policy
+-rw-r--r--  1 root root  55317 Jan 29 20:27 java.security
+drwxr-xr-x  4 root root   4096 Jan 29 20:46 policy
+
+java/jre/lib/security/policy:
+total 16
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 limited
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 unlimited
+
+java/jre/lib/security/policy/limited:
+total 16
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 1032 Jan 29 20:27 local_policy.jar
+-rw-r--r-- 1 root root  612 Jan 29 20:27 US_export_policy.jar
+
+java/jre/lib/security/policy/unlimited:
+total 16
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  630 Jan 29 20:27 local_policy.jar
+-rw-r--r-- 1 root root  612 Jan 29 20:27 US_export_policy.jar
+
+java/legal:
+total 12
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root 4096 Jan 30 15:28 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 java.base
+
+java/legal/java.base:
+total 28
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 19274 Jan 29 20:27 LICENSE
+
+java/lib:
+total 38280
+drwxr-xr-x  3 root root     4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root     4096 Jan 30 15:28 ..
+drwxr-xr-x  3 root root     4096 Jan 29 20:46 amd64
+-rw-r--r--  1 root root 17884086 Jan 29 20:27 ct.sym
+-rw-r--r--  1 root root   163073 Jan 29 20:27 dt.jar
+-rw-r--r--  1 root root    19429 Jan 29 20:27 ir.idl
+-rw-r--r--  1 root root   407694 Jan 29 20:27 jconsole.jar
+-rwxr-xr-x  1 root root    23080 Jan 29 20:27 jexec
+-rw-r--r--  1 root root     1637 Jan 29 20:27 orb.idl
+-rw-r--r--  1 root root  2318580 Jan 29 20:27 sa-jdi.jar
+-rw-r--r--  1 root root 18351003 Jan 29 20:27 tools.jar
+
+java/lib/amd64:
+total 44
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 jli
+-rwxr-xr-x 1 root root 29208 Jan 29 20:27 libjawt.so
+
+java/lib/amd64/jli:
+total 452
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rwxr-xr-x 1 root root 451648 Jan 29 20:27 libjli.so
+
+java/licenses:
+total 32
+drwxr-xr-x  2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root  4096 Jan 30 15:28 ..
+-rw-r--r--  1 root root   105 Jan 29 20:27 gpl-source-links.txt
+-rw-r--r--  1 root root 19274 Jan 29 20:27 java-1.8.402-7.txt
+
+java/man:
+total 16
+drwxr-xr-x  4 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root 4096 Jan 30 15:28 ..
+lrwxrwxrwx  1 root root   11 Jan 29 20:27 ja -> ja_JP.UTF-8
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 ja_JP.UTF-8
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 man1
+
+java/man/ja_JP.UTF-8:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 man1
+
+java/man/ja_JP.UTF-8/man1:
+total 1064
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root   4880 Jan 29 20:27 appletviewer.1
+-rw-r--r-- 1 root root   5360 Jan 29 20:27 extcheck.1
+-rw-r--r-- 1 root root  26009 Jan 29 20:27 idlj.1
+-rw-r--r-- 1 root root  21636 Jan 29 20:27 jar.1
+-rw-r--r-- 1 root root  61612 Jan 29 20:27 jarsigner.1
+-rw-r--r-- 1 root root 137121 Jan 29 20:27 java.1
+-rw-r--r-- 1 root root  66274 Jan 29 20:27 javac.1
+-rw-r--r-- 1 root root 225344 Jan 29 20:27 javadoc.1
+-rw-r--r-- 1 root root   9221 Jan 29 20:27 javah.1
+-rw-r--r-- 1 root root  10196 Jan 29 20:27 javap.1
+-rw-r--r-- 1 root root   7536 Jan 29 20:27 jcmd.1
+-rw-r--r-- 1 root root   6040 Jan 29 20:27 jconsole.1
+-rw-r--r-- 1 root root  16133 Jan 29 20:27 jdb.1
+-rw-r--r-- 1 root root  15922 Jan 29 20:27 jdeps.1
+-rw-r--r-- 1 root root   8054 Jan 29 20:27 jhat.1
+-rw-r--r-- 1 root root   5950 Jan 29 20:27 jinfo.1
+-rw-r--r-- 1 root root  12345 Jan 29 20:27 jjs.1
+-rw-r--r-- 1 root root   8021 Jan 29 20:27 jmap.1
+-rw-r--r-- 1 root root  12226 Jan 29 20:27 jps.1
+-rw-r--r-- 1 root root   7621 Jan 29 20:27 jrunscript.1
+-rw-r--r-- 1 root root   5912 Jan 29 20:27 jsadebugd.1
+-rw-r--r-- 1 root root   7109 Jan 29 20:27 jstack.1
+-rw-r--r-- 1 root root  28058 Jan 29 20:27 jstat.1
+-rw-r--r-- 1 root root  12094 Jan 29 20:27 jstatd.1
+-rw-r--r-- 1 root root 111956 Jan 29 20:27 keytool.1
+-rw-r--r-- 1 root root   4939 Jan 29 20:27 native2ascii.1
+-rw-r--r-- 1 root root  17072 Jan 29 20:27 orbd.1
+-rw-r--r-- 1 root root  15480 Jan 29 20:27 pack200.1
+-rw-r--r-- 1 root root   5009 Jan 29 20:27 policytool.1
+-rw-r--r-- 1 root root  17356 Jan 29 20:27 rmic.1
+-rw-r--r-- 1 root root  20692 Jan 29 20:27 rmid.1
+-rw-r--r-- 1 root root   5546 Jan 29 20:27 rmiregistry.1
+-rw-r--r-- 1 root root   5407 Jan 29 20:27 schemagen.1
+-rw-r--r-- 1 root root   4902 Jan 29 20:27 serialver.1
+-rw-r--r-- 1 root root  10070 Jan 29 20:27 servertool.1
+-rw-r--r-- 1 root root  18684 Jan 29 20:27 tnameserv.1
+-rw-r--r-- 1 root root   6371 Jan 29 20:27 unpack200.1
+-rw-r--r-- 1 root root   7290 Jan 29 20:27 wsgen.1
+-rw-r--r-- 1 root root   9486 Jan 29 20:27 wsimport.1
+-rw-r--r-- 1 root root  15110 Jan 29 20:27 xjc.1
+
+java/man/man1:
+total 884
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root   4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root   4187 Jan 29 20:27 appletviewer.1
+-rw-r--r-- 1 root root   4417 Jan 29 20:27 extcheck.1
+-rw-r--r-- 1 root root  21937 Jan 29 20:27 idlj.1
+-rw-r--r-- 1 root root  18588 Jan 29 20:27 jar.1
+-rw-r--r-- 1 root root  48151 Jan 29 20:27 jarsigner.1
+-rw-r--r-- 1 root root 107134 Jan 29 20:27 java.1
+-rw-r--r-- 1 root root  52967 Jan 29 20:27 javac.1
+-rw-r--r-- 1 root root 169053 Jan 29 20:27 javadoc.1
+-rw-r--r-- 1 root root   7263 Jan 29 20:27 javah.1
+-rw-r--r-- 1 root root   9521 Jan 29 20:27 javap.1
+-rw-r--r-- 1 root root   6697 Jan 29 20:27 jcmd.1
+-rw-r--r-- 1 root root   5163 Jan 29 20:27 jconsole.1
+-rw-r--r-- 1 root root  12737 Jan 29 20:27 jdb.1
+-rw-r--r-- 1 root root  16472 Jan 29 20:27 jdeps.1
+-rw-r--r-- 1 root root   6031 Jan 29 20:27 jhat.1
+-rw-r--r-- 1 root root   4853 Jan 29 20:27 jinfo.1
+-rw-r--r-- 1 root root   5921 Jan 29 20:27 jjs.1
+-rw-r--r-- 1 root root   6129 Jan 29 20:27 jmap.1
+-rw-r--r-- 1 root root   9748 Jan 29 20:27 jps.1
+-rw-r--r-- 1 root root   6408 Jan 29 20:27 jrunscript.1
+-rw-r--r-- 1 root root   4719 Jan 29 20:27 jsadebugd.1
+-rw-r--r-- 1 root root   5478 Jan 29 20:27 jstack.1
+-rw-r--r-- 1 root root  24279 Jan 29 20:27 jstat.1
+-rw-r--r-- 1 root root   9446 Jan 29 20:27 jstatd.1
+-rw-r--r-- 1 root root  87894 Jan 29 20:27 keytool.1
+-rw-r--r-- 1 root root   4233 Jan 29 20:27 native2ascii.1
+-rw-r--r-- 1 root root  13149 Jan 29 20:27 orbd.1
+-rw-r--r-- 1 root root  12592 Jan 29 20:27 pack200.1
+-rw-r--r-- 1 root root   4204 Jan 29 20:27 policytool.1
+-rw-r--r-- 1 root root  13174 Jan 29 20:27 rmic.1
+-rw-r--r-- 1 root root  16948 Jan 29 20:27 rmid.1
+-rw-r--r-- 1 root root   4418 Jan 29 20:27 rmiregistry.1
+-rw-r--r-- 1 root root   4554 Jan 29 20:27 schemagen.1
+-rw-r--r-- 1 root root   4240 Jan 29 20:27 serialver.1
+-rw-r--r-- 1 root root   8206 Jan 29 20:27 servertool.1
+-rw-r--r-- 1 root root  16716 Jan 29 20:27 tnameserv.1
+-rw-r--r-- 1 root root   5213 Jan 29 20:27 unpack200.1
+-rw-r--r-- 1 root root   6296 Jan 29 20:27 wsgen.1
+-rw-r--r-- 1 root root   7419 Jan 29 20:27 wsimport.1
+-rw-r--r-- 1 root root  11324 Jan 29 20:27 xjc.1
+
+java/sample:
+total 44
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 11 root root 4096 Jan 30 15:28 ..
+drwxr-xr-x  4 root root 4096 Jan 29 20:46 annotations
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 forkjoin
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 jmx
+drwxr-xr-x  4 root root 4096 Jan 29 20:46 lambda
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 nbproject
+drwxr-xr-x  6 root root 4096 Jan 29 20:46 nio
+-rw-r--r--  1 root root  338 Jan 29 20:27 README
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 scripting
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 try-with-resources
+
+java/sample/annotations:
+total 20
+drwxr-xr-x  4 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  4 root root 4096 Jan 29 20:46 DependencyChecker
+-rw-r--r--  1 root root 3433 Jan 29 20:27 index.html
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 Validator
+
+java/sample/annotations/DependencyChecker:
+total 16
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 PluginChecker
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 Plugins
+
+java/sample/annotations/DependencyChecker/PluginChecker:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 src
+
+java/sample/annotations/DependencyChecker/PluginChecker/src:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 checker
+
+java/sample/annotations/DependencyChecker/PluginChecker/src/checker:
+total 36
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2624 Jan 29 20:27 Device.java
+-rw-r--r-- 1 root root 2335 Jan 29 20:27 Kettle.xml
+-rw-r--r-- 1 root root 2061 Jan 29 20:27 Module.java
+-rw-r--r-- 1 root root 6195 Jan 29 20:27 PluginChecker.java
+-rw-r--r-- 1 root root 2179 Jan 29 20:27 RequireContainer.java
+-rw-r--r-- 1 root root 3022 Jan 29 20:27 Require.java
+
+java/sample/annotations/DependencyChecker/Plugins:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 src
+
+java/sample/annotations/DependencyChecker/Plugins/src:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 plugins
+
+java/sample/annotations/DependencyChecker/Plugins/src/plugins:
+total 20
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 3152 Jan 29 20:27 BoilerPlugin.java
+-rw-r--r-- 1 root root 2982 Jan 29 20:27 ExtendedBoilerPlugin.java
+-rw-r--r-- 1 root root 2582 Jan 29 20:27 TimerPlugin.java
+
+java/sample/annotations/Validator:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 src
+
+java/sample/annotations/Validator/src:
+total 24
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2480 Jan 29 20:27 PositiveIntegerSupplier.java
+-rw-r--r-- 1 root root 2730 Jan 29 20:27 SupplierValidator.java
+-rw-r--r-- 1 root root 2797 Jan 29 20:27 Validate.java
+-rw-r--r-- 1 root root 4060 Jan 29 20:27 Validator.java
+
+java/sample/forkjoin:
+total 12
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 mergesort
+
+java/sample/forkjoin/mergesort:
+total 28
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 11397 Jan 29 20:27 MergeDemo.java
+-rw-r--r-- 1 root root  5632 Jan 29 20:27 MergeSort.java
+
+java/sample/jmx:
+total 12
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  6 root root 4096 Jan 29 20:46 jmx-scandir
+
+java/sample/jmx/jmx-scandir:
+total 160
+drwxr-xr-x 6 root root   4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root   1634 Jan 29 20:27 build.properties
+-rw-r--r-- 1 root root   7417 Jan 29 20:27 build.xml
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 docfiles
+-rw-r--r-- 1 root root 107470 Jan 29 20:27 index.html
+-rw-r--r-- 1 root root   1364 Jan 29 20:27 keystore
+-rw-r--r-- 1 root root    482 Jan 29 20:27 logging.properties
+-rw-r--r-- 1 root root     82 Jan 29 20:27 manifest.mf
+drwxr-xr-x 2 root root   4096 Jan 29 20:46 nbproject
+drwxr-xr-x 4 root root   4096 Jan 29 20:46 src
+drwxr-xr-x 3 root root   4096 Jan 29 20:46 test
+-rw-r--r-- 1 root root    661 Jan 29 20:27 truststore
+
+java/sample/jmx/jmx-scandir/docfiles:
+total 404
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 33121 Jan 29 20:27 connect-local-ant-run.jpg
+-rw-r--r-- 1 root root 30188 Jan 29 20:27 connect-local-java-jar.jpg
+-rw-r--r-- 1 root root 28942 Jan 29 20:27 connect-local.jpg
+-rw-r--r-- 1 root root 30815 Jan 29 20:27 remote-connection-failed.jpg
+-rw-r--r-- 1 root root 27845 Jan 29 20:27 remote-connection.jpg
+-rw-r--r-- 1 root root 74983 Jan 29 20:27 scandir-config.jpg
+-rw-r--r-- 1 root root 88344 Jan 29 20:27 scandir-result.jpg
+-rw-r--r-- 1 root root 70422 Jan 29 20:27 scandir-start.jpg
+
+java/sample/jmx/jmx-scandir/nbproject:
+total 36
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2047 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3709 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 8938 Jan 29 20:27 project.xml
+
+java/sample/jmx/jmx-scandir/src:
+total 16
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 com
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 etc
+
+java/sample/jmx/jmx-scandir/src/com:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 sun
+
+java/sample/jmx/jmx-scandir/src/com/sun:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 jmx
+
+java/sample/jmx/jmx-scandir/src/com/sun/jmx:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 examples
+
+java/sample/jmx/jmx-scandir/src/com/sun/jmx/examples:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 scandir
+
+java/sample/jmx/jmx-scandir/src/com/sun/jmx/examples/scandir:
+total 204
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 config
+-rw-r--r-- 1 root root 22655 Jan 29 20:27 DirectoryScanner.java
+-rw-r--r-- 1 root root  7364 Jan 29 20:27 DirectoryScannerMXBean.java
+-rw-r--r-- 1 root root  1834 Jan 29 20:27 package.html
+-rw-r--r-- 1 root root 19636 Jan 29 20:27 ResultLogManager.java
+-rw-r--r-- 1 root root 11676 Jan 29 20:27 ResultLogManagerMXBean.java
+-rw-r--r-- 1 root root  9219 Jan 29 20:27 ScanDirAgent.java
+-rw-r--r-- 1 root root  8480 Jan 29 20:27 ScanDirClient.java
+-rw-r--r-- 1 root root 17249 Jan 29 20:27 ScanDirConfig.java
+-rw-r--r-- 1 root root 15392 Jan 29 20:27 ScanDirConfigMXBean.java
+-rw-r--r-- 1 root root 45248 Jan 29 20:27 ScanManager.java
+-rw-r--r-- 1 root root 14006 Jan 29 20:27 ScanManagerMXBean.java
+
+java/sample/jmx/jmx-scandir/src/com/sun/jmx/examples/scandir/config:
+total 84
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 14134 Jan 29 20:27 DirectoryScannerConfig.java
+-rw-r--r-- 1 root root 11601 Jan 29 20:27 FileMatch.java
+-rw-r--r-- 1 root root  3094 Jan 29 20:27 package.html
+-rw-r--r-- 1 root root  6197 Jan 29 20:27 ResultLogConfig.java
+-rw-r--r-- 1 root root  6880 Jan 29 20:27 ResultRecord.java
+-rw-r--r-- 1 root root 11413 Jan 29 20:27 ScanManagerConfig.java
+-rw-r--r-- 1 root root 14832 Jan 29 20:27 XmlConfigUtils.java
+
+java/sample/jmx/jmx-scandir/src/etc:
+total 32
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  2392 Jan 29 20:27 access.properties
+-rw-r--r-- 1 root root 11895 Jan 29 20:27 management.properties
+-rw-r--r-- 1 root root  2462 Jan 29 20:27 password.properties
+-rw-r--r-- 1 root root  2399 Jan 29 20:27 testconfig.xml
+
+java/sample/jmx/jmx-scandir/test:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 com
+
+java/sample/jmx/jmx-scandir/test/com:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 sun
+
+java/sample/jmx/jmx-scandir/test/com/sun:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 jmx
+
+java/sample/jmx/jmx-scandir/test/com/sun/jmx:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 examples
+
+java/sample/jmx/jmx-scandir/test/com/sun/jmx/examples:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 scandir
+
+java/sample/jmx/jmx-scandir/test/com/sun/jmx/examples/scandir:
+total 68
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 config
+-rw-r--r-- 1 root root 12731 Jan 29 20:27 DirectoryScannerTest.java
+-rw-r--r-- 1 root root 12806 Jan 29 20:27 ScanDirConfigTest.java
+-rw-r--r-- 1 root root 13356 Jan 29 20:27 ScanManagerTest.java
+-rw-r--r-- 1 root root  4523 Jan 29 20:27 TestUtils.java
+
+java/sample/jmx/jmx-scandir/test/com/sun/jmx/examples/scandir/config:
+total 12
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 4060 Jan 29 20:27 XmlConfigUtilsTest.java
+
+java/sample/lambda:
+total 16
+drwxr-xr-x  4 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 BulkDataOperations
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 DefaultMethods
+
+java/sample/lambda/BulkDataOperations:
+total 16
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 1445 Jan 29 20:27 index.html
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 src
+
+java/sample/lambda/BulkDataOperations/src:
+total 52
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 14394 Jan 29 20:27 CSVProcessor.java
+-rw-r--r-- 1 root root  7426 Jan 29 20:27 Grep.java
+-rw-r--r-- 1 root root  4309 Jan 29 20:27 PasswordGenerator.java
+-rw-r--r-- 1 root root  8525 Jan 29 20:27 WC.java
+
+java/sample/lambda/DefaultMethods:
+total 48
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 4342 Jan 29 20:27 ArrayIterator.java
+-rw-r--r-- 1 root root 4735 Jan 29 20:27 DiamondInheritance.java
+-rw-r--r-- 1 root root 5045 Jan 29 20:27 Inheritance.java
+-rw-r--r-- 1 root root 4057 Jan 29 20:27 MixIn.java
+-rw-r--r-- 1 root root 5092 Jan 29 20:27 Reflection.java
+-rw-r--r-- 1 root root 3271 Jan 29 20:27 SimplestUsage.java
+
+java/sample/nbproject:
+total 12
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root 2217 Jan 29 20:27 project.xml
+
+java/sample/nio:
+total 24
+drwxr-xr-x  6 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 chatserver
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 file
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 multicast
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 server
+
+java/sample/nio/chatserver:
+total 48
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 7061 Jan 29 20:27 ChatServer.java
+-rw-r--r-- 1 root root 6806 Jan 29 20:27 Client.java
+-rw-r--r-- 1 root root 3588 Jan 29 20:27 ClientReader.java
+-rw-r--r-- 1 root root 2107 Jan 29 20:27 DataReader.java
+-rw-r--r-- 1 root root 3279 Jan 29 20:27 MessageReader.java
+-rw-r--r-- 1 root root 4570 Jan 29 20:27 NameReader.java
+-rw-r--r-- 1 root root 2098 Jan 29 20:27 README.txt
+
+java/sample/nio/file:
+total 72
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 10821 Jan 29 20:27 AclEdit.java
+-rw-r--r-- 1 root root 12883 Jan 29 20:27 Chmod.java
+-rw-r--r-- 1 root root  8206 Jan 29 20:27 Copy.java
+-rw-r--r-- 1 root root  3184 Jan 29 20:27 DiskUsage.java
+-rw-r--r-- 1 root root  2619 Jan 29 20:27 FileType.java
+-rw-r--r-- 1 root root  6295 Jan 29 20:27 WatchDir.java
+-rw-r--r-- 1 root root  4612 Jan 29 20:27 Xdd.java
+
+java/sample/nio/multicast:
+total 28
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 4945 Jan 29 20:27 MulticastAddress.java
+-rw-r--r-- 1 root root 5802 Jan 29 20:27 Reader.java
+-rw-r--r-- 1 root root 3107 Jan 29 20:27 Sender.java
+
+java/sample/nio/server:
+total 160
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  3101 Jan 29 20:27 AcceptHandler.java
+-rw-r--r-- 1 root root  3143 Jan 29 20:27 Acceptor.java
+-rw-r--r-- 1 root root  2717 Jan 29 20:27 B1.java
+-rw-r--r-- 1 root root  2814 Jan 29 20:27 BN.java
+-rw-r--r-- 1 root root  2971 Jan 29 20:27 BP.java
+-rw-r--r-- 1 root root  5975 Jan 29 20:27 ChannelIO.java
+-rw-r--r-- 1 root root 20907 Jan 29 20:27 ChannelIOSecure.java
+-rw-r--r-- 1 root root  2233 Jan 29 20:27 Content.java
+-rw-r--r-- 1 root root  3010 Jan 29 20:27 Dispatcher1.java
+-rw-r--r-- 1 root root  2280 Jan 29 20:27 Dispatcher.java
+-rw-r--r-- 1 root root  3118 Jan 29 20:27 DispatcherN.java
+-rw-r--r-- 1 root root  3906 Jan 29 20:27 FileContent.java
+-rw-r--r-- 1 root root  2143 Jan 29 20:27 Handler.java
+-rw-r--r-- 1 root root  2284 Jan 29 20:27 MalformedRequestException.java
+-rw-r--r-- 1 root root  2604 Jan 29 20:27 N1.java
+-rw-r--r-- 1 root root  2462 Jan 29 20:27 N2.java
+-rw-r--r-- 1 root root 10320 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root  4515 Jan 29 20:27 Reply.java
+-rw-r--r-- 1 root root  6566 Jan 29 20:27 RequestHandler.java
+-rw-r--r-- 1 root root  5383 Jan 29 20:27 Request.java
+-rw-r--r-- 1 root root  5268 Jan 29 20:27 RequestServicer.java
+-rw-r--r-- 1 root root  2403 Jan 29 20:27 Sendable.java
+-rw-r--r-- 1 root root  6277 Jan 29 20:27 Server.java
+-rw-r--r-- 1 root root  3397 Jan 29 20:27 StringContent.java
+-rw-r--r-- 1 root root  2836 Jan 29 20:27 URLDumper.java
+
+java/sample/scripting:
+total 12
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x  4 root root 4096 Jan 29 20:46 scriptpad
+
+java/sample/scripting/scriptpad:
+total 32
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  375 Jan 29 20:27 build.properties
+-rw-r--r-- 1 root root 3803 Jan 29 20:27 build.xml
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 nbproject
+-rw-r--r-- 1 root root 4102 Jan 29 20:27 README.txt
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 src
+
+java/sample/scripting/scriptpad/nbproject:
+total 32
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2045 Jan 29 20:27 file-targets.xml
+-rw-r--r-- 1 root root 4218 Jan 29 20:27 jdk.xml
+-rw-r--r-- 1 root root 3500 Jan 29 20:27 netbeans-targets.xml
+-rw-r--r-- 1 root root 7444 Jan 29 20:27 project.xml
+
+java/sample/scripting/scriptpad/src:
+total 24
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 4 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 com
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 META-INF
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 resources
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 scripts
+
+java/sample/scripting/scriptpad/src/com:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 sun
+
+java/sample/scripting/scriptpad/src/com/sun:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 sample
+
+java/sample/scripting/scriptpad/src/com/sun/sample:
+total 12
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 scriptpad
+
+java/sample/scripting/scriptpad/src/com/sun/sample/scriptpad:
+total 12
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 3441 Jan 29 20:27 Main.java
+
+java/sample/scripting/scriptpad/src/META-INF:
+total 12
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root   43 Jan 29 20:27 manifest.mf
+
+java/sample/scripting/scriptpad/src/resources:
+total 72
+drwxr-xr-x 2 root root  4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root  4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root  9772 Jan 29 20:27 conc.js
+-rw-r--r-- 1 root root  8345 Jan 29 20:27 gui.js
+-rw-r--r-- 1 root root  2100 Jan 29 20:27 Main.js
+-rw-r--r-- 1 root root 11129 Jan 29 20:27 mm.js
+-rw-r--r-- 1 root root 22382 Jan 29 20:27 scriptpad.js
+
+java/sample/scripting/scriptpad/src/scripts:
+total 48
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 6 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 2834 Jan 29 20:27 browse.js
+-rw-r--r-- 1 root root 2930 Jan 29 20:27 insertfile.js
+-rw-r--r-- 1 root root 2243 Jan 29 20:27 linewrap.js
+-rw-r--r-- 1 root root 2797 Jan 29 20:27 mail.js
+-rw-r--r-- 1 root root 3055 Jan 29 20:27 memmonitor.js
+-rw-r--r-- 1 root root 1796 Jan 29 20:27 memory.bat
+-rw-r--r-- 1 root root 2382 Jan 29 20:27 memory.js
+-rw-r--r-- 1 root root 1740 Jan 29 20:27 memory.sh
+-rw-r--r-- 1 root root 1827 Jan 29 20:27 README.txt
+-rw-r--r-- 1 root root 2354 Jan 29 20:27 textcolor.js
+
+java/sample/try-with-resources:
+total 16
+drwxr-xr-x  3 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 10 root root 4096 Jan 29 20:46 ..
+-rw-r--r--  1 root root  986 Jan 29 20:27 index.html
+drwxr-xr-x  2 root root 4096 Jan 29 20:46 src
+
+java/sample/try-with-resources/src:
+total 24
+drwxr-xr-x 2 root root 4096 Jan 29 20:46 .
+drwxr-xr-x 3 root root 4096 Jan 29 20:46 ..
+-rw-r--r-- 1 root root 5184 Jan 29 20:27 CustomAutoCloseableSample.java
+-rw-r--r-- 1 root root 3372 Jan 29 20:27 Unzip.java
+-rw-r--r-- 1 root root 3367 Jan 29 20:27 ZipCat.java

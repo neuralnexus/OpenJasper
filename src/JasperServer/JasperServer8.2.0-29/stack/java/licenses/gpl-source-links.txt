@@ -1,0 +1,1 @@
+java-1.8.402-7,GPL-2.0-only,https://download.bell-sw.com/java/8u402+7/bellsoft-jdk8u402+7-src-full.tar.gz

@@ -1,0 +1,1 @@
+mariadb-10.11.6,GPL-2.0-only,https://archive.mariadb.org/mariadb-10.11.6/source/mariadb-10.11.6.tar.gz

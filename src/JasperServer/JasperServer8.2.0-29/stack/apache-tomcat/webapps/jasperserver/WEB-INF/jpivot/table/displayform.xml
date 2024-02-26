@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<xform style="manual">
+<div style="position: absolute; left: 317px; top: 176px;">
+<table id="displayFormTable" border="1" cellspacing="0" cellpadding="2">
+
+ <!-- title -->
+ <tr>
+  <th colspan="2" class="xform-title">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <th align="left" class="xform-title">fmt:JAJ_000_jsp.jpivot.displayform.title</th>
+     <td align="right" class="xform-close-button">
+      <imgButton src="wcf/form/cancel.png" action="revert" label="fmt:JAJ_000_jsp.close" hide="true" handler="com.tonbeller.wcf.form.ButtonHandler" onclick="pageAlert=false"/>
+     </td>
+    </tr>
+   </table>
+  </th>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+
+   </div>
+  </td>
+ </tr>
+
+ <!-- cube options -->
+ <tr>
+	<td class="xform-input" colspan="2">fmt:JAJ_000_jsp.jpivot.displayform.cubeOptions</td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(axisStyle).levelStyle"/>fmt:JAJ_000_jsp.jpivot.displayform.showAllParentColumns</div>
+  </td>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(axisStyle).hideSpans"/>fmt:JAJ_000_jsp.jpivot.displayform.showIndividualParentCells</div>
+  </td>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="rowAxisBuilder.axisConfig.propertyConfig.showProperties"/>fmt:JAJ_000_jsp.jpivot.displayform.includeMemberAttributes</div>
+  </td>
+ </tr>
+
+ <!-- drill-through options -->
+ <tr>
+	<td class="xform-input" colspan="2">fmt:JAJ_000_jsp.jpivot.displayform.drillThroughOptions</td>
+ </tr>
+ <!-- drill-through pop-up feature -->
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(drillThrough).showTableBelowCube"/>fmt:JAJ_000_jsp.jpivot.displayform.showTableBelowCube</div>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(drillThrough).hideDillThroughLinks"/>fmt:JAJ_000_jsp.jpivot.displayform.hideDrillThroughLinks</div>
+  </td>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(drillThrough).includeOnlySelectedMeasure"/>fmt:JAJ_000_jsp.jpivot.displayform.includeOnlySelectedMeasure</div>
+  </td>
+ </tr>
+
+ <!-- sort options -->
+ <tr>
+	<td class="xform-input" colspan="2">fmt:JAJ_000_jsp.jpivot.displayform.sortOptions</td>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(sortRank).sortAcrossCubeHierarchy"/>fmt:JAJ_000_jsp.jpivot.displayform.sortAcrossCubeHierarchy</div>
+  </td>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(sortRank).sortInDescendingOrder"/>fmt:JAJ_000_jsp.jpivot.displayform.startSortingInDescendingOrder</div>
+  </td>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="extensions(sortRank).displayFirstNumRows"/>fmt:JAJ_000_jsp.jpivot.displayform.displayOnlyFirstNRows</div>
+  </td>
+ </tr>
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 3em">fmt:JAJ_000_jsp.jpivot.displayform.numberOfRows<textField type="posint" bookmark="true" size="10" modelReference="extensions(sortRank).topBottomCount"/></div>
+   </td>
+ </tr>
+ <tr>
+  <td class="xform-both
+  " colspan="2">
+   <div style="margin-left: 1em">
+
+   </div>
+  </td>
+ </tr>
+
+ <!-- ok, cancel buttons -->
+ <tr>
+  <td align="right" class="xform-close-button" colspan="4">
+    <button action="validate" label="fmt:JAJ_000_jsp.ok" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+    <button action="revert" label="fmt:JAJ_000_jsp.cancel" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+  </td>
+ </tr>
+
+</table>
+</div>
+</xform>

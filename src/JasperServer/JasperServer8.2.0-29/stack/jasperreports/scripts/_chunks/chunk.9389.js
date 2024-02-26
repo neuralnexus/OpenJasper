@@ -1,0 +1,2 @@
+(self.webpackChunkjrs_ui=self.webpackChunkjrs_ui||[]).push([[9389,8223,7202,2446,553],{98223:(e,t,n)=>{"use strict";n.d(t,{Z:()=>r});var c=n(71914),o={currentContext:"default",displayWebHelp:function(){var e=c.Z.webHelpModuleState;if(e){var t=e.contextMap[o.currentContext],n="".concat(e.hostURL,"/").concat(e.pagePrefix).concat(t);window.name="";var r=window.open(n,"MCWebHelp");r&&r.focus()}},setCurrentContext:function(e){o.currentContext=e}};const r=o}}]);
+//# sourceMappingURL=chunk.9389.js.map

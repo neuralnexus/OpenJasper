@@ -1,0 +1,42 @@
+{
+    "SPDXID": "SPDXRef-mariadb",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2024-01-28T13:38:14.080Z",
+        "creators": [
+            "Organization: VMware, Inc."
+        ]
+    },
+    "name": "SPDX document for MariaDB 10.11.6",
+    "dataLicense": "CC0-1.0",
+    "documentDescribes": [
+        "SPDXRef-mariadb"
+    ],
+    "documentNamespace": "mariadb-10.11.6",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-mariadb",
+            "name": "MariaDB",
+            "versionInfo": "10.11.6-2",
+            "downloadLocation": "https://archive.mariadb.org/mariadb-10.11.6/source/mariadb-10.11.6.tar.gz",
+            "licenseConcluded": "GPL-2.0-only",
+            "licenseDeclared": "GPL-2.0-only",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:mariadb:mariadb:10.11.6:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/mariadb@10.11.6-2?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        }
+    ],
+    "files": [],
+    "relationships": []
+}

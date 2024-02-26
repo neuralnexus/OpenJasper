@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<xform style="manual">
+<div style="position: absolute; left: 317px; top: 176px;">
+<table id="printFormTable" border="1" cellspacing="0" cellpadding="2">
+ <tr>
+  <th colspan="2" class="xform-title">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <th align="left" class="xform-title">fmt:JAJ_000_jsp.jpivot.printpropertiesform.outputOptions</th>
+     <td align="right" class="xform-close-button">
+      <imgButton src="wcf/form/cancel.png" action="revert" label="fmt:JAJ_000_jsp.close" hide="true" handler="com.tonbeller.wcf.form.ButtonHandler" onclick="pageAlert=false"/>
+     </td>
+    </tr>
+   </table>
+  </th>
+ </tr>
+
+ <!-- report options -->
+ <tr>
+	<td class="xform-input" colspan="2">fmt:JAJ_000_jsp.jpivot.printpropertiesform.reportOptions</td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">fmt:JAJ_000_jsp.jpivot.printpropertiesform.reportTitle<textField type="string" modelReference="reportTitle" size="50" title="fmt:JAJ_000_jsp.jpivot.printpropertiesform.reportTitleTips"/></div>
+   </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	<checkBox modelReference="chartPageBreak"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.showChartOnSeparateWks</div>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+	fmt:JAJ_000_jsp.jpivot.printpropertiesform.setCustomTableWidth<textField type="double" modelReference="tableWidth" size="4" bookmark="true" title="fmt:JAJ_000_jsp.jpivot.printpropertiesform.setCustomTableWidthTips"/>
+	</div>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <td align="left" class="xform-both" width="70%">fmt:JAJ_000_jsp.jpivot.printpropertiesform.alwaysIncludeIndividualParentCells</td>
+	 <td align="left" class="xform-both" width="30%">
+		<checkBox modelReference="includeParentCellsExcel"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.excel<checkBox modelReference="includeParentCellsPdf"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.pdf</td>
+	</tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <td align="left" class="xform-both" width="70%">fmt:JAJ_000_jsp.jpivot.printpropertiesform.alwaysIncludeAllParentColumns</td>
+	 <td align="left" class="xform-both" width="30%">
+		<checkBox modelReference="includeParentColumnsExcel" bookmark="true"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.excel<checkBox modelReference="includeParentColumnsPdf"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.pdf</td>
+	</tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+
+ <!-- page layout -->
+ <tr>
+	<td class="xform-input" colspan="2">fmt:JAJ_000_jsp.jpivot.printpropertiesform.pageLayout</td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <td align="left" class="xform-both" width="35%">fmt:JAJ_000_jsp.jpivot.printpropertiesform.orientation</td>
+	 <td align="left" class="xform-both" width="65%">fmt:JAJ_000_jsp.jpivot.printpropertiesform.pageSize</td>
+	</tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <td align="left" class="xform-both" width="35%">
+		<radioButton id="radio1" modelReference="pageOrientationPortrait" group-id="group1" label="Portrait" bookmark="true"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.portrait</td>
+	 <td align="left" class="xform-both" width="65%">
+		<radioButton id="radio3" modelReference="paperTypeStandard" group-id="group2" label="Standard" bookmark="true"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.standard<listBox1 type="string" modelReference="paperType">
+			<listItem value="USletter" label="fmt:JAJ_000_jsp.jpivot.printpropertiesform.USletter"/>
+			<listItem value="A3" label="fmt:JAJ_000_jsp.jpivot.printpropertiesform.A3"/>
+			<listItem value="A4" label="fmt:JAJ_000_jsp.jpivot.printpropertiesform.A4"/>
+			<listItem value="A5" label="fmt:JAJ_000_jsp.jpivot.printpropertiesform.A5"/>
+			<listItem value="custom" label="fmt:JAJ_000_jsp.jpivot.printpropertiesform.custom"/>
+			<listItem value="auto" label="fmt:JAJ_000_jsp.jpivot.printpropertiesform.auto"/>
+		</listBox1>
+	 </td>
+	</tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <td align="left" class="xform-both" width="35%">
+		<radioButton id="radio2" modelReference="pageOrientationLandscape" group-id="group1" label="Landscape" bookmark="true"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.landscape</td>
+     <td align="left" class="xform-both" width="65%">
+
+	   <!--<div style="margin-left: 1em">-->
+	   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tr>
+		 <td align="left" class="xform-both" width="30%">
+			<radioButton id="radio4" modelReference="paperTypeCustom" group-id="group2" label="Custom" bookmark="true"/>fmt:JAJ_000_jsp.jpivot.printpropertiesform.custom1</td>
+		 <td align="left" class="xform-both" width="70%">
+		   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+			<tr>
+				<td align="right" class="xform-both" width="50%">fmt:JAJ_000_jsp.height</td>
+				<td align="left" class="xform-both" width="50%">
+					<textField type="double" modelReference="pageHeight" bookmark="true" size="4" title="fmt:JAJ_000_jsp.jpivot.printpropertiesform.heightTips"/>
+				</td>
+			</tr>
+		  </table>
+		 </td>
+		</tr>
+	   </table>
+	   <!--</div>-->
+
+	 </td>
+	</tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" colspan="2">
+   <div style="margin-left: 1em">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <td align="left" class="xform-both" width="35%">&#160;</td>
+     <td align="left" class="xform-both" width="65%">
+
+	   <!--<div style="margin-left: 1em">-->
+	   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tr>
+		 <td align="left" class="xform-both" width="30%">&#160;</td>
+		 <td align="left" class="xform-both" width="70%">
+		   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+			<tr>
+				<td align="right" class="xform-both" width="50%">fmt:JAJ_000_jsp.width</td>
+				<td align="left" class="xform-both" width="50%">
+					<textField type="double" modelReference="pageWidth" bookmark="true" size="4" title="fmt:JAJ_000_jsp.jpivot.printpropertiesform.widthTips"/>
+				</td>
+			</tr>
+		   </table>
+		 </td>
+		</tr>
+	   </table>
+	   <!--</div>-->
+
+	 </td>
+	</tr>
+   </table>
+   </div>
+  </td>
+ </tr>
+
+ <tr>
+  <td align="right" class="xform-close-button" colspan="4">
+    <button action="validate" label="fmt:JAJ_000_jsp.ok" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+    <button action="revert" label="fmt:JAJ_000_jsp.cancel" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+  </td>
+ </tr>
+
+</table>
+</div>
+</xform>

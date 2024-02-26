@@ -1,0 +1,27 @@
+<fop
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation=
+	"http://svn.apache.org/viewvc/xmlgraphics/fop/trunk/src/foschema/fop-configuration.xsd?view=co">
+
+
+<!--
+************************************************************************
+  Add fonts here
+************************************************************************
+-->
+
+<renderers>
+	<renderer mime="application/pdf">
+		<fonts>
+			<!-- automatically detect operating system installed fonts -->
+			<auto-detect/>
+
+		</fonts>
+	</renderer>
+</renderers>
+
+
+</fop>
+
+
+

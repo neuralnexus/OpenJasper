@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<xform style="twocolumn" bundle="com.tonbeller.wcf.form.resources">
+  <title value="?">
+    <imgButton id="confirm.cancel" src="wcf/form/cancel.png" label="fmt:jsp.wcf.confirm.cancel"/>
+  </title>
+
+  <manual>
+    <tr>
+      <td colspan="2" class="xform-both" id="body"/>
+    </tr>
+  </manual>
+
+  <buttons>
+    <button id="confirm.accept" label="fmt:jsp.wcf.confirm.yes"/> <!-- js:i18n -->
+    <button id="confirm.no" label="fmt:jsp.wcf.confirm.no"/>
+  </buttons>
+
+</xform>

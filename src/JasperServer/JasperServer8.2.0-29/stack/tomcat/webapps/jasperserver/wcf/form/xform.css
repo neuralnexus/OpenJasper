@@ -1,0 +1,176 @@
+table.xform-table {
+	border: 2px solid #000033;
+	background-color:#FFFFFF;
+	padding:3px;
+}
+
+table.xform-content {
+	background-color:#000033; 
+	//border: 1px solid #D0D6D9;
+	padding:0px;
+}
+
+TD.xform-error {
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: left
+}
+SPAN.xform-error {
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: left
+}
+TD.xform-label {
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: left;
+	padding-left:6px;
+	padding-right:6px;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+TD.xform-number {
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: left
+}
+TD.xform-input {
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: left;
+	padding-left:4px;
+	padding-right:2px;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+TD.xform-both {
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: left
+}
+TD.xform-buttons {
+	FONT-SIZE: 0.8em;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #ffffff;
+	TEXT-ALIGN: left
+}
+TH.xform-title {
+  	font-family: Arial, Helvetica, Tahoma, sans-serif;
+  	font-size: 85%;
+  	font-weight:bold;
+ 	color : #033669; 
+	BACKGROUND-COLOR: #D0D6D9;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	TEXT-ALIGN: left;
+	padding:2px;
+}
+TH.xform-title-right {
+	FONT-SIZE: 0.8em;
+	font-weight:bold;
+	COLOR: #000033;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #D0D6D9;
+	TEXT-ALIGN: left
+}
+TH.xform-title-center {
+	FONT-SIZE: 0.8em;
+	font-weight:bold;
+	COLOR: #000033;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #D0D6D9;
+	TEXT-ALIGN: left
+}
+TH.xform-title-right-bottom {
+	FONT-SIZE: 0.8em;
+	font-weight:bold;
+	COLOR: #000033;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #D0D6D9;
+	TEXT-ALIGN: left
+}
+TD.xform-close-button {
+	FONT-SIZE: 0.8em;
+	font-weight:bold;
+	COLOR: #000033;
+	BACKGROUND-COLOR: #D0D6D9;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	TEXT-ALIGN: right;
+}
+TH.xform-subtitle {
+	FONT-SIZE: 80%;
+	font-weight:bold;
+	COLOR: #000033;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #FAFAF7;
+	TEXT-ALIGN: left;
+	padding-left:20px;
+	padding-bottom:5px;
+}
+TH.xform-subtitle-right {
+	FONT-SIZE: 0.8em;
+	font-weight:bold;
+	COLOR: #000033;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #FAFAF7;
+	TEXT-ALIGN: left
+}
+TH.xform-subtitle-center {
+	FONT-SIZE: 0.8em;
+	font-weight:bold;
+	COLOR: #000033;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+	BACKGROUND-COLOR: #FAFAF7;
+	TEXT-ALIGN: left
+}
+TD.xform-footer {
+	vertical-align:middle;
+	TEXT-ALIGN: right;
+	padding-right:4px;
+	BACKGROUND-COLOR: #E6EAED;
+}
+
+TD.xform-error {
+	FONT-WEIGHT: bold;
+	COLOR: red
+}
+SPAN.xform-error {
+	FONT-WEIGHT: bold;
+	COLOR: red
+}
+TD.xform-label {
+	VERTICAL-ALIGN: middle;
+}
+TD.xform-number {
+	VERTICAL-ALIGN: middle;
+}
+TD.xform-input {
+	VERTICAL-ALIGN: middle;
+}
+TD.xform-both {
+	VERTICAL-ALIGN: middle;
+}
+TD.xform-number {
+	TEXT-ALIGN: right
+}
+
+TEXTAREA.xform-textarea {
+	FONT-SIZE: 0.9em;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+}
+SPAN.xform-textarea {
+	FONT-SIZE: 0.9em;
+	FONT-FAMILY: Arial, Helvetica, Tahoma, sans-serif;
+}

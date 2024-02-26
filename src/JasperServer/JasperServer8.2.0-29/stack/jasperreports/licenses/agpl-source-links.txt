@@ -1,0 +1,1 @@
+jasperreports-8.2.0,AGPL-3.0-only,https://github.com/TIBCOSoftware/jasperreports-server-ce/archive/refs/tags/v8.2.0.zip

@@ -1,0 +1,750 @@
+#!/bin/sh
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+#
+# Bitnami Functions
+#
+
+### Cloud specific
+# aws || gce || azure
+CLOUD_ID=aws
+
+## AWS
+aws_get_userdata() {
+    API_VERSION="2011-05-01"
+    TOKEN=`curl --retry 5 -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" 2> /dev/null`
+    USERDATA_URL="http://169.254.169.254/$API_VERSION/user-data"
+    curl --retry 5  -H "X-aws-ec2-metadata-token: $TOKEN" -sSf -o $USER_DATA $USERDATA_URL 2> /dev/null
+
+    if (file $USER_DATA | grep -qs gzip); then
+        mv $USER_DATA $USER_DATA.gz
+        gunzip $USER_DATA.gz
+    fi
+}
+
+# it should implement
+# - instance-type
+# - instance-id
+# - public-ipv4
+aws_get_metadata_now() {
+    API_VERSION="2011-05-01"
+    METADATA_URL="http://169.254.169.254/$API_VERSION/meta-data"
+    key=$1
+    if [ "x$key" = "ximage-id" ]; then
+      key="ami-id"
+    fi
+    TOKEN=`curl --retry 5 -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" 2> /dev/null`
+    value=`curl --retry 5 -H "X-aws-ec2-metadata-token: $TOKEN" -sSf $METADATA_URL/$key 2> /dev/null`
+    if [ $? -eq 0 ] && [ "x$value" != "x" ] ; then
+        echo $value
+        return 0
+    else
+        return 1
+    fi
+}
+
+aws_default_cloud_server_parent_domain() {
+  echo compute-1.amazonaws.com
+  return 0
+}
+
+aws_is_bitnami_testing_mode() {
+  _generic_is_bitnami_testing_mode_from_user_data
+}
+
+get_dynamicdocument_property_now() {
+    API_VERSION="2011-05-01"
+    METADATA_URL="http://169.254.169.254/$API_VERSION/dynamic/instance-identity/document"
+    TOKEN=`curl --retry 5 -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" 2> /dev/null`
+    value=`curl --retry 5  -H "X-aws-ec2-metadata-token: $TOKEN" -sSf $METADATA_URL 2> /dev/null`
+    if [ $? -eq 0 ] && [ "x$value" != "x" ] ; then
+        echo $value | grep -Po '"'"$1"'"\s*:\s*"\K([^"]*)'
+        return 0
+    else
+        return 1
+    fi
+}
+
+aws_cloud_account_id() {
+  get_dynamicdocument_property_now accountId
+}
+
+# Detect if it is an AWS Market, AWS Lightsail or Community
+get_branding() {
+    if [ -f /etc/ssh/lightsail* ]; then
+        echo "lightsail"
+    elif [ "x`get_metadata_now product-codes`" != "x" ]; then
+        echo "awsmarket"
+    else
+        echo "bitnami"
+    fi
+}
+
+
+# Generate random password for AWS Marketplace
+aws_get_applications_password() {
+  password=`_get_app_password_from_user_data`
+  if [ "x$password" = "x" ] ; then
+    password=`get_random_password applications`
+  fi
+  echo $password
+  return 0
+}
+
+aws_get_system_password () {
+  return 0
+}
+
+
+SEM_DIR="/opt/bitnami/var/sem"
+DATA_DIR="/opt/bitnami/var/data"
+META_DIR="/opt/bitnami/var/meta"
+USER_DATA="/opt/bitnami/var/user-data"
+bn_logger="logger -t bitnami-init"
+
+###
+
+get_boot_time() {
+    boot_time=`who -b`
+    if [ "x$boot_time" = "x" ] ; then
+        boot_time=`stat /proc --format=%Y`
+    fi
+    echo $boot_time
+    return 0
+}
+
+get_current_cloud_name() {
+    echo $CLOUD_ID
+}
+
+get_userdata_if_needed() {
+    if [ "x`cat $USER_DATA.timestamp 2>/dev/null`" != "x`get_boot_time`" ] ; then
+        get_userdata
+    fi
+}
+
+get_userdata() {
+    `get_current_cloud_name`_get_userdata
+    mkdir -p "/opt/bitnami/var"
+    get_boot_time > $USER_DATA.timestamp 2>/dev/null
+}
+
+get_metadata() {
+  value=""
+  for i in `seq 100` ; do
+    value=`get_metadata_now $1`
+    if [ $? -eq 0 ] && [ "x$value" != "x" ] ; then
+      echo $value
+      return 0
+    fi
+    sleep 5
+  done
+  return 1
+}
+
+get_metadata_now() {
+  `get_current_cloud_name`_get_metadata_now $1
+}
+
+get_bitnami_myip_timeout() {
+  `get_current_cloud_name`_get_bitnami_myip_timeout 2>/dev/null || echo 120
+}
+
+current_timestamp () {
+  date +%s
+}
+
+get_bitnami_myip () {
+  start_timestamp=`current_timestamp`
+  timeout=`get_bitnami_myip_timeout`
+  end_timestamp=`expr $start_timestamp + $timeout`
+  max_time=5
+  while true ; do
+    for server in myip myip2 ; do
+      # exit in case of timeout
+      if [ `current_timestamp` -gt $end_timestamp ] ; then
+        return 1
+      fi
+
+      # try to get current IP and return it in case of success
+      IP=`curl -sS -L http://$server.bitnami.org --max-time $max_time`
+      if `echo $IP | egrep -q -e '^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$'`; then
+        echo $IP
+        return 0
+      fi
+    done
+
+    # wait before continuing
+    sleep $max_time
+
+    # increase timeout
+    if [ $max_time -lt 15 ] ; then
+      max_time=`expr $max_time + 5`
+    fi
+  done
+
+  return 1
+}
+
+is_internet_available () {
+  get_bitnami_myip
+  return $?
+}
+
+get_local_ip_address () {
+  # Sample output of 'ip route get 1' is the following:
+  # $ ip route get 1
+  # 1.0.0.0 via 172.18.5.78 dev tun0 src 172.18.5.77 uid 1000 
+  #    cache 
+
+  ip=`ip route get 1 | sed -n 's/.*src *\([^ ]*\).*/\1/p'`
+
+  # fallback to ifconfig method
+  if [ "x$ip" = "x" ] ; then
+    ip=`get_local_ip_address_fallback`
+  fi
+
+  if [ "x$ip" = "x" ] ; then
+    return 1
+  fi
+  echo $ip
+}
+
+get_local_ip_address_fallback () {
+  exclude_interfaces="lo|docker"
+  if command -v docker > /dev/null; then
+    exclude_interfaces="$exclude_interfaces`docker network list | awk '{ if (\$3 == \"bridge\") printf \"|br-\" \$1 }'`"
+  fi
+  interfaces=`ifconfig | awk '/^[^ ]/ { if ( $1 !~ /^('${exclude_interfaces}')/ ) { gsub(/:$/, "", $1); print $1}}'`
+
+  ip=""
+  for iface in $interfaces ; do
+    ip=`ifconfig $iface | grep -o 'inet [^ ]*' | sed -e 's/^inet //' -e 's/addr://'`
+    if [ "x$ip" != "x" ] ; then break ; fi
+  done
+  echo $ip
+  return 0
+}
+
+get_public_or_local_ip_address () {
+  # get IP address and cache it to avoid network connectivity issues
+  current_state_key="`get_boot_time` `get_local_ip_address`"
+  previous_state_key="`get_stored_data public_ip_cache_state`"
+  if [ "x$previous_state_key" = "x$current_state_key" ] ; then
+    get_stored_data public_ip_cache
+  else
+    ip=`get_public_or_local_ip_address_now`
+    set_stored_data public_ip_cache_state "$current_state_key"
+    set_stored_data public_ip_cache "$ip"
+    echo "$ip"
+  fi
+  return 0
+}
+
+get_public_or_local_ip_address_now () {
+  ip=`get_bitnami_myip`
+  if [ "x$ip" = "x" ] ; then
+    ip=`get_local_ip_address`
+  fi
+  if [ "x$ip" = "x" ] ; then
+    return 1
+  fi
+  echo $ip
+  return 0
+}
+
+get_random_password() {
+  type="$1"
+  pwlength="$2"
+  if [ "x$length" = "x" ] ; then
+    pwlength=12
+  fi
+  if [ "x$type" != "x" ] ; then
+    password=`get_stored_data metadata_${type}_password`
+    rc=$?
+  else
+    password=""
+  fi
+  if [ "x$password" = "x" ] ; then
+    password=`generate_random_password $pwlength $pwlength 1`
+    rc=$?
+  fi
+  if [ "x$rc" = "x0" ] && [ "x$password" != "x" ] && [ "x$type" != "x" ] ; then
+    set_stored_data metadata_${type}_password $password
+  fi
+  echo $password
+  return $rc
+}
+
+get_applications_password() {
+  ${CLOUD_ID}_get_applications_password
+}
+
+get_system_password() {
+  ${CLOUD_ID}_get_system_password
+}
+
+get_system_password_users() {
+  echo "bitnami"
+}
+
+default_cloud_server_parent_domain() {
+  `get_current_cloud_name`_default_cloud_server_parent_domain
+}
+
+get_domain_from_ip () {
+  parent_domain=`default_cloud_server_parent_domain`
+  dns=`dig +noall +answer -x "$1" 2>&1 | grep PTR | grep $parent_domain | awk -F 'PTR' '{print $2}'| sed -e 's/^ *//g' -e 's/ *\.$//g'    `
+  if [ $? -eq 0 ] && [ "x$dns" != "x" ] ; then
+    echo $dns
+    return 0
+  else
+    echo $1
+    return 1
+  fi
+}
+
+get_server_domain () {
+  # use preconfigured machine IP if specified
+  dns=`get_stored_data machine_hostname`
+  if [ $? -eq 0 ] && [ "x$dns" != "x" ] ; then
+    echo "$dns"
+    return 0
+  fi
+  type=`get_stored_data machine_ip_type`
+  if [ "x$type" = "xprivate" ] ; then
+    # private IP should be used
+    echo `get_local_ip_address`
+    return 0
+  elif [ "x$type" = "xhostname" ] ; then
+    # machine hostname should be used
+    echo `hostname -f`
+    return 0
+  fi
+  # get IP address from metadata
+  ip=`get_metadata_now public-ipv4`
+  if [ $? -eq 0 ] && [ "x$ip" != "x" ] ; then
+    echo "$ip"
+    return 0
+  fi
+  # fetch public or private IP address
+  ip=`get_public_or_local_ip_address`
+  if [ $? -eq 0 ] && [ "x$ip" != "x" ] ; then
+    echo "$ip"
+    return 0
+  fi
+  return 1
+}
+
+cloud_init_check () {
+  test -f /usr/bin/cloud-init
+}
+
+run_once_globally_check() {
+  mkdir -p $SEM_DIR
+  if [ -f $SEM_DIR/$1.global ]; then
+    return 1;
+  fi
+  echo "$2" > $SEM_DIR/$1.global
+  return 0
+}
+
+run_once_check() {
+  mkdir -p $SEM_DIR
+  instance_id=`get_metadata "instance-id"`
+  if [ -f $SEM_DIR/$1.$instance_id ]; then
+    return 1;
+  fi
+  echo "$2" > $SEM_DIR/$1.$instance_id
+  return 0
+}
+
+run_once_per_instance_type_check() {
+  mkdir -p $SEM_DIR
+  instance_type=`get_generic_instance_type`
+  if [ -f $SEM_DIR/$1.global ] && [ "x$instance_type" = "x`cat $SEM_DIR/$1.global`" ]; then
+    return 1;
+  fi
+  echo "$instance_type" > $SEM_DIR/$1.global
+  return 0
+}
+
+run_once_per_boot_check() {
+  mkdir -p $SEM_DIR
+  last_boot=`get_boot_time`
+  if [ -f $SEM_DIR/$1.last_boot ] && [ "x$last_boot" = "x`cat $SEM_DIR/$1.last_boot`" ]; then
+    return 1;
+  fi
+  echo "$last_boot" > $SEM_DIR/$1.last_boot
+  return 0
+}
+
+run_once_per_instance() {
+  if [ -f /usr/bin/cloud-init-run-module ]; then
+    cloud-init-run-module once-per-instance $1 execute /bin/sh $2
+  else
+    if run_once_check $1 ; then
+      /bin/sh $2
+    fi
+  fi
+}
+
+run_once_per_instance_type() {
+  instance_type=`get_generic_instance_type`
+  if [ $? -eq 0 ]; then
+    if run_once_per_instance_type_check $1 $instance_type; then
+      /bin/sh $2
+    fi
+  fi
+}
+
+get_bitnami_data() {
+  DIR=$1 ; shift
+  NAME=$1 ; shift
+  if [ -f "$DIR/$NAME" ] ; then
+    cat "$DIR/$NAME"
+    return 0
+  else
+    return 1
+  fi
+}
+
+set_bitnami_data() {
+  DIR=$1 ; shift
+  DIROWNER=$1 ; shift
+  DIRMODE=$1 ; shift
+  FILEOWNER=$1 ; shift
+  FILEMODE=$1 ; shift
+  NAME=$1 ; shift
+  VALUE=$1
+  mkdir -p $DIR && chmod $DIRMODE $DIR && chown $DIROWNER $DIR
+  if [ "x$VALUE" = "x" ] ; then
+    rm -f "$DIR/$NAME"
+  else
+    touch "$DIR/$NAME" && chmod $FILEMODE "$DIR/$NAME" && chown $FILEOWNER "$DIR/$NAME" && echo "$VALUE" >"$DIR/$NAME"
+  fi
+}
+
+get_stored_data() {
+  get_bitnami_data $DATA_DIR "$@"
+}
+
+set_stored_data() {
+  set_bitnami_data $DATA_DIR root:root 0700 root:root 0600 "$@"
+}
+
+get_meta_data() {
+  get_bitnami_data $META_DIR "$@"
+}
+
+set_meta_data() {
+  set_bitnami_data $META_DIR root:root 0755 root:root 0644 "$@"
+}
+
+get_generic_instance_type() {
+  total_mem=`free -m | awk '/^Mem:/{print $2}'`
+  if [ $? -eq 1 ]; then
+    return 1
+  fi
+  case "$total_mem" in
+      ([0-9]*)
+          ;;
+      *)
+          return 1
+          ;;
+  esac
+  case 1 in
+    $(($total_mem < 1500)))
+      generic_type='micro'
+      ;;
+    $(($total_mem < 3000)))
+      generic_type='small'
+      ;;
+    $(($total_mem < 6000)))
+      generic_type='medium'
+      ;;
+    $(($total_mem < 13000)))
+      generic_type='large'
+      ;;
+    $(($total_mem < 26000)))
+      generic_type='xlarge'
+      ;;
+    *)
+      generic_type='2xlarge'
+      ;;
+  esac
+  echo $generic_type
+  return 0
+}
+
+
+clean_skip_bitnami_start() {
+  rm -f $SEM_DIR/skip_bitnami_start
+}
+
+skip_bitnami_start() {
+  mkdir -p $SEM_DIR
+  touch $SEM_DIR/skip_bitnami_start
+}
+
+skip_bitnami_start_check() {
+  test -f $SEM_DIR/skip_bitnami_start
+}
+
+machine_device_root() {
+  device='/dev/xvda'
+  if [ "xnone" = "xdetect" ] ; then
+    device="`grep '^/dev' /proc/mounts | awk '$2 == "/" { print $1 }'|tail -1`"
+    if [ -h "$device" ] ; then
+      device="`readlink -f "$device"`"
+    fi
+    if [ ! -b "$device" ] ; then
+      device='/dev/xvda'
+    fi
+  fi
+  echo $device
+}
+
+machine_device_root_only() {
+  machine_device_root | sed 's,^.*/,,'
+}
+
+machine_device_root_disk() {
+  machine_device_root | sed 's,[0-9]\+$,,'
+}
+
+resize_root_fs() {
+  if false ; then
+    xfs_growfs '/'
+  else
+    resize2fs -f `machine_device_root`
+  fi
+}
+
+resize_root_partition() {
+  DISK=`machine_device_root_disk`
+  echo "+" | sfdisk --force $DISK
+}
+
+root_partition_disk_size() {
+  DISK=`machine_device_root_disk`
+  fdisk -l $DISK| grep "Disk.*bytes\(,\|\$\)"| sed 's,^.*\s\([0-9]\+\)\sbytes.*$,\1,'
+}
+
+store_root_partition_disk_size() {
+  set_stored_data root_partition_disk_size `root_partition_disk_size`
+}
+
+resize_root_partition_if_needed() {
+  DISK_SIZE=`root_partition_disk_size`
+  STORED_DISK_SIZE=`get_stored_data root_partition_disk_size`
+  if [ "x$DISK_SIZE" = "x" ] ; then
+    echo "Unable to resize root partition - disk size not retrieved properly"
+  elif [ "x$STORED_DISK_SIZE" = "x" ] ; then
+    echo "Unable to resize root partition - root partition disk size not retrieved properly"
+  elif [ "$DISK_SIZE" -gt "$STORED_DISK_SIZE" ] ; then
+    STEP=`get_stored_data root_partition_resize_step`
+    if [ "x$STEP" != "xresize_fs" ] ; then
+      resize_root_partition
+      # Try to reload the partition info
+      which partx && partx -u `machine_device_root_disk`
+      if [ $? != 0 ] ; then
+        # Reboot & resize the filesystem in next boot
+        set_stored_data root_partition_resize_step "resize_fs"
+        skip_bitnami_start
+        reboot
+      fi
+    fi
+    set_stored_data root_partition_resize_step ""
+    resize_root_fs
+    store_root_partition_disk_size
+  fi
+}
+
+BITNAMI_TESTING_MODE=""
+is_bitnami_testing_mode() {
+  if `get_current_cloud_name`_is_bitnami_testing_mode >/dev/null 2>/dev/null ; then
+    return 0
+  elif [ "x$BITNAMI_TESTING_MODE" != "x" ] ; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+_get_parameter_from_user_data() {
+  PARAMETER=$1 ; shift
+  get_userdata_if_needed
+  LINE=`cat "$USER_DATA" 2>/dev/null | egrep "^(\\s*#\\s*|^)(${PARAMETER})\\s*=" | head -1`
+  if [ "x$LINE" != "x" ] ; then
+    # remove a leading '#' (if it is the first non-whitespace character), trailing spaces and quote marks around values
+    echo "$LINE" | sed "s,^\\s*#\\s*,,;s,${PARAMETER}\\s*=\\s*,,;s,\\s*$,,;s,^\"\\(.*\\)\"$,\\1,"
+    return 0
+  else
+    echo "$1"
+    return 1
+  fi
+}
+
+_generic_is_bitnami_testing_mode_from_user_data() {
+  get_userdata
+  VALUE=`_get_parameter_from_user_data bitnami_testing_mode`
+  if [ $? != 0 ] ; then
+    return 1
+  else
+    is_boolean_true "$VALUE"
+    return $?
+  fi
+}
+
+# Used by clouds that does not have user data available
+_generic_is_bitnami_testing_mode_fallback() {
+  get_meta_data bitnami_testing_mode > /dev/null
+}
+
+is_boolean_true() {
+  echo $1 | grep -i '^\s*\(yes\|true\|1\)\s*$' >/dev/null 2>/dev/null
+}
+
+_get_app_password_from_user_data() {
+  local password=`_get_parameter_from_user_data bitnami_application_password`
+
+  if [ $? != 0 ] ; then
+    return 1
+  else
+    echo "$password"
+    return $?
+  fi
+}
+
+_generate_random_characters() {
+  local COUNT=$1 ; shift
+  local RANDOM_CHARS=$1 ; shift
+  local RANDOM_DEVICE=/dev/urandom
+  local RESULT=""
+  local DONE=0
+  local CHAR=""
+  local VALID=0
+  local FAILURES=0
+
+  if is_boolean_true $1 ; then
+    RANDOM_DEVICE=/dev/random
+  fi
+  shift
+
+  while true ; do
+    # try to retrieve a single byte and use it if it matches required subset
+    # (single byte to reduce number of data read from /dev/random)
+    CHAR=`head --bytes=1 <$RANDOM_DEVICE | tr -d -c "$RANDOM_CHARS"`
+    if [ "x$CHAR" != "x" ] ; then
+      # ensure more than specified count characters are not used
+      RESULT=`/bin/echo -n "$RESULT$CHAR" | tail --bytes=$COUNT`
+      DONE=`expr $DONE + 1`
+      # check if length is correct
+      if [ "$DONE" -ge "$COUNT" ] ; then
+        VALID=1
+        for VALIDATE_PATTERN in "$@" ; do
+          if echo "$RESULT" | /bin/grep -v "$VALIDATE_PATTERN" >/dev/null 2>/dev/null ; then
+            VALID=0
+            break
+          fi
+        done
+
+        if [ "$VALID" = "1" ] ; then
+          break
+        fi
+      fi
+    else
+      # fallback in case random device does not work properly or conditions are invalid
+      FAILURES=`expr $FAILURES + 1`
+      if [ "$FAILURES" -gt 1000 ] ; then
+        echo >&2 "Unable to generate random data"
+	return 1
+      fi
+    fi
+  done
+  echo $RESULT
+  return 0
+}
+
+generate_random_number() {
+  local FROM=$1
+  local TO=$2
+  local MOD_NUMBER=`expr 1 + $TO - $FROM`
+  local RANDOM_VALUE
+  local BYTES_COUNT
+  # get minimum number of digits
+  BYTES_COUNT=`/bin/echo -n $MOD_NUMBER | wc --bytes` || return 1
+  RANDOM_VALUE=`_generate_random_characters $BYTES_COUNT 0-9 "$3"` || return 1
+  expr $FROM + $RANDOM_VALUE % $MOD_NUMBER
+}
+
+generate_random_password() {
+  local FROM=$1
+  local TO=$2
+  local SECURE=$3
+  local SIZE
+  if [ "x$FROM" = "x" ] ; then
+    FROM=8
+  fi
+  if [ "x$TO" = "x" ] ; then
+    TO=$FROM
+  fi
+
+  if [ "$FROM" -lt "3" ] ; then
+    echo "Invalid arguments - $FROM lower than 3"
+    return 1
+  fi
+
+  # size does not need to be securely calculated
+  SIZE=`generate_random_number $FROM $TO 0` || return 1
+
+  # ensure at least one number, upper case, lower case character, and a special character is used
+  _generate_random_characters $SIZE "0-9A-Za-z:@./+!=" "$SECURE" "[0-9]" "[a-z]" "[A-Z]" "[:@./+!=]"
+}
+
+_cloud_init_get_instance_data() {
+  local OBJ_PATH=`echo "$1" | sed "s/ /']['/g"`
+  env -i python3 -c "import pickle ; print(pickle.load(open('/var/lib/cloud/instance/obj.pkl','rb')).cfg['${OBJ_PATH}'])" 2>/dev/null
+  if [ "$?" != "0" -a "x$2" != "x" ] ; then
+    echo $2
+    return 1
+  else
+    return 0
+  fi
+}
+
+cloud_account_id() {
+  `get_current_cloud_name`_cloud_account_id
+}
+
+# will be sent to the stats server
+cloud_account_id_sha256() {
+  value=`cloud_account_id`
+  if [ $? -eq 0 ] && [ "x$value" != "x" ] ; then
+    printf $value | sha256sum | awk '{print $1}'
+    return 0
+  else
+    return $?
+  fi
+}
+
+log() {
+  local level=$1; shift
+  local message="$@"
+
+  if [ "x$level" != "xDEBUG" ] && [ "x$level" != "xINFO" ] && [ "x$level" != "xERROR" ] && [ "x$level" != "xWARNING" ]; then
+    echo "ERROR: trying to log message with log level $level. Supported values are DEBUG, INFO, ERROR, WARNING."
+    return 1
+  fi
+
+  # Only return DEBUG messages if DEBUG mode is enabled
+  if [ "x$level" = "xDEBUG" ] && [ "x$DEBUG" != "x1" ]; then
+    return 0
+  fi
+
+  local current_date
+  current_date=$(date --rfc-3339=seconds)
+  echo "## $current_date ## $level ## $message"
+  return 0
+}

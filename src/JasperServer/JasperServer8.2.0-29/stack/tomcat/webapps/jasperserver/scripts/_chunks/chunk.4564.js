@@ -1,0 +1,10 @@
+(self.webpackChunkjrs_ui=self.webpackChunkjrs_ui||[]).push([[4564,1933,7335,5573],{17335:(e,o,n)=>{var r,t,s;
+/*!
+ * jQuery UI Scroll Parent 1.13.2
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */!function(i){"use strict";t=[n(72157),n(91544)],void 0===(s="function"==typeof(r=function(e){return e.fn.scrollParent=function(o){var n=this.css("position"),r="absolute"===n,t=o?/(auto|scroll|hidden)/:/(auto|scroll)/,s=this.parents().filter((function(){var o=e(this);return(!r||"static"!==o.css("position"))&&t.test(o.css("overflow")+o.css("overflow-y")+o.css("overflow-x"))})).eq(0);return"fixed"!==n&&s.length?s:e(this[0].ownerDocument||document)}})?r.apply(o,t):r)||(e.exports=s)}()},94277:(e,o,n)=>{"use strict";n.d(o,{hl:()=>r,YT:()=>s});var r={vars:{element_scrolled:!1,ajax_in_progress:!1,current_flow:null,contextPath:__jrsConfigs__.contextPath},i18n:{}};if(void 0===t)var t=!1;function s(){return __jrsConfigs__.isProVersion}void 0===r&&(r={Mocks:{}}),void 0===r.vars&&(r.vars={element_scrolled:!1,ajax_in_progress:!1,current_flow:null}),void 0===r.Export&&(r.Export={i18n:{"file.name.empty":"export.file.name.empty","file.name.too.long":"export.file.name.too.long","file.name.not.valid":"export.file.name.not.valid","export.select.users":"export.select.users","export.select.roles":"export.select.roles","export.session.expired":"export.session.expired","error.timeout":"export.file.name.empty"},configs:{TIMEOUT:12e5,DELAY:3e3}}),void 0===window.localContext&&(window.localContext={}),__jrsConfigs__.calendar&&(r.i18n.bundledCalendarFormat=__jrsConfigs__.calendar.i18n.bundledCalendarFormat,r.i18n.bundledCalendarTimeFormat=__jrsConfigs__.calendar.i18n.bundledCalendarTimeFormat),window.JRS=r,window.jaspersoft={components:{},i18n:{}},window.isProVersion=s}}]);
+//# sourceMappingURL=chunk.4564.js.map

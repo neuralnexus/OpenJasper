@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xform style="manual" bundle="com.tonbeller.jpivot.table.resources">
+<table border="1" cellspacing="0" cellpadding="2" id="mdxEditForm" width="175">
+  <tr>
+    <th class="xform-title">
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+          <th align="left" class="xform-title">fmt:jsp.jpivot.mdxedit.title</th>
+          <td align="right" class="xform-close-button">
+            <imgButton src="wcf/form/cancel.png" action="revert" label="fmt:jsp.jpivot.mdxedit.close" hide="true" handler="com.tonbeller.wcf.form.ButtonHandler" onclick="pageAlert=false"/>
+          </td>
+        </tr>
+      </table>
+    </th>
+  </tr>
+  <tr>
+    <td>
+		<textArea rows="20" cols="100" type="string" modelReference="extensions(mdxQuery).mdxQuery" bookmark="false"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      <span class="xform-error">
+        <error-message/>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">
+      <div align="right">
+        <button action="validate" label="fmt:jsp.jpivot.mdxedit.apply" handler="com.tonbeller.wcf.form.ButtonHandler"/>
+        <button action="revert" label="fmt:jsp.jpivot.mdxedit.reset" handler="com.tonbeller.wcf.form.ButtonHandler"/>
+      </div>
+    </td>
+  </tr>
+</table>
+
+</xform>

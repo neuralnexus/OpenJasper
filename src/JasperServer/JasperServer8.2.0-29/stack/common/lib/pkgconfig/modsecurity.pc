@@ -1,0 +1,11 @@
+prefix=/opt/bitnami/common
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: ModSecurity
+Description: ModSecurity API
+Version: 3.0.12
+Cflags: -I${prefix}/include
+Libs: -L${exec_prefix}/lib -lmodsecurity
+Libs.private:    -lrt   -lxml2   -lpcre -lpcre  

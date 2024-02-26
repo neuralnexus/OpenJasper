@@ -1,0 +1,56 @@
+#!/bin/sh
+
+handleExtraJarsForJdk17() {
+  # Directory paths are relative to JRS_HOME\buildomatic.
+  javaVersion=$(java -version 2>&1 | head -1 | cut -d '"' -f 2 | cut -d '.' -f1)
+  if [ ${javaVersion} -ge 17 ]; then
+    echo "Copying additional jar file(s) that are needed very specific to jdk 17+ runtime."    
+    cp ./install_resources/extra-jars-jdk17/asm*.jar ./lib
+    cp ./install_resources/extra-jars-jdk17/nashorn*.jar ./lib
+  else
+    echo "Deleting any existing jar file(s) that are needed very specific to jdk 17+ runtime." 
+    rm ./lib/asm*.jar
+    rm ./lib/nashorn*.jar
+  fi
+}
+
+ANT_OPTS="-Xms128m -Xmx512m -Djava.net.preferIPv4Stack=true -noverify"
+
+#
+# setup to use bundled of ant
+#
+
+bundledAntIs=1
+
+if test -d ../apache-ant
+then
+    ANT_HOME=../apache-ant
+elif test -d ../../apache-ant
+then
+    ANT_HOME=../../apache-ant
+else
+    echo "WARNING: No bundled Ant found (../apache-ant or ../../apache-ant). Using system Ant"
+    ANT_RUN=ant
+    bundledAntIs=0
+fi
+
+if [ "$bundledAntIs" -eq "1" ];
+then
+    export ANT_HOME
+    ANT_RUN=$ANT_HOME/bin/ant
+    export ANT_RUN
+    PATH=$ANT_HOME/bin:$PATH
+    export PATH
+fi
+
+export BUILDOMATIC_MODE=${BUILDOMATIC_MODE:-interactive}
+#export ANT_OPTS="-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=y"
+
+#
+# Collect the command line args
+#
+
+handleExtraJarsForJdk17
+
+$ANT_RUN --noconfig -nouserlib -lib . -lib lib -f build.xml "$@"
+

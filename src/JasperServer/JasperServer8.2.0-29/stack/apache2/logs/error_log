@@ -1,0 +1,2 @@
+[Thu Feb 22 01:58:58.165316 2024] [mpm_event:notice] [pid 2117:tid 139968802585600] AH00489: Apache/2.4.58 (Unix) OpenSSL/1.1.1w configured -- resuming normal operations
+[Thu Feb 22 01:58:58.165430 2024] [core:notice] [pid 2117:tid 139968802585600] AH00094: Command line: '/opt/bitnami/apache/bin/httpd -f /opt/bitnami/apache/conf/httpd.conf'

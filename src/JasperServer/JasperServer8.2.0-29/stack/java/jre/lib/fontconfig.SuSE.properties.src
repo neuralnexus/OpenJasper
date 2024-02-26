@@ -1,0 +1,393 @@
+#
+#
+# Copyright (c) 2023, 2023, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2023, 2023, BELLSOFT. All rights reserved.
+# DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+#
+# This code is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 2 only, as
+# published by the Free Software Foundation.  Oracle designates this
+# particular file as subject to the "Classpath" exception as provided
+# by Oracle in the LICENSE file that accompanied this code.
+#
+# This code is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# version 2 for more details (a copy is included in the LICENSE file that
+# accompanied this code).
+#
+# You should have received a copy of the GNU General Public License version
+# 2 along with this work; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+#
+# Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+# or visit www.oracle.com if you need additional information or have any
+# questions.
+#
+
+# Generated fontconfig.properties.src file
+
+version=1
+
+# Use the system font config if installed on the system
+systemfontconf=true
+
+serif.plain.latin-1=DejaVu Serif
+serif.plain.ja-sazanami=Sazanami Mincho Regular
+serif.plain.ar_pl_sungtil_gb=AR PL SungtiL GB
+serif.plain.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+serif.plain.ko-un=Un Batang
+serif.plain.lohit_bengali=Lohit Bengali
+serif.plain.lohit_gujarati=Lohit Gujarati
+serif.plain.lohit_marathi=Lohit Marathi
+serif.plain.lohit_punjabi=Lohit Punjabi
+serif.plain.lohit_tamil=Lohit Tamil
+serif.plain.lohit_malayalam=Lohit Malayalam
+serif.plain.lohit_kannada=Lohit Kannada
+serif.plain.lohit_telugu=Lohit Telugu
+serif.plain.lohit_oriya=Lohit Oriya
+serif.plain.ungraphic=Un Graphic
+
+serif.bold.latin-1=DejaVu Serif Bold
+serif.bold.ja-sazanami=Sazanami Mincho Regular
+serif.bold.ar_pl_sungtil_gb=AR PL SungtiL GB
+serif.bold.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+serif.bold.ko-un=Un Batang Bold
+serif.bold.lohit_bengali=Lohit Bengali
+serif.bold.lohit_gujarati=Lohit Gujarati
+serif.bold.lohit_marathi=Lohit Marathi
+serif.bold.lohit_punjabi=Lohit Punjabi
+serif.bold.lohit_tamil=Lohit Tamil
+serif.bold.lohit_malayalam=Lohit Malayalam
+serif.bold.lohit_kannada=Lohit Kannada
+serif.bold.lohit_telugu=Lohit Telugu
+serif.bold.lohit_oriya=Lohit Oriya
+serif.bold.ungraphic=Un Graphic Bold
+
+serif.italic.latin-1=DejaVu Serif Italic
+serif.italic.ja-sazanami=Sazanami Mincho Regular
+serif.italic.ar_pl_sungtil_gb=AR PL SungtiL GB
+serif.italic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+serif.italic.ko-un=Un Batang
+serif.italic.lohit_bengali=Lohit Bengali
+serif.italic.lohit_gujarati=Lohit Gujarati
+serif.italic.lohit_marathi=Lohit Marathi
+serif.italic.lohit_punjabi=Lohit Punjabi
+serif.italic.lohit_tamil=Lohit Tamil
+serif.italic.lohit_malayalam=Lohit Malayalam
+serif.italic.lohit_kannada=Lohit Kannada
+serif.italic.lohit_telugu=Lohit Telugu
+serif.italic.lohit_oriya=Lohit Oriya
+serif.italic.ungraphic=Un Graphic
+
+serif.bolditalic.latin-1=DejaVu Serif Bold Italic
+serif.bolditalic.ja-sazanami=Sazanami Mincho Regular
+serif.bolditalic.ar_pl_sungtil_gb=AR PL SungtiL GB
+serif.bolditalic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+serif.bolditalic.ko-un=Un Batang Bold
+serif.bolditalic.lohit_bengali=Lohit Bengali
+serif.bolditalic.lohit_gujarati=Lohit Gujarati
+serif.bolditalic.lohit_marathi=Lohit Marathi
+serif.bolditalic.lohit_punjabi=Lohit Punjabi
+serif.bolditalic.lohit_tamil=Lohit Tamil
+serif.bolditalic.lohit_malayalam=Lohit Malayalam
+serif.bolditalic.lohit_kannada=Lohit Kannada
+serif.bolditalic.lohit_telugu=Lohit Telugu
+serif.bolditalic.lohit_oriya=Lohit Oriya
+serif.bolditalic.ungraphic=Un Graphic Bold
+
+sansserif.plain.latin-1=DejaVu Sans
+sansserif.plain.ja-sazanami=Sazanami Gothic Regular
+sansserif.plain.ar_pl_sungtil_gb=AR PL SungtiL GB
+sansserif.plain.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+sansserif.plain.ko-un=Un Dotum
+sansserif.plain.lohit_bengali=Lohit Bengali
+sansserif.plain.lohit_gujarati=Lohit Gujarati
+sansserif.plain.lohit_marathi=Lohit Marathi
+sansserif.plain.lohit_punjabi=Lohit Punjabi
+sansserif.plain.lohit_tamil=Lohit Tamil
+sansserif.plain.lohit_malayalam=Lohit Malayalam
+sansserif.plain.lohit_kannada=Lohit Kannada
+sansserif.plain.lohit_telugu=Lohit Telugu
+sansserif.plain.lohit_oriya=Lohit Oriya
+sansserif.plain.ungraphic=Un Graphic
+
+sansserif.bold.latin-1=DejaVu Sans Bold
+sansserif.bold.ja-sazanami=Sazanami Gothic Regular
+sansserif.bold.ar_pl_sungtil_gb=AR PL SungtiL GB
+sansserif.bold.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+sansserif.bold.ko-un=Un Dotum Bold
+sansserif.bold.lohit_bengali=Lohit Bengali
+sansserif.bold.lohit_gujarati=Lohit Gujarati
+sansserif.bold.lohit_marathi=Lohit Marathi
+sansserif.bold.lohit_punjabi=Lohit Punjabi
+sansserif.bold.lohit_tamil=Lohit Tamil
+sansserif.bold.lohit_malayalam=Lohit Malayalam
+sansserif.bold.lohit_kannada=Lohit Kannada
+sansserif.bold.lohit_telugu=Lohit Telugu
+sansserif.bold.lohit_oriya=Lohit Oriya
+sansserif.bold.ungraphic=Un Graphic Bold
+
+sansserif.italic.latin-1=DejaVu Sans Oblique
+sansserif.italic.ja-sazanami=Sazanami Gothic Regular
+sansserif.italic.ar_pl_sungtil_gb=AR PL SungtiL GB
+sansserif.italic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+sansserif.italic.ko-un=Un Dotum
+sansserif.italic.lohit_bengali=Lohit Bengali
+sansserif.italic.lohit_gujarati=Lohit Gujarati
+sansserif.italic.lohit_marathi=Lohit Marathi
+sansserif.italic.lohit_punjabi=Lohit Punjabi
+sansserif.italic.lohit_tamil=Lohit Tamil
+sansserif.italic.lohit_malayalam=Lohit Malayalam
+sansserif.italic.lohit_kannada=Lohit Kannada
+sansserif.italic.lohit_telugu=Lohit Telugu
+sansserif.italic.lohit_oriya=Lohit Oriya
+sansserif.italic.ungraphic=Un Graphic
+
+sansserif.bolditalic.latin-1=DejaVu Sans Bold Oblique
+sansserif.bolditalic.ja-sazanami=Sazanami Gothic Regular
+sansserif.bolditalic.ar_pl_sungtil_gb=AR PL SungtiL GB
+sansserif.bolditalic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+sansserif.bolditalic.ko-un=Un Dotum Bold
+sansserif.bolditalic.lohit_bengali=Lohit Bengali
+sansserif.bolditalic.lohit_gujarati=Lohit Gujarati
+sansserif.bolditalic.lohit_marathi=Lohit Marathi
+sansserif.bolditalic.lohit_punjabi=Lohit Punjabi
+sansserif.bolditalic.lohit_tamil=Lohit Tamil
+sansserif.bolditalic.lohit_malayalam=Lohit Malayalam
+sansserif.bolditalic.lohit_kannada=Lohit Kannada
+sansserif.bolditalic.lohit_telugu=Lohit Telugu
+sansserif.bolditalic.lohit_oriya=Lohit Oriya
+sansserif.bolditalic.ungraphic=Un Graphic Bold
+
+monospaced.plain.latin-1=DejaVu Sans Mono
+monospaced.plain.ja-sazanami=Sazanami Gothic Regular
+monospaced.plain.ar_pl_sungtil_gb=AR PL SungtiL GB
+monospaced.plain.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+monospaced.plain.ko-un=Un Dotum
+monospaced.plain.lohit_bengali=Lohit Bengali
+monospaced.plain.lohit_gujarati=Lohit Gujarati
+monospaced.plain.lohit_marathi=Lohit Marathi
+monospaced.plain.lohit_punjabi=Lohit Punjabi
+monospaced.plain.lohit_tamil=Lohit Tamil
+monospaced.plain.lohit_malayalam=Lohit Malayalam
+monospaced.plain.lohit_kannada=Lohit Kannada
+monospaced.plain.lohit_telugu=Lohit Telugu
+monospaced.plain.lohit_oriya=Lohit Oriya
+monospaced.plain.ungraphic=Un Graphic
+
+monospaced.bold.latin-1=DejaVu Sans Mono Bold
+monospaced.bold.ja-sazanami=Sazanami Gothic Regular
+monospaced.bold.ar_pl_sungtil_gb=AR PL SungtiL GB
+monospaced.bold.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+monospaced.bold.ko-un=Un Dotum Bold
+monospaced.bold.lohit_bengali=Lohit Bengali
+monospaced.bold.lohit_gujarati=Lohit Gujarati
+monospaced.bold.lohit_marathi=Lohit Marathi
+monospaced.bold.lohit_punjabi=Lohit Punjabi
+monospaced.bold.lohit_tamil=Lohit Tamil
+monospaced.bold.lohit_malayalam=Lohit Malayalam
+monospaced.bold.lohit_kannada=Lohit Kannada
+monospaced.bold.lohit_telugu=Lohit Telugu
+monospaced.bold.lohit_oriya=Lohit Oriya
+monospaced.bold.ungraphic=Un Graphic Bold
+
+monospaced.italic.latin-1=DejaVu Sans Mono Oblique
+monospaced.italic.ja-sazanami=Sazanami Gothic Regular
+monospaced.italic.ar_pl_sungtil_gb=AR PL SungtiL GB
+monospaced.italic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+monospaced.italic.ko-un=Un Dotum
+monospaced.italic.lohit_bengali=Lohit Bengali
+monospaced.italic.lohit_gujarati=Lohit Gujarati
+monospaced.italic.lohit_marathi=Lohit Marathi
+monospaced.italic.lohit_punjabi=Lohit Punjabi
+monospaced.italic.lohit_tamil=Lohit Tamil
+monospaced.italic.lohit_malayalam=Lohit Malayalam
+monospaced.italic.lohit_kannada=Lohit Kannada
+monospaced.italic.lohit_telugu=Lohit Telugu
+monospaced.italic.lohit_oriya=Lohit Oriya
+monospaced.italic.ungraphic=Un Graphic
+
+monospaced.bolditalic.latin-1=DejaVu Sans Mono Bold Oblique
+monospaced.bolditalic.ja-sazanami=Sazanami Gothic Regular
+monospaced.bolditalic.ar_pl_sungtil_gb=AR PL SungtiL GB
+monospaced.bolditalic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+monospaced.bolditalic.ko-un=Un Dotum Bold
+monospaced.bolditalic.lohit_bengali=Lohit Bengali
+monospaced.bolditalic.lohit_gujarati=Lohit Gujarati
+monospaced.bolditalic.lohit_marathi=Lohit Marathi
+monospaced.bolditalic.lohit_punjabi=Lohit Punjabi
+monospaced.bolditalic.lohit_tamil=Lohit Tamil
+monospaced.bolditalic.lohit_malayalam=Lohit Malayalam
+monospaced.bolditalic.lohit_kannada=Lohit Kannada
+monospaced.bolditalic.lohit_telugu=Lohit Telugu
+monospaced.bolditalic.lohit_oriya=Lohit Oriya
+monospaced.bolditalic.ungraphic=Un Graphic Bold
+
+dialog.plain.latin-1=DejaVu Sans
+dialog.plain.ja-sazanami=Sazanami Gothic Regular
+dialog.plain.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialog.plain.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialog.plain.ko-un=Un Dotum
+dialog.plain.lohit_bengali=Lohit Bengali
+dialog.plain.lohit_gujarati=Lohit Gujarati
+dialog.plain.lohit_marathi=Lohit Marathi
+dialog.plain.lohit_punjabi=Lohit Punjabi
+dialog.plain.lohit_tamil=Lohit Tamil
+dialog.plain.lohit_malayalam=Lohit Malayalam
+dialog.plain.lohit_kannada=Lohit Kannada
+dialog.plain.lohit_telugu=Lohit Telugu
+dialog.plain.lohit_oriya=Lohit Oriya
+dialog.plain.ungraphic=Un Graphic
+
+dialog.bold.latin-1=DejaVu Sans Bold
+dialog.bold.ja-sazanami=Sazanami Gothic Regular
+dialog.bold.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialog.bold.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialog.bold.ko-un=Un Dotum Bold
+dialog.bold.lohit_bengali=Lohit Bengali
+dialog.bold.lohit_gujarati=Lohit Gujarati
+dialog.bold.lohit_marathi=Lohit Marathi
+dialog.bold.lohit_punjabi=Lohit Punjabi
+dialog.bold.lohit_tamil=Lohit Tamil
+dialog.bold.lohit_malayalam=Lohit Malayalam
+dialog.bold.lohit_kannada=Lohit Kannada
+dialog.bold.lohit_telugu=Lohit Telugu
+dialog.bold.lohit_oriya=Lohit Oriya
+dialog.bold.ungraphic=Un Graphic Bold
+
+dialog.italic.latin-1=DejaVu Sans Oblique
+dialog.italic.ja-sazanami=Sazanami Gothic Regular
+dialog.italic.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialog.italic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialog.italic.ko-un=Un Dotum
+dialog.italic.lohit_bengali=Lohit Bengali
+dialog.italic.lohit_gujarati=Lohit Gujarati
+dialog.italic.lohit_marathi=Lohit Marathi
+dialog.italic.lohit_punjabi=Lohit Punjabi
+dialog.italic.lohit_tamil=Lohit Tamil
+dialog.italic.lohit_malayalam=Lohit Malayalam
+dialog.italic.lohit_kannada=Lohit Kannada
+dialog.italic.lohit_telugu=Lohit Telugu
+dialog.italic.lohit_oriya=Lohit Oriya
+dialog.italic.ungraphic=Un Graphic
+
+dialog.bolditalic.latin-1=DejaVu Sans Bold Oblique
+dialog.bolditalic.ja-sazanami=Sazanami Gothic Regular
+dialog.bolditalic.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialog.bolditalic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialog.bolditalic.ko-un=Un Dotum Bold
+dialog.bolditalic.lohit_bengali=Lohit Bengali
+dialog.bolditalic.lohit_gujarati=Lohit Gujarati
+dialog.bolditalic.lohit_marathi=Lohit Marathi
+dialog.bolditalic.lohit_punjabi=Lohit Punjabi
+dialog.bolditalic.lohit_tamil=Lohit Tamil
+dialog.bolditalic.lohit_malayalam=Lohit Malayalam
+dialog.bolditalic.lohit_kannada=Lohit Kannada
+dialog.bolditalic.lohit_telugu=Lohit Telugu
+dialog.bolditalic.lohit_oriya=Lohit Oriya
+dialog.bolditalic.ungraphic=Un Graphic Bold
+
+dialoginput.plain.latin-1=DejaVu Sans Mono
+dialoginput.plain.ja-sazanami=Sazanami Gothic Regular
+dialoginput.plain.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialoginput.plain.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialoginput.plain.ko-un=Un Dotum
+dialoginput.plain.lohit_bengali=Lohit Bengali
+dialoginput.plain.lohit_gujarati=Lohit Gujarati
+dialoginput.plain.lohit_marathi=Lohit Marathi
+dialoginput.plain.lohit_punjabi=Lohit Punjabi
+dialoginput.plain.lohit_tamil=Lohit Tamil
+dialoginput.plain.lohit_malayalam=Lohit Malayalam
+dialoginput.plain.lohit_kannada=Lohit Kannada
+dialoginput.plain.lohit_telugu=Lohit Telugu
+dialoginput.plain.lohit_oriya=Lohit Oriya
+dialoginput.plain.ungraphic=Un Graphic
+
+dialoginput.bold.latin-1=DejaVu Sans Mono Bold
+dialoginput.bold.ja-sazanami=Sazanami Gothic Regular
+dialoginput.bold.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialoginput.bold.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialoginput.bold.ko-un=Un Dotum Bold
+dialoginput.bold.lohit_bengali=Lohit Bengali
+dialoginput.bold.lohit_gujarati=Lohit Gujarati
+dialoginput.bold.lohit_marathi=Lohit Marathi
+dialoginput.bold.lohit_punjabi=Lohit Punjabi
+dialoginput.bold.lohit_tamil=Lohit Tamil
+dialoginput.bold.lohit_malayalam=Lohit Malayalam
+dialoginput.bold.lohit_kannada=Lohit Kannada
+dialoginput.bold.lohit_telugu=Lohit Telugu
+dialoginput.bold.lohit_oriya=Lohit Oriya
+dialoginput.bold.ungraphic=Un Graphic Bold
+
+dialoginput.italic.latin-1=DejaVu Sans Mono Oblique
+dialoginput.italic.ja-sazanami=Sazanami Gothic Regular
+dialoginput.italic.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialoginput.italic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialoginput.italic.ko-un=Un Dotum
+dialoginput.italic.lohit_bengali=Lohit Bengali
+dialoginput.italic.lohit_gujarati=Lohit Gujarati
+dialoginput.italic.lohit_marathi=Lohit Marathi
+dialoginput.italic.lohit_punjabi=Lohit Punjabi
+dialoginput.italic.lohit_tamil=Lohit Tamil
+dialoginput.italic.lohit_malayalam=Lohit Malayalam
+dialoginput.italic.lohit_kannada=Lohit Kannada
+dialoginput.italic.lohit_telugu=Lohit Telugu
+dialoginput.italic.lohit_oriya=Lohit Oriya
+dialoginput.italic.ungraphic=Un Graphic
+
+dialoginput.bolditalic.latin-1=DejaVu Sans Mono Bold Oblique
+dialoginput.bolditalic.ja-sazanami=Sazanami Gothic Regular
+dialoginput.bolditalic.ar_pl_sungtil_gb=AR PL SungtiL GB
+dialoginput.bolditalic.ar_pl_mingti2l_big5=AR PL Mingti2L Big5
+dialoginput.bolditalic.ko-un=Un Dotum Bold
+dialoginput.bolditalic.lohit_bengali=Lohit Bengali
+dialoginput.bolditalic.lohit_gujarati=Lohit Gujarati
+dialoginput.bolditalic.lohit_marathi=Lohit Marathi
+dialoginput.bolditalic.lohit_punjabi=Lohit Punjabi
+dialoginput.bolditalic.lohit_tamil=Lohit Tamil
+dialoginput.bolditalic.lohit_malayalam=Lohit Malayalam
+dialoginput.bolditalic.lohit_kannada=Lohit Kannada
+dialoginput.bolditalic.lohit_telugu=Lohit Telugu
+dialoginput.bolditalic.lohit_oriya=Lohit Oriya
+dialoginput.bolditalic.ungraphic=Un Graphic Bold
+
+
+sequence.allfonts=latin-1
+sequence.allfonts.EUC-KR=latin-1,ko-un
+sequence.allfonts.x-euc-jp-linux=latin-1,ja-sazanami
+sequence.allfonts.Big5=latin-1,ar_pl_mingti2l_big5
+sequence.allfonts.GB18030=latin-1,ar_pl_sungtil_gb
+sequence.fallback=ja-sazanami,ar_pl_sungtil_gb,ar_pl_mingti2l_big5,ko-un,lohit_bengali,lohit_gujarati,lohit_marathi,lohit_punjabi,lohit_tamil,lohit_malayalam,lohit_kannada,lohit_telugu,lohit_oriya,ungraphic
+
+filename.AR_PL_Mingti2L_Big5=/usr/share/fonts/truetype/bsmi00lp.ttf
+filename.AR_PL_SungtiL_GB=/usr/share/fonts/truetype/gbsn00lp.ttf
+filename.DejaVu_Sans=/usr/share/fonts/truetype/DejaVuSans.ttf
+filename.DejaVu_Sans_Bold=/usr/share/fonts/truetype/DejaVuSans-Bold.ttf
+filename.DejaVu_Sans_Bold_Oblique=/usr/share/fonts/truetype/DejaVuSans-BoldOblique.ttf
+filename.DejaVu_Sans_Mono=/usr/share/fonts/truetype/DejaVuSansMono.ttf
+filename.DejaVu_Sans_Mono_Bold=/usr/share/fonts/truetype/DejaVuSansMono-Bold.ttf
+filename.DejaVu_Sans_Mono_Bold_Oblique=/usr/share/fonts/truetype/DejaVuSansMono-BoldOblique.ttf
+filename.DejaVu_Sans_Mono_Oblique=/usr/share/fonts/truetype/DejaVuSansMono-Oblique.ttf
+filename.DejaVu_Sans_Oblique=/usr/share/fonts/truetype/DejaVuSans-Oblique.ttf
+filename.DejaVu_Serif=/usr/share/fonts/truetype/DejaVuSerif.ttf
+filename.DejaVu_Serif_Bold=/usr/share/fonts/truetype/DejaVuSerif-Bold.ttf
+filename.DejaVu_Serif_Bold_Italic=/usr/share/fonts/truetype/DejaVuSerif-BoldItalic.ttf
+filename.DejaVu_Serif_Italic=/usr/share/fonts/truetype/DejaVuSerif-Italic.ttf
+filename.Lohit_Bengali=/usr/share/fonts/truetype/Lohit-Bengali.ttf
+filename.Lohit_Gujarati=/usr/share/fonts/truetype/Lohit-Gujarati.ttf
+filename.Lohit_Kannada=/usr/share/fonts/truetype/Lohit-Kannada.ttf
+filename.Lohit_Malayalam=/usr/share/fonts/truetype/Lohit-Malayalam.ttf
+filename.Lohit_Marathi=/usr/share/fonts/truetype/Lohit-Marathi.ttf
+filename.Lohit_Oriya=/usr/share/fonts/truetype/Lohit-Oriya.ttf
+filename.Lohit_Punjabi=/usr/share/fonts/truetype/Lohit-Punjabi.ttf
+filename.Lohit_Tamil=/usr/share/fonts/truetype/Lohit-Tamil.ttf
+filename.Lohit_Telugu=/usr/share/fonts/truetype/Lohit-Telugu.ttf
+filename.Sazanami_Gothic_Regular=/usr/share/fonts/truetype/sazanami-gothic.ttf
+filename.Sazanami_Mincho_Regular=/usr/share/fonts/truetype/sazanami-mincho.ttf
+filename.Un_Batang=/usr/share/fonts/truetype/UnBatang.ttf
+filename.Un_Batang_Bold=/usr/share/fonts/truetype/UnBatangBold.ttf
+filename.Un_Dotum=/usr/share/fonts/truetype/UnDotum.ttf
+filename.Un_Dotum_Bold=/usr/share/fonts/truetype/UnDotumBold.ttf
+filename.Un_Graphic=/usr/share/fonts/truetype/UnGraphic.ttf
+filename.Un_Graphic_Bold=/usr/share/fonts/truetype/UnGraphicBold.ttf

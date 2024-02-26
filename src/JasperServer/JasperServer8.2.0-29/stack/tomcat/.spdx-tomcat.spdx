@@ -1,0 +1,1748 @@
+{
+    "SPDXID": "SPDXRef-tomcat",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2024-01-30T00:02:52.192Z",
+        "creators": [
+            "Organization: VMware, Inc."
+        ]
+    },
+    "name": "SPDX document for Apache Tomcat 9.0.85",
+    "dataLicense": "CC0-1.0",
+    "documentDescribes": [
+        "SPDXRef-tomcat"
+    ],
+    "documentNamespace": "tomcat-9.0.85",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-apr",
+            "name": "Apache Portable Runtime (APR)",
+            "versionInfo": "1.7.4",
+            "downloadLocation": "http://apache.uvigo.es/apr/apr-1.7.4.tar.gz",
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:apache:portable_runtime:1.7.4:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/apr@1.7.4?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "SPDXID": "SPDXRef-tomcat-native",
+            "name": "Apache Tomcat Native Library",
+            "versionInfo": "1.2.39",
+            "downloadLocation": "http://apache.uvigo.es/tomcat/tomcat-connectors/native/1.2.39/source/tomcat-native-1.2.39-src.tar.gz",
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:tomcat-native:tomcat-native:1.2.39:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/tomcat-native@1.2.39?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "SPDXID": "SPDXRef-tomcat",
+            "name": "Apache Tomcat",
+            "versionInfo": "9.0.85-2",
+            "downloadLocation": "http://apache.uvigo.es/tomcat/tomcat-9/v9.0.85/src/apache-tomcat-9.0.85-src.tar.gz",
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:apache:tomcat:9.0.85:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/tomcat@9.0.85-2?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "commons-daemon:commons-daemon",
+            "SPDXID": "SPDXRef-Package-16f678778bcfbf86",
+            "versionInfo": "1.3.4",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "e4a6770f0b5c1e965fdcd29ee81dea9af442f875"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/commons-daemon/commons-daemon@1.3.4"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "edu.gmu.cs:ecj",
+            "SPDXID": "SPDXRef-Package-124d9dc4c49815ce",
+            "versionInfo": "4.20",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "b1179b50d991ac5ea29378bb1dcc96c4b3f58c88"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/edu.gmu.cs/ecj@4.20"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "jar",
+            "SPDXID": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "sourceInfo": "Java",
+            "primaryPackagePurpose": "APPLICATION",
+            "copyrightText": "NOASSERTION",
+            "licenseConcluded": "NOASSERTION",
+            "licenseDeclared": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.taglibs:taglibs-standard-impl",
+            "SPDXID": "SPDXRef-Package-752d04f0f3fec17d",
+            "versionInfo": "1.2.5",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "0525efaa2d70229344852bf631bd09985197444d"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.taglibs/taglibs-standard-impl@1.2.5"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.taglibs:taglibs-standard-spec",
+            "SPDXID": "SPDXRef-Package-96714afd8acb4a8b",
+            "versionInfo": "1.2.5",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "b3df758e9cdf60c9b4ba7d553084ced2b6aa23e2"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.taglibs/taglibs-standard-spec@1.2.5"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-annotations-api",
+            "SPDXID": "SPDXRef-Package-1980b95654fb837b",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "b401f71ec21b2f311dabe146ae5291befef8e1ae"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-annotations-api@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-api",
+            "SPDXID": "SPDXRef-Package-7acd4180edac4231",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "b7ac85d55c85eec12eea21d10704e365eb07a037"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-api@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-catalina",
+            "SPDXID": "SPDXRef-Package-cdd871e8e75ea57c",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "17fdfb4fc7ea36d666a5c2e5b6b63604fc6e7356"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-catalina@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-catalina-ant",
+            "SPDXID": "SPDXRef-Package-e89011af7df1cb83",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "a5042e14ee24a386afac32c2c812c6487ae4fb96"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-catalina-ant@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-catalina-ha",
+            "SPDXID": "SPDXRef-Package-c97c7133b1c96616",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "899e9d87f34997911c8f3222e9f4d6f717662e0b"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-catalina-ha@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-coyote",
+            "SPDXID": "SPDXRef-Package-fd1fe72cb514bb46",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "24648770667ff064e34aef5df50f74aae132f177"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-coyote@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-dbcp",
+            "SPDXID": "SPDXRef-Package-3a608e1a48913c03",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "459d05a5d18c611f21ef5ca64a39a09f6144a490"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-dbcp@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-el-api",
+            "SPDXID": "SPDXRef-Package-bc6f3846c63d37e4",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "6f1968f0344375f263420d583cadbd8b6286cd95"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-el-api@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-cs",
+            "SPDXID": "SPDXRef-Package-44b4847442feed7",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "8726615e426ff840e01376336e70a04d21e973da"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-cs@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-de",
+            "SPDXID": "SPDXRef-Package-d1cb619634732c73",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "8b1b725ca5368e3be98e74c2f6d7beba95dc84f1"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-de@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-es",
+            "SPDXID": "SPDXRef-Package-2396f1cbd60b2ad8",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "feab507473bf6eaf8e58f671ca2676f60ae411fc"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-es@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-fr",
+            "SPDXID": "SPDXRef-Package-69fa6a3662862ec6",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "931ffa9fda14629ebd81cb994a14a7287ae29c47"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-fr@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-ja",
+            "SPDXID": "SPDXRef-Package-132e558cefca6ad8",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "4fae1c6536d6c1ab61f4651e73f39e7d1d44439a"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-ja@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-ko",
+            "SPDXID": "SPDXRef-Package-2084052fdcd961d5",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "f9745c1f9ace59498571d639ef5a5e9e71629615"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-ko@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-pt-BR",
+            "SPDXID": "SPDXRef-Package-ec02cd053c610bb8",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "6e0e5c4b34dd58aa800475d4be0e3320d86683da"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-pt-BR@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-ru",
+            "SPDXID": "SPDXRef-Package-4ce8a299a9e87c2c",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "36a11cca25a1e3a40a4275666d77ebe007f8ec96"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-ru@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-i18n-zh-CN",
+            "SPDXID": "SPDXRef-Package-aa68974269ff25f1",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "d1e4d8b524bac78e06430999162bdcfb335557ae"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-i18n-zh-CN@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-jasper",
+            "SPDXID": "SPDXRef-Package-86c37f40fa8a9489",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "d1603c441f3c843b9976556dd16478021e3ac4d4"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-jasper@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-jasper-el",
+            "SPDXID": "SPDXRef-Package-f9b8b6f6ef757dcd",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "8c364d259e1a1192a06086759f7763db6b6b71d3"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-jasper-el@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-jaspic-api",
+            "SPDXID": "SPDXRef-Package-2b4fc32164b90da4",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "0baf0a266f9771d81b694e7eb07afeeb897f2921"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-jaspic-api@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-jdbc",
+            "SPDXID": "SPDXRef-Package-a0745621fe6e288f",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "6e663cabf9d8a3d410bfdb1056f3580c76902ad5"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-jdbc@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-jni",
+            "SPDXID": "SPDXRef-Package-2fc2dd49966d970d",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "5e6673ab1a47eaabb0cfe3221a19e1af0880cef4"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-jni@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-jsp-api",
+            "SPDXID": "SPDXRef-Package-ea4df08785c44ba9",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "b9646a9abac97ae6ba8036fee3740a8e223de131"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-jsp-api@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-juli",
+            "SPDXID": "SPDXRef-Package-b48a127afa9b1cd8",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "a6ba52d9038944af3500f50091c2444d4b1a7be6"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-juli@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-servlet-api",
+            "SPDXID": "SPDXRef-Package-88ad1ef787ed38d4",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "00d3023bd5b77d4e916b0687b8d101a4ba231dd7"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-servlet-api@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-ssi",
+            "SPDXID": "SPDXRef-Package-a94e3c747b561590",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "c7a8531ba6807ace62c9038a97881638b0a81e1b"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-ssi@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-storeconfig",
+            "SPDXID": "SPDXRef-Package-422eb3f2ae4fb239",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "a35553a61ae436a5faf46a7a388384dd49f8ac37"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-storeconfig@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-tribes",
+            "SPDXID": "SPDXRef-Package-2e26faf3ae02a048",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "fb64b45c4883f97c66a3813acc3cba0612c728d6"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-tribes@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-util",
+            "SPDXID": "SPDXRef-Package-82e0bee634ecc78d",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "afc83c550e805458d414407f0301e7a320fa3388"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-util@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-util-scan",
+            "SPDXID": "SPDXRef-Package-b530e73e88713758",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "a7533acb41118778dd23508cd8e014e9ec82d690"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-util-scan@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-websocket",
+            "SPDXID": "SPDXRef-Package-7fc3dbbf7dc67a0d",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "cf61cb5694bb79d945cf7a310913de141b28dbeb"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-websocket@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.apache.tomcat:tomcat-websocket-api",
+            "SPDXID": "SPDXRef-Package-b467d22bbce766fd",
+            "versionInfo": "9.0.85",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "70b2977bb5f734af9b5922b4282df06385c2e8d9"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.apache.tomcat/tomcat-websocket-api@9.0.85"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.mariadb.jdbc:mariadb-java-client",
+            "SPDXID": "SPDXRef-Package-877124a1c7fc294d",
+            "versionInfo": "2.7.11",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "457aa0bc5bacaba45aeb1e4015f6a21d5e63d772"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.mariadb.jdbc/mariadb-java-client@2.7.11"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "org.postgresql:postgresql",
+            "SPDXID": "SPDXRef-Package-31b9102d231c27b1",
+            "versionInfo": "42.7.1",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": true,
+            "packageVerificationCode": {
+                "packageVerificationCodeValue": "5f548cd1947e0218ba92163195eadcaf42e3c8c0"
+            },
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:maven/org.postgresql/postgresql@42.7.1"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        }
+    ],
+    "files": [
+        {
+            "fileName": "bin/commons-daemon.jar",
+            "SPDXID": "SPDXRef-File-812e0301baf8de81",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "9781527cd4f5b235403e019608cc10571761afdb"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "bin/tomcat-juli.jar",
+            "SPDXID": "SPDXRef-File-5c78a2375fa593df",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "7c9bbdb3d73bbef3adc60af042ec113f58c707e6"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-util-scan.jar",
+            "SPDXID": "SPDXRef-File-a98aa8cc1b07a9d5",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "0e50b6dea16399e1d3351601de5e876649b7b3b6"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/jasper.jar",
+            "SPDXID": "SPDXRef-File-f2acbb6d6d403aff",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "ea863274e9c05477d5a94cdf51b50d9527496a8f"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/jsp-api.jar",
+            "SPDXID": "SPDXRef-File-320c99140ca4277a",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "2da040408836c42122600a6b568c6ec42b7945a0"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/servlet-api.jar",
+            "SPDXID": "SPDXRef-File-d4efc4f0630aa5be",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "50d3f334dae990164697b9a25838d3387f4e9e42"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/catalina-ha.jar",
+            "SPDXID": "SPDXRef-File-3cd991edfdd266ab",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "a260290075ee501b3e62ead536a976c4ee6eaca4"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/catalina-tribes.jar",
+            "SPDXID": "SPDXRef-File-20439320b881b8d9",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "be1c70a2aec827c6879b2138d62355cddad877e0"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-es.jar",
+            "SPDXID": "SPDXRef-File-fafe0c7e1b1b9776",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "e8ef2788c5036601c66eb37e17f588365562fc08"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-de.jar",
+            "SPDXID": "SPDXRef-File-97d77a5a8c3d0ed3",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "2faf79aa232c31dd34432613fe17c32922931b4f"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-ja.jar",
+            "SPDXID": "SPDXRef-File-aa170e60dfbf2215",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "31e911f00d9249638ea1d0ef33f831e15652c34d"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-ko.jar",
+            "SPDXID": "SPDXRef-File-6c18c13fc112ea7c",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "7212fc7d111c6339ec35f4f40704e954fa438a34"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/websocket-api.jar",
+            "SPDXID": "SPDXRef-File-d05322271465449c",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "9869d3436e290d49cfd8eb390fe3d8a90b9e2bce"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/catalina-ssi.jar",
+            "SPDXID": "SPDXRef-File-5d1f519ed8b4cc87",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "34733722d83e92089c4a65a5846c1feb004ef00a"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/el-api.jar",
+            "SPDXID": "SPDXRef-File-eb07e20e5db039fc",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "b5d6802eeb8729da4d43ea4402b7da61a528b449"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/postgresql-42.7.1.jar",
+            "SPDXID": "SPDXRef-File-6bd51b2843a1b155",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "66098cc4f7dca6f7f5b4b847c5cc8699fc079e5b"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-cs.jar",
+            "SPDXID": "SPDXRef-File-5541209307d16860",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "41722e38b745a876e0499060ec268b33648eef19"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-zh-CN.jar",
+            "SPDXID": "SPDXRef-File-9b20ce66cc030460",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "d33ca5f1b9d0e0d8b444fffdd92fdd44ab7bb2a5"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/catalina.jar",
+            "SPDXID": "SPDXRef-File-d60da52c5501dd33",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "629375aad4a15202608a644baf50f7036d3d226d"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/jasper-el.jar",
+            "SPDXID": "SPDXRef-File-5dc540d021fa7bf9",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "ba3caffc6a934bfffb988f3463b6305c409856e3"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-coyote.jar",
+            "SPDXID": "SPDXRef-File-52ecc8bb096b49f8",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "1a8e75a9e447729eb6e7b01d529480bf18ba36c0"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/ecj-4.20.jar",
+            "SPDXID": "SPDXRef-File-fcbe47703415094f",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "4837be609a3368a0f7e7cf0dc1bdbc7fe94993de"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-dbcp.jar",
+            "SPDXID": "SPDXRef-File-8eeefd2aaa6439b0",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "4579b5d8b26e4f8c6d188a88cc797d3c801eb03b"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-jni.jar",
+            "SPDXID": "SPDXRef-File-31649072f53c40c6",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "1f6b23c20fc80927c46c9cff1c7ce1b133d5edbf"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-util.jar",
+            "SPDXID": "SPDXRef-File-9243154ea657702f",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "795887bf1ea3fbd7bb990170429e31876a2969dd"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-pt-BR.jar",
+            "SPDXID": "SPDXRef-File-72cbaabe9818f911",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "57e3ab40198ef2adee6bef95225cbe1ef575bb4b"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-ru.jar",
+            "SPDXID": "SPDXRef-File-3c132ef46cef6431",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "1d2b5f1a4bbfce9742f433f36127648072bbf156"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-jdbc.jar",
+            "SPDXID": "SPDXRef-File-bf0c3ab2484e2488",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "ad22264cd511368928f96615f92e238317a6b009"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-websocket.jar",
+            "SPDXID": "SPDXRef-File-328f328f0438bd4a",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "9e7c803dd33faf1a07188ff804df12e51c67c8a6"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/catalina-ant.jar",
+            "SPDXID": "SPDXRef-File-695f78689456a2cf",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "f691e8e8c835d5f4d61eed612b85c3a191f23fe7"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/mariadb-java-client-2.7.11.jar",
+            "SPDXID": "SPDXRef-File-f8308771f98895b5",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "4fe5b3fad52d4fe0363d95547ae06cfeb6613b9e"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-i18n-fr.jar",
+            "SPDXID": "SPDXRef-File-cf4d8eac526302e",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "6fc43c8b245c2bb812c9a97bf4718673cc3c3f1d"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/tomcat-api.jar",
+            "SPDXID": "SPDXRef-File-468ae4d52d28bb8f",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "81ada7b39e1b59fc2d10194eb91d5266bb280aec"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/annotations-api.jar",
+            "SPDXID": "SPDXRef-File-a8847be372b59347",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "19a061d219093b135487ca199e0f93de8df582d7"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/catalina-storeconfig.jar",
+            "SPDXID": "SPDXRef-File-9cb58d37bedaaad1",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "e0ebf300551dd0ac65b780b9961f17f5161ac1f7"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "lib/jaspic-api.jar",
+            "SPDXID": "SPDXRef-File-c8be3865d85578f1",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "baf220e93c69e1ff9cece94044ec727706e0fa2a"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar",
+            "SPDXID": "SPDXRef-File-901cc929d12bda54",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "9b9783ccb2a323383e6e20e36d368f8997b71967"
+                }
+            ],
+            "copyrightText": ""
+        },
+        {
+            "fileName": "webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar",
+            "SPDXID": "SPDXRef-File-f6a78585eff48347",
+            "checksums": [
+                {
+                    "algorithm": "SHA1",
+                    "checksumValue": "c3bb98c30f75fef1e229d1d03cf8457de22f1ba0"
+                }
+            ],
+            "copyrightText": ""
+        }
+    ],
+    "relationships": [
+        {
+            "spdxElementId": "SPDXRef-tomcat",
+            "relationshipType": "CONTAINS",
+            "relatedSpdxElement": "SPDXRef-apr"
+        },
+        {
+            "spdxElementId": "SPDXRef-tomcat",
+            "relationshipType": "CONTAINS",
+            "relatedSpdxElement": "SPDXRef-tomcat-native"
+        },
+        {
+            "spdxElementId": "SPDXRef-tomcat",
+            "relationshipType": "CONTAINS",
+            "relatedSpdxElement": "SPDXRef-Application-150e605f5f17224d-tomcat"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-16f678778bcfbf86",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-16f678778bcfbf86",
+            "relatedSpdxElement": "SPDXRef-File-812e0301baf8de81",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-b48a127afa9b1cd8",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-b48a127afa9b1cd8",
+            "relatedSpdxElement": "SPDXRef-File-5c78a2375fa593df",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-b530e73e88713758",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-b530e73e88713758",
+            "relatedSpdxElement": "SPDXRef-File-a98aa8cc1b07a9d5",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-86c37f40fa8a9489",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-86c37f40fa8a9489",
+            "relatedSpdxElement": "SPDXRef-File-f2acbb6d6d403aff",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-ea4df08785c44ba9",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-ea4df08785c44ba9",
+            "relatedSpdxElement": "SPDXRef-File-320c99140ca4277a",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-88ad1ef787ed38d4",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-88ad1ef787ed38d4",
+            "relatedSpdxElement": "SPDXRef-File-d4efc4f0630aa5be",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-c97c7133b1c96616",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-c97c7133b1c96616",
+            "relatedSpdxElement": "SPDXRef-File-3cd991edfdd266ab",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-2e26faf3ae02a048",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-2e26faf3ae02a048",
+            "relatedSpdxElement": "SPDXRef-File-20439320b881b8d9",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-2396f1cbd60b2ad8",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-2396f1cbd60b2ad8",
+            "relatedSpdxElement": "SPDXRef-File-fafe0c7e1b1b9776",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-d1cb619634732c73",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-d1cb619634732c73",
+            "relatedSpdxElement": "SPDXRef-File-97d77a5a8c3d0ed3",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-132e558cefca6ad8",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-132e558cefca6ad8",
+            "relatedSpdxElement": "SPDXRef-File-aa170e60dfbf2215",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-2084052fdcd961d5",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-2084052fdcd961d5",
+            "relatedSpdxElement": "SPDXRef-File-6c18c13fc112ea7c",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-b467d22bbce766fd",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-b467d22bbce766fd",
+            "relatedSpdxElement": "SPDXRef-File-d05322271465449c",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-a94e3c747b561590",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-a94e3c747b561590",
+            "relatedSpdxElement": "SPDXRef-File-5d1f519ed8b4cc87",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-bc6f3846c63d37e4",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-bc6f3846c63d37e4",
+            "relatedSpdxElement": "SPDXRef-File-eb07e20e5db039fc",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-31b9102d231c27b1",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-31b9102d231c27b1",
+            "relatedSpdxElement": "SPDXRef-File-6bd51b2843a1b155",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-44b4847442feed7",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-44b4847442feed7",
+            "relatedSpdxElement": "SPDXRef-File-5541209307d16860",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-aa68974269ff25f1",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-aa68974269ff25f1",
+            "relatedSpdxElement": "SPDXRef-File-9b20ce66cc030460",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-cdd871e8e75ea57c",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-cdd871e8e75ea57c",
+            "relatedSpdxElement": "SPDXRef-File-d60da52c5501dd33",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-f9b8b6f6ef757dcd",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-f9b8b6f6ef757dcd",
+            "relatedSpdxElement": "SPDXRef-File-5dc540d021fa7bf9",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-fd1fe72cb514bb46",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-fd1fe72cb514bb46",
+            "relatedSpdxElement": "SPDXRef-File-52ecc8bb096b49f8",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-124d9dc4c49815ce",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-124d9dc4c49815ce",
+            "relatedSpdxElement": "SPDXRef-File-fcbe47703415094f",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-3a608e1a48913c03",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-3a608e1a48913c03",
+            "relatedSpdxElement": "SPDXRef-File-8eeefd2aaa6439b0",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-2fc2dd49966d970d",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-2fc2dd49966d970d",
+            "relatedSpdxElement": "SPDXRef-File-31649072f53c40c6",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-82e0bee634ecc78d",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-82e0bee634ecc78d",
+            "relatedSpdxElement": "SPDXRef-File-9243154ea657702f",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-ec02cd053c610bb8",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-ec02cd053c610bb8",
+            "relatedSpdxElement": "SPDXRef-File-72cbaabe9818f911",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-4ce8a299a9e87c2c",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-4ce8a299a9e87c2c",
+            "relatedSpdxElement": "SPDXRef-File-3c132ef46cef6431",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-a0745621fe6e288f",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-a0745621fe6e288f",
+            "relatedSpdxElement": "SPDXRef-File-bf0c3ab2484e2488",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-7fc3dbbf7dc67a0d",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-7fc3dbbf7dc67a0d",
+            "relatedSpdxElement": "SPDXRef-File-328f328f0438bd4a",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-e89011af7df1cb83",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-e89011af7df1cb83",
+            "relatedSpdxElement": "SPDXRef-File-695f78689456a2cf",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-877124a1c7fc294d",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-877124a1c7fc294d",
+            "relatedSpdxElement": "SPDXRef-File-f8308771f98895b5",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-69fa6a3662862ec6",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-69fa6a3662862ec6",
+            "relatedSpdxElement": "SPDXRef-File-cf4d8eac526302e",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-7acd4180edac4231",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-7acd4180edac4231",
+            "relatedSpdxElement": "SPDXRef-File-468ae4d52d28bb8f",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-1980b95654fb837b",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-1980b95654fb837b",
+            "relatedSpdxElement": "SPDXRef-File-a8847be372b59347",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-422eb3f2ae4fb239",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-422eb3f2ae4fb239",
+            "relatedSpdxElement": "SPDXRef-File-9cb58d37bedaaad1",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-2b4fc32164b90da4",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-2b4fc32164b90da4",
+            "relatedSpdxElement": "SPDXRef-File-c8be3865d85578f1",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-752d04f0f3fec17d",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-752d04f0f3fec17d",
+            "relatedSpdxElement": "SPDXRef-File-901cc929d12bda54",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-150e605f5f17224d-tomcat",
+            "relatedSpdxElement": "SPDXRef-Package-96714afd8acb4a8b",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Package-96714afd8acb4a8b",
+            "relatedSpdxElement": "SPDXRef-File-f6a78585eff48347",
+            "relationshipType": "CONTAINS"
+        }
+    ]
+}

@@ -1,0 +1,1421 @@
+lrwxrwxrwx  1 root   root    6 Feb  1 12:01 apache-tomcat -> tomcat
+
+tomcat:
+total 236
+drwxrwxr-x 12 tomcat  root    4096 Feb  1 12:01 .
+drwxr-xr-x 15 root    root    4096 Feb  1 12:01 ..
+drwxr-xr-x  2 root    root    4096 Feb  1 12:01 bin
+drwxr-xr-x  2 root    root    4096 Jan 30 01:08 build-1
+-rw-r--r--  1 root    root       0 Jan 30 00:03 .buildcomplete
+-rw-r--r--  1 root    root   20307 Jan 30 00:03 BUILDING.txt
+drwxrwxr-x  3 bitnami tomcat  4096 Feb  1 12:01 conf
+-rw-r--r--  1 root    root    6210 Jan 30 00:03 CONTRIBUTING.md
+drwxr-xr-x  3 root    root    4096 Jan 30 01:08 include
+drwxrwxr-x  3 root    root    4096 Jan 30 01:08 lib
+-rw-r--r--  1 root    root   57092 Jan 30 00:03 LICENSE
+drwxr-xr-x  2 root    root    4096 Jan 30 01:08 licenses
+drwxrwxr-x  2 tomcat  root    4096 Jan  1  1970 logs
+-rw-r--r--  1 root    root    2333 Jan 30 00:03 NOTICE
+-rw-r--r--  1 root    root    3398 Jan 30 00:03 README.md
+-rw-r--r--  1 root    root    6901 Jan 30 00:03 RELEASE-NOTES
+-rw-r--r--  1 root    root   16505 Jan 30 00:03 RUNNING.txt
+-rw-r--r--  1 root    root   66761 Feb  1 03:18 .spdx-tomcat.spdx
+drwxrwxr-x  2 tomcat  root    4096 Jan 30 01:08 temp
+lrwxrwxrwx  1 root    root      23 Feb  1 12:01 webapps -> /bitnami/tomcat/webapps
+drwxrwxr-x  7 tomcat  root    4096 Jan 30 01:08 webapps_default
+drwxrwxr-x  2 tomcat  root    4096 Jan  1  1970 work
+
+tomcat/bin:
+total 928
+drwxr-xr-x  2 root   root   4096 Feb  1 12:01 .
+drwxrwxr-x 12 tomcat root   4096 Feb  1 12:01 ..
+-rw-r--r--  1 root   root   8641 Jan 30 00:03 apr-1-config
+-rw-r--r--  1 root   root  35467 Jan 30 00:03 bootstrap.jar
+-rw-r--r--  1 root   root  16856 Jan 30 00:03 catalina.bat
+-rwxr-xr-x  1 root   root  25323 Jan 30 00:03 catalina.sh
+-rw-r--r--  1 root   root   1664 Jan 30 00:03 catalina-tasks.xml
+-rw-r--r--  1 root   root   2123 Jan 30 00:03 ciphers.bat
+-rwxr-xr-x  1 root   root   1997 Jan 30 00:03 ciphers.sh
+-rw-r--r--  1 root   root  25661 Jan 30 00:03 commons-daemon.jar
+-rw-r--r--  1 root   root 214214 Jan 30 00:03 commons-daemon-native.tar.gz
+-rw-r--r--  1 root   root   2040 Jan 30 00:03 configtest.bat
+-rwxr-xr-x  1 root   root   1922 Jan 30 00:03 configtest.sh
+-rwxr-xr-x  1 root   root   9100 Jan 30 00:03 daemon.sh
+-rw-r--r--  1 root   root   2091 Jan 30 00:03 digest.bat
+-rwxr-xr-x  1 root   root   1965 Jan 30 00:03 digest.sh
+-rw-r--r--  1 root   root   3606 Jan 30 00:03 makebase.bat
+-rwxr-xr-x  1 root   root   3382 Jan 30 00:03 makebase.sh
+-rw-r--r--  1 root   root   3814 Jan 30 00:03 setclasspath.bat
+-rwxr-xr-x  1 root   root   4317 Jan 30 00:03 setclasspath.sh
+-rw-rw-r--  1 root   root    535 Feb  1 12:01 setenv.sh
+-rw-r--r--  1 root   root   2020 Jan 30 00:03 shutdown.bat
+-rwxr-xr-x  1 root   root   1902 Jan 30 00:03 shutdown.sh
+-rw-r--r--  1 root   root   2022 Jan 30 00:03 startup.bat
+-rwxr-xr-x  1 root   root   1904 Jan 30 00:03 startup.sh
+-rw-r--r--  1 root   root  49610 Jan 30 00:03 tomcat-juli.jar
+-rw-r--r--  1 root   root 438209 Jan 30 00:03 tomcat-native.tar.gz
+-rw-r--r--  1 root   root   4576 Jan 30 00:03 tool-wrapper.bat
+-rwxr-xr-x  1 root   root   5540 Jan 30 00:03 tool-wrapper.sh
+-rw-r--r--  1 root   root   2026 Jan 30 00:03 version.bat
+-rwxr-xr-x  1 root   root   1908 Jan 30 00:03 version.sh
+
+tomcat/build-1:
+total 372
+drwxr-xr-x  2 root   root   4096 Jan 30 01:08 .
+drwxrwxr-x 12 tomcat root   4096 Feb  1 12:01 ..
+-rw-r--r--  1 root   root   6472 Jan 30 00:03 apr_rules.mk
+-rw-r--r--  1 root   root 348267 Jan 30 00:03 libtool
+-rw-r--r--  1 root   root   2991 Jan 30 00:03 make_exports.awk
+-rw-r--r--  1 root   root   1023 Jan 30 00:03 make_var_export.awk
+-rw-r--r--  1 root   root   1202 Jan 30 00:03 mkdir.sh
+
+tomcat/conf:
+total 244
+drwxrwxr-x  3 bitnami tomcat   4096 Feb  1 12:01 .
+drwxrwxr-x 12 tomcat  root     4096 Feb  1 12:01 ..
+drwxr-xr-x  2 root    root     4096 Feb  1 12:01 bitnami
+-rw-rw-r--  1 bitnami tomcat  12953 Jan 30 00:03 catalina.policy
+-rw-rw-r--  1 bitnami tomcat   7630 Jan 30 00:03 catalina.properties
+-rw-rw-r--  1 bitnami tomcat   1400 Jan 30 00:03 context.xml
+-rw-rw-r--  1 bitnami tomcat   1149 Jan 30 00:03 jaspic-providers.xml
+-rw-rw-r--  1 bitnami tomcat   2313 Jan 30 00:03 jaspic-providers.xsd
+-rw-rw-r--  1 bitnami tomcat   4144 Jan 30 00:03 logging.properties
+-rw-rw-r--  1 bitnami tomcat   7856 Jan 30 00:03 server.xml
+-rw-rw-r--  1 bitnami tomcat   2756 Jan 30 00:03 tomcat-users.xml
+-rw-rw-r--  1 bitnami tomcat   2558 Jan 30 00:03 tomcat-users.xsd
+-rw-rw-r--  1 bitnami tomcat 172951 Jan 30 00:03 web.xml
+
+tomcat/conf/bitnami:
+total 32
+drwxr-xr-x 2 root    root   4096 Feb  1 12:01 .
+drwxrwxr-x 3 bitnami tomcat 4096 Feb  1 12:01 ..
+-rw-r--r-- 1 root    root    144 Feb  1 12:01 memory-2xlarge.sh
+-rw-r--r-- 1 root    root    144 Feb  1 12:01 memory-large.sh
+-rw-r--r-- 1 root    root    144 Feb  1 12:01 memory-medium.sh
+-rw-r--r-- 1 root    root    148 Feb  1 12:01 memory-micro.sh
+lrwxrwxrwx 1 root    root     15 Feb  1 12:01 memory.sh -> memory-micro.sh
+-rw-r--r-- 1 root    root    148 Feb  1 12:01 memory-small.sh
+-rw-r--r-- 1 root    root    144 Feb  1 12:01 memory-xlarge.sh
+
+tomcat/include:
+total 12
+drwxr-xr-x  3 root   root 4096 Jan 30 01:08 .
+drwxrwxr-x 12 tomcat root 4096 Feb  1 12:01 ..
+drwxr-xr-x  2 root   root 4096 Jan 30 01:08 apr-1
+
+tomcat/include/apr-1:
+total 624
+drwxr-xr-x 2 root root  4096 Jan 30 01:08 .
+drwxr-xr-x 3 root root  4096 Jan 30 01:08 ..
+-rw-r--r-- 1 root root  6217 Jan 30 00:03 apr_allocator.h
+-rw-r--r-- 1 root root  6188 Jan 30 00:03 apr_atomic.h
+-rw-r--r-- 1 root root 11398 Jan 30 00:03 apr_cstr.h
+-rw-r--r-- 1 root root  2700 Jan 30 00:03 apr_dso.h
+-rw-r--r-- 1 root root 31077 Jan 30 00:03 apr_encode.h
+-rw-r--r-- 1 root root  2105 Jan 30 00:03 apr_env.h
+-rw-r--r-- 1 root root 55061 Jan 30 00:03 apr_errno.h
+-rw-r--r-- 1 root root 17646 Jan 30 00:03 apr_escape.h
+-rw-r--r-- 1 root root 17584 Jan 30 00:03 apr_file_info.h
+-rw-r--r-- 1 root root 43137 Jan 30 00:03 apr_file_io.h
+-rw-r--r-- 1 root root  6229 Jan 30 00:03 apr_fnmatch.h
+-rw-r--r-- 1 root root  7294 Jan 30 00:03 apr_general.h
+-rw-r--r-- 1 root root  5980 Jan 30 00:03 apr_getopt.h
+-rw-r--r-- 1 root root  7361 Jan 30 00:03 apr_global_mutex.h
+-rw-r--r-- 1 root root 17960 Jan 30 00:03 apr.h
+-rw-r--r-- 1 root root 10322 Jan 30 00:03 apr_hash.h
+-rw-r--r-- 1 root root  2139 Jan 30 00:03 apr_inherit.h
+-rw-r--r-- 1 root root  8430 Jan 30 00:03 apr_lib.h
+-rw-r--r-- 1 root root  5133 Jan 30 00:03 apr_mmap.h
+-rw-r--r-- 1 root root 36881 Jan 30 00:03 apr_network_io.h
+-rw-r--r-- 1 root root  1909 Jan 30 00:03 apr_perms_set.h
+-rw-r--r-- 1 root root 21099 Jan 30 00:03 apr_poll.h
+-rw-r--r-- 1 root root 31680 Jan 30 00:03 apr_pools.h
+-rw-r--r-- 1 root root 20503 Jan 30 00:03 apr_portable.h
+-rw-r--r-- 1 root root  7012 Jan 30 00:03 apr_proc_mutex.h
+-rw-r--r-- 1 root root  5036 Jan 30 00:03 apr_random.h
+-rw-r--r-- 1 root root 19226 Jan 30 00:03 apr_ring.h
+-rw-r--r-- 1 root root  9483 Jan 30 00:03 apr_shm.h
+-rw-r--r-- 1 root root  2761 Jan 30 00:03 apr_signal.h
+-rw-r--r-- 1 root root 14533 Jan 30 00:03 apr_skiplist.h
+-rw-r--r-- 1 root root 14897 Jan 30 00:03 apr_strings.h
+-rw-r--r-- 1 root root  1634 Jan 30 00:03 apr_support.h
+-rw-r--r-- 1 root root 19354 Jan 30 00:03 apr_tables.h
+-rw-r--r-- 1 root root  5525 Jan 30 00:03 apr_thread_cond.h
+-rw-r--r-- 1 root root  4498 Jan 30 00:03 apr_thread_mutex.h
+-rw-r--r-- 1 root root 36127 Jan 30 00:03 apr_thread_proc.h
+-rw-r--r-- 1 root root  4766 Jan 30 00:03 apr_thread_rwlock.h
+-rw-r--r-- 1 root root  7563 Jan 30 00:03 apr_time.h
+-rw-r--r-- 1 root root  5310 Jan 30 00:03 apr_user.h
+-rw-r--r-- 1 root root  5411 Jan 30 00:03 apr_version.h
+-rw-r--r-- 1 root root  2958 Jan 30 00:03 apr_want.h
+
+tomcat/lib:
+total 12216
+drwxrwxr-x  3 root   root    4096 Jan 30 01:08 .
+drwxrwxr-x 12 tomcat root    4096 Feb  1 12:01 ..
+-rw-r--r--  1 root   root   13334 Jan 30 00:03 annotations-api.jar
+-rw-r--r--  1 root   root   10883 Jan 30 00:03 apr.exp
+-rw-r--r--  1 root   root   54756 Jan 30 00:03 catalina-ant.jar
+-rw-r--r--  1 root   root  126451 Jan 30 00:03 catalina-ha.jar
+-rw-r--r--  1 root   root 1785019 Jan 30 00:03 catalina.jar
+-rw-r--r--  1 root   root   64044 Jan 30 00:03 catalina-ssi.jar
+-rw-r--r--  1 root   root   79034 Jan 30 00:03 catalina-storeconfig.jar
+-rw-r--r--  1 root   root  340858 Jan 30 00:03 catalina-tribes.jar
+-rw-r--r--  1 root   root 3133846 Jan 30 00:03 ecj-4.20.jar
+-rw-r--r--  1 root   root   89536 Jan 30 00:03 el-api.jar
+-rw-r--r--  1 root   root  173819 Jan 30 00:03 jasper-el.jar
+-rw-r--r--  1 root   root  575424 Jan 30 00:03 jasper.jar
+-rw-r--r--  1 root   root   27335 Jan 30 00:03 jaspic-api.jar
+-rw-r--r--  1 root   root   73914 Jan 30 00:03 jsp-api.jar
+lrwxrwxrwx  1 root   root      17 Jan 30 00:03 libapr-1.so -> libapr-1.so.0.7.4
+lrwxrwxrwx  1 root   root      17 Jan 30 00:03 libapr-1.so.0 -> libapr-1.so.0.7.4
+-rw-r--r--  1 root   root  288112 Jan 30 00:03 libapr-1.so.0.7.4
+lrwxrwxrwx  1 root   root      23 Jan 30 00:03 libtcnative-1.so -> libtcnative-1.so.0.2.39
+lrwxrwxrwx  1 root   root      23 Jan 30 00:03 libtcnative-1.so.0 -> libtcnative-1.so.0.2.39
+-rw-r--r--  1 root   root  211296 Jan 30 00:03 libtcnative-1.so.0.2.39
+-rw-r--r--  1 root   root  626772 Jan 30 00:03 mariadb-java-client-2.7.11.jar
+drwxr-xr-x  2 root   root    4096 Jan 30 01:08 pkgconfig
+-rw-r--r--  1 root   root 1084174 Jan 30 00:03 postgresql-42.7.1.jar
+-rw-r--r--  1 root   root  285627 Jan 30 00:03 servlet-api.jar
+-rw-r--r--  1 root   root   11648 Jan 30 00:03 tomcat-api.jar
+-rw-r--r--  1 root   root  968069 Jan 30 00:03 tomcat-coyote.jar
+-rw-r--r--  1 root   root  344630 Jan 30 00:03 tomcat-dbcp.jar
+-rw-r--r--  1 root   root   70502 Jan 30 00:03 tomcat-i18n-cs.jar
+-rw-r--r--  1 root   root   78746 Jan 30 00:03 tomcat-i18n-de.jar
+-rw-r--r--  1 root   root  104376 Jan 30 00:03 tomcat-i18n-es.jar
+-rw-r--r--  1 root   root  172362 Jan 30 00:03 tomcat-i18n-fr.jar
+-rw-r--r--  1 root   root  195840 Jan 30 00:03 tomcat-i18n-ja.jar
+-rw-r--r--  1 root   root  192569 Jan 30 00:03 tomcat-i18n-ko.jar
+-rw-r--r--  1 root   root   53828 Jan 30 00:03 tomcat-i18n-pt-BR.jar
+-rw-r--r--  1 root   root   65590 Jan 30 00:03 tomcat-i18n-ru.jar
+-rw-r--r--  1 root   root  175755 Jan 30 00:03 tomcat-i18n-zh-CN.jar
+-rw-r--r--  1 root   root  151884 Jan 30 00:03 tomcat-jdbc.jar
+-rw-r--r--  1 root   root   38075 Jan 30 00:03 tomcat-jni.jar
+-rw-r--r--  1 root   root  227723 Jan 30 00:03 tomcat-util.jar
+-rw-r--r--  1 root   root  227511 Jan 30 00:03 tomcat-util-scan.jar
+-rw-r--r--  1 root   root  247506 Jan 30 00:03 tomcat-websocket.jar
+-rw-r--r--  1 root   root   40277 Jan 30 00:03 websocket-api.jar
+
+tomcat/lib/pkgconfig:
+total 12
+drwxr-xr-x 2 root root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 root root 4096 Jan 30 01:08 ..
+-rw-r--r-- 1 root root  368 Jan 30 00:03 apr-1.pc
+
+tomcat/licenses:
+total 104
+drwxr-xr-x  2 root   root  4096 Jan 30 01:08 .
+drwxrwxr-x 12 tomcat root  4096 Feb  1 12:01 ..
+-rw-r--r--  1 root   root 17979 Jan 30 00:03 apr-1.7.4.txt
+-rw-r--r--  1 root   root    59 Jan 30 00:03 mariadb-jdbc-driver-2.7.11.txt
+-rw-r--r--  1 root   root    57 Jan 30 00:03 postgresql-jdbc-driver-42.7.1.txt
+-rw-r--r--  1 root   root 57092 Jan 30 00:03 tomcat-9.0.85.txt
+-rw-r--r--  1 root   root 11357 Jan 30 00:03 tomcat-native-1.2.39.txt
+
+tomcat/logs:
+total 8
+drwxrwxr-x  2 tomcat root 4096 Jan  1  1970 .
+drwxrwxr-x 12 tomcat root 4096 Feb  1 12:01 ..
+
+tomcat/temp:
+total 8
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 12 tomcat root 4096 Feb  1 12:01 ..
+-rw-rw-r--  1 tomcat root    0 Jan 30 00:03 safeToDelete.tmp
+
+tomcat/webapps_default:
+total 28
+drwxrwxr-x  7 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 12 tomcat root 4096 Feb  1 12:01 ..
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 docs
+drwxrwxr-x  7 tomcat root 4096 Jan 30 01:08 examples
+drwxrwxr-x  6 tomcat root 4096 Jan 30 01:08 host-manager
+drwxrwxr-x  6 tomcat root 4096 Jan 30 01:08 manager
+drwxrwxr-x  3 tomcat root 4096 Jan 30 01:08 ROOT
+
+tomcat/webapps_default/docs:
+total 1912
+drwxrwxr-x 16 tomcat root   4096 Jan 30 01:08 .
+drwxrwxr-x  7 tomcat root   4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root   7172 Jan 30 00:03 aio.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 annotationapi
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 api
+drwxrwxr-x  3 tomcat root   4096 Jan 30 01:08 appdev
+-rw-rw-r--  1 tomcat root  10824 Jan 30 00:03 apr.html
+drwxrwxr-x  4 tomcat root   4096 Jan 30 01:08 architecture
+-rw-rw-r--  1 tomcat root   5689 Jan 30 00:03 balancer-howto.html
+-rw-rw-r--  1 tomcat root  13150 Jan 30 00:03 building.html
+-rw-rw-r--  1 tomcat root  20307 Jan 30 00:03 BUILDING.txt
+-rw-rw-r--  1 tomcat root  11139 Jan 30 00:03 cdi.html
+-rw-rw-r--  1 tomcat root  11714 Jan 30 00:03 cgi-howto.html
+-rw-rw-r--  1 tomcat root 814170 Jan 30 00:03 changelog.html
+-rw-rw-r--  1 tomcat root  18691 Jan 30 00:03 class-loader-howto.html
+-rw-rw-r--  1 tomcat root  42939 Jan 30 00:03 cluster-howto.html
+-rw-rw-r--  1 tomcat root   8238 Jan 30 00:03 comments.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 config
+-rw-rw-r--  1 tomcat root   6774 Jan 30 00:03 connectors.html
+-rw-rw-r--  1 tomcat root  18218 Jan 30 00:03 default-servlet.html
+-rw-rw-r--  1 tomcat root  20737 Jan 30 00:03 deployer-howto.html
+-rw-rw-r--  1 tomcat root   6718 Jan 30 00:03 developers.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 elapi
+-rw-rw-r--  1 tomcat root  13377 Jan 30 00:03 graal.html
+-rw-rw-r--  1 tomcat root  14408 Jan 30 00:03 host-manager-howto.html
+-rw-rw-r--  1 tomcat root  12221 Jan 30 00:03 html-host-manager-howto.html
+-rw-rw-r--  1 tomcat root  28181 Jan 30 00:03 html-manager-howto.html
+drwxrwxr-x  3 tomcat root   4096 Jan 30 01:08 images
+-rw-rw-r--  1 tomcat root  15109 Jan 30 00:03 index.html
+-rw-rw-r--  1 tomcat root  15843 Jan 30 00:03 introduction.html
+-rw-rw-r--  1 tomcat root  23608 Jan 30 00:03 jasper-howto.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 jaspicapi
+-rw-rw-r--  1 tomcat root  65317 Jan 30 00:03 jdbc-pool.html
+-rw-rw-r--  1 tomcat root  33543 Jan 30 00:03 jndi-datasource-examples-howto.html
+-rw-rw-r--  1 tomcat root  58499 Jan 30 00:03 jndi-resources-howto.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 jspapi
+-rw-rw-r--  1 tomcat root  23744 Jan 30 00:03 logging.html
+-rw-rw-r--  1 tomcat root  74698 Jan 30 00:03 manager-howto.html
+-rw-rw-r--  1 tomcat root   6230 Jan 30 00:03 maven-jars.html
+-rw-rw-r--  1 tomcat root  11010 Jan 30 00:03 mbeans-descriptors.dtd
+-rw-rw-r--  1 tomcat root   6485 Jan 30 00:03 mbeans-descriptors-howto.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 META-INF
+-rw-rw-r--  1 tomcat root  38437 Jan 30 00:03 monitoring.html
+-rw-rw-r--  1 tomcat root  11003 Jan 30 00:03 proxy-howto.html
+-rw-rw-r--  1 tomcat root  61924 Jan 30 00:03 realm-howto.html
+-rw-rw-r--  1 tomcat root   6901 Jan 30 00:03 RELEASE-NOTES.txt
+-rw-rw-r--  1 tomcat root  37075 Jan 30 00:03 rewrite.html
+-rw-rw-r--  1 tomcat root  16505 Jan 30 00:03 RUNNING.txt
+-rw-rw-r--  1 tomcat root  38665 Jan 30 00:03 security-howto.html
+-rw-rw-r--  1 tomcat root  28174 Jan 30 00:03 security-manager-howto.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 servletapi
+-rw-rw-r--  1 tomcat root  12788 Jan 30 00:03 setup.html
+-rw-rw-r--  1 tomcat root  18150 Jan 30 00:03 ssi-howto.html
+-rw-rw-r--  1 tomcat root  41607 Jan 30 00:03 ssl-howto.html
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 tribes
+-rw-rw-r--  1 tomcat root  10239 Jan 30 00:03 virtual-hosting-howto.html
+drwxrwxr-x  3 tomcat root   4096 Jan 30 01:08 WEB-INF
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 websocketapi
+-rw-rw-r--  1 tomcat root  12886 Jan 30 00:03 web-socket-howto.html
+-rw-rw-r--  1 tomcat root  20911 Jan 30 00:03 windows-auth-howto.html
+-rw-rw-r--  1 tomcat root  25697 Jan 30 00:03 windows-service-howto.html
+
+tomcat/webapps_default/docs/annotationapi:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1157 Jan 30 00:03 index.html
+
+tomcat/webapps_default/docs/api:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1156 Jan 30 00:03 index.html
+
+tomcat/webapps_default/docs/appdev:
+total 108
+drwxrwxr-x  3 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 16492 Jan 30 00:03 build.xml.txt
+-rw-rw-r--  1 tomcat root 13839 Jan 30 00:03 deployment.html
+-rw-rw-r--  1 tomcat root  4087 Jan 30 00:03 index.html
+-rw-rw-r--  1 tomcat root  4943 Jan 30 00:03 installation.html
+-rw-rw-r--  1 tomcat root  5097 Jan 30 00:03 introduction.html
+-rw-rw-r--  1 tomcat root 14456 Jan 30 00:03 processes.html
+drwxrwxr-x  5 tomcat root  4096 Jan 30 01:08 sample
+-rw-rw-r--  1 tomcat root 16066 Jan 30 00:03 source.html
+-rw-rw-r--  1 tomcat root  6249 Jan 30 00:03 web.xml.txt
+
+tomcat/webapps_default/docs/appdev/sample:
+total 52
+drwxrwxr-x 5 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 16492 Jan 30 00:03 build.xml
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 docs
+-rw-rw-r-- 1 tomcat root  2212 Jan 30 00:03 index.html
+-rw-rw-r-- 1 tomcat root  4606 Jan 30 00:03 sample.war
+drwxrwxr-x 3 tomcat root  4096 Jan 30 01:08 src
+drwxrwxr-x 4 tomcat root  4096 Jan 30 01:08 web
+
+tomcat/webapps_default/docs/appdev/sample/docs:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 5 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  840 Jan 30 00:03 README.txt
+
+tomcat/webapps_default/docs/appdev/sample/src:
+total 12
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 5 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 mypackage
+
+tomcat/webapps_default/docs/appdev/sample/src/mypackage:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2990 Jan 30 00:03 Hello.java
+
+tomcat/webapps_default/docs/appdev/sample/web:
+total 24
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 5 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1242 Jan 30 00:03 hello.jsp
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 images
+-rw-rw-r-- 1 tomcat root 1433 Jan 30 00:03 index.html
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 WEB-INF
+
+tomcat/webapps_default/docs/appdev/sample/web/images:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2066 Jan 30 00:03 tomcat.gif
+
+tomcat/webapps_default/docs/appdev/sample/web/WEB-INF:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1612 Jan 30 00:03 web.xml
+
+tomcat/webapps_default/docs/architecture:
+total 36
+drwxrwxr-x  4 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 3096 Jan 30 00:03 index.html
+-rw-rw-r--  1 tomcat root 6132 Jan 30 00:03 overview.html
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 requestProcess
+-rw-rw-r--  1 tomcat root 3028 Jan 30 00:03 requestProcess.html
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 startup
+-rw-rw-r--  1 tomcat root 2983 Jan 30 00:03 startup.html
+
+tomcat/webapps_default/docs/architecture/requestProcess:
+total 160
+drwxrwxr-x 2 tomcat root   4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root   4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  42682 Jan 30 00:03 authentication-process.png
+-rw-rw-r-- 1 tomcat root 109471 Jan 30 00:03 request-process.png
+
+tomcat/webapps_default/docs/architecture/startup:
+total 68
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 46175 Jan 30 00:03 serverStartup.pdf
+-rw-rw-r-- 1 tomcat root  8532 Jan 30 00:03 serverStartup.txt
+
+tomcat/webapps_default/docs/config:
+total 1100
+drwxrwxr-x  2 tomcat root   4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root   4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  50411 Jan 30 00:03 ajp.html
+-rw-rw-r--  1 tomcat root  21030 Jan 30 00:03 automatic-deployment.html
+-rw-rw-r--  1 tomcat root   9633 Jan 30 00:03 cluster-channel.html
+-rw-rw-r--  1 tomcat root   7918 Jan 30 00:03 cluster-deployer.html
+-rw-rw-r--  1 tomcat root  14587 Jan 30 00:03 cluster.html
+-rw-rw-r--  1 tomcat root  23321 Jan 30 00:03 cluster-interceptor.html
+-rw-rw-r--  1 tomcat root   5074 Jan 30 00:03 cluster-listener.html
+-rw-rw-r--  1 tomcat root  21957 Jan 30 00:03 cluster-manager.html
+-rw-rw-r--  1 tomcat root  20166 Jan 30 00:03 cluster-membership.html
+-rw-rw-r--  1 tomcat root  12547 Jan 30 00:03 cluster-receiver.html
+-rw-rw-r--  1 tomcat root  13585 Jan 30 00:03 cluster-sender.html
+-rw-rw-r--  1 tomcat root  12912 Jan 30 00:03 cluster-valve.html
+-rw-rw-r--  1 tomcat root  76289 Jan 30 00:03 context.html
+-rw-rw-r--  1 tomcat root  12551 Jan 30 00:03 cookie-processor.html
+-rw-rw-r--  1 tomcat root  11999 Jan 30 00:03 credentialhandler.html
+-rw-rw-r--  1 tomcat root  14507 Jan 30 00:03 engine.html
+-rw-rw-r--  1 tomcat root   9956 Jan 30 00:03 executor.html
+-rw-rw-r--  1 tomcat root  99903 Jan 30 00:03 filter.html
+-rw-rw-r--  1 tomcat root  15111 Jan 30 00:03 globalresources.html
+-rw-rw-r--  1 tomcat root  36992 Jan 30 00:03 host.html
+-rw-rw-r--  1 tomcat root  19192 Jan 30 00:03 http2.html
+-rw-rw-r--  1 tomcat root 122005 Jan 30 00:03 http.html
+-rw-rw-r--  1 tomcat root   7029 Jan 30 00:03 index.html
+-rw-rw-r--  1 tomcat root  10712 Jan 30 00:03 jar-scan-filter.html
+-rw-rw-r--  1 tomcat root   8769 Jan 30 00:03 jar-scanner.html
+-rw-rw-r--  1 tomcat root  11792 Jan 30 00:03 jaspic.html
+-rw-rw-r--  1 tomcat root  38993 Jan 30 00:03 listeners.html
+-rw-rw-r--  1 tomcat root   9925 Jan 30 00:03 loader.html
+-rw-rw-r--  1 tomcat root  33911 Jan 30 00:03 manager.html
+-rw-rw-r--  1 tomcat root  67009 Jan 30 00:03 realm.html
+-rw-rw-r--  1 tomcat root  20052 Jan 30 00:03 resources.html
+-rw-rw-r--  1 tomcat root   9023 Jan 30 00:03 server.html
+-rw-rw-r--  1 tomcat root   7300 Jan 30 00:03 service.html
+-rw-rw-r--  1 tomcat root   7973 Jan 30 00:03 sessionidgenerator.html
+-rw-rw-r--  1 tomcat root  39049 Jan 30 00:03 systemprops.html
+-rw-rw-r--  1 tomcat root 140512 Jan 30 00:03 valve.html
+
+tomcat/webapps_default/docs/elapi:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1145 Jan 30 00:03 index.html
+
+tomcat/webapps_default/docs/images:
+total 172
+drwxrwxr-x  3 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  1037 Jan 30 00:03 add.gif
+-rw-rw-r--  1 tomcat root 20486 Jan 30 00:03 asf-logo.svg
+-rw-rw-r--  1 tomcat root   394 Jan 30 00:03 code.gif
+-rw-rw-r--  1 tomcat root 86555 Jan 30 00:03 cors-flowchart.png
+-rw-rw-r--  1 tomcat root   608 Jan 30 00:03 design.gif
+-rw-rw-r--  1 tomcat root   261 Jan 30 00:03 docs.gif
+-rw-rw-r--  1 tomcat root  5780 Jan 30 00:03 docs-stylesheet.css
+-rw-rw-r--  1 tomcat root   345 Jan 30 00:03 fix.gif
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 fonts
+-rw-rw-r--  1 tomcat root  2066 Jan 30 00:03 tomcat.gif
+-rw-rw-r--  1 tomcat root  5103 Jan 30 00:03 tomcat.png
+-rw-rw-r--  1 tomcat root   627 Jan 30 00:03 update.gif
+-rw-rw-r--  1 tomcat root    43 Jan 30 00:03 void.gif
+
+tomcat/webapps_default/docs/images/fonts:
+total 156
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  1943 Jan 30 00:03 fonts.css
+-rw-rw-r-- 1 tomcat root 21092 Jan 30 00:03 OpenSans400italic.woff
+-rw-rw-r-- 1 tomcat root 21956 Jan 30 00:03 OpenSans400.woff
+-rw-rw-r-- 1 tomcat root 21252 Jan 30 00:03 OpenSans600italic.woff
+-rw-rw-r-- 1 tomcat root 22604 Jan 30 00:03 OpenSans600.woff
+-rw-rw-r-- 1 tomcat root 21184 Jan 30 00:03 OpenSans700italic.woff
+-rw-rw-r-- 1 tomcat root 22748 Jan 30 00:03 OpenSans700.woff
+
+tomcat/webapps_default/docs/jaspicapi:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1149 Jan 30 00:03 index.html
+
+tomcat/webapps_default/docs/jspapi:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1146 Jan 30 00:03 index.html
+
+tomcat/webapps_default/docs/META-INF:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1000 Jan 30 00:03 context.xml
+
+tomcat/webapps_default/docs/servletapi:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1150 Jan 30 00:03 index.html
+
+tomcat/webapps_default/docs/tribes:
+total 56
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  2433 Jan 30 00:03 developers.html
+-rw-rw-r--  1 tomcat root  2497 Jan 30 00:03 faq.html
+-rw-rw-r--  1 tomcat root  2441 Jan 30 00:03 interceptors.html
+-rw-rw-r--  1 tomcat root 17020 Jan 30 00:03 introduction.html
+-rw-rw-r--  1 tomcat root  2433 Jan 30 00:03 membership.html
+-rw-rw-r--  1 tomcat root  2463 Jan 30 00:03 setup.html
+-rw-rw-r--  1 tomcat root  2417 Jan 30 00:03 status.html
+-rw-rw-r--  1 tomcat root  2429 Jan 30 00:03 transport.html
+
+tomcat/webapps_default/docs/WEB-INF:
+total 16
+drwxrwxr-x  3 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 jsp
+-rw-rw-r--  1 tomcat root 1345 Jan 30 00:03 web.xml
+
+tomcat/webapps_default/docs/WEB-INF/jsp:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1726 Jan 30 00:03 403.jsp
+
+tomcat/webapps_default/docs/websocketapi:
+total 12
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 16 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1152 Jan 30 00:03 index.html
+
+tomcat/webapps_default/examples:
+total 32
+drwxrwxr-x  7 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x  7 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1126 Jan 30 00:03 index.html
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 jsp
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 META-INF
+drwxrwxr-x  4 tomcat root 4096 Jan 30 01:08 servlets
+drwxrwxr-x  6 tomcat root 4096 Jan 30 01:08 WEB-INF
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 websocket
+
+tomcat/webapps_default/examples/jsp:
+total 96
+drwxrwxr-x 20 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x  7 tomcat root  4096 Jan 30 01:08 ..
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 async
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 cal
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 checkbox
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 colors
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 dates
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 error
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 forward
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 images
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 include
+-rw-rw-r--  1 tomcat root 13941 Jan 30 00:03 index.html
+drwxrwxr-x  8 tomcat root  4096 Jan 30 01:08 jsp2
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 jsptoserv
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 num
+drwxrwxr-x  3 tomcat root  4096 Jan 30 01:08 security
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 sessions
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 simpletag
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 snp
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 tagplugin
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 xml
+
+tomcat/webapps_default/examples/jsp/async:
+total 32
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1227 Jan 30 00:03 async1.jsp
+-rw-rw-r--  1 tomcat root 1358 Jan 30 00:03 async1.jsp.html
+-rw-rw-r--  1 tomcat root 1110 Jan 30 00:03 async3.jsp
+-rw-rw-r--  1 tomcat root 1241 Jan 30 00:03 async3.jsp.html
+-rw-rw-r--  1 tomcat root 2416 Jan 30 00:03 index.jsp
+-rw-rw-r--  1 tomcat root 2589 Jan 30 00:03 index.jsp.html
+
+tomcat/webapps_default/examples/jsp/cal:
+total 52
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 2348 Jan 30 00:03 cal1.jsp
+-rw-rw-r--  1 tomcat root 2670 Jan 30 00:03 cal1.jsp.html
+-rw-rw-r--  1 tomcat root 1524 Jan 30 00:03 cal2.jsp
+-rw-rw-r--  1 tomcat root 1741 Jan 30 00:03 cal2.jsp.html
+-rw-rw-r--  1 tomcat root 1654 Jan 30 00:03 calendar.html
+-rw-rw-r--  1 tomcat root 2119 Jan 30 00:03 Entries.java.html
+-rw-rw-r--  1 tomcat root 1538 Jan 30 00:03 Entry.java.html
+-rw-rw-r--  1 tomcat root 4106 Jan 30 00:03 JspCalendar.java.html
+-rw-rw-r--  1 tomcat root 1510 Jan 30 00:03 login.html
+-rw-rw-r--  1 tomcat root 3196 Jan 30 00:03 TableBean.java.html
+
+tomcat/webapps_default/examples/jsp/checkbox:
+total 28
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1245 Jan 30 00:03 check.html
+-rw-rw-r--  1 tomcat root 1653 Jan 30 00:03 checkresult.jsp
+-rw-rw-r--  1 tomcat root 1849 Jan 30 00:03 checkresult.jsp.html
+-rw-rw-r--  1 tomcat root 1396 Jan 30 00:03 CheckTest.html
+-rw-rw-r--  1 tomcat root 1398 Jan 30 00:03 cresult.html
+
+tomcat/webapps_default/examples/jsp/colors:
+total 28
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1398 Jan 30 00:03 clr.html
+-rw-rw-r--  1 tomcat root 2434 Jan 30 00:03 ColorGameBean.html
+-rw-rw-r--  1 tomcat root 1528 Jan 30 00:03 colors.html
+-rw-rw-r--  1 tomcat root 1685 Jan 30 00:03 colrs.jsp
+-rw-rw-r--  1 tomcat root 1908 Jan 30 00:03 colrs.jsp.html
+
+tomcat/webapps_default/examples/jsp/dates:
+total 20
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1285 Jan 30 00:03 date.html
+-rw-rw-r--  1 tomcat root 1777 Jan 30 00:03 date.jsp
+-rw-rw-r--  1 tomcat root 1991 Jan 30 00:03 date.jsp.html
+
+tomcat/webapps_default/examples/jsp/error:
+total 32
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1287 Jan 30 00:03 er.html
+-rw-rw-r--  1 tomcat root 1412 Jan 30 00:03 err.jsp
+-rw-rw-r--  1 tomcat root 1569 Jan 30 00:03 err.jsp.html
+-rw-rw-r--  1 tomcat root 1283 Jan 30 00:03 error.html
+-rw-rw-r--  1 tomcat root  965 Jan 30 00:03 errorpge.jsp
+-rw-rw-r--  1 tomcat root 1104 Jan 30 00:03 errorpge.jsp.html
+
+tomcat/webapps_default/examples/jsp/forward:
+total 32
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1070 Jan 30 00:03 forward.jsp
+-rw-rw-r--  1 tomcat root 1212 Jan 30 00:03 forward.jsp.html
+-rw-rw-r--  1 tomcat root 1293 Jan 30 00:03 fwd.html
+-rw-rw-r--  1 tomcat root  872 Jan 30 00:03 one.jsp
+-rw-rw-r--  1 tomcat root 1007 Jan 30 00:03 one.jsp.html
+-rw-rw-r--  1 tomcat root  871 Jan 30 00:03 two.html
+
+tomcat/webapps_default/examples/jsp/images:
+total 20
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  292 Jan 30 00:03 code.gif
+-rw-rw-r--  1 tomcat root 1242 Jan 30 00:03 execute.gif
+-rw-rw-r--  1 tomcat root 1231 Jan 30 00:03 return.gif
+
+tomcat/webapps_default/examples/jsp/include:
+total 32
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  817 Jan 30 00:03 foo.html
+-rw-rw-r--  1 tomcat root  822 Jan 30 00:03 foo.jsp
+-rw-rw-r--  1 tomcat root  943 Jan 30 00:03 foo.jsp.html
+-rw-rw-r--  1 tomcat root 1293 Jan 30 00:03 inc.html
+-rw-rw-r--  1 tomcat root 1131 Jan 30 00:03 include.jsp
+-rw-rw-r--  1 tomcat root 1279 Jan 30 00:03 include.jsp.html
+
+tomcat/webapps_default/examples/jsp/jsp2:
+total 32
+drwxrwxr-x  8 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 el
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 jspattribute
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 jspx
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 misc
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 simpletag
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 tagfiles
+
+tomcat/webapps_default/examples/jsp/jsp2/el:
+total 84
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 8 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1328 Jan 30 00:03 basic-arithmetic.html
+-rw-rw-r-- 1 tomcat root 2386 Jan 30 00:03 basic-arithmetic.jsp
+-rw-rw-r-- 1 tomcat root 2804 Jan 30 00:03 basic-arithmetic.jsp.html
+-rw-rw-r-- 1 tomcat root 1331 Jan 30 00:03 basic-comparisons.html
+-rw-rw-r-- 1 tomcat root 3161 Jan 30 00:03 basic-comparisons.jsp
+-rw-rw-r-- 1 tomcat root 3794 Jan 30 00:03 basic-comparisons.jsp.html
+-rw-rw-r-- 1 tomcat root 1420 Jan 30 00:03 composite.html
+-rw-rw-r-- 1 tomcat root 4030 Jan 30 00:03 composite.jsp
+-rw-rw-r-- 1 tomcat root 4574 Jan 30 00:03 composite.jsp.html
+-rw-rw-r-- 1 tomcat root 1422 Jan 30 00:03 functions.html
+-rw-rw-r-- 1 tomcat root 1656 Jan 30 00:03 Functions.java.html
+-rw-rw-r-- 1 tomcat root 2439 Jan 30 00:03 functions.jsp
+-rw-rw-r-- 1 tomcat root 2762 Jan 30 00:03 functions.jsp.html
+-rw-rw-r-- 1 tomcat root 1337 Jan 30 00:03 implicit-objects.html
+-rw-rw-r-- 1 tomcat root 3502 Jan 30 00:03 implicit-objects.jsp
+-rw-rw-r-- 1 tomcat root 3916 Jan 30 00:03 implicit-objects.jsp.html
+-rw-rw-r-- 1 tomcat root 1580 Jan 30 00:03 ValuesBean.java.html
+-rw-rw-r-- 1 tomcat root 2686 Jan 30 00:03 ValuesTag.java.html
+
+tomcat/webapps_default/examples/jsp/jsp2/jspattribute:
+total 48
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 8 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1181 Jan 30 00:03 FooBean.java.html
+-rw-rw-r-- 1 tomcat root 1327 Jan 30 00:03 HelloWorldSimpleTag.java.html
+-rw-rw-r-- 1 tomcat root 1545 Jan 30 00:03 jspattribute.html
+-rw-rw-r-- 1 tomcat root 1855 Jan 30 00:03 jspattribute.jsp
+-rw-rw-r-- 1 tomcat root 2083 Jan 30 00:03 jspattribute.jsp.html
+-rw-rw-r-- 1 tomcat root 1536 Jan 30 00:03 shuffle.html
+-rw-rw-r-- 1 tomcat root 3473 Jan 30 00:03 shuffle.jsp
+-rw-rw-r-- 1 tomcat root 3809 Jan 30 00:03 shuffle.jsp.html
+-rw-rw-r-- 1 tomcat root 2965 Jan 30 00:03 ShuffleSimpleTag.java.html
+-rw-rw-r-- 1 tomcat root 1715 Jan 30 00:03 TileSimpleTag.java.html
+
+tomcat/webapps_default/examples/jsp/jsp2/jspx:
+total 64
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 8 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  1191 Jan 30 00:03 basic.html
+-rw-rw-r-- 1 tomcat root  2210 Jan 30 00:03 basic.jspx
+-rw-rw-r-- 1 tomcat root  2390 Jan 30 00:03 basic.jspx.html
+-rw-rw-r-- 1 tomcat root  2033 Jan 30 00:03 svgexample.html
+-rw-rw-r-- 1 tomcat root  1221 Jan 30 00:03 textRotate.html
+-rw-rw-r-- 1 tomcat root 26729 Jan 30 00:03 textRotate.jpg
+-rw-rw-r-- 1 tomcat root  2456 Jan 30 00:03 textRotate.jspx
+-rw-rw-r-- 1 tomcat root  2673 Jan 30 00:03 textRotate.jspx.html
+
+tomcat/webapps_default/examples/jsp/jsp2/misc:
+total 52
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 8 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  864 Jan 30 00:03 coda.jspf
+-rw-rw-r-- 1 tomcat root 1002 Jan 30 00:03 coda.jspf.html
+-rw-rw-r-- 1 tomcat root 1495 Jan 30 00:03 config.html
+-rw-rw-r-- 1 tomcat root 1597 Jan 30 00:03 config.jsp
+-rw-rw-r-- 1 tomcat root 1825 Jan 30 00:03 config.jsp.html
+-rw-rw-r-- 1 tomcat root 1436 Jan 30 00:03 dynamicattrs.html
+-rw-rw-r-- 1 tomcat root 1627 Jan 30 00:03 dynamicattrs.jsp
+-rw-rw-r-- 1 tomcat root 1835 Jan 30 00:03 dynamicattrs.jsp.html
+-rw-rw-r-- 1 tomcat root 2047 Jan 30 00:03 EchoAttributesTag.java.html
+-rw-rw-r-- 1 tomcat root  867 Jan 30 00:03 prelude.jspf
+-rw-rw-r-- 1 tomcat root 1005 Jan 30 00:03 prelude.jspf.html
+
+tomcat/webapps_default/examples/jsp/jsp2/simpletag:
+total 64
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 8 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1416 Jan 30 00:03 BookBean.java.html
+-rw-rw-r-- 1 tomcat root 1641 Jan 30 00:03 book.html
+-rw-rw-r-- 1 tomcat root 1842 Jan 30 00:03 book.jsp
+-rw-rw-r-- 1 tomcat root 2151 Jan 30 00:03 book.jsp.html
+-rw-rw-r-- 1 tomcat root 1733 Jan 30 00:03 FindBookSimpleTag.java.html
+-rw-rw-r-- 1 tomcat root 1656 Jan 30 00:03 Functions.java.html
+-rw-rw-r-- 1 tomcat root 1450 Jan 30 00:03 hello.html
+-rw-rw-r-- 1 tomcat root 1237 Jan 30 00:03 hello.jsp
+-rw-rw-r-- 1 tomcat root 1415 Jan 30 00:03 hello.jsp.html
+-rw-rw-r-- 1 tomcat root 1327 Jan 30 00:03 HelloWorldSimpleTag.java.html
+-rw-rw-r-- 1 tomcat root 1438 Jan 30 00:03 repeat.html
+-rw-rw-r-- 1 tomcat root 1711 Jan 30 00:03 repeat.jsp
+-rw-rw-r-- 1 tomcat root 1904 Jan 30 00:03 repeat.jsp.html
+-rw-rw-r-- 1 tomcat root 1554 Jan 30 00:03 RepeatSimpleTag.java.html
+
+tomcat/webapps_default/examples/jsp/jsp2/tagfiles:
+total 56
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 8 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2281 Jan 30 00:03 displayProducts.tag.html
+-rw-rw-r-- 1 tomcat root 1399 Jan 30 00:03 hello.html
+-rw-rw-r-- 1 tomcat root 1427 Jan 30 00:03 hello.jsp
+-rw-rw-r-- 1 tomcat root 1611 Jan 30 00:03 hello.jsp.html
+-rw-rw-r-- 1 tomcat root  919 Jan 30 00:03 helloWorld.tag.html
+-rw-rw-r-- 1 tomcat root 1389 Jan 30 00:03 panel.html
+-rw-rw-r-- 1 tomcat root 2160 Jan 30 00:03 panel.jsp
+-rw-rw-r-- 1 tomcat root 2398 Jan 30 00:03 panel.jsp.html
+-rw-rw-r-- 1 tomcat root 1211 Jan 30 00:03 panel.tag.html
+-rw-rw-r-- 1 tomcat root 1418 Jan 30 00:03 products.html
+-rw-rw-r-- 1 tomcat root 2048 Jan 30 00:03 products.jsp
+-rw-rw-r-- 1 tomcat root 2307 Jan 30 00:03 products.jsp.html
+
+tomcat/webapps_default/examples/jsp/jsptoserv:
+total 32
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  936 Jan 30 00:03 hello.jsp
+-rw-rw-r--  1 tomcat root 1073 Jan 30 00:03 hello.jsp.html
+-rw-rw-r--  1 tomcat root  894 Jan 30 00:03 jsptoservlet.jsp
+-rw-rw-r--  1 tomcat root 1028 Jan 30 00:03 jsptoservlet.jsp.html
+-rw-rw-r--  1 tomcat root 1341 Jan 30 00:03 jts.html
+-rw-rw-r--  1 tomcat root 1629 Jan 30 00:03 ServletToJsp.java.html
+
+tomcat/webapps_default/examples/jsp/num:
+total 20
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1388 Jan 30 00:03 numguess.html
+-rw-rw-r--  1 tomcat root 1938 Jan 30 00:03 numguess.jsp
+-rw-rw-r--  1 tomcat root 2174 Jan 30 00:03 numguess.jsp.html
+
+tomcat/webapps_default/examples/jsp/security:
+total 12
+drwxrwxr-x  3 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 protected
+
+tomcat/webapps_default/examples/jsp/security/protected:
+total 40
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1049 Jan 30 00:03 error.jsp
+-rw-rw-r-- 1 tomcat root 1200 Jan 30 00:03 error.jsp.html
+-rw-rw-r-- 1 tomcat root 4533 Jan 30 00:03 index.jsp
+-rw-rw-r-- 1 tomcat root 5020 Jan 30 00:03 index.jsp.html
+-rw-rw-r-- 1 tomcat root 1399 Jan 30 00:03 login.jsp
+-rw-rw-r-- 1 tomcat root 1619 Jan 30 00:03 login.jsp.html
+
+tomcat/webapps_default/examples/jsp/sessions:
+total 28
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1375 Jan 30 00:03 carts.html
+-rw-rw-r--  1 tomcat root 1233 Jan 30 00:03 carts.jsp
+-rw-rw-r--  1 tomcat root 1399 Jan 30 00:03 carts.jsp.html
+-rw-rw-r--  1 tomcat root 1388 Jan 30 00:03 crt.html
+-rw-rw-r--  1 tomcat root 1396 Jan 30 00:03 DummyCart.html
+
+tomcat/webapps_default/examples/jsp/simpletag:
+total 20
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1292 Jan 30 00:03 foo.html
+-rw-rw-r--  1 tomcat root 1148 Jan 30 00:03 foo.jsp
+-rw-rw-r--  1 tomcat root 1314 Jan 30 00:03 foo.jsp.html
+
+tomcat/webapps_default/examples/jsp/snp:
+total 20
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1300 Jan 30 00:03 snoop.html
+-rw-rw-r--  1 tomcat root 2024 Jan 30 00:03 snoop.jsp
+-rw-rw-r--  1 tomcat root 2262 Jan 30 00:03 snoop.jsp.html
+
+tomcat/webapps_default/examples/jsp/tagplugin:
+total 52
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1226 Jan 30 00:03 choose.html
+-rw-rw-r--  1 tomcat root 1605 Jan 30 00:03 choose.jsp
+-rw-rw-r--  1 tomcat root 1841 Jan 30 00:03 choose.jsp.html
+-rw-rw-r--  1 tomcat root 1229 Jan 30 00:03 foreach.html
+-rw-rw-r--  1 tomcat root 1641 Jan 30 00:03 foreach.jsp
+-rw-rw-r--  1 tomcat root 1865 Jan 30 00:03 foreach.jsp.html
+-rw-rw-r--  1 tomcat root 1621 Jan 30 00:03 howto.html
+-rw-rw-r--  1 tomcat root 1214 Jan 30 00:03 if.html
+-rw-rw-r--  1 tomcat root 1559 Jan 30 00:03 if.jsp
+-rw-rw-r--  1 tomcat root 1786 Jan 30 00:03 if.jsp.html
+-rw-rw-r--  1 tomcat root 1659 Jan 30 00:03 notes.html
+
+tomcat/webapps_default/examples/jsp/xml:
+total 20
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 20 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1289 Jan 30 00:03 xml.html
+-rw-rw-r--  1 tomcat root 2058 Jan 30 00:03 xml.jsp
+-rw-rw-r--  1 tomcat root 2294 Jan 30 00:03 xml.jsp.html
+
+tomcat/webapps_default/examples/META-INF:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 7 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1100 Jan 30 00:03 context.xml
+
+tomcat/webapps_default/examples/servlets:
+total 52
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 7 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2680 Jan 30 00:03 cookies.html
+-rw-rw-r-- 1 tomcat root 2562 Jan 30 00:03 helloworld.html
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 images
+-rw-rw-r-- 1 tomcat root 6596 Jan 30 00:03 index.html
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 nonblocking
+-rw-rw-r-- 1 tomcat root 2255 Jan 30 00:03 reqheaders.html
+-rw-rw-r-- 1 tomcat root 3606 Jan 30 00:03 reqinfo.html
+-rw-rw-r-- 1 tomcat root 4696 Jan 30 00:03 reqparams.html
+-rw-rw-r-- 1 tomcat root 3197 Jan 30 00:03 sessions.html
+
+tomcat/webapps_default/examples/servlets/images:
+total 20
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  292 Jan 30 00:03 code.gif
+-rw-rw-r-- 1 tomcat root 1242 Jan 30 00:03 execute.gif
+-rw-rw-r-- 1 tomcat root 1231 Jan 30 00:03 return.gif
+
+tomcat/webapps_default/examples/servlets/nonblocking:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1425 Jan 30 00:03 bytecounter.html
+
+tomcat/webapps_default/examples/WEB-INF:
+total 40
+drwxrwxr-x  6 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x  7 tomcat root  4096 Jan 30 01:08 ..
+drwxrwxr-x 21 tomcat root  4096 Jan 30 01:08 classes
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 jsp
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 lib
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 tags
+-rw-rw-r--  1 tomcat root 15259 Jan 30 00:03 web.xml
+
+tomcat/webapps_default/examples/WEB-INF/classes:
+total 212
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x  6 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 async
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 cal
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 checkbox
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 colors
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 compressionFilters
+-rw-rw-r--  1 tomcat root 4520 Jan 30 00:03 CookieExample.class
+-rw-rw-r--  1 tomcat root 5117 Jan 30 00:03 CookieExample.java
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 dates
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 error
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 examples
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 filters
+-rw-rw-r--  1 tomcat root 2238 Jan 30 00:03 HelloWorldExample.class
+-rw-rw-r--  1 tomcat root 2856 Jan 30 00:03 HelloWorldExample.java
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 http2
+drwxrwxr-x  3 tomcat root 4096 Jan 30 01:08 jsp2
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 listeners
+-rw-rw-r--  1 tomcat root 1157 Jan 30 00:03 LocalStrings_cs.properties
+-rw-rw-r--  1 tomcat root 1191 Jan 30 00:03 LocalStrings_de.properties
+-rw-rw-r--  1 tomcat root 2090 Jan 30 00:03 LocalStrings_es.properties
+-rw-rw-r--  1 tomcat root 2203 Jan 30 00:03 LocalStrings_fr.properties
+-rw-rw-r--  1 tomcat root 2919 Jan 30 00:03 LocalStrings_ja.properties
+-rw-rw-r--  1 tomcat root 2789 Jan 30 00:03 LocalStrings_ko.properties
+-rw-rw-r--  1 tomcat root 1952 Jan 30 00:03 LocalStrings.properties
+-rw-rw-r--  1 tomcat root  853 Jan 30 00:03 LocalStrings_pt_BR.properties
+-rw-rw-r--  1 tomcat root 2041 Jan 30 00:03 LocalStrings_pt.properties
+-rw-rw-r--  1 tomcat root 4363 Jan 30 00:03 LocalStrings_ru.properties
+-rw-rw-r--  1 tomcat root 2428 Jan 30 00:03 LocalStrings_zh_CN.properties
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 nonblocking
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 num
+-rw-rw-r--  1 tomcat root 3646 Jan 30 00:03 RequestHeaderExample.class
+-rw-rw-r--  1 tomcat root 3921 Jan 30 00:03 RequestHeaderExample.java
+-rw-rw-r--  1 tomcat root 3352 Jan 30 00:03 RequestInfoExample.class
+-rw-rw-r--  1 tomcat root 4372 Jan 30 00:03 RequestInfoExample.java
+-rw-rw-r--  1 tomcat root 3269 Jan 30 00:03 RequestParamExample.class
+-rw-rw-r--  1 tomcat root 4104 Jan 30 00:03 RequestParamExample.java
+-rw-rw-r--  1 tomcat root 1392 Jan 30 00:03 ServletToJsp.class
+-rw-rw-r--  1 tomcat root 1514 Jan 30 00:03 ServletToJsp.java
+-rw-rw-r--  1 tomcat root 4719 Jan 30 00:03 SessionExample.class
+-rw-rw-r--  1 tomcat root 5476 Jan 30 00:03 SessionExample.java
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 sessions
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 trailers
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 util
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 validators
+drwxrwxr-x  6 tomcat root 4096 Jan 30 01:08 websocket
+
+tomcat/webapps_default/examples/WEB-INF/classes/async:
+total 96
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1773 Jan 30 00:03 Async0$1.class
+-rw-rw-r--  1 tomcat root 2899 Jan 30 00:03 Async0.class
+-rw-rw-r--  1 tomcat root 2853 Jan 30 00:03 Async0.java
+-rw-rw-r--  1 tomcat root 1707 Jan 30 00:03 Async1$1.class
+-rw-rw-r--  1 tomcat root 1542 Jan 30 00:03 Async1.class
+-rw-rw-r--  1 tomcat root 2184 Jan 30 00:03 Async1.java
+-rw-rw-r--  1 tomcat root 2268 Jan 30 00:03 Async2$1.class
+-rw-rw-r--  1 tomcat root 1542 Jan 30 00:03 Async2.class
+-rw-rw-r--  1 tomcat root 2512 Jan 30 00:03 Async2.java
+-rw-rw-r--  1 tomcat root 1015 Jan 30 00:03 Async3.class
+-rw-rw-r--  1 tomcat root 1425 Jan 30 00:03 Async3.java
+-rw-rw-r--  1 tomcat root 1205 Jan 30 00:03 AsyncStockContextListener.class
+-rw-rw-r--  1 tomcat root 1728 Jan 30 00:03 AsyncStockContextListener.java
+-rw-rw-r--  1 tomcat root 5055 Jan 30 00:03 AsyncStockServlet.class
+-rw-rw-r--  1 tomcat root 4973 Jan 30 00:03 AsyncStockServlet.java
+-rw-rw-r--  1 tomcat root 2630 Jan 30 00:03 Stockticker$Stock.class
+-rw-rw-r--  1 tomcat root  307 Jan 30 00:03 Stockticker$TickListener.class
+-rw-rw-r--  1 tomcat root 3427 Jan 30 00:03 Stockticker.class
+-rw-rw-r--  1 tomcat root 6619 Jan 30 00:03 Stockticker.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/cal:
+total 40
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 2030 Jan 30 00:03 Entries.class
+-rw-rw-r--  1 tomcat root 1992 Jan 30 00:03 Entries.java
+-rw-rw-r--  1 tomcat root  911 Jan 30 00:03 Entry.class
+-rw-rw-r--  1 tomcat root 1423 Jan 30 00:03 Entry.java
+-rw-rw-r--  1 tomcat root 3510 Jan 30 00:03 JspCalendar.class
+-rw-rw-r--  1 tomcat root 3991 Jan 30 00:03 JspCalendar.java
+-rw-rw-r--  1 tomcat root 2606 Jan 30 00:03 TableBean.class
+-rw-rw-r--  1 tomcat root 3075 Jan 30 00:03 TableBean.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/checkbox:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  604 Jan 30 00:03 CheckTest.class
+-rw-rw-r--  1 tomcat root 1028 Jan 30 00:03 CheckTest.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/colors:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 2187 Jan 30 00:03 ColorGameBean.class
+-rw-rw-r--  1 tomcat root 2945 Jan 30 00:03 ColorGameBean.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/compressionFilters:
+total 76
+drwxrwxr-x  2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  5016 Jan 30 00:03 CompressionFilter.class
+-rw-rw-r--  1 tomcat root  8095 Jan 30 00:03 CompressionFilter.java
+-rw-rw-r--  1 tomcat root  2010 Jan 30 00:03 CompressionFilterTestServlet.class
+-rw-rw-r--  1 tomcat root  2342 Jan 30 00:03 CompressionFilterTestServlet.java
+-rw-rw-r--  1 tomcat root  6677 Jan 30 00:03 CompressionResponseStream.class
+-rw-rw-r--  1 tomcat root 13268 Jan 30 00:03 CompressionResponseStream.java
+-rw-rw-r--  1 tomcat root  5307 Jan 30 00:03 CompressionServletResponseWrapper.class
+-rw-rw-r--  1 tomcat root  8479 Jan 30 00:03 CompressionServletResponseWrapper.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/dates:
+total 24
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 4143 Jan 30 00:03 JspCalendar.class
+-rw-rw-r--  1 tomcat root 4234 Jan 30 00:03 JspCalendar.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/error:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  521 Jan 30 00:03 Smart.class
+-rw-rw-r--  1 tomcat root  997 Jan 30 00:03 Smart.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/examples:
+total 48
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1434 Jan 30 00:03 ExampleTagBase.class
+-rw-rw-r--  1 tomcat root 2057 Jan 30 00:03 ExampleTagBase.java
+-rw-rw-r--  1 tomcat root 1995 Jan 30 00:03 FooTag.class
+-rw-rw-r--  1 tomcat root  658 Jan 30 00:03 FooTagExtraInfo.class
+-rw-rw-r--  1 tomcat root 1331 Jan 30 00:03 FooTagExtraInfo.java
+-rw-rw-r--  1 tomcat root 2319 Jan 30 00:03 FooTag.java
+-rw-rw-r--  1 tomcat root 1585 Jan 30 00:03 LogTag.class
+-rw-rw-r--  1 tomcat root 1904 Jan 30 00:03 LogTag.java
+-rw-rw-r--  1 tomcat root 2057 Jan 30 00:03 ValuesTag.class
+-rw-rw-r--  1 tomcat root 2571 Jan 30 00:03 ValuesTag.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/filters:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 2006 Jan 30 00:03 ExampleFilter.class
+-rw-rw-r--  1 tomcat root 3324 Jan 30 00:03 ExampleFilter.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/http2:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 2101 Jan 30 00:03 SimpleImagePush.class
+-rw-rw-r--  1 tomcat root 2245 Jan 30 00:03 SimpleImagePush.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/jsp2:
+total 12
+drwxrwxr-x  3 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x  4 tomcat root 4096 Jan 30 01:08 examples
+
+tomcat/webapps_default/examples/WEB-INF/classes/jsp2/examples:
+total 40
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  736 Jan 30 00:03 BookBean.class
+-rw-rw-r-- 1 tomcat root 1301 Jan 30 00:03 BookBean.java
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 el
+-rw-rw-r-- 1 tomcat root  554 Jan 30 00:03 FooBean.class
+-rw-rw-r-- 1 tomcat root 1066 Jan 30 00:03 FooBean.java
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 simpletag
+-rw-rw-r-- 1 tomcat root  983 Jan 30 00:03 ValuesBean.class
+-rw-rw-r-- 1 tomcat root 1465 Jan 30 00:03 ValuesBean.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/jsp2/examples/el:
+total 16
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1145 Jan 30 00:03 Functions.class
+-rw-rw-r-- 1 tomcat root 1532 Jan 30 00:03 Functions.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/jsp2/examples/simpletag:
+total 56
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 4 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1910 Jan 30 00:03 EchoAttributesTag.class
+-rw-rw-r-- 1 tomcat root 1911 Jan 30 00:03 EchoAttributesTag.java
+-rw-rw-r-- 1 tomcat root 1133 Jan 30 00:03 FindBookSimpleTag.class
+-rw-rw-r-- 1 tomcat root 1618 Jan 30 00:03 FindBookSimpleTag.java
+-rw-rw-r-- 1 tomcat root  764 Jan 30 00:03 HelloWorldSimpleTag.class
+-rw-rw-r-- 1 tomcat root 1212 Jan 30 00:03 HelloWorldSimpleTag.java
+-rw-rw-r-- 1 tomcat root 1102 Jan 30 00:03 RepeatSimpleTag.class
+-rw-rw-r-- 1 tomcat root 1436 Jan 30 00:03 RepeatSimpleTag.java
+-rw-rw-r-- 1 tomcat root 1524 Jan 30 00:03 ShuffleSimpleTag.class
+-rw-rw-r-- 1 tomcat root 2850 Jan 30 00:03 ShuffleSimpleTag.java
+-rw-rw-r-- 1 tomcat root 1263 Jan 30 00:03 TileSimpleTag.class
+-rw-rw-r-- 1 tomcat root 1582 Jan 30 00:03 TileSimpleTag.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/listeners:
+total 28
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 2244 Jan 30 00:03 ContextListener.class
+-rw-rw-r--  1 tomcat root 3817 Jan 30 00:03 ContextListener.java
+-rw-rw-r--  1 tomcat root 2882 Jan 30 00:03 SessionListener.class
+-rw-rw-r--  1 tomcat root 4676 Jan 30 00:03 SessionListener.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/nonblocking:
+total 48
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  205 Jan 30 00:03 ByteCounter$1.class
+-rw-rw-r--  1 tomcat root 2738 Jan 30 00:03 ByteCounter$CounterListener.class
+-rw-rw-r--  1 tomcat root 1819 Jan 30 00:03 ByteCounter.class
+-rw-rw-r--  1 tomcat root 5204 Jan 30 00:03 ByteCounter.java
+-rw-rw-r--  1 tomcat root  208 Jan 30 00:03 NumberWriter$1.class
+-rw-rw-r--  1 tomcat root 3072 Jan 30 00:03 NumberWriter$NumberWriterListener.class
+-rw-rw-r--  1 tomcat root 1574 Jan 30 00:03 NumberWriter.class
+-rw-rw-r--  1 tomcat root 5352 Jan 30 00:03 NumberWriter.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/num:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 2150 Jan 30 00:03 NumberGuessBean.class
+-rw-rw-r--  1 tomcat root 2457 Jan 30 00:03 NumberGuessBean.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/sessions:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1612 Jan 30 00:03 DummyCart.class
+-rw-rw-r--  1 tomcat root 1890 Jan 30 00:03 DummyCart.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/trailers:
+total 24
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root  214 Jan 30 00:03 ResponseTrailers$1.class
+-rw-rw-r--  1 tomcat root 1429 Jan 30 00:03 ResponseTrailers$TrailerFieldSupplier.class
+-rw-rw-r--  1 tomcat root 1615 Jan 30 00:03 ResponseTrailers.class
+-rw-rw-r--  1 tomcat root 2283 Jan 30 00:03 ResponseTrailers.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/util:
+total 24
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1970 Jan 30 00:03 CookieFilter.class
+-rw-rw-r--  1 tomcat root 3083 Jan 30 00:03 CookieFilter.java
+-rw-rw-r--  1 tomcat root 1105 Jan 30 00:03 HTMLFilter.class
+-rw-rw-r--  1 tomcat root 2180 Jan 30 00:03 HTMLFilter.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/validators:
+total 16
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r--  1 tomcat root 1527 Jan 30 00:03 DebugValidator.class
+-rw-rw-r--  1 tomcat root 2868 Jan 30 00:03 DebugValidator.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/websocket:
+total 32
+drwxrwxr-x  6 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 21 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 chat
+drwxrwxr-x  3 tomcat root 4096 Jan 30 01:08 drawboard
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 echo
+-rw-rw-r--  1 tomcat root 2350 Jan 30 00:03 ExamplesConfig.class
+-rw-rw-r--  1 tomcat root 2363 Jan 30 00:03 ExamplesConfig.java
+drwxrwxr-x  2 tomcat root 4096 Jan 30 01:08 snake
+
+tomcat/webapps_default/examples/WEB-INF/classes/websocket/chat:
+total 16
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 3674 Jan 30 00:03 ChatAnnotation.class
+-rw-rw-r-- 1 tomcat root 3435 Jan 30 00:03 ChatAnnotation.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/websocket/drawboard:
+total 144
+drwxrwxr-x 3 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  1769 Jan 30 00:03 Client$1.class
+-rw-rw-r-- 1 tomcat root  4981 Jan 30 00:03 Client.class
+-rw-rw-r-- 1 tomcat root  9209 Jan 30 00:03 Client.java
+-rw-rw-r-- 1 tomcat root   799 Jan 30 00:03 DrawboardContextListener.class
+-rw-rw-r-- 1 tomcat root  1246 Jan 30 00:03 DrawboardContextListener.java
+-rw-rw-r-- 1 tomcat root  2187 Jan 30 00:03 DrawboardEndpoint$1.class
+-rw-rw-r-- 1 tomcat root  1594 Jan 30 00:03 DrawboardEndpoint$2.class
+-rw-rw-r-- 1 tomcat root  2549 Jan 30 00:03 DrawboardEndpoint$3$1.class
+-rw-rw-r-- 1 tomcat root  1286 Jan 30 00:03 DrawboardEndpoint$3.class
+-rw-rw-r-- 1 tomcat root  3899 Jan 30 00:03 DrawboardEndpoint.class
+-rw-rw-r-- 1 tomcat root  9111 Jan 30 00:03 DrawboardEndpoint.java
+-rw-rw-r-- 1 tomcat root   688 Jan 30 00:03 DrawMessage$ParseException.class
+-rw-rw-r-- 1 tomcat root  5544 Jan 30 00:03 DrawMessage.class
+-rw-rw-r-- 1 tomcat root  7222 Jan 30 00:03 DrawMessage.java
+-rw-rw-r-- 1 tomcat root   732 Jan 30 00:03 Room$1$1.class
+-rw-rw-r-- 1 tomcat root   754 Jan 30 00:03 Room$1.class
+-rw-rw-r-- 1 tomcat root   906 Jan 30 00:03 Room$2.class
+-rw-rw-r-- 1 tomcat root  1512 Jan 30 00:03 Room$MessageType.class
+-rw-rw-r-- 1 tomcat root  3790 Jan 30 00:03 Room$Player.class
+-rw-rw-r-- 1 tomcat root  8229 Jan 30 00:03 Room.class
+-rw-rw-r-- 1 tomcat root 16097 Jan 30 00:03 Room.java
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 wsmessages
+
+tomcat/webapps_default/examples/WEB-INF/classes/websocket/drawboard/wsmessages:
+total 40
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  359 Jan 30 00:03 AbstractWebsocketMessage.class
+-rw-rw-r-- 1 tomcat root 1005 Jan 30 00:03 AbstractWebsocketMessage.java
+-rw-rw-r-- 1 tomcat root  590 Jan 30 00:03 BinaryWebsocketMessage.class
+-rw-rw-r-- 1 tomcat root 1202 Jan 30 00:03 BinaryWebsocketMessage.java
+-rw-rw-r-- 1 tomcat root  389 Jan 30 00:03 CloseWebsocketMessage.class
+-rw-rw-r-- 1 tomcat root  993 Jan 30 00:03 CloseWebsocketMessage.java
+-rw-rw-r-- 1 tomcat root  583 Jan 30 00:03 StringWebsocketMessage.class
+-rw-rw-r-- 1 tomcat root 1171 Jan 30 00:03 StringWebsocketMessage.java
+
+tomcat/webapps_default/examples/WEB-INF/classes/websocket/echo:
+total 68
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1797 Jan 30 00:03 EchoAnnotation.class
+-rw-rw-r-- 1 tomcat root 2349 Jan 30 00:03 EchoAnnotation.java
+-rw-rw-r-- 1 tomcat root  235 Jan 30 00:03 EchoAsyncAnnotation$1.class
+-rw-rw-r-- 1 tomcat root 1711 Jan 30 00:03 EchoAsyncAnnotation$CompletedFuture.class
+-rw-rw-r-- 1 tomcat root 2837 Jan 30 00:03 EchoAsyncAnnotation.class
+-rw-rw-r-- 1 tomcat root 4098 Jan 30 00:03 EchoAsyncAnnotation.java
+-rw-rw-r-- 1 tomcat root  214 Jan 30 00:03 EchoEndpoint$1.class
+-rw-rw-r-- 1 tomcat root 1618 Jan 30 00:03 EchoEndpoint$EchoMessageHandlerBinary.class
+-rw-rw-r-- 1 tomcat root 1598 Jan 30 00:03 EchoEndpoint$EchoMessageHandlerText.class
+-rw-rw-r-- 1 tomcat root 1259 Jan 30 00:03 EchoEndpoint.class
+-rw-rw-r-- 1 tomcat root 2907 Jan 30 00:03 EchoEndpoint.java
+-rw-rw-r-- 1 tomcat root 1850 Jan 30 00:03 EchoStreamAnnotation.class
+-rw-rw-r-- 1 tomcat root 2330 Jan 30 00:03 EchoStreamAnnotation.java
+-rw-rw-r-- 1 tomcat root  679 Jan 30 00:03 servers.json
+
+tomcat/webapps_default/examples/WEB-INF/classes/websocket/snake:
+total 72
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1163 Jan 30 00:03 Direction.class
+-rw-rw-r-- 1 tomcat root  890 Jan 30 00:03 Direction.java
+-rw-rw-r-- 1 tomcat root  807 Jan 30 00:03 Location$1.class
+-rw-rw-r-- 1 tomcat root 1369 Jan 30 00:03 Location.class
+-rw-rw-r-- 1 tomcat root 2107 Jan 30 00:03 Location.java
+-rw-rw-r-- 1 tomcat root 4553 Jan 30 00:03 SnakeAnnotation.class
+-rw-rw-r-- 1 tomcat root 4762 Jan 30 00:03 SnakeAnnotation.java
+-rw-rw-r-- 1 tomcat root 5081 Jan 30 00:03 Snake.class
+-rw-rw-r-- 1 tomcat root 4623 Jan 30 00:03 Snake.java
+-rw-rw-r-- 1 tomcat root  832 Jan 30 00:03 SnakeTimer$1.class
+-rw-rw-r-- 1 tomcat root 3549 Jan 30 00:03 SnakeTimer.class
+-rw-rw-r-- 1 tomcat root 3743 Jan 30 00:03 SnakeTimer.java
+
+tomcat/webapps_default/examples/WEB-INF/jsp:
+total 32
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1714 Jan 30 00:03 403.jsp
+-rw-rw-r-- 1 tomcat root 1895 Jan 30 00:03 403.jsp.html
+-rw-rw-r-- 1 tomcat root 1982 Jan 30 00:03 debug-taglib.tld
+-rw-rw-r-- 1 tomcat root 3142 Jan 30 00:03 example-taglib.tld
+-rw-rw-r-- 1 tomcat root 4882 Jan 30 00:03 jsp2-example-taglib.tld
+
+tomcat/webapps_default/examples/WEB-INF/lib:
+total 252
+drwxrwxr-x 2 tomcat root   4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root   4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 206430 Jan 30 00:03 taglibs-standard-impl-1.2.5.jar
+-rw-rw-r-- 1 tomcat root  40153 Jan 30 00:03 taglibs-standard-spec-1.2.5.jar
+
+tomcat/webapps_default/examples/WEB-INF/tags:
+total 20
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2049 Jan 30 00:03 displayProducts.tag
+-rw-rw-r-- 1 tomcat root  801 Jan 30 00:03 helloWorld.tag
+-rw-rw-r-- 1 tomcat root 1045 Jan 30 00:03 panel.tag
+
+tomcat/webapps_default/examples/websocket:
+total 84
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 7 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  4555 Jan 30 00:03 chat.xhtml
+-rw-rw-r-- 1 tomcat root 41133 Jan 30 00:03 drawboard.xhtml
+-rw-rw-r-- 1 tomcat root  7057 Jan 30 00:03 echo.xhtml
+-rw-rw-r-- 1 tomcat root  1268 Jan 30 00:03 index.xhtml
+-rw-rw-r-- 1 tomcat root  9364 Jan 30 00:03 snake.xhtml
+
+tomcat/webapps_default/host-manager:
+total 28
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 7 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 css
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 images
+-rw-rw-r-- 1 tomcat root  913 Jan 30 00:03 index.jsp
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 META-INF
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 WEB-INF
+
+tomcat/webapps_default/host-manager/css:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2806 Jan 30 00:03 manager.css
+
+tomcat/webapps_default/host-manager/images:
+total 100
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 20486 Jan 30 00:03 asf-logo.svg
+-rw-rw-r-- 1 tomcat root 67795 Jan 30 00:03 tomcat.svg
+
+tomcat/webapps_default/host-manager/META-INF:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1351 Jan 30 00:03 context.xml
+
+tomcat/webapps_default/host-manager/WEB-INF:
+total 24
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 jsp
+-rw-rw-r-- 1 tomcat root 1477 Jan 30 00:03 manager.xml
+-rw-rw-r-- 1 tomcat root 5159 Jan 30 00:03 web.xml
+
+tomcat/webapps_default/host-manager/WEB-INF/jsp:
+total 20
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2893 Jan 30 00:03 401.jsp
+-rw-rw-r-- 1 tomcat root 3887 Jan 30 00:03 403.jsp
+-rw-rw-r-- 1 tomcat root 2532 Jan 30 00:03 404.jsp
+
+tomcat/webapps_default/manager:
+total 44
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 7 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 css
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 images
+-rw-rw-r-- 1 tomcat root  913 Jan 30 00:03 index.jsp
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 META-INF
+-rw-rw-r-- 1 tomcat root 4374 Jan 30 00:03 status.xsd
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 WEB-INF
+-rw-rw-r-- 1 tomcat root 4709 Jan 30 00:03 xform.xsl
+
+tomcat/webapps_default/manager/css:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 2806 Jan 30 00:03 manager.css
+
+tomcat/webapps_default/manager/images:
+total 100
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 20486 Jan 30 00:03 asf-logo.svg
+-rw-rw-r-- 1 tomcat root 67795 Jan 30 00:03 tomcat.svg
+
+tomcat/webapps_default/manager/META-INF:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1352 Jan 30 00:03 context.xml
+
+tomcat/webapps_default/manager/WEB-INF:
+total 20
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 6 tomcat root 4096 Jan 30 01:08 ..
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 jsp
+-rw-rw-r-- 1 tomcat root 7266 Jan 30 00:03 web.xml
+
+tomcat/webapps_default/manager/WEB-INF/jsp:
+total 56
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root  3348 Jan 30 00:03 401.jsp
+-rw-rw-r-- 1 tomcat root  4316 Jan 30 00:03 403.jsp
+-rw-rw-r-- 1 tomcat root  2661 Jan 30 00:03 404.jsp
+-rw-rw-r-- 1 tomcat root  3403 Jan 30 00:03 connectorCerts.jsp
+-rw-rw-r-- 1 tomcat root  3366 Jan 30 00:03 connectorCiphers.jsp
+-rw-rw-r-- 1 tomcat root  3390 Jan 30 00:03 connectorTrustedCerts.jsp
+-rw-rw-r-- 1 tomcat root  8153 Jan 30 00:03 sessionDetail.jsp
+-rw-rw-r-- 1 tomcat root 10782 Jan 30 00:03 sessionsList.jsp
+
+tomcat/webapps_default/ROOT:
+total 176
+drwxrwxr-x 3 tomcat root  4096 Jan 30 01:08 .
+drwxrwxr-x 7 tomcat root  4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 27235 Jan 30 00:03 asf-logo-wide.svg
+-rw-rw-r-- 1 tomcat root   713 Jan 30 00:03 bg-button.png
+-rw-rw-r-- 1 tomcat root  1918 Jan 30 00:03 bg-middle.png
+-rw-rw-r-- 1 tomcat root  1401 Jan 30 00:03 bg-nav.png
+-rw-rw-r-- 1 tomcat root  3103 Jan 30 00:03 bg-upper.png
+-rw-rw-r-- 1 tomcat root 21630 Jan 30 00:03 favicon.ico
+-rw-rw-r-- 1 tomcat root 12234 Jan 30 00:03 index.jsp
+-rw-rw-r-- 1 tomcat root  6901 Jan 30 00:03 RELEASE-NOTES.txt
+-rw-rw-r-- 1 tomcat root  5542 Jan 30 00:03 tomcat.css
+-rw-rw-r-- 1 tomcat root 67795 Jan 30 00:03 tomcat.svg
+drwxrwxr-x 2 tomcat root  4096 Jan 30 01:08 WEB-INF
+
+tomcat/webapps_default/ROOT/WEB-INF:
+total 12
+drwxrwxr-x 2 tomcat root 4096 Jan 30 01:08 .
+drwxrwxr-x 3 tomcat root 4096 Jan 30 01:08 ..
+-rw-rw-r-- 1 tomcat root 1227 Jan 30 00:03 web.xml
+
+tomcat/work:
+total 8
+drwxrwxr-x  2 tomcat root 4096 Jan  1  1970 .
+drwxrwxr-x 12 tomcat root 4096 Feb  1 12:01 ../bitnami/tomcat/webapps:
+total 8
+drwxrwxr-x 2 bitnami tomcat 4096 Feb  1 12:01 .
+drwxr-xr-x 3 root    root   4096 Feb  1 12:01 ..

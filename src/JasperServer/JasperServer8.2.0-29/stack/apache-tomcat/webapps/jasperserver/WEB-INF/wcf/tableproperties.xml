@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<xform style="twocolumn" bundle="com.tonbeller.wcf.resources">
+  <title>
+    <imgButton id="$id.cancel" src="wcf/form/cancel.png" action="revert" label="fmt:jsp.wcf.tableproperties.cancel" actionReference="onCancel"/> <!-- js:i18n -->
+  </title>
+
+  <label label="fmt:jsp.wcf.tableproperties.columns">
+    <skip id="$id.tree" handler="com.tonbeller.wcf.tree.TreeHandler" selmode="multi" border="0" modelReference="columnTreeModel"/>
+  </label>
+
+  <!-- ja-pro: disable the checkbox to mitigate OutOfMemory error -->
+  <!-- <checkBox id="$id.pagable" modelReference="table.pageable" label="fmt:jsp.wcf.tableproperties.paging"/> -->
+
+  <textField id="$id.pagesize" type="int" modelReference="table.pageSize" maxlength="10" size="5" label="fmt:jsp.wcf.tableproperties.pagesize" value="" title="fmt:jsp.wcf.tableproperties.rowperpage"/>
+
+  <buttons>
+    <button id="$id.ok"     label="fmt:jsp.wcf.tableproperties.ok"     action="validate" actionReference="onApply"/>
+    <button id="$id.cancel" label="fmt:jsp.wcf.tableproperties.cancel" action="revert" actionReference="onCancel"/>
+  </buttons>
+
+</xform>

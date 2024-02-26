@@ -1,0 +1,63 @@
+{
+  "name": "provisioner",
+  "version": "0.4.0",
+  "description": "Nami Provisioner",
+  "scripts": {
+    "test": "NODE_ENV=test nyc mocha --opts mocha.opts",
+    "lint": "tslint --project ./tsconfig.json",
+    "compile": "tsc"
+  },
+  "dependencies": {
+    "commander": "^9.0.0",
+    "glob": "^7.2.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "semver": "^7.5.4",
+    "winston": "^2.4.4",
+    "xmldom": "^0.6.0",
+    "xpath": "^0.0.32"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/js-yaml": "^4.0.5",
+    "@types/lodash": "^4.14.43",
+    "@types/mocha": "^2.2.33",
+    "@types/node": "^16.11.7",
+    "@types/sinon": "^1.16.33",
+    "@types/winston": "0.0.32",
+    "@types/xmldom": "^0.1.28",
+    "chai": "^3.5.0",
+    "fs-extra": "^0.30.0",
+    "istanbul": "^0.4.5",
+    "jsonlint": "^1.6.2",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "sinon": "^1.17.5",
+    "test-console": "^1.0.0",
+    "tmp": "0.0.28",
+    "ts-node": "^8.5.0",
+    "tslint": "^4.2.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.5.3"
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html",
+      "text-summary",
+      "lcov"
+    ]
+  },
+  "author": "Bitnami",
+  "license": "GPL-2.0"
+}

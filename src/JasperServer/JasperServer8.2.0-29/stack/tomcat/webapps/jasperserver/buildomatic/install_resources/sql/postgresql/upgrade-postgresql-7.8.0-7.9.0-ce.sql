@@ -1,0 +1,6 @@
+--
+--
+-- 7.8.0 to 7.9.0
+--
+-- This is a placeholder file for the js-upgrade-samedb.sh/bat script
+--

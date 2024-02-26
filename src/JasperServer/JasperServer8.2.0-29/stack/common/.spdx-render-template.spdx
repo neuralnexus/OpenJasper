@@ -1,0 +1,155 @@
+{
+    "SPDXID": "SPDXRef-render-template",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2024-01-29T21:44:22.801Z",
+        "creators": [
+            "Organization: VMware, Inc."
+        ]
+    },
+    "name": "SPDX document for render-template 1.0.6",
+    "dataLicense": "CC0-1.0",
+    "documentDescribes": [
+        "SPDXRef-render-template"
+    ],
+    "documentNamespace": "render-template-1.0.6",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-render-template",
+            "name": "render-template",
+            "versionInfo": "1.0.6-7",
+            "downloadLocation": "https://github.com/bitnami/render-template/archive/refs/tags/v1.0.6.tar.gz",
+            "licenseConcluded": "Apache-2.0",
+            "licenseDeclared": "Apache-2.0",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:render-template:render-template:1.0.6:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/render-template@1.0.6-7?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/aymerick/raymond",
+            "SPDXID": "SPDXRef-Package-78991f6ce8c232e5",
+            "versionInfo": "v2.0.2+incompatible",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/aymerick/raymond@v2.0.2%2Bincompatible"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/jessevdk/go-flags",
+            "SPDXID": "SPDXRef-Package-3bbd703b673e942e",
+            "versionInfo": "v1.5.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/jessevdk/go-flags@v1.5.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "github.com/mmikulicic/multierror",
+            "SPDXID": "SPDXRef-Package-6b02d570114e5796",
+            "versionInfo": "v0.0.0-20170428094957-c1ad6b5ecd26",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/github.com/mmikulicic/multierror@v0.0.0-20170428094957-c1ad6b5ecd26"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        },
+        {
+            "name": "gobinary",
+            "SPDXID": "SPDXRef-Application-9fbff5299a3d2db9-render-template",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "sourceInfo": "opt/bitnami/common/bin/render-template",
+            "primaryPackagePurpose": "APPLICATION",
+            "copyrightText": "NOASSERTION",
+            "licenseConcluded": "NOASSERTION",
+            "licenseDeclared": "NOASSERTION"
+        },
+        {
+            "name": "golang.org/x/sys",
+            "SPDXID": "SPDXRef-Package-7bb3172dc74cb200",
+            "versionInfo": "v0.2.0",
+            "supplier": "NOASSERTION",
+            "downloadLocation": "NONE",
+            "filesAnalyzed": false,
+            "licenseConcluded": "NONE",
+            "licenseDeclared": "NONE",
+            "externalRefs": [
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:golang/golang.org/x/sys@v0.2.0"
+                }
+            ],
+            "primaryPackagePurpose": "LIBRARY",
+            "copyrightText": "NOASSERTION"
+        }
+    ],
+    "files": [],
+    "relationships": [
+        {
+            "spdxElementId": "SPDXRef-render-template",
+            "relationshipType": "CONTAINS",
+            "relatedSpdxElement": "SPDXRef-Application-9fbff5299a3d2db9-render-template"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-9fbff5299a3d2db9-render-template",
+            "relatedSpdxElement": "SPDXRef-Package-78991f6ce8c232e5",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-9fbff5299a3d2db9-render-template",
+            "relatedSpdxElement": "SPDXRef-Package-3bbd703b673e942e",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-9fbff5299a3d2db9-render-template",
+            "relatedSpdxElement": "SPDXRef-Package-6b02d570114e5796",
+            "relationshipType": "CONTAINS"
+        },
+        {
+            "spdxElementId": "SPDXRef-Application-9fbff5299a3d2db9-render-template",
+            "relatedSpdxElement": "SPDXRef-Package-7bb3172dc74cb200",
+            "relationshipType": "CONTAINS"
+        }
+    ]
+}

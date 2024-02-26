@@ -1,0 +1,11 @@
+#!/bin/sh
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+#
+# Assure that hostname can be resolved
+#
+
+. /opt/bitnami/scripts/init/functions
+
+sed -i '/# bitnami-hosts-patch/d' /etc/hosts
+echo "127.0.0.1 `hostname` # bitnami-hosts-patch" >> /etc/hosts

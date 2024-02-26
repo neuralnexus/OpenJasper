@@ -1,0 +1,47 @@
+# Generated fontconfig.properties.src file
+
+version=1
+
+# Use the system font config if installed on the system
+systemfontconf=true
+
+serif.plain.latin-1=DejaVu Serif
+serif.bold.latin-1=DejaVu Serif Bold
+serif.italic.latin-1=DejaVu Serif Italic
+serif.bolditalic.latin-1=DejaVu Serif Bold Italic
+
+sansserif.plain.latin-1=DejaVu Sans
+sansserif.bold.latin-1=DejaVu Sans Bold
+sansserif.italic.latin-1=DejaVu Sans Oblique
+sansserif.bolditalic.latin-1=DejaVu Sans Bold Oblique
+
+monospaced.plain.latin-1=DejaVu Sans Mono
+monospaced.bold.latin-1=DejaVu Sans Mono Bold
+monospaced.italic.latin-1=DejaVu Sans Mono Oblique
+monospaced.bolditalic.latin-1=DejaVu Sans Mono Bold Oblique
+
+dialog.plain.latin-1=DejaVu Sans
+dialog.bold.latin-1=DejaVu Sans Bold
+dialog.italic.latin-1=DejaVu Sans Oblique
+dialog.bolditalic.latin-1=DejaVu Sans Bold Oblique
+
+dialoginput.plain.latin-1=DejaVu Sans Mono
+dialoginput.bold.latin-1=DejaVu Sans Mono Bold
+dialoginput.italic.latin-1=DejaVu Sans Mono Oblique
+dialoginput.bolditalic.latin-1=DejaVu Sans Mono Bold Oblique
+
+
+sequence.allfonts=latin-1
+
+filename.DejaVu_Sans=/usr/share/fonts/dejavu/DejaVuSans.ttf
+filename.DejaVu_Sans_Bold=/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf
+filename.DejaVu_Sans_Bold_Oblique=/usr/share/fonts/dejavu/DejaVuSans-BoldOblique.ttf
+filename.DejaVu_Sans_Mono=/usr/share/fonts/dejavu/DejaVuSansMono.ttf
+filename.DejaVu_Sans_Mono_Bold=/usr/share/fonts/dejavu/DejaVuSansMono-Bold.ttf
+filename.DejaVu_Sans_Mono_Bold_Oblique=/usr/share/fonts/dejavu/DejaVuSansMono-BoldOblique.ttf
+filename.DejaVu_Sans_Mono_Oblique=/usr/share/fonts/dejavu/DejaVuSansMono-Oblique.ttf
+filename.DejaVu_Sans_Oblique=/usr/share/fonts/dejavu/DejaVuSans-Oblique.ttf
+filename.DejaVu_Serif=/usr/share/fonts/dejavu/DejaVuSerif.ttf
+filename.DejaVu_Serif_Bold=/usr/share/fonts/dejavu/DejaVuSerif-Bold.ttf
+filename.DejaVu_Serif_Bold_Italic=/usr/share/fonts/dejavu/DejaVuSerif-BoldItalic.ttf
+filename.DejaVu_Serif_Italic=/usr/share/fonts/dejavu/DejaVuSerif-Italic.ttf

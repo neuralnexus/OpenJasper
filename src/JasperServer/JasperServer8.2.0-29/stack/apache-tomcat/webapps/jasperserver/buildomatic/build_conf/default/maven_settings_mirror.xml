@@ -1,0 +1,97 @@
+<!--
+  ~ Copyright (C) 2005-2023. Cloud Software Group, Inc. All Rights Reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<settings>
+	<offline>false</offline>
+    <localRepository>/home/tomcat/.m2/repository</localRepository>
+	<profiles>
+		<profile>
+			<id>JasperServerProfile</id>
+			<properties>
+				<repository.database.driver.groupId>org.mariadb.jdbc</repository.database.driver.groupId>
+				<repository.database.driver.artifactId>mariadb-java-client</repository.database.driver.artifactId>
+				<repository.database.driver.version>2.5.3</repository.database.driver.version>
+				<js.quartz.properties>/opt/bitnami/jasperreports/buildomatic/build_conf/default/js.quartz.properties</js.quartz.properties>
+				<js.quartz.base.properties>/opt/bitnami/jasperreports/buildomatic/build_conf/default/js.quartz.base.properties</js.quartz.base.properties>
+				<js.quartz.script>${js-base-path}/scripts/quartz/tables_mysql_innodb.sql</js.quartz.script>
+				<js.db.script.path>/opt/bitnami/jasperreports/buildomatic/install_resources/sql/mysql</js.db.script.path>
+				<metadata.database.generate>false</metadata.database.generate>
+				<suppress.quartz.init>true</suppress.quartz.init>
+				<js-path>${js-path}</js-path>
+				<js-pro-path></js-pro-path>
+				<platform-path>/opt/bitnami/jasperreports/buildomatic/build_conf/default</platform-path>
+				<test.hibernate.cfg>/opt/bitnami/jasperreports/buildomatic/build_conf/default/hibernate.cfg.xml</test.hibernate.cfg>
+				<test.hibernate.jdbc.properties>/opt/bitnami/jasperreports/buildomatic/build_conf/default/js.jdbc.properties</test.hibernate.jdbc.properties>
+				<master.properties>/opt/bitnami/jasperreports/buildomatic/default_master.properties</master.properties>
+		        <!-- workaround src w/o tibco drivers -->
+                <tibco.driver.available>true</tibco.driver.available>
+				<deprecated.driver.available>true</deprecated.driver.available>
+                <SKIP_TEST_ARG>ignored</SKIP_TEST_ARG>
+                <disable.fafj>false</disable.fafj>
+				<buildArtifactVersionName>fatal: not a git repository (or any of the parent directories): .git-SNAPSHOT</buildArtifactVersionName>
+				<fafBuildArtifactVersionName>fatal: not a git repository (or any of the parent directories): .git-SNAPSHOT</fafBuildArtifactVersionName>
+				<cve.suppress.ce.file>${js-path}/buildomatic/suppress-cve-ce.xml</cve.suppress.ce.file>
+				<cve.suppress.pro.file>${js-path}/buildomatic/suppress-cve-pro.xml</cve.suppress.pro.file>
+				<componentsArtifactName>${components.artifactId}</componentsArtifactName>
+				<componentsArtifactVersion>${components.version}</componentsArtifactVersion>
+			</properties>
+		</profile>
+		<profile>
+            <repositories>
+                <repository>
+                    <id>jaspersoft-central</id>
+                    <name>repo</name>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <snapshots>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>jaspersoft-central</id>
+					<name>repo</name>
+					<url>https://repo1.maven.org/maven2</url>
+				</pluginRepository>
+			</pluginRepositories>
+			<id>jaspersoft-central</id>
+		</profile>
+	</profiles>
+	<mirrors>
+		<mirror>
+			<mirrorOf>*</mirrorOf>
+			<name>repo</name>
+			<url>https://repo1.maven.org/maven2</url>
+			<id>repo</id>
+		</mirror>
+	</mirrors>
+	<activeProfiles>
+		<activeProfile>JasperServerProfile</activeProfile>
+		<activeProfile>jaspersoft-central</activeProfile>
+	</activeProfiles>
+	<servers>
+		<server>
+			<id>myserver</id>
+			<username>tomcat</username>
+			<password>tomcat</password>
+		</server>
+	</servers>
+</settings>

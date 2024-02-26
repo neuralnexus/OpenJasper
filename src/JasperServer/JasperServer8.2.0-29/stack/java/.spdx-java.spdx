@@ -1,0 +1,42 @@
+{
+    "SPDXID": "SPDXRef-java",
+    "spdxVersion": "SPDX-2.3",
+    "creationInfo": {
+        "created": "2024-01-29T20:27:28.047Z",
+        "creators": [
+            "Organization: VMware, Inc."
+        ]
+    },
+    "name": "SPDX document for Java 1.8.402-7",
+    "dataLicense": "CC0-1.0",
+    "documentDescribes": [
+        "SPDXRef-java"
+    ],
+    "documentNamespace": "java-1.8.402-7",
+    "packages": [
+        {
+            "SPDXID": "SPDXRef-java",
+            "name": "Java",
+            "versionInfo": "1.8.402-7-1",
+            "downloadLocation": "https://download.bell-sw.com/java/8u402+7/bellsoft-jdk8u402+7-src-full.tar.gz",
+            "licenseConcluded": "GPL-2.0-only",
+            "licenseDeclared": "GPL-2.0-only",
+            "filesAnalyzed": false,
+            "externalRefs": [
+                {
+                    "referenceCategory": "SECURITY",
+                    "referenceType": "cpe23Type",
+                    "referenceLocator": "cpe:2.3:*:bellsoft:libericajdk:1.8.402-7:*:*:*:*:*:*:*"
+                },
+                {
+                    "referenceCategory": "PACKAGE_MANAGER",
+                    "referenceType": "purl",
+                    "referenceLocator": "pkg:bitnami/java@1.8.402-7-1?arch=amd64&distro=debian-11"
+                }
+            ],
+            "copyrightText": "NOASSERTION"
+        }
+    ],
+    "files": [],
+    "relationships": []
+}

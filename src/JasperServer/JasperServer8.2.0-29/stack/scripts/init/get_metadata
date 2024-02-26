@@ -1,0 +1,11 @@
+#!/bin/sh
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+#
+# Allow querying metadata externally
+#
+
+. /opt/bitnami/scripts/init/functions
+
+get_metadata_now "$1"
+exit $?

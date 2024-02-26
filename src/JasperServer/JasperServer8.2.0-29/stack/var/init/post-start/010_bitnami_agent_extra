@@ -1,0 +1,34 @@
+#!/bin/sh
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+#
+# Bitnami Agent
+#
+
+. /opt/bitnami/scripts/init/functions
+
+# when run with --force option, run agent regardless of flag file
+if [ "x$1" != "x--force" ] ; then
+    run_once_check "bitnami_agent_extra"
+    if [ $? -ne 0 ]; then
+        exit 0
+    fi
+fi
+
+EXTRA_PROPS=`_get_parameter_from_user_data bitnami_agent_extra`
+EXTRA_FILE="/opt/bitnami/stats/extra.ini"
+
+# initialize the file
+/bin/echo -e "[all]" > $EXTRA_FILE
+
+# write the properties into the file
+for PROPERTY in $EXTRA_PROPS
+do
+    VALUE=`_get_parameter_from_user_data $PROPERTY`
+    /bin/echo -e "$PROPERTY=$VALUE" >> $EXTRA_FILE
+done
+
+# adds the testing mode so the agent sends that too
+if is_bitnami_testing_mode ; then
+    /bin/echo -e "testing_mode=1" >> $EXTRA_FILE
+fi

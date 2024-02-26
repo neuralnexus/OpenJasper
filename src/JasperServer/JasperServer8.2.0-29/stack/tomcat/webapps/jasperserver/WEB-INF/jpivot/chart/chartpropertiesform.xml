@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<xform style="manual">
+<div style="position: absolute; left: 317px; top: 176px;">
+
+<table id="chartFormTable" border="1" cellspacing="0" cellpadding="2">
+ <!-- title -->
+ <tr>
+  <th colspan="2" class="xform-title">
+   <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+     <th align="left" class="xform-title">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.chartOptions</th>
+     <td align="right" class="xform-close-button">
+      <imgButton src="wcf/form/cancel.png" action="revert" label="fmt:JAJ_000_jsp.close" hide="true" handler="com.tonbeller.wcf.form.ButtonHandler" onclick="pageAlert=false"/>
+     </td>
+    </tr>
+   </table>
+  </th>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.chartType</td>
+  <td class="xform-both" width="67%">
+   <listBox1 type="int" modelReference="chartType">
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.verticalBar"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.verticalBar3D"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.horizontalBar"/>
+	<listItem value="4" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.horizontalBar3D"/>
+	<listItem value="5" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.stackedVerticalBar"/>
+	<listItem value="6" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.stackedVerticalBar3D"/>
+	<listItem value="7" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.stackedHorizontalBar"/>
+	<listItem value="8" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.stackedHorizontalBar3D"/>
+	<listItem value="9" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.verticalLine"/>
+	<listItem value="10" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.horizontalLine"/>
+	<listItem value="11" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.verticalArea"/>
+	<listItem value="12" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.horizontalArea"/>
+	<listItem value="13" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.verticalStackedArea"/>
+	<listItem value="14" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.horizontalStackedArea"/>
+	<listItem value="15" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.pieChartsByColumn"/>
+	<listItem value="16" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.pieChartsByRow"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.chartSize</td>
+  <td class="xform-both" width="67%">fmt:JAJ_000_jsp.height<textField type="posint" modelReference="chartHeight" size="5" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.heightTips"/><span style="margin-left: 0.5em">fmt:JAJ_000_jsp.width</span><textField type="posint" modelReference="chartWidth" size="5" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.widthTips"/>
+  </td>
+ </tr>
+ 
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.chartTitle</td>
+  <td class="xform-both" width="67%">
+   <textField type="string" modelReference="chartTitle" size="30" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.chartTitleTips"/>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.horizontalAxisLabel</td>
+  <td class="xform-both" width="67%">
+   <textField type="string" modelReference="horizAxisLabel" size="30" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.axisLabelTips"/>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.verticalAxisLabel</td>
+  <td class="xform-both" width="67%">
+   <textField type="string" modelReference="vertAxisLabel" size="30" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.axisLabelTips"/>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.enableDrillThrough</td>
+  <td class="xform-both" width="67%">
+   <checkBox modelReference="drillThroughEnabled"/>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.showLegend</td>
+  <td class="xform-both" width="67%">
+   <checkBox modelReference="showLegend"/>
+   <listBox1 type="int" modelReference="legendPosition">
+  	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.top"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bottom"/>
+	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.left"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.right"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.showSlicer</td>
+  <td class="xform-both" width="67%">
+   <checkBox modelReference="showSlicer"/>
+   <listBox1 type="int" modelReference="slicerPosition" label="Slicer Position">
+  	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.top"/>
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bottom"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.left"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.right"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="slicerAlignment" label="Slicer Alignment">
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.left"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.right"/>
+	<listItem value="4" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.center"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.chartDefaultFont</td>
+  <td class="xform-both" width="67%">
+   <listBox1 type="string" modelReference="defaultFontName" label="Title font">
+  	<listItem value="SansSerif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sansSerif"/>
+	<listItem value="Serif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.serif"/>
+	<listItem value="Monospaced" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.monospaced"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="defaultFontStyle" label="Title font style">
+  	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.plain"/>
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bold"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.italic"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.boldItalic"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="defaultFontSize" label="Title font size">
+  	<listItem value="8" label="8"/>
+	<listItem value="10" label="10"/>
+	<listItem value="12" label="12"/>
+	<listItem value="14" label="14"/>
+	<listItem value="16" label="16"/>
+	<listItem value="18" label="18"/>
+	<listItem value="20" label="20"/>
+	<listItem value="22" label="22"/>
+	<listItem value="24" label="24"/>
+	<listItem value="26" label="26"/>
+	<listItem value="28" label="28"/>
+	<listItem value="30" label="30"/>
+	<listItem value="32" label="32"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-input" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.chartTitle</td>
+  <td class="xform-both" width="67%">
+   <listBox1 type="string" modelReference="fontNameDisp" label="Title font">
+  	<listItem value="defaultfont" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.fontDash"/>
+  	<listItem value="SansSerif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sansSerif"/>
+	<listItem value="Serif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.serif"/>
+	<listItem value="Monospaced" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.monospaced"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="fontStyleDisp" label="Title font style">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.styleDash"/>
+  	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.plain"/>
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bold"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.italic"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.boldItalic"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="fontSizeDisp" label="Title font size">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sizeDash"/>
+  	<listItem value="8" label="8"/>
+	<listItem value="10" label="10"/>
+	<listItem value="12" label="12"/>
+	<listItem value="14" label="14"/>
+	<listItem value="16" label="16"/>
+	<listItem value="18" label="18"/>
+	<listItem value="20" label="20"/>
+	<listItem value="22" label="22"/>
+	<listItem value="24" label="24"/>
+	<listItem value="26" label="26"/>
+	<listItem value="28" label="28"/>
+	<listItem value="30" label="30"/>
+	<listItem value="32" label="32"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.axesLabel</td>
+  <td class="xform-both" width="67%">
+   <listBox1 type="string" modelReference="axisFontNameDisp">
+  	<listItem value="defaultfont" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.fontDash"/>
+  	<listItem value="SansSerif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sansSerif"/>
+	<listItem value="Serif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.serif"/>
+	<listItem value="Monospaced" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.monospaced"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="axisFontStyleDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.styleDash"/>
+  	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.plain"/>
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bold"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.italic"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.boldItalic"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="axisFontSizeDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sizeDash"/>
+  	<listItem value="8" label="8"/>
+	<listItem value="10" label="10"/>
+	<listItem value="12" label="12"/>
+	<listItem value="14" label="14"/>
+	<listItem value="16" label="16"/>
+	<listItem value="18" label="18"/>
+	<listItem value="20" label="20"/>
+	<listItem value="22" label="22"/>
+	<listItem value="24" label="24"/>
+	<listItem value="26" label="26"/>
+	<listItem value="28" label="28"/>
+	<listItem value="30" label="30"/>
+	<listItem value="32" label="32"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.axesTickLabel</td>
+  <td class="xform-both" width="67%">
+   <listBox1 type="string" modelReference="axisTickFontNameDisp">
+  	<listItem value="defaultfont" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.fontDash"/>
+  	<listItem value="SansSerif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sansSerif"/>
+	<listItem value="Serif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.serif"/>
+	<listItem value="Monospaced" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.monospaced"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="axisTickFontStyleDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.styleDash"/>
+  	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.plain"/>
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bold"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.italic"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.boldItalic"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="axisTickFontSizeDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sizeDash"/>
+  	<listItem value="8" label="8"/>
+	<listItem value="10" label="10"/>
+	<listItem value="12" label="12"/>
+	<listItem value="14" label="14"/>
+	<listItem value="16" label="16"/>
+	<listItem value="18" label="18"/>
+	<listItem value="20" label="20"/>
+	<listItem value="22" label="22"/>
+	<listItem value="24" label="24"/>
+	<listItem value="26" label="26"/>
+	<listItem value="28" label="28"/>
+	<listItem value="30" label="30"/>
+	<listItem value="32" label="32"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="tickLabelRotate">
+        <listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.zeroDegree"/>
+        <listItem value="30" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.thirtyDegree"/>
+        <listItem value="45" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.fortyfiveDegree"/>
+        <listItem value="90" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.ninetyDegree"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.legend</td>
+  <td class="xform-both" width="67%">
+   <listBox1 type="string" modelReference="legendFontNameDisp">
+  	<listItem value="defaultfont" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.fontDash"/>
+  	<listItem value="SansSerif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sansSerif"/>
+	<listItem value="Serif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.serif"/>
+	<listItem value="Monospaced" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.monospaced"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="legendFontStyleDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.styleDash"/>
+  	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.plain"/>
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bold"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.italic"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.boldItalic"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="legendFontSizeDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sizeDash"/>
+  	<listItem value="8" label="8"/>
+	<listItem value="10" label="10"/>
+	<listItem value="12" label="12"/>
+	<listItem value="14" label="14"/>
+	<listItem value="16" label="16"/>
+	<listItem value="18" label="18"/>
+	<listItem value="20" label="20"/>
+	<listItem value="22" label="22"/>
+	<listItem value="24" label="24"/>
+	<listItem value="26" label="26"/>
+	<listItem value="28" label="28"/>
+	<listItem value="30" label="30"/>
+	<listItem value="32" label="32"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.slicer</td>
+  <td class="xform-both" width="67%">
+   <listBox1 type="string" modelReference="slicerFontNameDisp">
+  	<listItem value="defaultfont" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.fontDash"/>
+  	<listItem value="SansSerif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sansSerif"/>
+	<listItem value="Serif" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.serif"/>
+	<listItem value="Monospaced" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.monospaced"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="slicerFontStyleDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.styleDash"/>
+  	<listItem value="0" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.plain"/>
+	<listItem value="1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.bold"/>
+	<listItem value="2" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.italic"/>
+	<listItem value="3" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.boldItalic"/>
+   </listBox1>
+   <listBox1 type="int" modelReference="slicerFontSizeDisp">
+  	<listItem value="-1" label="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.sizeDash"/>
+  	<listItem value="8" label="8"/>
+	<listItem value="10" label="10"/>
+	<listItem value="12" label="12"/>
+	<listItem value="14" label="14"/>
+	<listItem value="16" label="16"/>
+	<listItem value="18" label="18"/>
+	<listItem value="20" label="20"/>
+	<listItem value="22" label="22"/>
+	<listItem value="24" label="24"/>
+	<listItem value="26" label="26"/>
+	<listItem value="28" label="28"/>
+	<listItem value="30" label="30"/>
+	<listItem value="32" label="32"/>
+   </listBox1>
+  </td>
+ </tr>
+
+ <tr>
+  <td class="xform-both" width="33%">fmt:JAJ_000_jsp.jpivot.chartpropertiesform.background</td>
+  <td class="xform-both" width="67%">
+   <textField type="posint" modelReference="bgColorR" size="4" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.redValueTips"/>
+   <textField type="posint" modelReference="bgColorG" size="4" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.greenValueTips"/>
+   <textField type="posint" modelReference="bgColorB" size="4" title="fmt:JAJ_000_jsp.jpivot.chartpropertiesform.blueValueTips"/>
+  </td>
+ </tr>
+
+ <tr>
+  <td align="right" class="xform-close-button" colspan="4">
+    <button action="validate" label="fmt:JAJ_000_jsp.ok" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+    <button action="revert" label="fmt:JAJ_000_jsp.cancel" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+  </td>
+ </tr>
+
+</table>
+</div>
+</xform>

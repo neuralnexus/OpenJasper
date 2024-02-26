@@ -1,0 +1,2 @@
+(self.webpackChunkjrs_ui=self.webpackChunkjrs_ui||[]).push([[1371],{11371:function(n,i,o){var t,e,l;e=[o(85546)],void 0===(l="function"==typeof(t=function(n){n.register("locale","vi",{delimiters:{thousands:".",decimal:","},abbreviations:{thousand:" nghìn",million:" triệu",billion:" tỷ",trillion:" nghìn tỷ"},ordinal:function(){return"."},currency:{symbol:"₫"}})})?t.apply(i,e):t)||(n.exports=l)}}]);
+//# sourceMappingURL=chunk.1371.js.map

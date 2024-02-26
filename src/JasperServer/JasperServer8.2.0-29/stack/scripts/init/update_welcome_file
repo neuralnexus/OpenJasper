@@ -1,0 +1,25 @@
+#!/bin/sh
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+#
+# Update the application DNS / Public IP configuration
+#
+
+. /opt/bitnami/scripts/init/functions
+
+WELCOME_FILE=`get_stored_data welcome_file_location`
+
+if [ "x$WELCOME_FILE" = "x" ] ; then
+  exit 0
+fi
+
+if [ "x$1" != "x" ]; then
+  IP=$1
+else
+  IP=`get_server_domain`
+fi
+
+# replace IP address
+sed "s,@@IP_ADDRESS@@,$IP," \
+  </opt/bitnami/var/data/welcome_file_template \
+  >$WELCOME_FILE

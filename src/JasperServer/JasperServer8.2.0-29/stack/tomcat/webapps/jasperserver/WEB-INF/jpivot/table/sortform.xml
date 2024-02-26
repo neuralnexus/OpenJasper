@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<xform style="twocolumn" bundle="com.tonbeller.jpivot.table.resources">
+  <title value="fmt:jsp.jpivot.sortform.title">
+    <imgButton src="wcf/form/cancel.png" action="revert" label="fmt:jsp.jpivot.sortform.close" hide="true" handler="com.tonbeller.wcf.form.ButtonHandler"/>
+  </title>
+
+  <listBox1 type="int" bookmark="false" modelReference="extensions(sortRank).sortMode" label="fmt:jsp.jpivot.sortform.mode">
+  <listItem value="1" label="fmt:jsp.jpivot.sortform.hierup"/>
+  <listItem value="2" label="fmt:jsp.jpivot.sortform.hierdown"/>
+  <listItem value="3" label="fmt:jsp.jpivot.sortform.flatup"/>
+  <listItem value="4" label="fmt:jsp.jpivot.sortform.flatdown"/>
+  <listItem value="5" label="fmt:jsp.jpivot.sortform.topcount"/>
+  <listItem value="6" label="fmt:jsp.jpivot.sortform.bottomcount"/>
+  </listBox1>
+
+  <textField type="posint" bookmark="false" modelReference="extensions(sortRank).topBottomCount" label="fmt:jsp.jpivot.sortform.rowcount" title="fmt:jsp.jpivot.sortform.enternumber"/>
+  <checkBox modelReference="rowAxisBuilder.axisConfig.propertyConfig.showProperties" label="fmt:jsp.jpivot.sortform.showprops"/>
+
+  <buttons>
+    <button action="validate" label="fmt:jsp.jpivot.sortform.ok" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+    <button action="revert" label="fmt:jsp.jpivot.sortform.cancel" handler="com.tonbeller.wcf.form.ButtonHandler" hide="true"/>
+  </buttons>
+</xform>

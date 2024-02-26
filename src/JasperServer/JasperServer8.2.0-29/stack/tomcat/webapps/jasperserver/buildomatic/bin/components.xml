@@ -1,0 +1,322 @@
+<!--
+  ~ Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project name="components">
+
+    <target name="init-war-paths" depends="init-source-paths">
+        <var name="jsEdition" value="pro"/>
+
+        <if>
+            <equals arg1="${jsEdition}" arg2="pro"/>
+            <then>
+                <property name="warFileDistSourceDir" value="${basedir}/../${webAppNameSrcPro}.war"/>
+                <var name="warSourceDir" value="${warDir}/${webAppNameSrcPro}"/>
+                <set-webapp-name webAppNameParam="${webAppNamePro}"
+                                 webAppNameSrcParam="${webAppNameSrcPro}"
+                                 webAppNameDelParam="${webAppNamePro}"/>    <!-- call macro -->
+            </then>
+            <elseif>
+                <equals arg1="${jsEdition}" arg2="ce"/>
+                <then>
+                    <property name="warFileDistSourceDir" value="${basedir}/../${webAppNameSrcCE}.war"/>
+                    <var name="warSourceDir" value="${warDir}/${webAppNameSrcCE}"/>
+                    <set-webapp-name webAppNameParam="${webAppNameCE}"
+                                     webAppNameSrcParam="${webAppNameSrcCE}"
+                                     webAppNameDelParam="${webAppNameCE}"/>    <!-- call macro -->
+                </then>
+            </elseif>
+            <else>
+                <echo>NOTE: Unsupported JRS edition - ${jsEdition}</echo>
+            </else>
+        </if>
+    </target>
+
+    <target name="gen-components-metainf" depends="_check_parameters, _in_connectors, _new_component">
+    </target>
+
+    <target name="gen-component-metainf" depends="_check_parameters, _check_category, _new_component">
+    </target>
+
+    <target name="_in_connectors">
+        <var name="componentCategory" unset="true"/>
+        <property name="componentCategory" value="connectors"/>
+    </target>
+
+    <target name="_new_component" if="componentId">
+        <property name="customComponentsDir" value="${basedir}/../components"/>
+        <property name="customComponentsProperties" value="${customComponentsDir}/META-INF/components.properties"/>
+        <!--        <touch file="${basedir}/../components/META-INF/MANIFEST.MF" mkdirs="true" verbose="true"/>-->
+        <touch file="${customComponentsDir}/META-INF/components.properties" mkdirs="true" verbose="true"/>
+
+        <if>
+            <equals arg1="${componentCategory}" arg2="connectors"/>
+            <then>
+                <mkdir dir="${customComponentsDir}/${componentId}-connector"/>
+            </then>
+            <else>
+                <mkdir dir="${customComponentsDir}/${componentId}-${componentCategory}"/>
+            </else>
+        </if>
+        <if>
+            <isset property="componentArtifacts"/>
+            <then>
+                <propertyfile file="${customComponentsProperties}"
+                              comment="Custom components">
+                    <entry key="${componentCategory}.${componentId}.enabled" value="true"/>
+                    <entry key="${componentCategory}.${componentId}.artifacts" value="${componentArtifacts}"/>
+                </propertyfile>
+            </then>
+            <else>
+                <propertyfile file="${customComponentsProperties}"
+                              comment="Custom components">
+                    <entry key="${componentCategory}.${componentId}.enabled" value="true"/>
+                </propertyfile>
+            </else>
+        </if>
+        <if>
+            <isset property="componentUrl"/>
+            <then>
+                <propertyfile file="${customComponentsProperties}"
+                              comment="Custom components">
+                    <entry key="${componentCategory}.${componentId}.enabled" value="true"/>
+                    <entry key="${componentCategory}.${componentId}.url" value="${componentUrl}"/>
+                </propertyfile>
+            </then>
+        </if>
+    </target>
+
+    <target name="wget-components">
+        <if>
+            <isset property="components.url"/>
+            <then>
+                <get src="${components.url}" dest="${basedir}/../components-package-${components.version}.zip"/>
+            </then>
+        </if>
+    </target>
+
+    <target name="_check_parameters" unless="componentId">
+        <echo>Missing Component ID</echo>
+        <echo message="Usage: gen-connector-metainf -DcomponentId=sqlite -DcomponentArtifacts=sqlite-jdbc-3.36.0.3.jar"/>
+        <echo message="       gen-component-metainf -DcomponentId=svg -DcomponentCategory=other"/>
+    </target>
+
+    <target name="_check_category" unless="componentCategory">
+        <echo>Missing Component Category</echo>
+        <echo message="Usage: gen-component-metainf -DcomponentId=otel -DcomponentCategory=observability"/>
+    </target>
+
+    <target name="setup-components" depends="init-war-paths, setup-groovy">
+        <tempfile property="temp.dir" destDir="${java.io.tmpdir}" prefix="components"/>
+        <mkdir dir="${temp.dir}"/>
+
+        <property name="temp.war.dir" value="${temp.dir}/webapp"/>
+        <mkdir dir="${temp.war.dir}/WEB-INF/lib"/>
+        <mkdir dir="${temp.war.dir}/META-INF"/>
+
+        <!-- This is to ensure we do not package drivers that are enabled through the app server (JNDI) -->
+        <switch value="${dbType}">
+            <case value="postgresql">
+                <property name="connectors.postgresql.enabled" value="false"/>
+            </case>
+            <case value="mysql">
+                <property name="connectors.mysql.enabled" value="false"/>
+                <property name="connectors.mariadb.enabled" value="false"/>
+            </case>
+            <case value="oracle">
+                <property name="connectors.oracle.enabled" value="false"/>
+                <property name="connectors.ti-oracle.enabled" value="false"/>
+            </case>
+            <case value="sqlserver">
+                <property name="connectors.sqlserver.enabled" value="false"/>
+                <property name="connectors.ti-sqlserver.enabled" value="false"/>
+            </case>
+            <case value="db2">
+                <property name="connectors.db2.enabled" value="false"/>
+                <property name="connectors.ti-db2.enabled" value="false"/>
+            </case>
+        </switch>
+
+        <!--        <property name="warFileDistSourceDir" value="${basedir}/../${webAppNameSrcPro}.war"/>-->
+        <property name="componentsZip" value="${basedir}/../components-package-${components.version}.zip"/>
+        <property name="customComponentsDir" value="${basedir}/../components"/>
+        <property name="customComponents" value="${customComponentsDir}/META-INF/components.properties"/>
+        <!--        <echo>Base Directory->${basedir}   currentConf ->${currentConf} WarFileDistSourceDir->${warFileDistSourceDir}</echo>-->
+        <!-- <load-deployed-components-props src="${warFileDistSourceDir}"/> -->
+
+        <if>
+            <available file="${customComponents}"/>
+            <then>
+                <loadcomponents property="driversProps"
+                                enableIndex="enabled.idx" disableIndex="disabled.idx" target="${temp.dir}">
+                    <file file="${customComponents}"/>
+                </loadcomponents>
+            </then>
+        </if>
+
+        <if>
+            <available file="${componentsZip}"/>
+            <then>
+                <loadcomponents property="driversProps"
+                                enableIndex="enabled.idx" disableIndex="disabled.idx" target="${temp.dir}">
+                    <zipentry zipfile="${componentsZip}" name="META-INF/components.properties"/>
+                </loadcomponents>
+            </then>
+            <else>
+                <touch file="${temp.dir}/enabled.idx" verbose="false"/>
+                <touch file="${temp.dir}/disabled.idx" verbose="false"/>
+            </else>
+        </if>
+    </target>
+
+    <!--
+    Copy component properties.
+    @src  The zip or dir from where to get the jars
+    -->
+    <macrodef name="prepare-components">
+        <attribute name="src"/>
+        <attribute name="dest"/>
+        <attribute name="includesfile"/>
+
+        <sequential>
+            <if>
+                <and>
+                    <available file="@{src}"/>
+                    <length file="@{includesfile}" when="gt" length="2"/>
+                </and>
+                <then>
+                    <if>
+                        <contains string="@{src}" substring=".zip"/>
+                        <then>
+                            <unzip src="@{src}" dest="@{dest}">
+                                <patternset includesfile="@{includesfile}"/>
+                                <flattenmapper/>
+                            </unzip>
+                        </then>
+                        <else>
+                            <copy todir="@{dest}">
+                                <fileset dir="@{src}" includesfile="@{includesfile}"/>
+                                <flattenmapper/>
+                            </copy>
+                        </else>
+                    </if>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <!--  deploy only  -->
+    <target name="deploy-components" depends="setup-components">
+        <if>
+            <and>
+                <available file="${warTargetDir}"/>
+                <available file="${warTargetDir}/WEB-INF/lib"/>
+            </and>
+            <then>
+                <loadcomponents property="driversProps"
+                                enableIndex="enabled.idx" disableIndex="disabled.idx" target="${temp.dir}">
+                    <file file="${warTargetDir}/META-INF/MANIFEST.MF"/>
+                </loadcomponents>
+
+                <!-- To keep simple design of the task we put all index and MF files into the same directory -->
+                <copy file="${temp.dir}/MANIFEST.MF" tofile="${temp.war.dir}/META-INF/MANIFEST.MF" overwrite="true"/>
+
+                <prepare-components src="${componentsZip}" dest="${temp.war.dir}/WEB-INF/lib"
+                                    includesfile="${temp.dir}/enabled.idx"/>
+                <prepare-components src="${customComponentsDir}" dest="${temp.war.dir}/WEB-INF/lib"
+                                    includesfile="${temp.dir}/enabled.idx"/>
+                <prepare-components src="${temp.dir}/components" dest="${temp.war.dir}/WEB-INF/lib"
+                                    includesfile="${temp.dir}/enabled.idx"/>
+
+                <echo>--- modifying the deployment</echo>
+                <if>
+                    <length file="${temp.dir}/disabled.idx" when="gt" length="3"/>
+                    <then>
+                        <delete>
+                            <fileset dir="${warTargetDir}" includesfile="${temp.dir}/disabled.idx"/>
+                        </delete>
+                    </then>
+                </if>
+                <copy todir="${warTargetDir}">
+                    <fileset dir="${temp.war.dir}"/>
+                </copy>
+            </then>
+        </if>
+    </target>
+    <!-- re-package war only  -->
+    <target name="package-components" depends="setup-components">
+        <if>
+            <available file="${warFileDistSourceDir}"/>
+            <then>
+                <loadcomponents property="driversProps"
+                                enableIndex="enabled.idx" disableIndex="disabled.idx" target="${temp.dir}">
+                    <zipentry zipfile="${warFileDistSourceDir}" name="META-INF/MANIFEST.MF"/>
+                </loadcomponents>
+
+                <!-- To keep simple design of the task we put all index and MF files into the same directory -->
+                <copy file="${temp.dir}/MANIFEST.MF" tofile="${temp.war.dir}/META-INF/MANIFEST.MF" overwrite="true"/>
+                <prepare-components src="${componentsZip}" dest="${temp.war.dir}/WEB-INF/lib"
+                                    includesfile="${temp.dir}/enabled.idx"/>
+                <prepare-components src="${customComponentsDir}" dest="${temp.war.dir}/WEB-INF/lib"
+                                    includesfile="${temp.dir}/enabled.idx"/>
+                <prepare-components src="${temp.dir}/components" dest="${temp.war.dir}/WEB-INF/lib"
+                                    includesfile="${temp.dir}/enabled.idx"/>
+                <echo>--- modifying the WAR file</echo>
+
+                <jar destfile="${warFileDistSourceDir}.new" filesetmanifest="merge">
+                    <zipfileset src="${warFileDistSourceDir}" excludesfile="${temp.dir}/disabled.idx">
+                        <!-- we need this because filesetmanifest is working -->
+                        <!-- it's fine to skip because load-components car read original MANIFEST-->
+                        <exclude name="META-INF/MANIFEST.MF"/>
+                    </zipfileset>
+                    <fileset dir="${temp.war.dir}"/>
+                </jar>
+                <move file="${warFileDistSourceDir}" tofile="${warFileDistSourceDir}.original.war"/>
+                <move file="${warFileDistSourceDir}.new" tofile="${warFileDistSourceDir}"/>
+            </then>
+        </if>
+    </target>
+
+    <!-- package and deploy  -->
+    <target name="install-components" depends="package-components">
+        <if>
+            <and>
+                <available file="${warTargetDir}"/>
+                <available file="${warTargetDir}/WEB-INF/lib"/>
+            </and>
+            <then>
+                <echo>--- modifying the deployment</echo>
+                <if>
+                    <length file="${temp.dir}/disabled.idx" when="gt" length="3"/>
+                    <then>
+                        <delete>
+                            <fileset dir="${warTargetDir}" includesfile="${temp.dir}/disabled.idx"/>
+                        </delete>
+                    </then>
+                </if>
+
+                <copy todir="${warTargetDir}">
+                    <fileset dir="${temp.war.dir}"/>
+                </copy>
+            </then>
+        </if>
+    </target>
+
+</project>
