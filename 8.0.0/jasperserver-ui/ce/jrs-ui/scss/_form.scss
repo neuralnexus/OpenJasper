@@ -1,0 +1,152 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ===========================================
+   FORM STYLES
+   Last modified date:     May 17, 2019
+   Last modified by:       Anna Leeg
+ * =========================================== */
+
+.jr-mForm.jr {
+  color: #333333;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+}
+
+.jr-mForm-title.jr {
+  color: $grey-textDarker;
+  font-size: em(18px, 12px);
+  margin-bottom: em(12px, 12px);
+}
+
+.jr-mForm-section.jr {
+  margin: 0;
+}
+
+.jr-mForm-instructions.jr {
+  color: $grey-textMedium;
+  font-size: em(13px, 12px);
+  margin-bottom: em(20px, 13px);
+}
+
+.jr-mForm-sectionIndent.jr {
+  margin: 0 em(22px, 12px)  em(22px, 12px) em(22px, 12px);
+}
+
+.jr-mForm-section-title.jr {
+  color: $grey-textMedium;
+  font-size: em(15px, 12px);
+  margin-bottom: em(12px, 12px);
+}
+
+.jr-mForm-section-group.jr {
+  margin: 0;
+}
+
+.jr-mForm-section-groupIndent.jr {
+  margin-left: em(22px, 12px);
+}
+
+.jr-mForm-section-button.jr {
+  margin-bottom: em(22px, 12px);
+}
+
+.jr-mForm-container.jr {
+  //this is a generic container that can hold anything within a form. Supplies proper bottom margin.
+  margin-bottom: em(22px, 12px);
+}
+
+
+// error validation + button
+.jr-mForm-validation.jr { // REVISED
+  align-items: flex-start;
+  align-content: stretch;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin-bottom: em(22px, 12px); // can possibly be removed
+  margin-top: em(8px, 12px);    // can possibly be removed
+  width: 100%;
+}
+
+.jr-mForm-validation-button.jr  { // NEW
+  flex: 0 0 auto;
+}
+
+.jr-mForm-validation-message.jr { // NEW
+  flex: 1 1 auto;
+}
+
+// the following relate to which side the button is on (left or right)
+.jr-mForm-validation-button.jr:first-child { // REVISED
+  padding-right: em(8px, 12px);
+}
+
+.jr-mForm-validation-message.jr:first-child { // REVISED
+  display: inline-flex;
+  justify-content: flex-end;
+  padding-right: em(8px, 12px);
+}
+
+.jr-mForm-validation-alert.jr:first-child,
+.jr-mForm-validation-message.jr:first-child { // TODO remove this rule after resolving JRS-12101
+  padding-right: em(8px, 12px);
+}
+
+.jr-mForm-validation-alert.jr { // TODO remove this rule after resolving JRS-12101
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.jr-mForm-validation-alert-icon.jr { // TODO remove this rule after resolving JRS-12101
+  color: inherit !important;
+  display: table-cell;
+  line-height: 1 !important;
+  vertical-align: top !important;
+  width: em(18px, 12px);
+}
+
+.jr-mForm-validation-alert-text.jr { // TODO remove this rule after resolving JRS-12101
+  display: table-cell;
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: em(1px, 10px);
+  vertical-align: top;
+}
+
+.jr-mForm-validation-alertError.jr {color: $color-errorDark;} // TODO remove this rule after resolving JRS-12101
+.jr-mForm-validation-alertSuccess.jr {color: $color-successDark;} // TODO remove this rule after resolving JRS-12101
+.jr-mForm-validation-alertWarning.jr {color: $color-warningDark;} // TODO remove this rule after resolving JRS-12101
+
+
+// strips bottom margin from very last input in a form
+.jr-mForm.jr .jr-mForm.jr:last-of-type .jr-mForm-validation.jr {
+  margin-bottom: 0;
+}
+
+// ----------
+//   STATES
+// ----------
+.jr-mForm-validation-alert.jr-isVisible.jr {
+  display: table-cell;
+}

@@ -1,0 +1,15 @@
+{
+  "rawParameters": {
+    "TEST_NAME": [
+      "TEST_VALUE"
+    ]
+  },
+  "reportParameter": [
+    {
+      "name": "TEST_NAME",
+      "value": [
+        "TEST_VALUE"
+      ]
+    }
+  ]
+}

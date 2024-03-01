@@ -1,0 +1,779 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ===========================================
+   INPUT STYLES
+   Last modified date:    May 22, 2020
+   Last modified by:      Anna Leeg
+ * =========================================== */
+
+// --------------------------------
+//   GROUPING MECHANISM FOR INPUTS
+// --------------------------------
+.jr-mInputgroup.jr .jr-mInput-editable.jr,
+.jr-mInputgroup.jr .jr-mInput-selectt.jr  {
+  margin-bottom: em(18px, 13px);
+}
+
+.jr-mInputgroup.jr .jr-mInput-select.jr {
+  margin-bottom: em(20px, 13px);
+}
+
+.jr-mInputpair.jr {
+  // use to contain two of the same input types when the operator is "between" or "is not between"
+}
+
+.jr-mInputpair-text.jr {
+  height: em(28px);
+  top: em(-4px);
+  text-align: center;
+  line-height: (28px / 11px);
+}
+
+// ---------------------
+//   BASE INPUT MODULE
+// --------------------
+.jr-mInput.jr {
+  font-family: $font-family-primary;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.jr-mInput-label.jr {
+  @include input-label;
+  font-family: $font-family-semibold;
+  font-size: 1em;
+}
+
+// label variations
+.jr-mInput-labelLight.jr {
+  color: $grey-textLightest;
+}
+
+.jr-mInput-labelRequired.jr::after {
+  color: $color-tciMedium;
+  content: " *";
+}
+
+.jr-mInput-hint.jr {
+  color: $grey-textLightest;
+  display: inline-block;
+  font-size: em(12px, 13px);
+  font-style: italic;
+  font-weight: normal;
+  line-height: (15px / 13px);
+  // line-height and display are here so this element can be inline or block
+}
+
+.jr-mInput-alert.jr {
+  // TODO remove this rule after resolving JRS-12101 AND after replacing in embeddable input controls
+  // JRS-12101 has been resolved; embeddable input controls has not.
+  color: $color-errorDark;
+  display: block;
+  font-weight: bold;
+  line-height: (16px / 13px);
+  margin-bottom: em(4px, 13px); /* added back in for JRS-15714 */
+  margin-top: em(2px, 13px); /* added back in for JRS-15714 */
+}
+
+// validation done automatically on save
+.jr-mInput-validation.jr {
+  line-height: (14px / 11px);
+}
+
+.jr-mInput-validation.jr { // NEW
+  align-items: flex-start;
+  align-content: stretch;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin-bottom: em(6px, 13px);
+  margin-top: em(4px, 13px);
+}
+
+.jr-mInput-validation-message.jr { // NEW, holds validation component
+  flex: 1 1 auto;
+  margin-top: em(3px, 13px);
+}
+
+.jr-mInput-validation-button.jr { // NEW
+  flex: 0 0 auto;
+  margin-bottom: 2em;
+  margin-top: em(3px, 13px);
+}
+
+.jr-mInput-validation-message.jr:first-child { // NEW
+  //display: inline-flex; flex seems to work just fine
+  display: flex;
+  justify-content: flex-end;
+  padding-right: em(8px, 13px);
+}
+
+.jr-mInput-validation-message.jr:only-child { // NEW
+  // this rule must come after first-child rule (immediately above)
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.jr-mInput-validation-button.jr:first-child { // NEW
+  padding-right: em(8px, 13px);
+}
+
+.jr-mInput-validation-alert.jr { // TODO remove this rule after resolving JRS-12101
+  display: table-row;
+  min-height: em(20px, 13px);
+  white-space: nowrap;
+}
+
+.jr-mInput-validation-alert-text.jr { // TODO remove this rule after resolving JRS-12101
+  display: table-cell;
+  font-family: $font-family-semibold;
+  font-size: 12px; // new base font size
+  line-height: (16px / 12px);
+  padding-top: 0;
+  white-space: normal;
+}
+
+.jr-mInput-validation-alert-icon.jr { // TODO remove this rule after resolving JRS-12101
+  color: inherit !important;
+  display: table-cell;
+  line-height: 1.2 !important;
+  vertical-align: top !important;
+  width: em(20px, 13px);
+}
+
+// validation done manually with associated button
+.jr-mInput-validationManual.jr { // TODO remove this rule after resolving JRS-12101
+  display: table;
+  margin-bottom: 2em;
+  margin-top: em(7px, 13px);
+  width: 100%;
+}
+
+.jr-mInput-validationManual.jr .jr-mInput-validation-button.jr { // TODO remove this rule after resolving JRS-12101
+  display: table-cell;
+  vertical-align: top;
+}
+
+.jr-mInput-validationManual.jr .jr-mInput-validation-alert.jr { // TODO remove this rule after resolving JRS-12101
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+// validation types
+.jr-mInput-validation-alertError.jr {color: $color-errorMedium;}      // TODO remove this rule after resolving JRS-12101
+.jr-mInput-validation-alertSuccess.jr {color: $color-successDark;}    // TODO remove this rule after resolving JRS-12101
+.jr-mInput-validation-alertWarning.jr {color: $color-warningMedium;}  // TODO remove this rule after resolving JRS-12101
+
+
+// the following relate to which side the button is on (left or right)
+.jr-mInput-validationManual.jr .jr-mInput-validation-button.jr:first-child,
+.jr-mInput-validationManual.jr .jr-mInput-validation-alert.jr:first-child { // TODO remove this rule after resolving JRS-12101
+  padding-right: em(8px, 13px);
+}
+
+
+// ----------------------------
+//  MODULE VARIATION - INLINE
+// ----------------------------
+/* INITIAL TEST
+.jr-mInputInline.jr {
+  display: table;
+}
+
+.jr-mInputInline.jr .jr-mInput-label.jr {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+.jr-mInputInline.jr .jr-mInput-text.jr {
+  display: table-cell;
+} */
+
+
+
+// -------------------------------------------
+//  MODULE VARIATION - COMPACT (auto width)
+// -------------------------------------------
+.jr-mInputCompact.jr {
+  display: inline-block;
+}
+
+/* INITIAL TEST
+.jr-mInputCompact.jr .jr-mInput-text.jr,
+.jr-mInputCompact.jr .jr-mInput-number.jr,
+.jr-mInputCompact.jr .jr-mInput-email.jr,
+.jr-mInputCompact.jr .jr-mInput-password.jr,
+.jr-mInputCompact.jr .jr-mInput-search.jr {
+  width: auto;
+} */
+
+
+// ---------------------
+//  INPUT MODULE TYPES
+// ---------------------
+
+// SEARCH
+.jr-mInput-searchContainer.jr {} //no rules, but container is needed for correct positioning of clear search icon
+
+.jr-mInput-search.jr {
+  background-color: #fff;
+  // TODO remove following styles after JRS-14408 is fixed
+  //background-image: image-url("icontrol_icons_sprite.png");
+  //background-repeat: no-repeat;
+  //background-attachment: scroll;
+  //background-position: right -269px;
+  color: $grey-textDarker;
+  display: inline-block;
+  overflow: hidden;
+  padding-right: em(32px, 13px);
+  position: relative;
+}
+
+// TODO remove this rule after search input is fixed in multi- and single-select components
+.jr-mInput-search.jr:only-child {
+  background-image: image-url("icontrol_icons_sprite.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: right -269px;
+}
+
+.jr-mInput-searchPlaceholder.jr {
+  // fixes issue (in multiselect) where placeholder text changes color after losing focus
+  // add this class name dynamically once input loses focus
+  // NOT IMPLEMENTED YET
+  color: $grey-textLightest;
+}
+
+.jr-mInput-search-trigger.jr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: em(32px, 13px);
+}
+
+.jr-mInput-search-clear.jr {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: em(30px, 13px);
+  bottom: 0;
+  width: em(24px, 13px);
+}
+
+// TODO remove this rule after JRS-14408 is fixed
+.jr-mInput-search-clear-icon.jr {
+  background-color: #fff;
+  background-image: image-url("icontrol_icons_sprite.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 6px -174px;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+// TEXT-BASED
+.jr-mInput-date.jr,
+.jr-mInput-text.jr,
+.jr-mInput-number.jr,
+.jr-mInput-email.jr,
+.jr-mInput-password.jr,
+.jr-mInput-search.jr {
+  height: em(28px, 13px);
+  width: 100%;
+}
+
+// text input with associated button
+.jr-mInput-action.jr {
+  display: table;
+  width: 100%;
+}
+
+.jr-mInput-action-text.jr {
+  display: table-cell;
+  padding-right: em(8px, 13px);
+  width: 100%;
+}
+
+.jr-mInput-action-button.jr  {
+  display: table-cell;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.jr-mInput-action-button.jr ~ .jr-mInput-action-button.jr {
+  margin-right: em(6px, 13px);
+}
+
+// TEXTAREA
+.jr-mInput-textarea.jr {
+  height: em(70px, 13px);
+  resize: vertical;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+// DATE TIME
+.jr-mInput-date.jr {
+  width: calc(100% - 3em);
+  white-space: normal;
+}
+
+.jr-mInput-datetrigger.jr {
+  height: em(28px, 13px); // same height as input
+  width: em(28px, 13px);
+}
+
+.jr-mInput-datetrigger-icon.jr {
+  height: 100%;
+}
+
+// SELECT (NATIVE)
+.jr-mInput-select.jr {
+  // top margin ensures that a select input and its label has the same height as other inputs
+  // since the select input is shorter than other inputs, extra space is needed for this effect
+  margin-top: em(4px, 13px);
+  width: auto;
+}
+
+.jr-mInput-selectTight.jr {
+  // reduces the amount of space between the label and input to match that of other inputs.
+  // results in the input and its label not being the same height as other inputs+labels
+  margin-top: 0;
+}
+
+.jr-mInput-select-item.jr {}
+
+.jr-mInput-select.jr +  .jr-mInput-alert.jr {
+  margin-top: em(6px, 13px);
+}
+
+.jr-mInput-selectWide.jr {
+  width: 100%;
+}
+
+// SELECTT (CUSTOM)
+.jr-mInput-selectt.jr {
+  background-color: #fff;
+  display: inline-block;
+  position: relative;
+}
+
+.jr-mInput-selectt-list.jr {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  display: inline-block;
+  line-height: em(26px, 13px);
+  height: em(28px, 13px);
+  padding-right: em(22px, 13px);
+  padding-left: em(5px, 13px);
+  position: relative;
+  min-width: 50%;
+  z-index: $zindex-element-lvl-1; // must be above jr-mInput-selectt-list to show options on click
+}
+
+.jr-mInput-selecttWide.jr,
+.jr-mInput-selecttWide.jr .jr-mInput-selectt-list.jr {
+  width: 100%;
+}
+
+.jr-mInput-selectt-list.jr::-ms-expand {
+  display: none;
+}
+
+.jr-mInput-selectt-list-item.jr {
+  padding: em(5px, 13px);
+}
+
+.jr-mInput-selectt-expander.jr {
+  border: 1px solid #cccccc;
+  padding-top: em(2px, 13px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $zindex-element-lvl-0; // must be below jr-mInput-selectt-expander to show options on click
+}
+
+// FILE UPLOAD
+.jr-mInput-file.jr {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: em(28px, 13px);
+}
+
+.jr-mInput-file-input.jr {
+  cursor: pointer;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.jr-mInput-file-trigger.jr {
+  cursor: pointer;
+  height: inherit;
+}
+
+.jr-mInput-file-name.jr {
+  background: #fff;
+  border: 1px solid #cccccc;
+  height: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+// placement options for trigger and file name
+.jr-mInput-file-trigger.jr ~ .jr-mInput-file-name.jr {
+  margin-left: em(8px, 13px);
+}
+
+.jr-mInput-file-name.jr ~ .jr-mInput-file-trigger.jr {
+  margin-left: em(8px, 13px);
+}
+
+.jr-mInput-file-name-label.jr,
+.jr-mInput-file-name-placeholder.jr {
+  line-height: em(28px, 13px);
+  overflow: hidden;
+  padding-left: em(6px, 13px);
+  padding-right: em(6px, 13px);
+  text-overflow: ellipsis;
+}
+
+.jr-mInput-file-name-label.jr {
+  display: block;
+}
+
+.jr-mInput-file-name-placeholder.jr {
+  display: none;
+}
+
+// small variation
+.jr-mInput-fileSmall.jr {
+  height: em(22px, 13px);
+}
+
+.jr-mInput-fileSmall.jr .jr-mInput-file-name-label.jr,
+.jr-mInput-fileSmall.jr .jr-mInput-file-name-placeholder.jr {
+  font-size: em(12px, 13px);
+  line-height: em(22px, 13px);
+}
+
+
+// TEXT, INLINE EDITABLE
+.jr-mInput-editable.jr {}
+
+.jr-mInput-editable-text.jr {
+  display: inline-block;
+  height: em(26px, 13px);
+  line-height: (30px / 13px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.jr-mInput-editable-textBlank.jr {
+  font-style: italic;
+}
+
+.jr-mInput-editable-textArea.jr {
+  display: inline-block;
+  height: auto;
+  line-height: (16px / 13px);
+  margin-top: em(7px, 13px);
+  max-width: 100%;
+  min-height: em(57px, 13px);
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.jr-mInput-editable.jr ~ .jr-mInput-text,
+.jr-mInput-editable.jr ~ .jr-mInput-textarea,
+.jr-mInput-editableEdit.jr {
+  display: none;
+}
+
+.jr-mInput-editable-textArea.jr ~ .jr-mInput-editable-indicator.jr {
+  cursor: pointer;
+  width: em(22px, 13px);
+}
+
+.jr-mInput-editable-indicator.jr {
+  background-color: inherit;
+  display: none;
+  margin-top: em(5px, 13px);
+  vertical-align: top;
+  width: em(32px, 13px);
+}
+
+.jr-mInput-editable-indicator.jr .jr-mIcon.jr {
+  float: right;
+  opacity: .5;
+}
+
+// RADIO AND CHECKBOXES
+// container for radio buttons and checkboxes when the number of items is more than three
+.jr-mInput-set.jr {
+  background-color: #fff;
+  border: 1px solid #d6d6d6;
+  height: em(72px, 13px);
+  overflow-y: scroll;
+  width: auto;
+}
+
+.jr-mInput-checkContainer.jr,
+.jr-mInput-radioContainer.jr {
+  margin-left: em(5px, 13px);
+  margin-top: em(4px, 13px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+.jr-mInput-check.jr,
+.jr-mInput-radio.jr   {
+  margin-left: em(1px, 13px);  // prevents clipping in Chrome
+  padding-bottom: em(7px, 13px);
+  position: relative;
+  white-space: nowrap;
+}
+
+.jr-mInput-check-box.jr,
+.jr-mInput-radio-button.jr,
+.jr-mInput-boolean-box.jr {
+  display: inline-block;
+  //line-height: em(20px, 13px);
+  margin-right: em(2px, 13px);
+  height: em(14px, 13px);
+  width: em(14px, 13px);
+}
+
+.jr-mInput-boolean-box.jr {
+  //margin-top: em(3px, 13px);
+}
+
+.jr-mInput-check-label.jr,
+.jr-mInput-radio-label.jr,
+.jr-mInput-boolean-label.jr  {
+  color: $grey-textMedium;
+  cursor: default;
+  display: inline-block;
+  vertical-align: top;
+  line-height: (17px / 13px); // unitless value
+  width: calc(100% - 3em);
+}
+
+.jr-mInput-checklabel.jr,
+.jr-mInput-radiolabel.jr {
+  width: 100%;
+}
+
+.jr-mInput-boolean-label.jr {
+  font-family: $font-family-semibold;
+  //margin-top: em(3px, 13px);
+}
+
+
+.jr-mInput.jr-isInvalid.jr {}
+
+
+// START all/none/invert button bar
+.jr-mItemselector.jr {
+  display: table;
+  font-size: em(12px, 13px);
+  height: em(22px, 12px);
+  position: relative;
+  table-layout: fixed;
+  text-decoration: none;
+  width: 100%;
+}
+
+.jr-mInput-buttonContainer.jr {
+  border: 1px solid #d6d6d6;
+  border-top: none;
+  position: relative;
+  width: 100%;
+}
+
+.jr-mItemselector-button.jr {
+  background-color: #fff;
+  border-right: 1px solid #d6d6d6;
+  color: $grey-textMedium;
+  cursor: pointer;
+  display: table-cell;
+  height: 100%;
+  line-height: (20px / 12px); // unitless value
+  margin: 0;
+  overflow: hidden;
+  padding: 0 em(4px, 12px);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jr-mItemselector-button-icon.jr {
+  width: em(16px, 12px);
+}
+
+// IE11
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .jr-mItemselector-button-icon.jr {
+    top: 1px;
+  }
+}
+
+.jr-mItemselector-button-label.jr {
+  line-height: (24px / 12px); // unitless value
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.jr-mItemselector-button.jr:last-of-type {
+  border-right: none;
+}
+
+
+
+// --------------
+//    STATES
+// --------------
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .jr-mInput-select.jr:focus,
+  .jr-mInput-selectt-list.jr:focus {
+    outline-color: #90bffc;
+    outline-style: auto;
+    outline-width: 4px;
+  }
+}
+
+@-moz-document url-prefix() {
+  .jr-mInput-select.jr:focus {
+    outline: 0;
+  }
+}
+
+// disable input controls
+.jr-mInput.jr-isDisabled.jr {
+  @include opacity(0.4);
+}
+
+.jr-mInput.jr-isDisabled.jr .jr-mInput-datetrigger.jr {
+  cursor: default;
+}
+
+.jr-mInput.jr-isDisabled.jr * {
+  cursor: default;
+}
+
+.jr-mInput-text.jr:disabled,
+.jr-mInput-textarea.jr:disabled,
+.jr-mInput-number.jr:disabled,
+.jr-mInput-email.jr:disabled,
+.jr-mInput-date.jr:disabled,
+.jr-mInput-password.jr:disabled,
+.jr-mInput-search.jr:disabled {
+  background-color: #f7f7f7;
+}
+
+.jr-mInput-text.jr-isDisabled.jr:disabled,
+.jr-mInput-textarea.jr-isDisabled.jr:disabled,
+.jr-mInput-number.jr-isDisabled.jr:disabled,
+.jr-mInput-email.jr-isDisabled.jr:disabled,
+.jr-mInput-date.jr-isDisabled.jr:disabled,
+.jr-mInput-password.jr-isDisabled.jr:disabled,
+.jr-mInput-search.jr-isDisabled.jr:disabled {
+  color: #bbbbbb;
+}
+
+
+// editable text hover + click
+.jr-mInput-editableStatic.jr-isHovered.jr .jr-mInput-editable-text {
+  max-width: calc(100% - 38px) !important;
+  text-overflow: clip;
+}
+
+.jr-mInput-editableStatic.jr-isHovered.jr .jr-mInput-editable-indicator.jr {
+  display: inline-block;
+}
+
+.jr-mInput-editableStatic.jr-isClicked.jr {
+  display: none;
+}
+
+.jr-mInput-editableStatic.jr-isClicked.jr ~ .jr-mInput-editableEdit {
+  display: block;
+}
+
+// hide file input placeholder text
+.jr-mInput-file-name-placeholder.jr-isHidden.jr {
+  display: none;
+}
+
+// error validation for editable text and textarea
+.jr-mInput-editableEdit.jr-isInvalid.jr .jr-mInput-text.jr,
+.jr-mInput-editableEdit.jr-isInvalid.jr .jr-mInput-textarea.jr {
+  border: 1px solid $color-errorMedium;
+  padding-right: em(30px);
+}
+
+// hide validation error message
+.jr-mInput-alert.jr-isInvisible.jr {
+  visibility: hidden;
+}
+
+// hide validation error message
+.jr-mInput-search-clear.jr-isVisible.jr {
+  display: block;
+}
+
+
+// file browse placeholder text
+.jr-mInput-file.jr-isEmpty.jr .jr-mInput-file-name-label.jr {
+  display: none;
+}
+
+.jr-mInput-file.jr-isEmpty.jr .jr-mInput-file-name-placeholder.jr {
+  display: block;
+  opacity: .3;
+}
+
+
+//:TODO: SMACC violation, fix it
+.jr-mSingleselect-input-placeholder.jr-isHidden.jr {
+  display: none;
+}

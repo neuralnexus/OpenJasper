@@ -1,0 +1,264 @@
+/* =============================================
+   CONTROL MODULE
+   Last modified date:     Aug 13, 2020
+   Last modified by:       Anna Leeg
+ * ============================================ */
+
+// -----------------------------------------------
+//   TABLE OF CONTENTS
+//
+//   1. COLOR CONTROL
+//      1a. Base Control
+//      1b. Colorset
+//      1b. Inline
+//
+//   2. SWITCH CONTROL
+//      2a. Base Control
+//      2b. Sizes
+//
+//   3. STATES
+//      3a. Switch
+// -----------------------------------------------
+
+.jr-mControl.jr {
+  font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+  font-size: 13px;
+}
+
+.jr-mControl-label.jr {}
+
+
+// -----------------------
+//  1. COLOR CONTROL
+// -----------------------
+//  1a. Base Control
+
+.jr-mControlColor.jr {
+  margin-bottom: 6px
+}
+
+.jr-mControlColor.jr .jr-mControl-label.jr {
+  color: #666666;
+  display: block;
+  line-height: 2em;
+}
+
+.jr-mControlColor.jr .jr-mControl-launcher.jr {
+  border: 1px solid #dedede;
+  border-radius: 1px;
+  cursor: pointer;
+  display: inline-flex;
+  height: 28px;
+  width: auto;
+}
+
+.jr-mControlColor.jr .jr-mControl-launcher-swatch.jr {
+  display: inline-block;
+  margin: 2px;
+  width: 40px;
+}
+
+.jr-mControlColor.jr .jr-mControl-launcher-swatchLight.jr {
+  border: 1px solid #dedede;
+}
+
+.jr-mControlColor.jr .jr-mControl-launcher-swatchTransparent.jr {
+  background-color: #ffffff;
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  background-image: linear-gradient(45deg, #dedede 25%, transparent 25%, transparent 75%, #dedede 75%, #dedede),
+  linear-gradient(45deg, #dedede 25%, transparent 25%, transparent 75%, #dedede 75%, #dedede)
+}
+
+.jr-mControlColor.jr .jr-mControl-launcher-hex.jr {
+  color: #666;
+  font-family: Monaco, monospace;
+  font-size: 12px;
+  line-height: 28px;
+  padding-left: 4px;
+  padding-right: 4px;
+  width: 60px;
+}
+
+.jr-mControlColor.jr .jr-mControl-actions.jr {}
+
+
+//  1b. Colorset
+.jr-mControlColorset.jr {
+  display: table;
+}
+
+.jr-mControlColorset.jr .jr-mControlColor.jr,
+.jr-mControlColorset.jr .jr-mControlColor-add.jr {
+  display: table-row;
+}
+
+.jr-mControlColorset.jr .jr-mControl-label.jr {
+  display: table-cell;
+  padding-right: 6px;
+  text-align: right;
+  vertical-align: middle;
+  width: auto;
+  min-width: 50px;
+}
+
+.jr-mControlColorset.jr .jr-mControl-actions.jr {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.jr-mControlColorset.jr .jr-mControl-spacer.jr {
+  height: 6px;
+}
+
+.jr-mControlColorset.jr .jr-mControl-add.jr {
+  display: table-row;
+  height: 28px;
+}
+
+.jr-mControlColorset.jr .jr-mControl-add-color.jr {
+  display: table-cell;
+  height: 28px;
+  position: static;
+}
+
+.jr-mControlColorset.jr .jr-mControl-add-color.jr .jr-mButton.jr {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+//  1c. Inline
+.jr-mControlColor.jr-mControlInline.jr {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.jr-mControlColor.jr-mControlInline.jr .jr-mControl-label.jr {
+  padding-right: 6px;
+  text-align: right;
+  vertical-align: middle;
+  width: auto;
+  min-width: 50px;
+}
+
+
+
+// -----------------------
+//  2. SWITCH CONTROL
+// -----------------------
+//  2a. Base Control
+
+.jr-mControlSwitch.jr {
+  margin-bottom: 6px;
+}
+
+.jr-mControlSwitch.jr .jr-mControl-button.jr {
+  border-radius: 12px;
+  height: 24px;
+  min-width: 46px;
+  width: auto;
+}
+
+.jr-mControlSwitch.jr .jr-mControl-button-label.jr {
+  font-family: $font-family-semibold;
+  font-size: 12px;
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+}
+
+.jr-mControlSwitch.jr {
+  display: flex;
+}
+
+.jr-mControlSwitch.jr .jr-mControl-label.jr {
+  align-self: center;
+  color: #464646;
+}
+
+.jr-mControlSwitch.jr .jr-mControl-label.jr:last-child {
+  margin-left: 10px;
+}
+
+//  2b. Sizes
+.jr-mControlSwitch.jr-mControlSmall.jr {}
+
+.jr-mControlSwitch.jr-mControlSmall.jr .jr-mControl-button.jr {
+  border-radius: 10px;
+  height: 20px;
+  min-width: 38px;
+}
+
+.jr-mControlSwitch.jr-mControlSmall.jr .jr-mControl-button-label.jr {
+  font-family: $font-family-semibold;
+  font-size: 10px;
+  display: inline-block;
+  line-height: 20px;
+}
+
+
+
+// -----------------------
+//  3. STATES
+// -----------------------
+//  3a. Switch
+.jr-mControlSwitch .jr-isOff.jr {
+  background-color: #b6b6b6;
+}
+
+.jr-mControlSwitch .jr-isOn.jr {
+  background-color: #055dab;
+}
+
+.jr-mControlSwitch.jr .jr-isOff.jr .jr-mControl-button-label.jr:first-child {
+  background-color: #fff;
+  border-radius: 50%;
+  color: transparent;
+  height: 20px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+}
+.jr-mControlSwitch.jr .jr-isOff.jr .jr-mControl-button-label.jr:last-child {
+  color: #fff;
+  margin-left: 24px;
+  padding-right: 5px;
+  width: calc(100% - 24px);
+}
+
+.jr-mControlSwitch.jr .jr-isOn.jr .jr-mControl-button-label.jr:first-child {
+  color: #fff;
+  margin-right: 24px;
+  padding-left: 4px;
+  width: calc(100% - 24px)
+}
+.jr-mControlSwitch.jr .jr-isOn.jr .jr-mControl-button-label.jr:last-child {
+  background-color: #fff;
+  border-radius: 50%;
+  color: transparent;
+  height: 20px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+}
+
+//  3b. switch sizes
+.jr-mControlSwitch.jr-mControlSmall.jr .jr-isOff.jr .jr-mControl-button-label.jr:first-child,
+.jr-mControlSwitch.jr-mControlSmall.jr .jr-isOn.jr .jr-mControl-button-label.jr:last-child {
+  height: 16px;
+  width: 16px;
+}
+
+.jr-mControlSwitch.jr-mControlSmall.jr .jr-isOn.jr .jr-mControl-button-label.jr:first-child {
+  margin-right: 20px;
+  width: calc(100% - 20px);
+}
+
+.jr-mControlSwitch.jr-mControlSmall.jr .jr-isOff.jr .jr-mControl-button-label.jr:last-child {
+  margin-left: 20px;
+  width: calc(100% - 20px);
+}

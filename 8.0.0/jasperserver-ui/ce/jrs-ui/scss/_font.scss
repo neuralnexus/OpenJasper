@@ -1,0 +1,55 @@
+/* =============================================
+    FONT VARIABLES
+    Last modified date:     Sept 6, 2019
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+$font___base-size: 11px;
+$font___base-line: 24px;
+
+// new variables
+$font-family-primary: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+$font-family-semibold: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+$font-size-primary: 12px;
+
+// original variables
+$font-primary---family: Verdana, Arial, Helvetica, sans-serif;
+$font-primary---size: 11px;
+$font-primary---weight: normal;
+$font-primary---color: #555;
+
+// renamed original variables
+$font-family-system: Verdana, Arial, Helvetica, sans-serif;
+$font-size-system: 11px;
+$font-weight-system: normal;
+
+
+// FONT ~ function | @fontface declaration
+@mixin font-face-webfonts($font, $font-family, $file-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font;
+    src: url('#{$file-path}/#{$font-family}-webfont.eot');
+    src: url('#{$file-path}/#{$font-family}-webfont.eot?#iefix') format('embedded-opentype'),
+    url('#{$file-path}/#{$font-family}-webfont.woff') format('woff'),
+    url('#{$file-path}/#{$font-family}-webfont.ttf') format('truetype'),
+    url('#{$file-path}/#{$font-family}-webfont.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@mixin font-face($font, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font;
+    src:  font-url('#{$font}.woff') format('woff'),
+    font-url('#{$font}.ttf') format('ttf');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+
+// EM ~ function | convert Pixels to EM units
+@function em($target, $context: $font___base-size) {
+  @return round( ($target / $context)*1000 ) / 1000 * 1em;
+}

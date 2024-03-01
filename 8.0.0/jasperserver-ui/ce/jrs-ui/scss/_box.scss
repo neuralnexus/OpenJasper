@@ -1,0 +1,34 @@
+/* ========================================
+   LIST MODULE
+   Last modified date:     June 1, 2020
+   Last modified by:       Anna Leeg
+ * ======================================== */
+
+// -----------------------------------------------
+//  BOX COMPONENT FOR GENERAL USE
+//
+//  Usage:
+//
+//  1. Apply borders to jr-mBox
+//  2. Apply shading and overflow rules fo jr-mBox-content
+// -----------------------------------------------
+
+.jr-mBox.jr {
+  display: block;
+}
+
+.jr-mBoxBorder.jr {
+  // add border color with utility style
+  border-style: solid;
+  border-width: 1px;
+}
+
+.jr-mBoxFill.jr {
+  height: 100%;
+  width: 100%;
+}
+
+.jr-mBox-body.jr {
+  height: 100%;
+  width: 100%;
+}

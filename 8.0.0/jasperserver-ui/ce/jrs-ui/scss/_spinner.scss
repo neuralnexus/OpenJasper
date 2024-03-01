@@ -1,0 +1,67 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+   SPINNER MODULE
+   Last modified date:     April 27, 2017
+   Last modified by:       Anna Leeg
+ * ============================================ */
+
+// ------------------
+//  SPINNER MODULE
+// ------------------
+.jr-mSpinner.jr { // for dark colored backgrounds
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: $font-primary---size;
+    height: em(24px);
+    margin: em(-12px) 0px 0px em(-12px); //moves up and back by half its width so center positioning is precise
+    position: absolute;
+      top: 50%;
+      left: 50%;
+    width: em(24px);
+    z-index: $zindex-spinner;
+    @include anim_String(spin 1s infinite linear);
+
+    //IE animated .gif fallback, since css animation is not supported in IE
+    border:none\9 !important;
+    background:image-url("jr-loading_animation.gif") no-repeat -2px 0px\9;
+    background-size:120%;
+}
+
+// VARIATION FOR LIGHT-COLORED BACKGROUNDS
+.jr-mSpinnerPlain.jr {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #1388d8;
+}
+
+
+@include anim_Keyframes(spin){
+    100% {transform: rotate(360deg);}
+}
+
+
+//STATE
+.jr-mSpinner.jr-isHidden.jr {
+    display: none;
+}

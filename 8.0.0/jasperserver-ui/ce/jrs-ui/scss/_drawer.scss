@@ -1,0 +1,71 @@
+/* ========================================
+   LIST MODULE
+   Last modified date:     June 17, 2020
+   Last modified by:       Anna Leeg
+ * ======================================== */
+
+.jr-mDrawerContainer.jr {} /* not sure if we need this */
+
+
+.jr-mDrawer.jr {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-family: $font-family-primary;
+  font-size: 13px;
+}
+
+.jr-mDrawer-header.jr {
+  align-items: center;
+  background-color: #ebebeb;
+  display: flex;
+  height: 32px;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+
+.jr-mDrawer-headerShaded.jr {}
+
+.jr-mDrawer-header-title.jr {
+  color: $color-tciMedium;
+  flex: 1 1 auto;
+  font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+  font-size: 1.273em;
+  height: 100%;
+  line-height: 32px;
+  max-width: calc(100% - 1.571em);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jr-mDrawer-header-actions.jr {
+  flex: 0 1 auto;
+}
+
+.jr-mDrawer-body.jr {
+  background-color: #fff;
+  flex-grow: 1;
+  overflow-y: hidden;
+}
+
+.jr-mDrawer-bodyScroll.jr {
+  overflow-y: auto;
+}
+
+.jr-mDrawer-bodyPadded.jr {
+  padding: 30px;
+}
+
+.jr-mDrawer-footer.jr {
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  display: flex;
+  height: 40px;
+  min-height: 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 1em;
+}

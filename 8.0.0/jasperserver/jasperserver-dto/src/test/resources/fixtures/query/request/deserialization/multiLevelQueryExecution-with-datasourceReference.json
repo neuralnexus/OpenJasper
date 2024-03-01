@@ -1,0 +1,20 @@
+{
+  "dataSource": {
+    "reference": {
+        "uri": "/someDataSourceUri"
+      }
+  },
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "field": "newSet1.billing_address_postalcode"
+        },
+        {
+          "field": "newSet1.billing_address_city"
+        }
+      ]
+    },
+    "groupBy": []
+  }
+}

@@ -1,0 +1,186 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+   COMMON COMPONENT MIXINS
+   Last modified date:     May 8, 2019
+   Last modified by:       Anna Leeg
+ * ============================================ */
+
+@mixin page-title {
+  font-size: em(18px);            // new base font size
+  //height: em(38px, 18px);
+  line-height: 1.5;
+  margin-top: em(7px , 18px);
+  margin-left: em(11px, 18px);
+}
+
+@mixin input-label {
+  //line-height: 22px;
+  color: $grey-textMedium;
+  display: block;
+  line-height: 1.7em;
+}
+
+@mixin column {
+  position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+@mixin column-left {
+  left: 0;
+}
+
+@mixin column-right {
+  right: 0;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// TEXT, BASIC
+@mixin text-small {
+  font-size: em(10px);
+  line-height: 1.5;
+}
+
+@mixin text-medium {
+  font-size: 1em;
+  line-height: 1.545;
+}
+
+@mixin text-large {
+  font-size: em(12px);
+  line-height: 1.5;
+}
+
+@mixin text-xlarge {
+  font-size: em(14px);
+  line-height: 1.5;
+}
+
+// TEXT, TITLES
+@mixin text-title-xsmall {
+  font-size: em(14px);
+  line-height: 1.428;
+}
+
+@mixin text-title-small {
+  font-size: em(16px);
+  line-height: 1.375;
+}
+
+@mixin text-title-medium {
+  font-size: em(18px);
+  line-height: 1.333;
+}
+
+@mixin text-title-large {
+  font-size: em(20px);
+  line-height: 1.3;
+}
+
+@mixin text-title-xlarge {
+  font-size: em(24px);
+  line-height: 1.333;
+}
+
+
+
+// OPACITY ~ mixin
+@mixin opacity($num){
+  // IE 8
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{($num * 100)})";
+
+  // IE 5-7
+  filter: alpha(opacity=($num * 100));
+
+  // Netscape
+  -moz-opacity: $num;
+
+  // Safari 1.x
+  -khtml-opacity: $num;
+
+  // Good browsers
+  opacity: $num;
+}
+
+
+// USER SELECT ~ mixin
+@mixin user-select($option) {
+  -moz-user-select: -moz-#{$option};
+  -moz-user-select: $option;
+  -khtml-user-select: $option;
+  -webkit-user-select: $option;
+  -ms-user-select: $option;
+  user-select: $option;
+}
+
+
+// BORDER-BOX ~ mixin
+@mixin border-box {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+// TEXT-SIZE-ADJUST ~ mixin
+@mixin text-size-adjust ($size){
+  -ms-text-size-adjust: $size;
+  -webkit-text-size-adjust: $size;
+}
+
+
+
+// BORDER RADIUS ~ mixin
+// having problems with compiling it when it's a function
+@mixin border-radius($amount){
+  // Safari 3-4, iOS 1-3.2, Android 1.6-
+  -webkit-border-radius: $amount;
+  // Firefox 1-3.6
+  -moz-border-radius: $amount;
+  // Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+
+  border-radius: $amount;
+}
+
+
+// ANIMATION String ~ mixin
+@mixin anim_String($anim_String){
+  -webkit-animation: #{$anim_String};
+  -moz-animation: #{$anim_String};
+  -ms-animation: #{$anim_String};
+  animation: #{$anim_String};
+}
+
+// ANIMATION Keyframes ~ mixin
+@mixin anim_Keyframes($anim_Name){
+  @-webkit-keyframes #{$anim_Name} {@content;}
+  @-moz-keyframes #{$anim_Name} {@content;}
+  @-ms-keyframes #{$anim_Name} {@content;}
+  @keyframes #{$anim_Name} {@content;}
+}

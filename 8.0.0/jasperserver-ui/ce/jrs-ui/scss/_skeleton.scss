@@ -1,0 +1,213 @@
+/* ============================================
+    SKELETON LOADER
+    Last modified date:     Feb 12, 2020
+    Last modified by:       Anna Leeg
+ * ============================================ */
+
+.jr-mSkeletonContainer.jr {}
+
+
+// -------------------------
+//  BASE SKELETON MODULE
+// -------------------------
+.jr-mSkeleton.jr {}
+.jr-mSkeleton-header.jr {}
+.jr-mSkeleton-body.jr {}
+.jr-mSkeleton-row.jr {}
+
+.jr-mSkeleton-header-row.jr {
+  background-color: #e4e4e4; /* TODO change to #e4e4e4 in a project branch */
+}
+
+.jr-mSkeleton-header-cell.jr,
+.jr-mSkeleton-body-cell.jr {
+  border: 1px solid #d6d6d6; /* TODO change to #d6d6d6 in a project branch */
+  height: 24px;
+  padding: 0 10px;
+  vertical-align: middle;
+}
+
+.jr-mSkeleton-header-cell-label.jr,
+.jr-mSkeleton-header-cell-content.jr,
+.jr-mSkeleton-body-cell-label.jr,
+.jr-mSkeleton-body-cell-content.jr {
+  animation: pulse 1.5s linear infinite;
+  background-color: #e4e4e4; /* TODO change to #e4e4e4 in a project branch */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.12) 8%, rgba(0, 0, 0, 0.04) 16%);
+  background-attachment: fixed;
+  background-size: 120vw 100vh;
+  border-radius: 2px;
+  display: inline-block;
+  height: 8px;
+}
+
+.jr-mSkeleton-header-cell-label.jr,
+.jr-mSkeleton-header-cell-content.jr {
+  background-color: #cccccc; /* TODO change to #cccccc in a project branch */
+}
+
+// animation
+@keyframes pulse {
+  from {
+    background-position: 0 0;
+  }
+  40% {
+    background-position: 100vw 0;
+  }
+  to {
+    background-position: 100vw 0;
+  }
+}
+
+
+
+// MODULE VARIATION, Table
+.jr-mSkeletonTable.jr {
+  width: 100%
+}
+
+// columns
+.jr-mSkeletonTable.jr .jr-mSkeleton-column.jr:nth-of-type(1) {width:34%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-column.jr:nth-of-type(2) {width:24%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-column.jr:nth-of-type(3) {width:15%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-column.jr:nth-of-type(4) {width:15%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-column.jr:nth-of-type(5) {width:12%}
+
+// rows
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-row.jr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-row.jr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+// cells
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(1),
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(2),
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(3),
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(1),
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(2),
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(3) {
+  text-align: left;
+}
+
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(4),
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(5),
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(4),
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(5) {
+  text-align: right;
+}
+
+// cell content
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(1) .jr-mSkeleton-header-cell-content.jr {width: 85%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(2) .jr-mSkeleton-header-cell-content.jr {width: 40%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(3) .jr-mSkeleton-header-cell-content.jr {width: 60%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(4) .jr-mSkeleton-header-cell-content.jr {width: 60%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-header-cell.jr:nth-child(5) .jr-mSkeleton-header-cell-content.jr {width: 70%}
+
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(1) .jr-mSkeleton-body-cell-content.jr {width: 52%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(2) .jr-mSkeleton-body-cell-content.jr {width: 70%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(3) .jr-mSkeleton-body-cell-content.jr {width: 40%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(4) .jr-mSkeleton-body-cell-content.jr {width: 86%}
+.jr-mSkeletonTable.jr .jr-mSkeleton-body-cell.jr:nth-child(5) .jr-mSkeleton-body-cell-content.jr {width: 30%}
+
+
+
+// MODULE VARIATION, Crosstab
+.jr-mSkeletonCrosstab.jr {
+  width: 100%
+}
+
+// header
+.jr-mSkeletonCrosstab.jr .jr-mSkeleton-header-spacer.jr {
+  background-color: #ffffff;
+  border: none;
+}
+
+.jr-mSkeleton-header-rowColumnlabels.jr .jr-mSkeleton-header-cellLabel.jr  {text-align: center;}
+.jr-mSkeleton-header-rowGrouplabels.jr .jr-mSkeleton-header-cellLabel.jr   {text-align: left;}
+
+.jr-mSkeleton-header-row.jr:nth-child(1) .jr-mSkeleton-header-cell-content.jr  {width: 40%}
+.jr-mSkeleton-header-row.jr:nth-child(2) .jr-mSkeleton-header-cell-content.jr  {width: 60%}
+.jr-mSkeleton-header-rowGrouplabels.jr .jr-mSkeleton-header-cell-content.jr    {width: 90%}
+
+// body
+.jr-mSkeletonCrosstab.jr .jr-mSkeleton-body-cellValue.jr {
+  text-align: right;
+}
+
+.jr-mSkeleton-body-rowGroup.jr .jr-mSkeleton-body-cellLabel.jr:nth-child(1) {
+  padding-top: 2px;
+  vertical-align: top
+}
+
+.jr-mSkeleton-body-rowGroup.jr .jr-mSkeleton-body-cellLabel.jr,
+.jr-mSkeleton-body-rowMember.jr .jr-mSkeleton-body-cellLabel.jr {
+  text-align: left;
+}
+
+.jr-mSkeleton-body-rowGroup.jr .jr-mSkeleton-body-cellLabel.jr .jr-mSkeleton-body-cell-content.jr,
+.jr-mSkeleton-body-rowMember.jr .jr-mSkeleton-body-cellLabel.jr .jr-mSkeleton-body-cell-content.jr {
+  width: 70%;
+}
+
+.jr-mSkeletonCrosstab.jr .jr-mSkeleton-body-cell-content.jr {
+  width: 50%;
+}
+
+// rows
+.jr-mSkeletonCrosstab.jr .jr-mSkeleton-body-row.jr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.jr-mSkeletonCrosstab.jr .jr-mSkeleton-body-row.jr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+
+
+// MODULE VARIATION, Chart
+.jr-mSkeletonChart.jr {
+  width: 100%;
+  height: 100%;
+}
+
+.jr-mSkeleton-grid.jr {
+  width: 100%;
+  height: 100%;
+}
+
+.jr-mSkeleton-grid-line.jr {
+  width: 100%;
+  height: 20%;
+  border-bottom: 1px solid #d6d6d6; /* TODO change to #d6d6d6 in a project branch */
+}
+
+.jr-mSkeleton-grid-line.jr:nth-of-type(1) {
+  border-top: 1px solid #d6d6d6; /* TODO change to #d6d6d6 in a project branch */
+}
+
+.jr-mSkeleton-bars.jr {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+}
+
+.jr-mSkeleton-bars-bar.jr {
+  animation: pulse 1.5s linear infinite;
+  bottom: 1px;
+  background-color: #e4e4e4; /* TODO change to #e4e4e4 in a project branch */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.12) 8%, rgba(0, 0, 0, 0.04) 16%);
+  background-attachment: fixed;
+  background-size: 120vw 100vh;
+  position: absolute;
+  width: 10%;
+}
+
+.jr-mSkeleton-bars-bar.jr:nth-of-type(1) {height: 28%; left: 5%;}
+.jr-mSkeleton-bars-bar.jr:nth-of-type(2) {height: 55%; left: 25%;}
+.jr-mSkeleton-bars-bar.jr:nth-of-type(3) {height: 45%; left: 45%;}
+.jr-mSkeleton-bars-bar.jr:nth-of-type(4) {height: 70%; left: 65%;}
+.jr-mSkeleton-bars-bar.jr:nth-of-type(5) {height: 88%; left: 85%;}

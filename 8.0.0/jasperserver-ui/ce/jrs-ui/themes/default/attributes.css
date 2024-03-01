@@ -1,0 +1,500 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+/* --------------------------------------
+   TABLE OF CONTENTS
+
+    1. BASE STYLES
+       1a. Column-specific styles
+       1b. Edit mode
+
+    2. MANAGE ORGANIZATIONS AND USERS
+       2a. Shared styles
+       2b. Organizations
+       2c. Users
+       2d. Server attributes
+       2e. Restore defaults
+
+     3. MISCELLANEOUS/UNKNOWN
+  -----------------------------------
+    File last modified Jan 12, 2021
+  -----------------------------------  */
+
+
+/* ------------------------------------ */
+/*  01. BASE STYLES, ATTRIBUTES TABLE   */
+/* ------------------------------------ */
+.baseTable {
+    background-color: transparent;
+}
+
+.baseTable > .thead {
+    background-color: var(--background-grey-03);
+}
+
+.baseTable .table-row {
+    height: 100%;
+    width: 100%;
+}
+
+.baseTable .table-row:after {
+    /* clearfix */
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.baseTable .table-row.thead {
+    border-bottom: none;
+}
+
+.baseTable .tbody .table-row {
+    border-bottom: 1px solid var(--border-grey-10);
+}
+
+.baseTable .table-column {
+    float: left;
+    font-weight: normal;
+    height: 28px;
+    min-width: 50px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.baseTable .table-column .item {
+    line-height: 28px;
+}
+
+.baseTable > .thead .table-column {
+    border-bottom: 1px solid var(--border-grey-10);
+    text-overflow: ellipsis;
+}
+
+.baseTable .table-column p,
+.baseTable .table-column input,
+.baseTable .table-column select {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.baseTable .table-column p {
+    margin-bottom: 0;
+}
+
+.descriptionArea textarea {
+    margin-top: 5px;
+} /* I can't find any instances of this element */
+
+.baseTable .actionButtons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
+}
+
+.baseTable .button.simple.action.over,
+.baseTable .button.simple.action.pressed {
+    background-color: transparent;
+}
+
+.baseTable .error > .message.warning {
+    max-width: 310px;
+}
+
+.readOnly .addNewItem,
+.readOnly .actions,
+.readOnly .filtersContainer {
+    display: none;
+}
+
+.baseTableContainer .addNewItem {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-position: -31px -449px;
+    background-size: 80px;
+    color: var(--theme-medium-dark);
+    font-family: source_sans_prosemibold, Franklin Gothic, Verdana, Arial, sans-serif;
+    font-size: 13px;
+    left: 0;
+    margin: 13px;
+    padding-left: 18px;
+    position: absolute;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .baseTableContainer .addNewItem {
+        background-image: url("images/disclosure_indicators_icons_sprite@2x.png");
+    }
+}
+
+/*  ---------------------------  */
+/*  1a. Column-specific styles   */
+/*  ---------------------------  */
+.baseTable .table-column.actions button {
+    margin: 6px 0 0 4px;
+}
+
+.baseTable .thead .table-column.secure .item,
+.baseTable .table-column.name .item,
+.baseTable .table-column.value .item,
+.baseTable .table-column.inherited .item,
+.baseTable .table-column.permission .item,
+.baseTable .table-column.owner .item {
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.baseTable .table-column.secure .item {
+    text-align: center;
+}
+
+.baseTable .table-column.secure input {
+    display: block;
+    margin: 9px auto;
+}
+
+.baseTable .table-column.actions {
+    line-height: 0;
+    min-width: 60px;
+    position: absolute; /* prevents buttons from wrapping on narrow browser widths */
+    right: 3px;
+}
+
+.baseTable .table-column.permission {
+    padding: 0 5px;
+}
+
+.baseTable .table-column.permission .item {
+    margin: 0;
+}
+
+.baseTable .tbody .table-column.permission .item {
+    margin-top: 6px;
+}
+
+.baseTable .tbody .table-column.name .item p,
+.baseTable .tbody .table-column.value .item p {
+    white-space: pre;
+}
+
+/*  ---------------------------  */
+/*  1b. Edit mode   */
+/*  ---------------------------  */
+.baseTable .table-row > .editMode {
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.baseTable .editMode .firstInputGroup {
+    display: inline-block;
+    margin-bottom: 0;
+    min-height: 65px;
+    width: 100%;
+}
+
+.baseTable .editMode .name,
+.baseTable .editMode .value {
+    float: left;
+    margin-bottom: 0;
+    width: 50%;
+}
+
+.baseTable .editMode .name {
+    padding-right: 24px;
+}
+
+.baseTable .editMode .value {
+    padding-right: 0;
+}
+
+.baseTable .editMode .permission {
+    float: left;
+    height: 100%;
+    position: static;
+}
+
+.baseTable div.editMode label.descriptionArea {
+    width: 100%;
+}
+
+.baseTable .editMode .name input,
+.baseTable .editMode .value input,
+.baseTable .editMode .descriptionArea input {
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+.baseTable .editMode .permission select {
+    margin-right: 32px;
+    min-width: 110px;
+    width: auto;
+}
+
+.baseTable .editMode .secure {
+    float: left;
+    margin-top: 4px;
+    padding: 6px 0 0 0;
+    width: auto;
+}
+
+.tenant .baseTable .editMode .secure {
+    padding-top: 15px;
+}
+
+.baseTable .editMode .actions {
+    float: right;
+    margin-top: 12px;
+}
+
+.baseTable .editMode .secure input {
+    display: inline;
+    float: left;
+    left: 0;
+    margin: 0 5px 0 0;
+    position: relative;
+    top: 0;
+}
+
+.baseTable .editMode .secure .wrap {
+    display: block;
+    float: left;
+}
+
+
+/* ------------------------------------- */
+/*  02. MANAGE ORGANIZATIONS AND USERS   */
+/* ------------------------------------- */
+
+/*  ------------------  */
+/*  2a. Shared styles   */
+/*  ------------------  */
+.tenant > .baseTable ,
+.user > .baseTable {
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+    font-size: 13px;
+}
+
+.tenant > .baseTable > .thead,
+.user > .baseTable > .thead {
+    background-color: var(--background-grey-08);
+}
+
+.tenant > .baseTable .table-column,
+.user > .baseTable .table-column {
+    height: 32px;
+}
+
+.tenant .baseTable .table-column .item,
+.user .baseTable .table-column .item {
+    line-height: 32px;
+}
+
+.tenant .baseTable .actionButtons,
+.user .baseTable .actionButtons {
+    margin-right: 0;
+    width: 50px;
+}
+
+.attributesViewer .tenant,
+.attributesViewer .user {
+    border: 1px solid var(--border-grey-10);
+    border-bottom: none;
+    margin: -8px 10px 20px 10px;
+}
+
+.attributesViewer .baseTable .table-column.viewer .item {
+    text-align: left;
+}
+
+.attributesViewer .baseTable .tbody .table-column.secure.viewer .item {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.attributesDesigner .filtersContainer + .tenant,
+.attributesDesigner .filtersContainer + .user {
+    margin-top: 34px;
+}
+
+.filtersContainer {
+    background-color: var(--background-grey-08);
+    color: #666666;
+    font-family: source_sans_prosemibold, Franklin Gothic, Verdana, Arial, sans-serif;
+    height: 32px;
+    margin: 0;
+    padding-top: 7px;
+    padding-left: 6px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.filtersContainer span {
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.filtersContainer .filterItems {
+    display: inline-block;
+    margin-top: 0;
+    width: auto;
+}
+
+/*  ------------------  */
+/*  2b. Organizations   */
+/*  ------------------  */
+.tenant .table-column.name,
+.tenant .table-column.value,
+.tenant .table-column.permission {
+    width: 20%;
+}
+
+.tenant .table-column.secure {
+    width: 15%;
+}
+
+.tenant .table-column.inherited {
+    width: 13%;
+}
+
+.tenant .table-column.actions {
+    width: 12%;
+}
+
+.attributesViewer .tenant .table-column.name.viewer,
+.attributesViewer .tenant .table-column.value.viewer {
+    width: 23%;
+}
+
+.attributesViewer .tenant .table-column.permission.viewer {
+    width: 25%;
+}
+
+/*  -----------  */
+/*  2c. Users    */
+/*  -----------  */
+.user .table-column.name {
+    width: 30%;
+}
+
+.user .table-column.value {
+    width: 25%;
+}
+
+.user .table-column.secure {
+    text-align: center;
+    width: 15%;
+}
+
+.user .table-column.inherited {
+    width: 17%;
+}
+
+.user .table-column.actions {
+    width: 13%;
+}
+
+.attributesViewer .user .table-column.value.viewer {
+    width: 30%;
+}
+
+.attributesViewer .user .table-column.secure.viewer {
+    width: 20%
+}
+
+.attributesViewer .user .table-column.inherited.viewer {
+    width: 20%;
+}
+
+/*  ----------------------  */
+/*  2d. Server attributes   */
+/*  ----------------------  */
+#serverAttributes #settings {
+    min-width: 675px;
+}
+
+.server .table-column.name {
+    width: 30%;
+}
+
+.server .table-column.value {
+    width: 30%;
+}
+
+.server .table-column.secure {
+    width: 15%;
+}
+
+.server .table-column.permission {
+    width: 15%;
+}
+
+.server .table-column.inherited,
+.server .table-column.actions {
+    width: 10%;
+}
+
+.server .editMode .secure {
+    padding-top: 16px;
+}
+
+/*  ---------------------  */
+/*  2e. Restore defaults   */
+/*  ---------------------  */
+.resetSettingsTable .table-row .table-column.name,
+.resetSettingsTable .table-row .table-column.value {
+    width: 45%;
+}
+
+.resetSettingsTable .table-row .table-column.actions {
+    width: 10%;
+}
+
+.resetSettingsTable .actionButtons {
+    width: 28px;
+}
+
+
+/* ---------------------------- */
+/*  03. MISCELLANEOUS/UNKNOWN   */
+/* ---------------------------- */
+.emptyTemplateMessage {
+    margin-top: -5px;
+    margin-left: 20px;
+}
+
+.confirmationDialog .subcontainer {
+    word-wrap: break-word;
+}
+
+.confirmationDialog .welcome {
+    word-wrap: break-word;
+}
+
+.tooltip p.message {
+    max-width: 500px;
+    white-space: pre;
+    word-wrap: break-word;
+}  /* I think this can be deleted */

@@ -1,0 +1,183 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    ICON MODULE STYLESHEET
+    Last change date:    August 30, 2019
+    Last changed by:     Anna Leeg
+ * ============================================= */
+
+// -------------------
+// ICON MODULE
+// -------------------
+
+//Include icons classes generated from image files
+@import "icons";
+
+// override generated paths with our configuration
+@include font-face("icons", "normal", "normal");
+
+.jr-mIcon.jr {
+    color: $color-textMedium;
+    font-size: 18px;          // new base font size
+    height: em(26px, 18px);
+    line-height: (26px / 18px);
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+/*  NOT YET IN USE
+.jr-mIconXXsmall.jr {
+    font-size: 8px;
+    height: em(12px, 8px);
+    line-height: (12px / 8px);
+  }
+
+  .jr-mIconXSmall.jr {
+    font-size: 11px;
+    height: em(16px, 11px);
+    line-height: (16px / 11px);
+  }
+*/
+
+.jr-mIconSmall.jr {
+    font-size: 14px;           // new base font size
+    height: em(20px, 14px);
+    line-height: (20px / 14px);
+}
+
+.jr-mIconLarge.jr {
+    font-size: 24px;          // new base font size
+    height: em(34px, 24px);
+    line-height: (34px / 24px);
+}
+
+.jr-mIconXLarge.jr {
+  font-size: 30px;          // new base font size
+  height: em(40px, 30px);
+  line-height: (40px / 30px);
+}
+
+.jr-mIconXXLarge.jr {
+  font-size: 36px;          // new base font size
+  height: em(44px, 36px);
+  line-height: (44px / 36px);
+}
+
+.jr-mIconJumbo.jr {
+  font-size: 42px;          // new base font size
+  height: em(50px, 42px);
+  line-height: (50px / 42px);
+}
+
+.jr-mIcon.jr-isHidden.jr {
+    display: none;
+}
+
+
+// STATES and COLORED ICONS
+.jr-mIconInverted.jr {
+  color:#fff !important;
+}
+
+.jr-mIconTheme.jr {
+  color: $color-textThemePrimary;
+}
+
+
+// ------------------------
+// ICONS | specific styles
+// ------------------------
+
+// JOIN: background line loop
+.jr-joinFull:after,
+.jr-joinInner:after,
+.jr-joinLeft:after,
+.jr-joinRight:after {
+  content: "\f127";
+  position: absolute;
+  left: 0;
+}
+
+// JOIN: fill color
+.jr-joinFull:before,
+.jr-joinInner:before,
+.jr-joinLeft:before,
+.jr-joinRight:before {
+  color:#c5c3c3;
+}
+
+.jr-mIconInverted.jr-joinFull:before,
+.jr-mIconInverted.jr-joinInner:before,
+.jr-mIconInverted.jr-joinLeft:before,
+.jr-mIconInverted.jr-joinRight:before {
+  color: #c5c3c3;
+  color: rgba(255,255,255,0.3);
+}
+
+
+// ANIMATED LOADING ICON
+.jr-mIcon.jr-loading.jr {
+    //border: solid #ddd;
+    //border-top-color: #888;
+
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #1388d8;
+    border-width: 4px;
+    height: 1em;
+    width: 1em;
+    @include anim_String(spin 1s infinite linear);
+
+    //IE animated .gif fallback, since css animation is not supported in IE
+    border:none\9 !important;
+    background:image-url("jr-loading_animation.gif") no-repeat -2px 0px\9;
+    background-size:120%;
+}
+
+@include anim_Keyframes(spin){
+    100% {transform: rotate(360deg);}
+}
+
+// colors
+.jr-mIconInverted.jr-loading.jr {
+    border: #80bbe4 solid 4px;
+    border-top-color: white;
+}
+
+.jr-mIconTheme.jr-loading.jr {
+  border: #80bbe4 solid 4px;
+  border-top-color: white;
+}
+
+// sizes
+.jr-mIcon.jr-mIconSmall.jr-loading.jr {
+  font-size: 14px !important;
+}
+
+.jr-mIcon.jr-mIconMedium.jr-loading.jr {
+  font-size: 18px !important;
+}
+
+.jr-mIcon.jr-mIconLarge.jr-loading.jr {
+  font-size: 24px !important;
+}

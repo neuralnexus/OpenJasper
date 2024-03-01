@@ -1,0 +1,22 @@
+{
+  "name": "name",
+  "sourceName": "sourcingName",
+  "elements": [
+    {
+      "queryGroup": {}
+    },
+    {
+      "queryGroup": {
+        "name": "name"
+      }
+    }
+  ],
+  "filterExpression": {
+    "object": {
+      "string": {
+        "value": "filterExpression"
+      }
+    }
+  },
+  "kind": "kind"
+}

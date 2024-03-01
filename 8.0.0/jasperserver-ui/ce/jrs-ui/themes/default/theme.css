@@ -1,0 +1,1059 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* --------------------------------------
+   TABLE OF CONTENTS
+
+    1. VARIABLES
+       1a. colors
+
+    2. FONTS
+
+    3. BRANDING LOGO
+
+    4. HTML ELEMENTS
+
+    5. TYPOGRAPHY
+       5a. sizes/styling
+       5b. colors
+
+    6. UTILITY
+
+    7. MISCELLANEOUS
+
+    8. ACCESSIBILITY
+
+    9. JIF SCRIPTING CLASSES
+
+   -----------------------------------
+    File last modified Jan 19, 2021
+   -----------------------------------  */
+
+/* ----------------- */
+/*  1. VARIABLES     */
+/* ----------------- */
+/*  1a. colors       */
+/* ----------------- */
+:root{
+    --theme-light:          #e0f0f9;
+    --theme-medium-light:   #0081cb;
+    --theme-medium-dark:    #055dab;
+    --theme-dark:           #062e79;
+
+    --adhoc-field:          #4cbcdb;
+    --adhoc-field-text:     #0295bd;
+    --adhoc-measure-light:  #c9e696;
+    --adhoc-measure-dark:   #83af35;
+    --adhoc-measure-text:   #5e8c08;
+
+    --background-white:     #ffffff;
+    --background-grey-02:   #fafafa;
+    --background-grey-03:   #f7f7f7;
+    --background-grey-04:   #f4f4f4;
+    --background-grey-08:   #ebebeb;
+    --background-grey-10:   #e4e4e4;
+    --background-grey-16:   #d6d6d6;
+    --background-grey-20:   #cccccc;
+    --background-grey-29:   #b5b5b5;
+    --background-grey-40:   #999999;
+
+    --border-white:         #ffffff;
+    --border-grey-06:       #f0f0f0;
+    --border-grey-10:       #e4e4e4;
+    --border-grey-13:       #dedede;
+    --border-grey-16:       #d6d6d6;
+    --border-grey-20:       #cccccc;
+    --border-grey-29:       #b5b5b5;
+    --border-grey-40:       #999999;
+    --border-grey-60:       #666666;
+
+}
+
+
+
+/* ------------- */
+/*  2. FONTS     */
+/* ------------- */
+/* Formats woff and woff2 generated from Font Squirrel */
+/* Formats ttf are from TIBCO UXPL, renamed to lower-case */
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+    url('fonts/sourcesanspro-regular-webfont.woff') format('woff');
+    url('fonts/sourcesanspro-regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source_sans_prosemibold';
+    src: url('fonts/sourcesanspro-semibold-webfont.woff2') format('woff2'),
+    url('fonts/sourcesanspro-semibold-webfont.woff') format('woff');
+    url('fonts/sourcesanspro-semibold.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source_sans_probold';
+    src: url('fonts/sourcesanspro-bold-webfont.woff2') format('woff2'),
+    url('fonts/sourcesanspro-bold-webfont.woff') format('woff');
+    url('fonts/sourcesanspro-bold.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* ------------------- */
+/*  3. BRANDING LOGO   */
+/* ------------------- */
+#logo {
+    background-image: url(images/logo_reverse.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 0 0;
+    background-size: contain;
+    border: none;
+    height: 23px;
+    width: 200px;
+    margin: 9px 4px 0 8px;
+}
+
+
+
+/* ------------------- */
+/*  4. HTML ELEMENTS   */
+/* ------------------- */
+html,
+body {
+    height: 100%;
+	width: 100%;
+}
+
+body {
+	overflow-x: hidden;
+	position: relative;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation: portrait) {
+	body {
+		min-width:768px;
+	}
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+	font-weight: bold;
+}
+
+h1 {
+    font-size: 18px;
+    line-height: 1.818em;
+	margin-bottom: 1.3em;
+}
+
+h2 {
+    font-size: 16px;
+    line-height: 1.636em;
+	margin-bottom: 0.7em;
+}
+
+h3 {
+    font-size: 12px;
+    line-height: 1.272em;
+    margin-bottom: 0.7em;
+}
+
+h4 {
+    margin-bottom: 0.7em;
+}
+
+h5 {
+    font-size: 10px;
+    line-height: 1.091em;
+    margin-bottom: 0.5em;
+}
+
+h6 {
+    font-size: 9px;
+    margin-bottom: 0.5em;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+a {
+	color: inherit;
+    cursor: pointer;
+	text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+
+a.disabled,
+a.disabled:hover,
+a.disabled.over,
+a.disabled:active,
+a.disabled.pressed {
+	cursor: default;
+	text-decoration: none;
+}
+
+.selected a:focus,
+.selected a:hover,
+.selected a.over,
+.selected a:active,
+.selected a.pressed {
+	color: inherit;
+}
+
+address	{
+    font-style: italic;
+	margin: 0 0 1.5em;
+}
+
+del {
+	color: #666;
+}
+
+pre {
+	margin: 1.5em 0;
+	white-space: pre;
+}
+
+pre,
+code,
+tt {
+	font: 1em 'andale mono', 'lucida console', monospace;
+	line-height: 1.5;
+}
+
+
+
+.dimmer {
+	filter: alpha(opacity=60);
+}
+
+.msshadow {
+	filter:
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=0, Color='#7d7d7d'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=45, Color='#7d7d7d'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#7d7d7d'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#7d7d7d'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#7d7d7d'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=225, Color='#7d7d7d'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=270, Color='#7d7d7d'),
+		progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=315, Color='#7d7d7d');
+} /* can we delete this? */
+
+
+
+/* -------------------- */
+/*  5. TYPOGRAPHY       */
+/* -------------------- */
+/*  5a. sizes/styling   */
+/* -------------------- */
+ body,
+ textarea,
+ input,
+ select,
+.body,
+.title > .path,
+.default,
+.message,
+.message.warning {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 1.182em;
+}
+
+
+.data.table .caption,
+.larger,
+.wrapper.table .caption {
+	font-size: 16px;
+	line-height: 1.636em;
+}
+
+ul.decorated,
+#calculatedField .operator,
+.fsection,
+.large,
+.list.settings .node>.wrap .title,
+.menu,
+.searchLockup>input {
+	font-size: 12px;
+	line-height: 1.272em;
+}
+
+.pane.filter .message,
+.panel.widget .title,
+.small {
+	font-size: 10px;
+	line-height: 1.091em;
+}
+
+.control.path .last,
+.emphasis,
+.list p.ID,
+.overlay .group .header,
+#reportContainer a,
+.title,
+.wrapper.table .caption .placeholder {
+	font-weight: bold;
+}
+
+/* Ensure links in lists receive underlines when the cursor is over them. */
+.list.resources .cursor p.resourceName a {
+    text-decoration: underline;
+}
+
+#reportContainer .inputControls a {
+    font-weight: normal;
+}
+
+/* -------------- */
+/*  5b. colors    */
+/* -------------- */
+/* .white */
+.palette01,
+.button.action.over,
+.button.up.over,
+.button.up.primary.over,
+.button.up.pressed,
+.button.up.primary.pressed,
+.button.down.over,
+.button.down.pressed,
+.button.capsule.down.over,
+.button.capsule.down.pressed,
+.button.capsule.superfocus.subfocus:hover,
+#loginPage #rotating .list.decorated,
+#loginPage .launcher,
+.menu .wrap.over,
+.menu .wrap.pressed,
+.button.up.primary,
+.menu.primaryNav .up,
+.menu.primaryNav .wrap,
+.menu.primaryNav .up.over,
+.menu.primaryNav .up.pressed,
+.menu.primaryNav .wrap.over,
+.menu.primaryNav .wrap.pressed,
+.tabSet.buttons.vertical .button,
+.tabSet.buttons .selected .button,
+.tabSet.buttons .button.over,
+#metaLinks li,
+#metaLinks a,
+#metaLinks a:hover,
+#metaLinks a:active,
+#messageList .leaf.selected .column p,
+#selectedSubDataSourcesList .leaf.selected .dataSourceName,
+.list.collapsible > li > .selected > .wrap,
+.list.filters > .leaf > .wrap.pressed,
+.list.type_basic .wrap.pressed > .jrbookmark,
+.selected>.wrap .launcher,
+.selected>.wrap .resourceName,
+.selected>.wrap .resourceDescription,
+.selected>.wrap .resourcePath,
+.pressed .resourceName,
+.pressed .resourceDescription,
+.pressed .resourcePath,
+.list.collapsible > li > .wrap.pressed,
+.list.collapsible .selected > .wrap,
+.list.resources .selected p.resourceName,
+#entitiesList .leaf.selected > .wrap,
+#entitiesList .leaf .wrap.pressed,
+#entitiesList .leaf.selected .ID,
+.authorityPicker .selected,
+.authorityPicker .highlighted.selected,
+.workflow-buttonContainer .button,
+#joinsList .leaf.selected > .wrap {
+	color: #fff;
+}
+
+.palette02,
+.node.readonly > .wrap {
+	color: #E0E0E0;
+}
+
+/* .gray20 */
+.palette03,
+.button.action.checking,
+.button.action.checking.over,
+.button.action.checking.pressed,
+.disabled,
+.button.disabled,
+[disabled],
+.button[disabled],
+.button.primary[disabled] {
+	color: #aaa;
+}
+
+/* .gray40 */
+.control.path,
+.filters .fieldName,
+.filters .condition,
+.hint,
+.horizontal,
+.palette04,
+.sub.header,
+.tabSet.buttons .disabled .button {
+	color: #999;
+}
+
+/* .gray60 */
+.palette05,
+label,
+legend,
+legend.label > .wrap,
+ul.decorated,
+#addResource_locateDataSource #newDataSourceLink.disabled,
+#addResource_locateQuery #newQueryLink.disabled,
+#addResource_inputControl_information .list.twoColumn > .node > .wrap,
+.attributesDesigner .baseTable,
+.attributesViewer .baseTable,
+.attributesTable > .thead .table-column,
+.attributesTable > .tbody .table-row,
+.button,
+.button.action.pressed,
+.control > .wrap,
+.control.path > .step.last > .wrap,
+.control.path > .step.last > .wrap.over,
+.control.path > .step.last > .wrap.pressed,
+#entitiesList .leaf > .wrap,
+.foundItem,
+.group legend.label,
+.header,
+.label,
+.label.wrap,
+.list.collapsible > li > .header.wrap,
+.list.inputSet,
+.list.settings .node > .wrap .title,
+.list.twoColumn > .node > .wrap,
+.LogCollectors .collectorsList tr td,
+.manager .entities.header > .leaf > .wrap,
+#messageDetail .message .label .wrap,
+#messageListHeader .leaf p,
+#messageList .leaf .wrap,
+#metaLinks,
+.resourceBlock .fileType,
+#resultsContainer p:not(.resourceName),
+#resultsListHeader h3,
+#resultsListHeader p,
+#results .resourceType,
+#serverError h3,
+.tabSet.text > .tab > .wrap,
+.tabSet.text > .tab > .wrap.over,
+.tabSet.text > .label > .wrap,
+.tabular,
+.workflow-description,
+.workflow-description a:link,
+.workflow-description a:visited,
+.workflow-description a:active {
+	color: #666;
+}
+
+/* .gray80 */
+.palette06,
+body,
+*[readonly=readonly],
+.group > legend,
+.menu li,
+.title > .path {
+	color: #333;
+}
+
+.list.settings .node > .wrap .title {
+	color: #444;
+}
+
+/* .black */
+.palette07 {
+	color: #000;
+}
+
+/* selection colors */
+.palette08,
+.button.action.primary.disabled,
+.button.action.primary[disabled],
+.tabSet.buttons.vertical [disabled] {
+	color: #80b3df;
+}
+
+/* .sky */
+.palette09 {
+	color: #4698be;
+}
+
+.palette10,
+a#about:active,
+#metaLinks a:active {
+	color: #8CD9FE;
+}
+
+
+/* theme medium-dark blue */
+.palette11,
+.column.decorated.minimized .vtitle,
+.content .header > .title,
+.flow #stepDisplay .column.primary .header .title,
+.flow #stepDisplay .column.secondary .header .title,
+.fsection,
+.homeSidebar-title,
+.launcher,
+.list.filters > li.selected>.wrap,
+.list.filters > li.selected>.wrap.pressed,
+.list.filters > li.selected>.wrap .launcher,
+.list.settings .panel.pane.settings .header > .title,
+.list.stepIndicator .selected>.wrap,
+.list.type_basic .wrap a,
+#loginPage #metaLinks li,
+#loginPage #metaLinks a,
+#loginPage #metaLinks a:hover,
+#loginPage #metaLinks a:active,
+#needHelp,
+.panel.info.system .message,
+.plusminus .node > .wrap > .jrbookmark,
+#reportContainer a,
+.resourceBlock a:link,
+.resourceBlock a:visited,
+.resourceBlock a:hover,
+.resourceBlock a:active,
+.resourceBlock-title,
+.resourceName,
+#scheduler_editor #stepDisplay > fieldset > legend,
+.tabSet.horizontal.buttons .selected > .button > .wrap,
+.tabSet.horizontal.buttons .button.over,
+.tabSet.horizontal.buttons .button.pressed,
+.textAccent02,
+.tabSet.text .selected.tab > .wrap,
+.tabSet.text .selected.tab > .wrap.over,
+.tabSet.text .selected.tab > .wrap.pressed,
+.workflow-title,
+.workflow-description a:hover {
+    color: #055dab;
+}
+
+/* theme dark blue */
+#manage_orgs .column.tabbed .tabs .tab.selected .wrap,
+#manage_users .column.tabbed .tabs .tab.selected .wrap {
+    color: #062e79;
+}
+
+#reportContainer .inputControls a {
+    color: inherit;
+}
+
+/* .cerulean */
+.palette12,
+a:active,
+.control.path .step .wrap.pressed,
+#reportContainer a:active,
+.tabSet.text >.tab > .wrap.pressed {
+	color: #0061a2;
+}
+
+/* .orange */
+.palette13,
+.textAccent {
+	color: #fc870e;
+}
+
+/* .orange2 */
+.palette14,
+#needHelp:active {
+	color: #fb5b0d;
+}
+
+/* .orange3 */
+.palette15,
+.button.capsule.down {
+	color: #7a3e10;
+}
+
+/* .orange4 */
+.palette16,
+.button.capsule.down.disabled,
+.button.capsule.down[disabled],
+.resourcePath {
+	color: #dc5717;
+}
+
+/* .red */
+.palette17,
+.warning,
+.errorMessage,
+.invalid>.wrap,
+.error>.message.warning a.details:active {
+	/* color: #f00; */
+    color: #d81e29;  /* NEW 2020 */
+}
+
+/* green */
+.palette18,
+.notification.success>.message.warning,
+.success {
+    /* color: #4eae00; */
+    color: #7a9f35; /* NEW 2020 */
+}
+
+.palette01_bkgd {background-color:#fff;}
+.palette02_bkgd {background-color:#e0e0e0;}
+.palette03_bkgd {background-color:#ccc;}
+.palette04_bkgd {background-color:#999;}
+.palette05_bkgd {background-color:#666;}
+.palette06_bkgd {background-color:#333;}
+.palette07_bkgd {background-color:#000;}
+.palette08_bkgd {background-color:#43B9F9;}
+.palette09_bkgd {background-color:#4698be;}
+.palette10_bkgd {background-color:#8CD9FE;}
+.palette11_bkgd {background-color:#217EB5;}
+.palette12_bkgd {background-color:#0061a2;}
+.palette13_bkgd {background-color:#FC870E;}
+.palette14_bkgd {background-color:#FB5B0D;}
+.palette15_bkgd {background-color:#7A3E10;}
+.palette16_bkgd {background-color:#DC5717;}
+.palette17_bkgd {background-color:#f00;}
+.transparent {background-color: transparent;}
+
+
+
+
+/* --------------- */
+/*  6. UTILITY     */
+/* --------------- */
+.offLeft, .offLeft span,.wrap.offLeft,.wrap.header.offLeft {
+    /* hide, but leave it available to screen reader */
+	position: absolute !important;
+	left: -9999px;
+	width:9999px;
+	z-index: -5;
+}
+
+.centering {
+    /* only centers if object has explicit width */
+	margin:0 auto;
+	position:relative;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+/* -------------------- */
+/*  7. MISCELLANEOUS    */
+/* -------------------- */
+#systemConfirm {
+	position: absolute;
+	top: 10px;
+    right: 220px;
+	left: 500px;
+	z-index: 5;
+}
+
+.dimmer {
+	position: absolute;
+	top: 0;
+    right: 0;
+    bottom: 0;
+	left: 0;
+	background-color: #000;
+	opacity: .6;
+}
+
+.dimmer.fixed {
+	position: fixed;
+	z-index: 4999;
+}
+
+#userCountExceeded {
+	position: absolute;
+	top: 14px;
+	left: 470px;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+input[type=password]::-ms-reveal {
+    display: none;
+}
+
+.clear {
+    clear: both;
+    height: 1px!important;
+    line-height: 1px!important;
+    overflow: hidden!important;
+}
+
+
+
+/* -------------------- */
+/*  8. ACCESSIBILITY    */
+/* -------------------- */
+/* Standard Navigation classes and styles
+ *
+ * The Standard Navigation accessibility system (StdNav) provides some special
+ * CSS class to augment the normal ":focus" pseudoclass available to track
+ * browser focus.  By default, only the familiar dashed-line ":focus" indicator
+ * is used.  This focus indication is as per W3C recommendations, and is
+ * generally expected by users.
+ *
+ * However, additional classes are available as well, and are described below.
+ * If you wish to use these, you should start by using and modifying the "Easy
+ * Access" theme, or a copy of it.
+ *
+ * ==========================================================================
+ * superfocus   A class given to exactly one element in the page at all times
+ *              to indicate which major UI region is the user's current "area
+ *              of interest".  This will generally either be, or contain, the
+ *              browser focus, but will generally be broader than browser
+ *              focus.  Jaspersoft extension.
+ *
+ * :focus       The normal browser focus metaclass.  However, for reasons of
+ *              accessibility and navigation, be aware that focus can and will
+ *              be set on items that TEMPORARILY have a valid tabindex, but
+ *              will not necessarily retain it after navigation (such as an
+ *              individual table cell).  Note that when a user is using pure
+ *              keyboard navigation, there will be times when NO element in the
+ *              page has :focus because the user is tabbing through browser
+ *              toolbars, etc.  For screen readers, this is the element whose
+ *              content we want to be read, and whose navigation details we
+ *              expect to be relayed.
+ *
+ * subfocus     Fine navigation focus.  Normally, this is applied to the same
+ *              element as :focus, but if it is necessary to indicate position
+ *              within the child subdom of an element without moving browser
+ *              focus to those elements, subfocus may be changed instead.  In
+ *              any case, subfocus must always be set correctly, even if it
+ *              is simply to the same element that has :focus.  Jaspersoft
+ *              extension.
+ *
+ * ghostfocus - Whenever a major UI region has superfocus, either it or a child
+ *              element must have browser TAB focus and StdNav subfocus.  When
+ *              superfocus moves to another major UI region-- for example, when
+ *              the user presses TAB-- subfocus is replaced by ghostfocus in
+ *              the de-focused region.  Likewise, if an element in the newly
+ *              superfocused region has ghostfocus, that is replaced by
+ *              subfocus.  Finally, the browser is explicitly focused to the
+ *              new subfocus (the old ghostfocus, if there was one, or a
+ *              sensible default for the region).  This functionality allows a
+ *              user to tab back and force between grids, tables, lists, and
+ *              other complex controls without losing their place.  Jaspersoft
+ *              extension, and not in use by all control types.
+ */
+.superfocus {}
+
+/*
+:focus {
+    outline: 1px dotted royalblue;
+}
+*/
+
+/*
+.folders.node.selected:focus,
+.folders.node.open:focus,
+.list.collapsible.superfocus {
+    outline: none;
+}
+*/
+
+/*
+input[type="text"]:focus,
+input[type="password"]:focus,
+button.action:focus,
+#loginPage #metaLinks:focus {
+    outline: 2px dotted orange;
+}
+*/
+
+#metaLinks li.subfocus:not(select) {
+    background-color: #055dab;
+}
+
+/* #searchInput:focus {
+    outline: 2px dotted orange;
+    margin-top: 2px;
+    margin-left: 2px;
+    height: 18px;
+    width: 170px;
+} */
+
+.subfocus {
+}
+
+/* button focus */
+.button.action.pressed.subfocus {
+	outline: none;
+}
+
+.buttonIconToggle.isOpen:focus {
+	background-position: -48px -1004px;
+}
+
+.buttonIconToggle.isClosed:focus {
+	background-position: -80px -1008px;
+}
+
+.resourceBlock .fileName.subfocus a {
+	 text-decoration: underline;
+ }
+
+.resourceBlock li.subfocus a {
+	text-decoration: underline;
+}
+
+.workflow-description a.superfocus.subfocus {
+	color: #195b8a;
+}
+
+.workflow-buttonContainer .button.superfocus.subfocus {
+	text-decoration: underline;
+}
+
+#rotating li[role="link"]:focus {
+	text-decoration: underline;
+}
+
+#loginPage #metaLinks li.subfocus:not(select) {
+	background-color: #fff;
+	text-decoration: underline;
+}
+
+/* control focus */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+	select:focus {
+		outline: 2px solid #9dccfd
+	}
+}
+
+
+
+
+
+/* --------------------------- */
+/*  9. JIF SCRIPTING CLASSES   */
+/* --------------------------- */
+/*
+Scripting classes represent a kind of API for the JIF interactive and layout logic.
+
+Some of the selectors in this group are used as flags for the framework interactive logic to embue
+objects with specific behavior or layout.
+
+Others are the selectors that are assigned to objects automatically.
+*/
+
+.centered_horz {
+    /* note: any object assigned this class will
+    automatically be assigned margin-left: -(this.width/2)
+    */
+    position: absolute;
+}
+
+.centered_vert {
+    /* note: any object assigned this class will
+    automatically be assigned margin-top: -(this.height/2)
+    */
+    position: absolute;
+}
+
+.sizer {
+    /* an object with this class can be dragged to size
+       its parent only if the parent has class .sizeable
+    */
+}
+
+.sizeable {
+    /* an object with this class can be resized only
+       if it contains a child with class .sizer
+    */
+}
+
+.mover {
+    /* an object with this class can be dragged to move
+       its parent only if the parent has class .moveable
+    */
+    cursor: move;
+}
+
+.moveable {
+    /* an object with this class can be dragged only if it has a
+       child with class .moveable upon which a mouseMove event occurs
+    */
+}
+
+.draggable {
+    /* an object with this class can be dragged directly
+    */
+}
+
+.wrap.dragging,
+.overlay.col.dragging,
+.overlay.group.dragging,
+.overlay.xtab.gr.dragging,
+.overlay.xtab.m.dragging,
+.overlay.legend.dragging,
+.dragMultiple.dragging .wrap {
+    /* an object being dragged gets the .dragging class applied */
+    background-color: #0081cb !important;
+    border: none !important;
+    border-radius: 3px;
+    color: #fff !important;
+    cursor: hand !important;
+    float: left;
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    margin: 3px 2% 0 2px;
+    opacity: .8 !important;
+    padding: 0 8px;
+    width: auto !important;
+}
+
+.copy {
+    cursor:url("images/cursor_copy.cur"), default !important;
+}
+
+.copy .dropTarget {
+    cursor:url("images/cursor_copy.cur"), default !important;
+}
+
+.dropTarget {
+    /* an object that is a valid drop target during a drag gets
+       this class applied when the dragged object is on top of it
+    */
+    background-color: #A9CADD !important;
+}
+
+.button {
+    /* an object with this class will have its class attribute modified by mouse events:
+        - onMouseOver, .over added
+        - onMouseDown, .over removed, .pressed added
+        - onMouseOut, .over || .pressed removed
+       in addition, onMouseUp will trigger a generic event for the object caught by the buttonHandler
+    */
+}
+
+.over {
+    /* added to the class attribute of element.button onMouseOver
+    */
+}
+
+.pressed {
+    /* added to the class attribute of element.button onMouseDown
+    */
+}
+
+.noBubble {
+    /* an object with this class will get mouse events,
+       but will not permit those eventsto bubble up the DOM
+    */
+}
+
+.button.toggle {
+    /* this element will always have either class attribute .up or .down
+       value switched onMouseUp
+    */
+}
+
+.up {
+    /* assigned automatically to .button.toggle
+    */
+}
+
+.down {
+    /* assigned automatically to .button.toggle
+    */
+}
+
+.button.minimize {
+    /* a special button understood to toggle the visible state of its
+       parent container from a regular size to a .minimized state
+    */
+}
+
+.minimized {
+    /* assigned or removed from a container by a mouseUp
+       on the container's .button.minimize child
+    */
+}
+
+.node {
+    /* a list element understood to be a parent of another list; always
+       has either .open or .closed as part of its class attribute
+    */
+}
+
+.open {
+    /* assigned automatically to li.node
+    */
+}
+
+.closed {
+    /* assigned automatically to li.node
+    */
+}
+
+.leaf {
+    /* a list element that does not contain another list
+    */
+}
+
+.selected {
+    /* assigned to the currently selected list element
+    */
+}
+
+.editMode {
+    /* assigned automatically to forms based on a user event, this flag is then
+       used to conditionally hide or show form objects as appropriate
+    */
+}
+
+.hidden {
+    /* rather than set the display value inline, scripts use this
+       selector to hide or show objects based on user events
+    */
+    display: none !important;
+}
+
+.resizeOverlay {
+    /* covers resizable panel during resizing to prevent panel's elements events */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

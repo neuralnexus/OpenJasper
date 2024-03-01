@@ -1,0 +1,9 @@
+{
+  "name": "name",
+  "value": "value",
+  "description": "description",
+  "permissionMask": 23,
+  "holder": "holder",
+  "secure": true,
+  "inherited": true
+}

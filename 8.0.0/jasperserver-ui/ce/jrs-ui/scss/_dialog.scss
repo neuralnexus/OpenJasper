@@ -1,0 +1,264 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =======================================
+   DIALOG BOX MODULE
+   Last modified date:     May 21, 2020
+   Last modified by:       Anna Leeg
+ * ======================================== */
+
+//  -------------------
+//  DIALOG BOX MODULE
+//  -------------------
+// NOTE - BASE FONT SIZE WAS NOT CHANGED DURING UI IMPROVEMENTS IN 2019
+.jr-mDialog.jr {
+  background-color: #fff;
+  border: 0.091em solid #ccc;
+  //border-radius: em(4px);
+  box-shadow: 0 1px #ffffff inset, 0 0 5px rgba(34, 25, 25, 0.4);
+  color: $grey-textDarker;
+  font-family: $font-family-primary;
+  font-size: $font-primary---size;
+  font-weight: normal;
+  min-width: em(200px);
+  z-index: $zindex-dialog;
+  max-width: 100%;
+}
+
+//header
+.jr-mDialog-header.jr {
+  background-color: #e4e4e4;
+  cursor: move;
+  height: em(32px);
+  padding-left: em(12px);
+  padding-right: em(12px);
+  position: relative;
+}
+.jr-mDialog-header.jr-jDialogDraggable.jr {
+  cursor: move;
+}
+
+.jr-mDialog-header-title.jr {
+  color: $color-tciMedium;
+  display: inline-block;
+  font-family: $font-family-semibold;
+  font-size: em(14px); // new base font size
+  font-weight: bold;
+  height: 100%;
+  line-height: (32px / 14px);
+  max-width: calc(100% - #{em(22px, 14px)});
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jr-mDialog-header-close.jr {
+  position: absolute;
+  top: em(3px);
+  right: em(3px);
+  bottom: em(3px);
+}
+
+//tabs
+.jr-mDialog-tabs.jr {
+  border-bottom: 1px solid  #e4e4e4;
+  height: em(44px);
+  padding: 0 em(11px);
+  position: relative;
+}
+
+.jr-mDialog-tabs-wrapper.jr {
+  position: absolute;
+  bottom: em(-1px);
+}
+
+//body
+.jr-mDialog-body.jr {
+  background-color: #fff;
+  height: calc(100% - #{em(72px)});
+  overflow-y: auto;
+  position: relative;
+  min-height: em(77px);
+}
+
+.jr-mDialog-tabs.jr + .jr-mDialog-body.jr {
+  height: calc(100% - #{em(116px)});
+}
+
+.jr-mDialog-bodyPadded.jr {
+  // use this when dialog body requires padding
+  padding: em(22px) em(22px);
+}
+
+.jr-mDialog-body.jr:last-child {
+  // smaller min-height when there is no footer
+  // min-height: em(75px);
+  // border-bottom-right-radius: em(4px);
+  // border-bottom-left-radius: em(4px);
+}
+
+.jr-mDialog-body-wrapper.jr {
+  // use this when dialog contents need a surrounding margin
+  // use margin to better handle absolute positioned children, such as columns
+  margin: em(22px) em(22px);
+  width: calc(100% - #{em(44px)});
+}
+
+.jr-mDialog-body-wrapperFit.jr {
+  // use this when the container needs to fit the dialog body height with no overflow
+  // use in resizable dialogs when contents need to resize in height along with the dialog
+  display: table;
+  table-layout: fixed;
+  height: calc(100% - #{em(44px)}); // 100% - (22px top margin + 22px bottom margin)
+}
+
+.jr-mDialog-body-instructions.jr {
+  margin-bottom: em(20px);
+}
+
+.jr-mDialog-body-instructions-text.jr {
+  color: $grey-textMedium;
+  font-size: em(13px);
+  margin-bottom: em(11px);
+}
+
+
+// table layout on the following three items are required for all elements to work in the wrapperFit
+// when an element has a flexible height that depends on the dialog height. E.g. Missing Data dialog.
+.jr-mDialog-body-wrapperFit.jr .jr-mDialog-body-instructions.jr {
+  //display: table-row;
+}
+
+.jr-mDialog-body-flexitem.jr {
+  display: table-row;
+  height: 100%;
+} //DEPRECATE and replace with jr-uFlexfit-row-item
+
+
+//footer
+.jr-mDialog-footer.jr {
+  background-color: #fff;
+  // border-bottom-right-radius: em(4px);
+  // border-bottom-left-radius: em(4px);
+  border-top: 1px solid #ccc;
+  height: em(40px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: em(5px) em(10px) em(5px) em(10px);
+  position: relative;
+  white-space: nowrap;
+}
+
+.jr-mDialog-footer-sizer.jr {
+  background: image-url("sizer_icons_sprite.png") no-repeat 0 0;
+  cursor: nwse-resize;
+  height: em(16px);
+  position: absolute;
+  right: em(5px);
+  bottom: em(5px);
+  width: em(16px);
+}
+
+//  -----------------------------
+//  DIALOG VARIATION - ERROR
+//  -----------------------------
+.jr-mDialogError.jr {}
+
+//header
+.jr-mDialogError.jr .jr-mDialog-header.jr {
+  background-color: $color-errorMedium;
+  border-top: 1px solid $color-errorMedium;
+  border-right: 1px solid $color-errorMedium;
+  border-left: 1px solid $color-errorMedium;
+  margin-top: -1px;
+  margin-left: -1px;
+  width: calc(100% + 2px);
+}
+
+.jr-mDialogError.jr .jr-mDialog-header-title.jr {
+  color: #fff;
+}
+
+//  -----------------------------
+//  DIALOG VARIATION - WARNING
+//  -----------------------------
+.jr-mDialogWarning.jr {}
+
+//header
+.jr-mDialogWarning.jr .jr-mDialog-header.jr {
+  background-color: $color-warningMedium;
+  border-top: 1px solid $color-warningMedium;
+  border-right: 1px solid $color-warningMedium;
+  border-left: 1px solid $color-warningMedium;
+  margin-top: -1px;
+  margin-left: -1px;
+  width: calc(100% + 2px);
+}
+
+.jr-mDialogWarning.jr .jr-mDialog-header-title.jr {
+  color: #fff;
+
+}
+
+//  -----------------------------
+//  DIALOG VARIATION - ATTENTION
+//  -----------------------------
+.jr-mDialogAttention.jr {}
+
+//header
+.jr-mDialogAttention.jr .jr-mDialog-header.jr {
+  background-color: $color-attentionMedium;
+  border-top: 1px solid $color-attentionMedium;
+  border-right: 1px solid $color-attentionMedium;
+  border-left: 1px solid $color-attentionMedium;
+  margin-top: -1px;
+  margin-left: -1px;
+  width: calc(100% + 2px);
+}
+
+.jr-mDialogAttention.jr .jr-mDialog-header-title.jr {
+  color: #fff;
+
+}
+
+//  -----------------------------
+//  DIALOG VARIATION - MODAL
+//  -----------------------------
+.jr-mDialogModal.jr {
+  z-index: $zindex-modal;
+}
+
+//  -----------------------------
+//  DIALOG VARIATION - NO FOOTER
+//  -----------------------------
+.jr-mDialogFootless.jr {
+  // min-height: em(120px); 88px body min-height + 32px header height
+} // Can we remove this? Not sure why we need this!
+
+
+// STATES
+.jr-mDialog.jr-isVisible.jr {
+  display: block;
+}
+
+.jr-mDialog.jr-isHidden.jr {
+  display: none;
+}

@@ -1,0 +1,437 @@
+{
+  "name": "jrs-ui",
+  "version": "8.0.0",
+  "private": true,
+  "license": "AGPLv3",
+  "scripts": {
+    "jsyarn": "node node_modules/js-sdk/scripts/utils/yarn",
+    "preinstall": "node ../js-sdk/scripts/set-npm-registry",
+    "postinstall": "dotenv -c -- run-s runtimeDeps:copy",
+    "test": "dotenv -c -- karma start --single-run",
+    "test:debug": "dotenv -c -- karma start --browsers Chrome --reporters kjhtml",
+    "ts": "tsc --project tsconfig.json",
+    "eslint:src": "eslint --format stylish --ext .js,.jsx,.ts,.tsx .",
+    "eslint:libs": "exitzero eslint --no-eslintrc -c ${RUNTIME_DEPENDENCIES}/.eslintrc.js --ignore-path ${RUNTIME_DEPENDENCIES}/.eslintignore -f compact --ext .js,.jsx,.ts,.tsx -o $LIBS_LINT_REPORT_NAME $RUNTIME_DEPENDENCIES",
+    "lint:libs:report": "node scripts/lint-libs-report",
+    "lint:libs": "dotenv -c -- run-s eslint:libs lint:libs:report",
+    "lint": "run-p eslint:src ts lint:libs",
+    "deploy:copy:scripts": "del-cli --force \"${JRSInstancePath}/scripts\" && cp -R ${BUILD_SCRIPTS_DIR} \"${JRSInstancePath}/scripts\"",
+    "deploy:copy:themes": "del-cli --force \"${JRSInstancePath}/themes\" && cp -R ${BUILD_THEMES_DIR} \"${JRSInstancePath}/themes\"",
+    "deploy:copy:bundles": "cp -R ${BUILD_BUNDLES_DIR}/* \"${JRSInstancePath}/WEB-INF/bundles/\"",
+    "deploy": "dotenv -c -- run-p deploy:copy:*",
+    "runtimeDeps:copy": "del-cli ${RUNTIME_DEPENDENCIES}/* && node scripts/copy-runtime-dependencies",
+    "build": "dotenv -c -- webpack --mode ${NODE_ENV:-production} --progress",
+    "sass:jasperui": "node-sass --output-style expanded --precision 10 -o ${BUILD_THEMES_DIR}/default/jasper-ui/ scss/jasper-ui.scss",
+    "sass:jquery": "node-sass --output-style expanded --precision 10 -o ${BUILD_THEMES_DIR}/default/jquery-ui/ scss/vendor/jquery-ui.scss",
+    "styles": "dotenv -c -- run-p sass:*",
+    "styles:watch:sass": "onchange -i \"scss/**/*.*\" -- run-s styles",
+    "styles:watch:css": "onchange -i \"themes/**/*.*\" -- run-s overlay:copy:themes",
+    "styles:watch": "run-p styles:watch:*",
+    "webfont:clean": "del-cli ${WEBFONT_CACHE_DIR}",
+    "webfont:exec": "grunt webfont",
+    "webfont": "dotenv -c -- run-s webfont:clean webfont:exec",
+    "start:normal": "dotenv -c -- webpack serve --mode ${NODE_ENV:-development} --progress",
+    "start:themes": "run-p styles:watch start:normal",
+    "start:env": "run-s start:${WEBPACK_DEV_SERVER_MODE}",
+    "start": "dotenv -c -- run-s overlay start:env",
+    "clean:env": "del-cli ${BUILD_DIR}",
+    "clean": "dotenv -c -- run-s clean:env",
+    "depVersionCheck": "dotenv -c -- node scripts/dependency-version-check",
+    "audit": "dotenv -c -- node scripts/audit",
+    "jsdoc:env": "jsdoc --destination ${JSDOC_REPORT} --configure jsdoc.conf.json",
+    "jsdoc": "dotenv -c -- run-s jsdoc:env",
+    "overlay:copy:themes": "dotenv -c -- node scripts/overlay-copy-themes",
+    "overlay:copy:bundles": "dotenv -c -- node scripts/overlay-copy-bundles",
+    "overlay": "run-p overlay:copy:* styles",
+    "mvnPublish": "dotenv -c -- node scripts/mvn-publish-locally",
+    "copyYarnMirror": "dotenv -c -- node scripts/copy-yarn-offline-mirror",
+    "buildAndPublish": "run-s build overlay mvnPublish",
+    "default": "run-p depVersionCheck lint audit jsdoc test copyYarnMirror buildAndPublish"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.12.13",
+    "@icons/material": "0.2.4",
+    "@material-ui/core": "4.11.3",
+    "@material-ui/icons": "4.11.2",
+    "@material-ui/lab": "4.0.0-alpha.60",
+    "@material-ui/styles": "4.11.3",
+    "@material-ui/system": "4.11.3",
+    "@material-ui/utils": "4.11.2",
+    "backbone": "1.1.1",
+    "backbone-validation": "0.9.1",
+    "backbone.babysitter": "0.1.12",
+    "backbone.epoxy": "1.3.1",
+    "backbone.marionette": "2.3.2",
+    "backbone.wreqr": "1.4.0",
+    "bi-report": "8.0.0",
+    "bi-repository": "8.0.0",
+    "clsx": "1.1.1",
+    "css-vendor": "2.0.8",
+    "dom-helpers": "5.2.0",
+    "dragdropextra": "git+ssh://git@git.jaspersoft.com:js-eng-all/dragdropextra.git#v0.5.0-jasper.2",
+    "fast-memoize": "2.5.2",
+    "hoist-non-react-statics": "3.3.2",
+    "hyphenate-style-name": "1.0.4",
+    "is-in-browser": "1.1.3",
+    "iscroll": "git+ssh://git@git.jaspersoft.com:js-eng-all/iscroll#v4.1.7-jasper-1",
+    "jCryption": "git+ssh://git@git.jaspersoft.com:js-eng-all/jCryption#v1.2-npm-package",
+    "jquery": "3.5.1",
+    "jquery-ui": "1.12.1",
+    "jquery-ui-touch-punch": "git+ssh://git@git.jaspersoft.com:js-eng-all/jquery-ui-touch-punch#jquery-ui-touch-punch-jquery-ui-1-12-support",
+    "jquery.selection": "git+ssh://git@git.jaspersoft.com:js-eng-all/jquery.selection#1.0.1-npm-package",
+    "jquery.urldecoder": "git+ssh://git@git.jaspersoft.com:js-eng-all/jquery.urldecoder#0.0.1-npm-package",
+    "jqueryui-timepicker-addon": "git+ssh://git@git.jaspersoft.com:js-eng-all/jQuery-Timepicker-Addon#1.6.3",
+    "js-sdk": "8.0.0",
+    "jss": "10.5.1",
+    "jss-plugin-camel-case": "10.5.1",
+    "jss-plugin-default-unit": "10.5.1",
+    "jss-plugin-global": "10.5.1",
+    "jss-plugin-nested": "10.5.1",
+    "jss-plugin-props-sort": "10.5.1",
+    "jss-plugin-rule-value-function": "10.5.1",
+    "jss-plugin-vendor-prefixer": "10.5.1",
+    "lodash": "4.17.21",
+    "material-colors": "1.2.6",
+    "moment": "2.22.2",
+    "moment-timezone": "0.5.21",
+    "numeral": "2.0.6",
+    "perfect-scrollbar": "0.6.10",
+    "popper.js": "1.16.1-lts",
+    "prop-types": "15.7.2",
+    "prototype": "git+ssh://git@git.jaspersoft.com:js-eng-all/prototype.git#1.7.3-jasper.3",
+    "re-resizable": "6.9.0",
+    "react": "16.14.0",
+    "react-color": "2.18.1",
+    "react-dom": "16.14.0",
+    "react-is": "16.13.1",
+    "react-redux": "7.2.2",
+    "react-transition-group": "4.4.1",
+    "reactcss": "1.2.3",
+    "redux": "4.0.5",
+    "redux-thunk": "2.3.0",
+    "regenerator-runtime": "0.13.7",
+    "requirejs": "2.3.6",
+    "reselect": "4.0.0",
+    "scriptaculous": "git+ssh://git@git.jaspersoft.com:js-eng-all/scriptaculous.git#v1.9.0-jasper.3",
+    "tiny-warning": "1.0.3",
+    "tinycolor2": "1.4.1",
+    "tv4": "1.2.7",
+    "underscore": "1.13.1",
+    "underscore.string": "3.3.5",
+    "xregexp": "4.2.4"
+  },
+  "dependenciesFiles": {
+    "@babel/runtime": [
+      "regenerator/index.js",
+      "helpers/esm/*.js",
+      "helpers/*.js"
+    ],
+    "@icons/material": [
+      "CheckIcon.js",
+      "UnfoldMoreHorizontalIcon.js"
+    ],
+    "@material-ui/core": [
+      "{*.js,!(node_modules)/**/*.js}"
+    ],
+    "@material-ui/lab": [
+      "Autocomplete/*.js",
+      "internal/svg-icons/ArrowDropDown.js",
+      "internal/svg-icons/Close.js",
+      "useAutocomplete/*.js"
+    ],
+    "@material-ui/icons": [
+      "*.js",
+      "utils/*.js"
+    ],
+    "@material-ui/styles": [
+      "{*.js,!(node_modules)/**/*.js}"
+    ],
+    "@material-ui/system": [
+      "*.js"
+    ],
+    "@material-ui/utils": [
+      "*.js"
+    ],
+    "backbone": [
+      "backbone.js"
+    ],
+    "backbone-validation": [
+      "dist/backbone-validation-amd.js"
+    ],
+    "backbone.wreqr": [
+      "lib/backbone.wreqr.js"
+    ],
+    "backbone.epoxy": [
+      "backbone.epoxy.js"
+    ],
+    "backbone.marionette": [
+      "lib/core/backbone.marionette.js"
+    ],
+    "backbone.babysitter": [
+      "lib/backbone.babysitter.js"
+    ],
+    "clsx": [
+      "dist/clsx.js"
+    ],
+    "dom-helpers": [
+      "addClass/package.json",
+      "cjs/addClass.js",
+      "removeClass/package.json",
+      "cjs/removeClass.js",
+      "hasClass/package.json",
+      "cjs/hasClass.js"
+    ],
+    "fast-memoize": [
+      "src/index.js"
+    ],
+    "hoist-non-react-statics": [
+      "dist/hoist-non-react-statics.cjs.js"
+    ],
+    "jCryption": [
+      "jquery.jcryption.js"
+    ],
+    "jquery": [
+      "dist/jquery.js"
+    ],
+    "jquery-ui": [
+      "ui/**/*.*"
+    ],
+    "jquery-ui-touch-punch": [
+      "jquery.ui.touch-punch.js"
+    ],
+    "jquery.selection": [
+      "src/jquery.selection.js"
+    ],
+    "jquery.urldecoder": [
+      "jquery.urldecoder.js"
+    ],
+    "jqueryui-timepicker-addon": [
+      "dist/jquery-ui-timepicker-addon.js",
+      "dist/jquery-ui-sliderAccess.js"
+    ],
+    "jss": [
+      "dist/jss.cjs.js"
+    ],
+    "jss-plugin-rule-value-function": [
+      "dist/jss-plugin-rule-value-function.cjs.js"
+    ],
+    "jss-plugin-global": [
+      "dist/jss-plugin-global.cjs.js"
+    ],
+    "jss-plugin-nested": [
+      "dist/jss-plugin-nested.cjs.js"
+    ],
+    "jss-plugin-camel-case": [
+      "dist/jss-plugin-camel-case.cjs.js"
+    ],
+    "jss-plugin-default-unit": [
+      "dist/jss-plugin-default-unit.cjs.js"
+    ],
+    "jss-plugin-vendor-prefixer": [
+      "dist/jss-plugin-vendor-prefixer.cjs.js"
+    ],
+    "jss-plugin-props-sort": [
+      "dist/jss-plugin-props-sort.cjs.js"
+    ],
+    "lodash": [
+      "**/*.js"
+    ],
+    "material-colors": [
+      "dist/colors.js"
+    ],
+    "moment": [
+      "locale/*.js",
+      "moment.js"
+    ],
+    "moment-timezone": [
+      "index.js",
+      "moment-timezone.js",
+      "data/packed/latest.json"
+    ],
+    "perfect-scrollbar": [
+      "dist/js/perfect-scrollbar.jquery.js"
+    ],
+    "popper.js": [
+      "dist/umd/popper.js"
+    ],
+    "prop-types": [
+      "index.js",
+      "factoryWithThrowingShims.js",
+      "lib/*.js"
+    ],
+    "re-resizable": [
+      "lib/index.es5.js"
+    ],
+    "react": [
+      "umd/react.production.min.js"
+    ],
+    "react-color": [
+      "lib/**/*.js"
+    ],
+    "react-dom": [
+      "umd/react-dom.production.min.js"
+    ],
+    "react-is": [
+      "index.js",
+      "cjs/react-is.production.min.js"
+    ],
+    "reactcss": [
+      "lib/**/*.js"
+    ],
+    "react-redux": [
+      "dist/react-redux.min.js"
+    ],
+    "react-transition-group": [
+      "cjs/*.js",
+      "cjs/**/*.js"
+    ],
+    "redux": [
+      "dist/redux.min.js"
+    ],
+    "redux-thunk": [
+      "lib/index.js"
+    ],
+    "regenerator-runtime": [
+      "runtime.js"
+    ],
+    "reselect": [
+      "lib/index.js"
+    ],
+    "tv4": [
+      "tv4.js"
+    ],
+    "underscore": [
+      "underscore-umd.js"
+    ],
+    "underscore.string": [
+      "dist/underscore.string.js"
+    ],
+    "xregexp": [
+      "xregexp-all.js"
+    ],
+    "numeral": [
+      "locales/**/*.*",
+      "numeral.js"
+    ],
+    "iscroll": [
+      "src/iscroll.js"
+    ],
+    "prototype": [
+      "dist/prototype.js"
+    ],
+    "dragdropextra": [
+      "dragdropextra.js"
+    ],
+    "scriptaculous": [
+      "src/builder.js",
+      "src/effects.js",
+      "src/dragdrop.js"
+    ],
+    "requirejs": [
+      "require.js"
+    ],
+    "hyphenate-style-name": [
+      "index.cjs.js"
+    ],
+    "tiny-warning": [
+      "dist/tiny-warning.cjs.js"
+    ],
+    "tinycolor2": [
+      "tinycolor.js"
+    ],
+    "css-vendor": [
+      "dist/css-vendor.cjs.js"
+    ],
+    "is-in-browser": [
+      "dist/index.js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@babel/eslint-plugin": "^7.12.13",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.13",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "7.12.15",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.12.16",
+    "@types/jasmine": "3.4.0",
+    "@types/jquery": "^3.5.5",
+    "@types/react": "^16.7.20",
+    "@types/react-dom": "^16.0.11",
+    "@types/sinon": "9.0.10",
+    "@types/underscore": "^1.10.24",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-rewire-exports": "^2.3.0",
+    "bestzip": "^2.1.7",
+    "colors": "^1.4.0",
+    "copyfiles": "^2.4.1",
+    "css-loader": "^4.2.2",
+    "del-cli": "^3.0.1",
+    "diff": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^4.0.0",
+    "dotenv-expand": "^5.1.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-no-unsanitized": "3.0.2",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-xss": "git+ssh://git@git.jaspersoft.com:js-eng-sec/eslint-plugin-xss.git",
+    "exitzero": "^1.0.1",
+    "exports-loader": "^0.7.0",
+    "file-loader": "^6.2.0",
+    "glob": "^7.1.6",
+    "grunt": "^1.3.0",
+    "grunt-cli": "^1.3.2",
+    "grunt-webfont": "^1.7.2",
+    "imports-loader": "^0.8.0",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "jasmine-core": "3.6.0",
+    "jasmine-jquery": "2.1.1",
+    "jasmine-sinon": "0.4.0",
+    "jquery-simulate": "1.0.2",
+    "jsdoc": "^3.6.6",
+    "karma": "^6.1.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cli": "2.0.0",
+    "karma-coverage": "2.0.3",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
+    "karma-jasmine": "4.0.1",
+    "karma-jasmine-html-reporter": "1.5.4",
+    "karma-junit-reporter": "2.0.1",
+    "karma-sourcemap-loader": "^0.3.8",
+    "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "5.0.0",
+    "load-grunt-tasks": "^5.1.0",
+    "merge": "^2.1.1",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "objectdump": "^0.3.0",
+    "onchange": "^7.1.0",
+    "raw-loader": "^4.0.2",
+    "sinon": "9.2.4",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "typescript": "^4.1.5",
+    "url-loader": "^4.1.1",
+    "util": "^0.12.3",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "yargs": "^16.2.0"
+  },
+  "resolutions": {
+    "react-color/**/lodash": "4.17.21",
+    "underscore": "1.13.1"
+  }
+}

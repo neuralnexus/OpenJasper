@@ -1,0 +1,14 @@
+<fieldset class="group mediumFields">
+
+    <js-templateNonce></js-templateNonce>
+
+    <legend class="offLeft"><span>{{- i18n['resource.dataSource.accessProp']}}</span></legend>
+
+    <label title="{{- i18n['resource.analysisConnection.driver']}}" class="control input text ">
+        <span class="wrap">{{- i18n['resource.dataSource.jndi.serviceName']}} ({{- i18n['required.field']}}):</span>
+        <input type="text" value="{{- modelAttributes.jndiName }}" name="jndiName">
+        <span class="message warning"></span>
+        <span class="message hint">{{- i18n['resource.dataSource.jndi.hint1']}}</span>
+    </label>
+
+</fieldset>

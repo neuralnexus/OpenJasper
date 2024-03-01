@@ -1,0 +1,20 @@
+<div id="stepDisplay">
+    <fieldset class="row" style="margin-top: 10px;">
+        <h3>{{- i18n["jsp.JSErrorPage.errorMsg"] }}</h3>
+        <div id="errorMessages">{{- errorMessage }}</div>
+    </fieldset>
+    {{ if (errorTrace) { }}
+    <fieldset class="row oneColumn" style="margin-top: 10px;">
+        <div class="column noHeader primary">
+            <div class="content ">
+                <div class="body  ">
+                    <div id="completeStackTrace" style="padding-bottom:350px;">
+                        <h3>{{- i18n["jsp.JSErrorPage.errorTrace"] }}</h3>
+                        <div style="white-space:normal;">{{- errorTrace }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    {{ } }}
+</div>

@@ -1,0 +1,51 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    TOOLBAR MODULE
+    Last modified date:     May 19, 2019
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+.jr-mToolbar.jr {
+  background-color: #ebebeb;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+  height: em(32px, 12px);
+  padding: 0 em(6px, 12px);
+}
+
+.jr-mToolbar-divider.jr {
+  border-right: 1px solid #ccc;
+  display: inline-block;
+  height: em(24px, 12px);
+  margin: 0;
+  top: em(4px, 12px);
+  vertical-align: middle;
+  width: 1px;
+}
+
+.jr-mToolbar-toolset.jr {
+  display: inline-block;
+  height: 100%;
+  padding: 0;
+}

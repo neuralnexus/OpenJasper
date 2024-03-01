@@ -1,0 +1,119 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ========================================
+    LAYOUT RULES
+    Last modified date:     Jan 11, 2018
+    Last modified by:       Anna Leeg
+ * ======================================== */
+
+.jr-lWrapper.jr {
+    position: relative;
+}
+
+// -------------------------------------------------
+//  GLOBAL PAGE LAYOUT - USES VIEWPORT MEASUREMENT
+// -------------------------------------------------
+.jr-lPage.jr {
+  background-color: #fff;
+  height: 100vh;
+  font-size: $font-primary---size;
+  overflow: hidden;
+  width: 100%;
+}
+
+.jr-lPage-header.jr {
+  //background-color: $color-themePrimary; the color get applied to the banner component
+  height: $header-height;
+}
+
+.jr-lPage-body.jr {
+  overflow-y: auto;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+}
+
+.jr-lPage-body.jr:first-child { // gives proper height when header is absent
+  height: calc(100vh - #{$footer-height});
+}
+
+.jr-lPage-footer.jr {
+  height: $footer-height;
+  //background-color: $color-themePrimary--dark;
+  background-color: #022c52;
+}
+
+
+// -----------------------------------
+//  GLOBAL PAGE LAYOUT - USES FLEXBOX
+// -----------------------------------
+.jr-lPageflex.jr {
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: $font-primary---size;
+  overflow: hidden;
+  width: 100%;
+}
+
+.jr-lPageflex-header.jr {
+  background-color: $color-themePrimary;
+  flex: 0 0 $header-height;
+}
+
+.jr-lPageflex-body.jr {
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+.jr-lPageflex-footer.jr {
+  flex: 0 0 $footer-height;
+  //background-color: #022c52;
+  background-color: #3e8ddd;
+}
+
+
+// ---------------------------------------------------------
+// ORIGINAL GLOBAL PAGE LAYOUT - USES ABSOLUTE POSITIONING
+// ---------------------------------------------------------
+.jr-lHeader.jr {
+  background-color: #3e8ddd; //Background color for demo only. When implemented, bannner elements takes the color value
+  color: #fff;
+  height: em(36px);
+  width: 100%;
+}
+
+.jr-lBody.jr {
+    background-color: #fff;
+    position: absolute;
+        top: $header-height;
+        bottom: $footer-height;
+    overflow: auto;
+    width: 100%;
+}
+
+.jr-lFooter.jr {
+    background-color: #3e8ddd;
+    bottom: 0;
+    height: em(18px);
+    position: absolute;
+    width: 100%;
+}

@@ -1,0 +1,67 @@
+<tr class="jive_condition">
+
+    <js-templateNonce></js-templateNonce>
+    <td class="jive_textLabel">
+        <span data-bind="text:conditionIndex"></span>
+    </td>
+    <td>
+        <div>
+            <select data-bind="options:convertedOptions,value:operator"></select>
+        </div>
+    </td>
+    <td data-bind="toggle:isNotBooleanType,attr:{colspan:getColspan},classes:{condition_between_start:isMultiValueOperator}">
+        <div class="t_wrap">
+            <input type="text" data-bind="toggle:all(isNotBooleanType,isNotNullCheckOperator),value:conditionValueStart,dateTimePicker:dataType,validationErrorClass:conditionValueStart" data-model-attr="valueStart">
+        </div>
+    </td>
+    <td class="condition_between_start" data-bind="toggle:isMultiValueOperator">
+        <div class="t_wrap"><span>and</span></div>
+    </td>
+    <td class="condition_between_end" data-bind="toggle:isMultiValueOperator">
+        <div class="t_wrap">
+            <input type="text" data-bind="value:conditionValueEnd,dateTimePicker:dataType,validationErrorClass:conditionValueEnd" data-model-attr="valueEnd">
+        </div>
+    </td>
+    <td>
+        <div>
+            <div class="buttonbar">
+                <div class="jive_inputbutton" data-bind="checkboxDiv:fontBold" data-model-attr="fontBold" data-tripplestate="true">
+                    <span class="jive_bIcon boldIcon"></span>
+                </div>
+                <div class="jive_inputbutton" data-bind="checkboxDiv:fontItalic" data-model-attr="fontItalic" data-tripplestate="true">
+                    <span class="jive_bIcon italicIcon"></span>
+                </div>
+                <div class="jive_inputbutton" data-bind="checkboxDiv:fontUnderline" data-model-attr="fontUnderline" data-tripplestate="true">
+                    <span class="jive_bIcon underlineIcon"></span>
+                </div>
+                <div class="jive_inputbutton toggle drop" data-bind="colorpicker:backgroundColor" data-model-attr="backgroundColor" data-label="{{- i18n["net.sf.jasperreports.components.headertoolbar.title.fontbackcolor"] }}" data-show-transparent-input="true" data-show-none-input="true">
+                    <input data-bind="resetColor:backgroundColor" data-model-attr="backgroundColor" type="checkbox">
+                    <div class="colorpick wide"></div>
+                    <span class="jive_bIcon backgroundColorIcon"></span>
+                </div>
+                <div class="jive_inputbutton toggle drop" data-bind="colorpicker:fontColor" data-model-attr="fontColor" data-label="{{- i18n["net.sf.jasperreports.components.headertoolbar.title.fontcolor"] }}" data-show-none-input="true">
+                    <input data-bind="resetColor:fontColor" data-model-attr="fontColor" type="checkbox">
+                    <div class="colorpick normal"></div>
+                    <span class="jive_bIcon fontColorIcon"></span>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div>
+            <div class="buttonbar">
+                <div class="jive_inputbutton  plain" name="conditionMoveUp">
+                    <span class="jive_bIcon moveUpIcon"></span>
+                </div>
+                <div class="jive_inputbutton  plain" name="conditionMoveDown">
+                    <span class="jive_bIcon moveDownIcon"></span>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td class=" last">
+        <div class="jive_inputbutton  plain" name="conditionRemove">
+            <span class="jive_bIcon deleteIcon"></span>
+        </div>
+    </td>
+</tr>

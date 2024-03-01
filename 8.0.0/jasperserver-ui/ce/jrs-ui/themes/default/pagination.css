@@ -1,0 +1,213 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*  --------------------------------------
+    Pagination control used in Dashboard
+    --------------------------------------
+    File last modified Jan 13, 2021
+    --------------------------------------  */
+
+.paginationControlWrapper {
+    background-color: var(--background-white);
+    height: 36px;
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.paginationControl {
+    border-collapse: collapse;
+    border-spacing: 0;
+    height: 28px;
+    margin: 0;
+    max-width: 318px;
+    min-width: 200px;
+    padding: 0;
+    width: auto;
+}
+
+.paginationControl td {
+    height: 28px;
+    line-height: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 32px;
+}
+
+.paginationControl button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 28px;
+    outline: 0;
+
+    /*
+    box-sizing: border-box;
+    color: rgb(170, 170, 170);
+    font-family: 'Lucida Grande';
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: normal;
+    line-height: normal;
+    min-height: 24px;
+    overflow-x: visible;
+    overflow-y: visible;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    text-shadow: none;
+    text-transform: none;
+    word-spacing: 0;
+    */
+}
+
+.paginationControl button .wrap {
+    background: rgba(0, 0, 0, 0) none scroll;
+    border: 0;
+    cursor: auto;
+    display: inline;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    width: auto;
+
+    /*
+    color: rgb(51, 51, 51);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 13px;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+    */
+}
+
+.paginationControl button .wrap .icon {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(images/button_action_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-size: 240px;
+    border: 0;
+    display: block;
+    height: 24px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 24px;
+    zoom: 1;
+    cursor: pointer;
+
+    /*
+    color: rgb(51, 51, 51);
+    font-size: 11px;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 13px;
+    text-align: center;
+    text-indent: -5000px;
+    text-shadow: none;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: nowrap;
+    word-spacing: 0;
+    */
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .paginationControl > tbody > tr > td > button > .wrap > .icon {
+        background-image: url(images/button_action_icons_sprite@2x.png);
+    }
+}
+
+/* icon positions */
+.paginationControl > tbody > tr > td > button.toLeft > .wrap > .icon {
+    background-position: 0 -116px;
+}
+
+.paginationControl > tbody > tr > td > button.left > .wrap > .icon {
+    background-position: 0 4px;
+}
+
+.paginationControl > tbody > tr > td > button.right > .wrap > .icon {
+    background-position: 2px -26px;
+}
+
+.paginationControl > tbody > tr > td > button.toRight > .wrap > .icon {
+    background-position: 2px -146px;
+}
+
+/* states */
+.paginationControl > tbody > tr > td > button:active > .wrap > .icon {
+    opacity: .7;
+}
+
+.paginationControl > tbody > tr > td > button[disabled] > .wrap > .icon {
+    cursor: default;
+    opacity: .4;
+}
+
+
+.paginationControl .currentPageCell {
+    line-height: 28px;
+    min-width: 104px;
+    max-width: 165px;
+    white-space: nowrap;
+    width: 52%;
+}
+
+.paginationControl .currentPageCell .wrap {
+    padding: 0 5px;
+}
+
+.paginationControl .currentPageCell .current {
+    cursor: auto;
+    display: inline-block;
+    height: 22px;
+    line-height: 13px;
+    margin: 0 0 -3px;
+    padding: 2px 3px;
+    white-space: nowrap;
+    width: 50px;
+
+    /*
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(193, 193, 193);
+    border-top-color: rgb(132, 132, 132);
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-align: start;
+    text-indent: 0;
+    text-shadow: none;
+    text-transform: none;
+    */
+}

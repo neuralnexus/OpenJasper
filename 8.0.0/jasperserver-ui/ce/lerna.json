@@ -1,0 +1,16 @@
+{
+  "lerna": "3.22.0",
+  "npmClient": "yarn",
+  "packages": [
+    "js-sdk",
+    "bi-report",
+    "bi-repository",
+    "jrs-ui"
+  ],
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": ["--production=false"]
+    }
+  },
+  "version": "7.8.0"
+}

@@ -1,0 +1,10 @@
+<label class="control input text" title="{{- title}}" style="display: inline-block; margin-right: 6px; margin-top: 6px; width: 350px;">
+    <js-templateNonce></js-templateNonce>
+    <span class="wrap">{{- i18n['resource.dataSource.aws.setting.region']}} ({{- i18n["required.field"] }}):</span>
+    <select class="fnormal" name="awsRegion">
+        {{ _.each(awsRegions, function(region) { }}
+        <option value="{{- region }}" {{ if (region === value) { }}selected="selected"{{ } }} >{{- i18n[region] || region }}</option>
+        {{ }); }}
+    </select>
+    <span class="message warning"></span>
+</label>

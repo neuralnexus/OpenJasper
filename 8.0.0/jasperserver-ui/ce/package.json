@@ -1,0 +1,27 @@
+{
+  "name": "jrs-ui-parent",
+  "private": true,
+  "license": "AGPLv3",
+  "version": "8.0.0",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "jsyarn": "lerna run --stream --parallel jsyarn --",
+    "default": "lerna run --stream --parallel default",
+    "test": "lerna run --stream --parallel test",
+    "lint": "lerna run --stream --parallel lint",
+    "clean": "lerna run --stream --no-prefix --scope jrs-ui clean",
+    "build": "lerna run --stream --no-prefix --scope jrs-ui build",
+    "install": "lerna bootstrap"
+  },
+  "faf-modules": [
+    "js-sdk",
+    "bi-report",
+    "bi-repository",
+    "jrs-ui"
+  ],
+  "dependencies": {
+    "lerna": "^3.22.1"
+  }
+}

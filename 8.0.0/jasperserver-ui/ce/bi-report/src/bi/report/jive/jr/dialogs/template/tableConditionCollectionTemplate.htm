@@ -1,0 +1,60 @@
+<div class="applytoWrapper">
+
+    <js-templateNonce></js-templateNonce>
+    <div class="applytoTitle"><span>{{- i18n["net.sf.jasperreports.components.headertoolbar.label.applyto"] }}:</span></div>
+    <div class="applytoSelector">
+        <select data-bind="options:applyToOptions,value:applyTo,enabled:canAddCondition">
+        </select>
+    </div>
+</div>
+<form class="jive_form jive_form_conditionalFormat" style="width: 900px;">
+    <table width="100%">
+        <tbody>
+        <tr>
+            <td class="jive_textLabel">
+                <div class="wrapper label" style="text-align: left;">{{- i18n["net.sf.jasperreports.components.headertoolbar.conditions.list"] }}</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table width="100%" class="conditionList">
+        <thead>
+            <tr>
+                <th class="jive_textLabel" style="width: 3%;">
+                    <div style="text-align: center;">#</div>
+                </th>
+                <th class="jive_textLabel" style="width: 26%;">
+                    <div style="text-align: center;">{{- i18n["net.sf.jasperreports.components.headertoolbar.condition.operator"] }}</div>
+                </th>
+                <th class="jive_textLabel" style="width: 30%;" colspan="3" data-bind="toggle:isNotBooleanType">
+                    <div style="text-align: center;">{{- i18n["net.sf.jasperreports.components.headertoolbar.condition.condition"] }}</div>
+                </th>
+                <th class="jive_textLabel" style="width: 26%;">
+                    <div style="text-align: center;">{{- i18n["net.sf.jasperreports.components.headertoolbar.condition.format"] }}</div>
+                </th>
+                <th class="jive_textLabel" style="width: 10%;">
+                    <div style="text-align: center;"></div>
+                </th>
+                <th class="jive_textLabel last" style="width: 5%;">
+                    <div style="text-align: center;"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr class="add">
+                <td class="jive_textLabel">
+                    <div></div>
+                </td>
+                <td>
+                    <div class="jive_inputbutton plain" name="conditionAdd" data-bind="classes:{disabled:not(canAddCondition)}">{{- i18n["net.sf.jasperreports.components.headertoolbar.condition.add"] }}</div>
+                </td>
+                <td class="jive_textLabel" colspan="3" data-bind="toggle:isNotBooleanType"></td>
+                <td class="jive_textLabel"></td>
+                <td class="jive_textLabel"></td>
+                <td class="jive_textLabel last"></td>
+            </tr>
+        </tfoot>
+    </table>
+</form>

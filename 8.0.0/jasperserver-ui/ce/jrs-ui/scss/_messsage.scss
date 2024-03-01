@@ -1,0 +1,66 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    MESSSAGE MODULE
+    Last modified date:     May 21, 2020
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+// -------------------------
+//  BASE MESSAGE MODULE
+// -------------------------
+
+.jr-mMesssage.jr,
+.jr-mInstructor.jr {
+  border: em(1px) solid #e4e4e4;
+  color: $color-textMedium;
+  display: flex;
+  font-family: $font-primary---family;
+  font-size: $font-primary---size;
+  font-weight: normal;
+  justify-content: center;
+}
+
+.jr-mMesssage-wrapper.jr,
+.jr-mInstructor-wrapper.jr {
+  align-self: center;
+  max-width: 100%;
+  padding: 2em 3em;
+  text-align: center;
+}
+
+.jr-mMesssage-title.jr,
+.jr-mInstructor-title.jr {
+  font-size: 14px;
+  line-height: (20px / 14px);
+}
+
+// MODULE VARIATION, no border
+.jr-mInstructorPlain.jr {
+  border: none;
+}
+
+
+// MODULE VARIATION, shaded background
+.jr-mInstructorShaded.jr {
+  background-color: #f7f7f7;
+}

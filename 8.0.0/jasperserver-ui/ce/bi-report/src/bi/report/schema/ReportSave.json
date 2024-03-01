@@ -1,0 +1,10 @@
+{
+    "title": "Report save options",
+    "type": "object",
+    "properties": {
+        "inputControlsOrder": {
+            "type": "string",
+            "description": ";-separated new input controls order"
+        }
+    }
+}

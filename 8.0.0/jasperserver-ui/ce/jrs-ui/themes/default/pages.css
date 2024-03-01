@@ -1,0 +1,690 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/ > .
+ */
+
+/* --------------------------------------
+   TABLE OF CONTENTS
+
+    1. ONE COLUMN
+        1a. primary
+
+    2. TWO COLUMN
+        2a. primary
+        2b. primary left
+        2c. equal
+        2d. manager
+
+    3. THREE COLUMN
+        3a. priority
+        3b. equal
+        3c. manager
+
+    4. PAGE HEADER
+
+    5. PANE
+       5a. two pane
+       5b. three pane
+
+    6. FLOW
+  -----------------------------------
+    File last modified Jan 13, 2021
+  -----------------------------------  */
+
+
+
+/* ---------------- */
+/*  1. ONE COLUMN   */
+/* ---------------- */
+/*  1a. primary     */
+/* ---------------- */
+.oneColumn > .primary.column,
+.body.oneColumn > .primary.column,
+.row.oneColumn > .primary.column {
+    display: block;
+	right: 0;
+	left: 0;
+}
+
+.oneColumn > .secondary.column,
+.oneColumn > .tertiary.column {
+	display: none;
+}
+
+
+
+/* ---------------- */
+/*  2. TWO COLUMN   */
+/* ---------------- */
+/*  2a. primary     */
+/* ---------------- */
+.twoColumn > .primary.column,
+.body.twoColumn > .primary.column,
+.row.twoColumn > .primary.column {
+    display: block;
+	right: 0;
+	left: 200px;
+	margin-left: 1px;
+}
+
+.twoColumn > .secondary.column,
+.body.twoColumn > .secondary.column,
+.row.twoColumn > .secondary.column {
+	border-right: 1px solid var(--border-grey-10);
+    display: block;
+	left: 0;
+	min-width: 199px;
+	width: 200px;
+}
+
+.twoColumn > .tertiary.column {
+	display: none;
+}
+
+/* ------------------- */
+/*  2b. primary left   */
+/* ------------------- */
+.twoColumn.primaryLeft > .primary.column,
+.body.twoColumn.primaryLeft > .primary.column,
+.row.twoColumn.primaryLeft > .primary.column {
+    display: block;
+    left: 0;
+    margin-right: 18px;
+	right: 200px;
+}
+
+.twoColumn.primaryLeft > .secondary.column,
+.body.twoColumn.primaryLeft > .secondary.column,
+.row.twoColumn.primaryLeft > .secondary.column,
+.twoColumn.primaryLeft > .tertiary.column,
+.body.twoColumn.primaryLeft > .tertiary.column,
+.row.twoColumn.primaryLeft > .tertiary.column {
+    display: block;
+    left: auto;
+	min-width: 200px;
+    right: 0;
+	width: 200px;
+}
+
+/* ------------ */
+/*  2c. equal   */
+/* ------------ */
+.twoColumn_equal> .primary.column,
+.body.twoColumn_equal> .primary.column,
+.row.twoColumn_equal> .primary.column {
+    display: block;
+    left: 50%;
+	right: 0;
+	width: auto;
+}
+
+.twoColumn_equal> .secondary.column,
+.body.twoColumn_equal> .secondary.column ,
+.row.twoColumn_equal> .secondary.column {
+    display: block;
+	right: 50%;
+	left: 0;
+}
+
+.twoColumn_equal> .tertiary.column {
+	display: none;
+}
+
+.relative.twoColumn_equal> .primary.column {
+	display: block;
+    float: left;
+    left: 0;
+    margin: auto 0;
+	position: relative;
+	right: auto;
+    width: 50%;
+}
+
+.relative.twoColumn_equal> .secondary.column {
+    display: block;
+    float: right;
+    position: relative;
+    right: auto;
+	width: 49%;
+}
+
+.relative.twoColumn_equal> .column {
+    min-width: 100px;
+	overflow: hidden;
+}
+
+/* -------------- */
+/*  2d. manager   */
+/* -------------- */
+.twoColumn.manager > .primary.column {
+    display: block;
+	left: 0;
+	margin-left: 24px;
+	margin-right: 45px;
+    right: 50%;
+}
+
+.twoColumn.manager > .secondary.column {
+	display:none;
+}
+
+.twoColumn.manager > .tertiary.column {
+    display: block;
+	right: 0;
+	left: auto;
+	width: 50%;
+}
+
+
+
+/* ------------------ */
+/*  3. THREE COLUMN   */
+/* ------------------ */
+/*  3a. priority      */
+/* ------------------ */
+.threeColumn > .primary.column,
+.body.threeColumn > .primary.column,
+.row.threeColumn > .primary.column {
+    display: block;
+    left: 200px;
+    margin-left: 2px;
+    margin-right: 2px;
+    right: 200px;
+}
+
+.threeColumn > .secondary.column,
+.body.threeColumn > .secondary.column,
+.row.threeColumn > .secondary.column {
+	border-right: 1px solid var(--border-grey-10);
+	display: block;
+	left: 0;
+	min-width: 199px;
+	right: auto;
+	width: 200px;
+}
+
+.threeColumn > .tertiary.column,
+.body.threeColumn > .tertiary.column,
+.row.threeColumn > .tertiary.column {
+	border-left: 1px solid var(--border-grey-10);
+	display: block;
+	left: auto;
+	min-width: 200px;
+	right: 0;
+	width: 200px;
+}
+
+/* -------------- */
+/*  3b. equal     */
+/* -------------- */
+.threeColumn_equal> .primary.column,
+.body.threeColumn_equal> .primary.column,
+.row.threeColumn_equal> .primary.column {
+	display: block;
+    left: 33%;
+	right: 33%;
+}
+
+.threeColumn_equal> .secondary.column,
+.body.threeColumn_equal> .secondary.column,
+.row.threeColumn_equal> .secondary.column {
+    display: block;
+	left: 0;
+	right: auto;
+    width: 32%;
+}
+
+.threeColumn_equal> .tertiary.column,
+.body.threeColumn_equal> .tertiary.column,
+.row.threeColumn_equal> .tertiary.column {
+	display: block;
+	left: auto;
+	right: 0;
+	width: 32%;
+}
+
+/* ---------------- */
+/*  3c. manager     */
+/* ---------------- */
+.threeColumn.manager > .primary.column {
+	display: block;
+	right: 40%;
+	left: 15%;
+}
+
+.threeColumn.manager > .secondary.column {
+	display: block;
+	left: 0;
+	width: 15%;
+}
+
+.threeColumn.manager > .tertiary.column {
+	display: block;
+	right: 0;
+	width: 40%;
+}
+
+
+
+/* ----------------- */
+/*  4. PAGE HEADER   */
+/* ----------------- */
+.pageHeader {
+    background-color: var(--background-white);
+    border-bottom: 2px solid var(--theme-dark);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+    height: auto;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 100;
+}
+
+.pageHeader-controls, /* delete this once markup is fixed */
+.pageHeader-title-controls,
+.pageHeader-subtitle-tabs {
+    flex: 0 1 auto;
+    display: flex;
+    position: relative;
+}
+
+.pageHeader-controls-right, /* delete this once markup is fixed */
+.pageHeader-title-controlsRight,
+.pageHeader-subtitle-tabsRight {
+    flex: 1 0 auto;
+    justify-content: flex-end;
+}
+
+.pageHeader-title-controlsRight {
+    margin-right: 8px;
+}
+
+.pageHeader-title,
+.pageHeader-subtitle {
+    /* flex: 0 1 auto; delete if there are no issues */
+    /* height: 38px; delete if there are no issues */
+    /* line-height: 40px; delete if there are no issues */
+    flex: 1 1 100%;
+    font-size: 22px;
+    font-weight: normal;
+    display: flex;
+    height: auto;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.pageHeader-title-text {
+    color: #333333;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 38px;
+    margin-left: 11px;
+    margin-right: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pageHeader-subtitle-path {
+    font-size: 16px;
+    height: 34px;
+    line-height: 32px;
+    margin-left: 11px;
+    margin-right: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pageHeader-subtitle-path-label {
+    color: #333333;
+}
+
+.pageHeader-subtitle-path-text {
+    color: var(--theme-medium-dark);
+}
+
+.pageHeader-title-icon {
+    align-self: center;
+    border-radius: 13px;
+    height: 27px;
+    width: auto
+}
+
+.pageHeader-title-icon > .icon {
+    background-image: url(images/workflow_icons_sprite@05x.png);
+    background-size: 27px;
+    border-radius: 50%;
+    display: inline-block;
+    height: 27px;
+    margin-left: 8px;
+    min-width: 27px;
+    width: 27px;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pageHeader-title-icon > .icon {
+        background-image: url(images/workflow_icons_sprite@1x.png);
+    }
+}
+
+.pageHeader-title-icon > .icon.adhoc {
+    background-position: 0 0;
+}
+
+.pageHeader-title-icon > .icon.report {
+    background-position: 0 -38px;
+}
+
+.pageHeader-title-icon > .icon.dashboard {
+    background-position: 0 -76px;
+}
+
+.pageHeader-title-icon > .icon.domain {
+    background-position: 0 -152px;
+}
+
+.pageHeader-title-icon > .icon.datasource {
+    background-position:  0 -114px;
+}
+
+.pageHeader-title-icon > .icon.repoLibrary,
+.pageHeader-title-icon > .icon.repoBrowse,
+.pageHeader-title-icon > .icon.repoSearch,
+.pageHeader-title-icon > .icon.manageOrgs,
+.pageHeader-title-icon > .icon.manageRoles,
+.pageHeader-title-icon > .icon.manageUsers,
+.pageHeader-title-icon > .icon.scheduledJobs,
+.pageHeader-title-icon > .icon.schedules,
+.pageHeader-title-icon > .icon.messages { /* NEW rule for Onyx 3 */
+    display: none;
+}
+
+
+
+/* ---------------- */
+/*  5. PANE         */
+/* ---------------- */
+/*  5a. two pane    */
+/* ---------------- */
+.column .body.twoPanes {
+	overflow: hidden;
+}
+
+.twoPanes .panel.pane {
+	margin-bottom: 0;
+	min-height: 30px;
+	position: absolute;
+}
+
+.twoPanes .pane > .content > .body {
+	bottom: 0;
+}
+
+.twoPanes .pane.secondary {
+	bottom: 0;
+	height: 250px;
+}
+
+.twoPanes .pane.primary {
+	bottom: 250px;
+	height: auto;
+	top:0;
+}
+
+.twoPanes .pane.secondary > .content {
+	border-top: 1px solid var(--border-grey-16);
+}
+
+.twoPanes .pane .footer {
+	display: none;
+}
+
+.twoPanes .pane.secondary .sizer {
+    position:absolute;
+    top: -4px;
+    background-color: transparent;
+    border-top: 1px solid var(--border-grey-13);
+    cursor: row-resize;
+    height: 4px;
+    width: 100%;
+}
+
+
+/* ------------------ */
+/*  5b. three pane    */
+/* ------------------ */
+.column .body.threeRow {
+	overflow: hidden;
+}
+
+.threeRow .pane {
+	position: absolute;
+}
+
+.threeRow .pane.primary {
+    bottom: 100px;
+    height: auto;
+	top: 100px;
+}
+
+.threeRow .pane.upper {
+    height: 100px;
+	top: 0;
+}
+
+.threeRow .pane.lower {
+	bottom: 0;
+	height: 100px;
+}
+
+
+
+/* ----------- */
+/*  6. FLOW    */
+/* ----------- */
+/* flow layout classes are used by .wizards as well */
+.body.flow {
+	white-space: nowrap;
+}
+
+.flow .row {
+	white-space: normal;
+}
+
+.flow #flowControls {
+	color: #333;
+	float: left;
+	margin-top: 85px;
+	min-width: 125px;
+	padding: 0 20px 0 10px;
+	position: relative;
+}
+
+.flow #stepDisplay .column.primary .header,
+.flow #stepDisplay .column.secondary .header {
+	border-bottom: 1px solid var(--border-grey-10);
+}
+
+.flow #stepDisplay .column.primary .header .title,
+.flow #stepDisplay .column.secondary .header .title {
+	display: inline-block;
+	float: none;
+}
+
+.flow #stepDisplay {
+	display: inline-block;
+	height: 99%;
+	position: relative;
+	width: 80%
+}
+
+.flow #stepDisplay.error .instructions > .warning {
+	display: block;
+}
+
+.flow #stepDisplay .instructions > .warning {
+	display: none;
+}
+
+.flow #stepDisplay .instructions.error .warning {
+	display: block;
+}
+
+.flow .row.instructions {
+	margin: 10px 10px 15px 10px;
+}
+
+.flow .row.inputs {
+    height: 80%;
+	min-height: 350px;
+	min-width: 600px;
+}
+
+.flow .row.inputs.twoColumn,
+.flow .row.inputs.twoColumn_equal {
+	min-width: 820px;
+}
+
+.flow .row.actions {
+	margin-bottom: 10px;
+}
+
+.flow .error .inputs {
+	top: 100px;
+}
+
+.flow .inputs.oneColumn > .primary.decorated > .content > .body {
+	padding: 15px 5px 5px 20px;
+}
+
+.flow .inputs.oneColumn > .primary > .content > .header {
+	overflow: visible;
+}
+
+.flow .inputs .twoColumn_equal > .column {
+	padding: 0 5px;
+}
+
+.flow .inputs.twoColumn > .column.primary {
+	margin-left: 35px;
+}
+
+.flow .inputs > .column {
+	margin-left: 10px;
+}
+
+.flow .inputs > .column.decorated {
+	margin-top: 5px;
+}
+
+.flow .twoColumn_equal > .column > .sizer,
+.flow .twoColumn_equal .minimize {
+	display: none;
+}
+
+.flow #moveButtons .button,
+.flow .moveButtons .button {
+	margin-bottom: 10px;
+}
+
+.flow #moveButtons .toRight,
+.flow #moveButtons .toTop,
+.flow .moveButtons .toRight,
+.flow .moveButtons .toTop {
+	margin-top: 30px;
+}
+
+.flow .panel.info {
+	height: 100%;
+	width: 100%;
+}
+
+.nameAndDescription {
+	margin: 5px 20px;
+}
+
+/* wizard */
+.flow.wizard #wizardNav #done,
+.flow.wizard #wizardNav #submit {
+	display: none;
+}
+
+.flow #next,
+.flow #previous,
+.flow.wizard.oneStep #wizardNav #next,
+.flow.wizard.oneStep #wizardNav #previous,
+.flow.wizard.lastStep #wizardNav #next {
+	display: none;
+}
+
+.flow.wizard #wizardNav #previous,
+.flow.wizard #wizardNav #next,
+.flow.wizard #wizardNav #previous,
+.flow.wizard.firstStep #wizardNav #next,
+.flow.wizard.oneStep #wizardNav #done,
+.flow.wizard.lastStep #wizardNav #done,
+.flow.wizard.oneStep #wizardNav #submit,
+.flow.wizard.lastStep #wizardNav #submit {
+	display: inline;
+}
+
+
+/* pickWells */
+.twoColumn_equal.pickWells > .primary.column,
+.moveButtons > .primary.column {
+	margin: 16px 16px 16px 30px;
+}
+
+.twoColumn_equal.pickWells   > .secondary.column,
+.moveButtons > .secondary.column {
+	margin: 16px 30px 16px 16px;
+}
+
+.twoColumn_equal.pickWells> .primary > .content > .body {
+	padding: 0;
+}
+
+.flow .inputs .primary .twoColumn.pickWells>#moveButtons,
+.twoColumn_equal.pickWells>#moveButtons,
+.twoColumn_equal.pickWells > .moveButtons {
+	left: 50%;
+	margin-left: -17px;
+}
+
+.pickWells .sizer,
+.pickWells .button.minimize {
+	display: none;
+}
+
+.flow #moveButtons,
+.row #moveButtons,
+.moveButtons {
+    margin-left: 38px;
+    margin-right: 5px;
+    padding-top: 35px;
+	position: absolute;
+    right: 0;
+	width: 34px;
+}
+
+.moveButtons .button,
+#moveButtons .button {
+	margin-bottom: 8px;
+}

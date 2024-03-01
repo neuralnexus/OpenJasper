@@ -1,0 +1,281 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    TREE MODULE STYLESHEET
+
+    Project:        JasperReports Server
+    Version:        .03
+    Last change:    02/08/16
+    Author:         Anna Leeg
+ * ============================================= */
+
+// -------------
+//  TREE MODULE
+// -------------
+.jr-mTree.jr {}
+
+.jr-mTree-node.jr,
+.jr-mTree-leaf.jr {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.jr-mTree-label.jr {
+    height: em(22px);            // 2em | 22px / 11px
+    line-height: em(22px);       // 2.182em | 22px / 11px
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.jr-mTree-icon.jr {
+    background-image: image-url("tree_icons_sprite.png");
+    background-repeat: no-repeat;
+    float: left;
+    height: em(19px);                   // 1.727em | 19px / 11px
+    width: em(22px);                    // 2em | 22px / 11px
+    margin: em(3px) em(4px) 0 em(4px);	// .273em .364em 0 .454em | 3px 4px 0 4px
+}
+
+.jr-mTree-node.jr > .jr-mTree.jr {
+    margin-left: em(22px);              // 2em | 22px / 11px
+}
+
+.jr-mTree-nodeFolder.jr:not(.jr-mTree-hideRoot) .jr-mTree {
+    margin-left: em(22px);              // 2em | 22px / 11px
+}
+
+.jr-mTree-hideRoot.jr-mTree-nodeFolder > .jr-mTree-label-wrapper {
+    display: none !important;
+}
+
+.jr-mTree-node.selected > .jr-mTree-label-wrapper {
+    background-color: #1388d8;
+    color: #fff;
+}
+
+// node icon positions are in state.css
+
+// LEAF ICON POSITIONS
+// ad hoc view content
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.field {
+    background-position: -1px -60px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.calcfield {
+    background-position: -1px -90px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.measure {
+    background-position: -1px -180px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.calcmeasure {
+    background-position: -1px -210px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.dimension {
+    background-position: 2px -300px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.hierarchy {
+    background-position: 0 -390px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.olaphierarchy {
+    background-position: 0 -480px;
+}
+
+// dashboard content
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.chart {
+    background-position: -38px 0;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.crosstab {
+    background-position: -38px -29px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.table {
+    background-position: -38px -59px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.text {
+    background-position: -38px -89px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.webpage {
+    background-position: -38px -117px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.image {
+    background-position: -38px -150px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.adhocview {
+    background-position: -38px -269px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.report {
+    background-position: -38px -300px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.filter {
+    background-position: -39px -448px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.invisiblefilter {
+    background-position: -39px -448px;
+    opacity: .4
+}
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.invisiblefilter + .jr-mTree-label.jr {
+    opacity: .4
+}
+
+// folders
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.domain {
+    background-position: -78px -120px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.topic {
+    background-position: -78px -149px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.domaintopic {
+    background-position: -78px -179px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.olap {
+    background-position: -76px -210px;
+}
+
+/* domain items */
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.set {
+    background-position: -120px -60px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.tablefield {
+    background-position: -120px -270px;
+}
+
+.jr-mTree-leaf.jr > .jr-mTree-icon.jr.tablecalcfield {
+    background-position: -120px -300px;
+}
+
+
+
+// --------------------
+//  TREE MODULE STATES
+// --------------------
+
+// SELECTED NODES & LEAFS
+.jr-mTree-node.jr-isSelected.jr,
+.jr-mTree-leaf.jr-isSelected.jr {
+    background-color: #1388d8
+}
+
+.jr-mTree-node.jr-isSelected.jr > .jr-mTree-label.jr,
+.jr-mTree-leaf.jr-isSelected.jr > .jr-mTree-label.jr {
+    color: #fff;
+}
+
+// FOLDERS - OPEN & CLOSED
+.jr-mTree-node.jr-isOpen.jr .jr-mTree-icon.jr.folder {
+    background-position: -80px -30px;
+}
+
+.jr-mTree-node.jr-isClosed.jr .jr-mTree-icon.jr.folder {
+    background-position: -80px 0;
+}
+
+.jr-mTree-node.jr-isOpen.jr .jr-mTree-icon.jr.specialfolder {
+    background-position: -80px -60px;
+}
+
+.jr-mTree-node.jr-isClosed.jr .jr-mTree-icon.jr.specialfolder {
+    background-position: -80px -90px;
+}
+
+.jr-mTree-node.jr-isLoading.jr .jr-mTree-icon {
+    background-image: image-url("list_node_animation.gif");
+    background-position: 0 2px;
+    background-repeat: no-repeat;
+}
+
+// FIELDS, MEASURES, DIMENSIONS - OPEN & CLOSED
+.jr-mTree-node.jr-isClosed.jr > .jr-mTree-icon.field.jr {
+    background-position: 0 0;
+}
+
+.jr-mTree-node.jr-isOpen.jr > .jr-mTree-icon.field.jr {
+    background-position: 0 -30px;
+}
+
+.jr-mTree-node.jr-isClosed.jr > .jr-mTree-icon.measure.jr {
+    background-position: 0 -120px;
+}
+
+.jr-mTree-node.jr-isOpen.jr > .jr-mTree-icon.measure.jr {
+    background-position: 0 -150px;
+}
+
+.jr-mTree-node.jr-isClosed.jr > .jr-mTree-icon.dimension.jr {
+    background-position: 2px -240px;
+}
+
+.jr-mTree-node.jr-isOpen.jr > .jr-mTree-icon.dimension.jr {
+    background-position: 2px -270px;
+}
+
+// DASHBOARD DESIGNER CONTENT - OPEN & CLOSED
+.jr-mTree-node.jr-isClosed.jr > .jr-mTree-icon.jr.adhocview {
+    background-position: -40px -330px;
+}
+
+.jr-mTree-node.jr-isOpen.jr > .jr-mTree-icon.jr.adhocview {
+    background-position: -40px -360px;
+}
+
+.jr-mTree-node.jr-isClosed.jr > .jr-mTree-icon.jr.report {
+    background-position: -40px -390px;
+}
+
+.jr-mTree-node.jr-isOpen.jr > .jr-mTree-icon.jr.report {
+    background-position: -40px -420px;
+}
+
+.jr-mTree-node.jr-isClosed.jr > .jr-mTree-icon.jr.hierarchy {
+    background-position: 0 -330px;
+}
+
+.jr-mTree-node.jr-isOpen.jr > .jr-mTree-icon.jr.hierarchy {
+    background-position: 0 -360px;
+}
+
+.jr-mTree-node.jr-isClosed.jr > .jr-mTree-icon.jr.olaphierarchy {
+    background-position: 0 -420px;
+}
+
+.jr-mTree-node.jr-isOpen.jr > .jr-mTree-icon.jr.olaphierarchy {
+    background-position: 0 -450px;
+}

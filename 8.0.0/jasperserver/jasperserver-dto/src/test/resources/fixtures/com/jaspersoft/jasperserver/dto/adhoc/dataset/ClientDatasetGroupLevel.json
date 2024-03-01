@@ -1,0 +1,10 @@
+{
+  "reference": "TEST_FIELD_REF",
+  "type": "TEST_TYPE",
+  "aggregations": [
+    {}
+  ],
+  "members": [
+    "TEST_MEMBER"
+  ]
+}

@@ -1,0 +1,1824 @@
+/*----------------------------------
+   TABLE OF CONTENTS
+
+   0. MUI OVERRIDES
+
+   1. ACCORDION
+
+   2. BUTTON
+      2a. Base
+      2b. Icon
+      2c. Sizes
+      2d. Priority
+      2e. Contained
+      2f. Combo Icon + Text
+      2g. States
+
+   3. BUTTON GROUP
+
+   4. ICON
+
+   5. INPUTS
+      5a. Base
+      5b. Sizes
+
+   6. INPUT
+      6a. Base
+      6b. Inline
+      6c. Text
+      6d. Select
+      6e. Browse
+      6f. Switch
+      6g. Buttons
+
+   7. INSTRUCTOR
+
+   8. MENU
+
+   9. PANEL
+
+  10. TABS
+
+  11. TYPOGRAPHY
+      11a. Basic
+      11b. Links
+
+  12. CONTROL
+      12a. Color
+      12b. Interval
+      12c. Action
+
+  -----------------------------------
+  File last modified Aug 9, 2021
+  ----------------------------------- */
+
+/* -------------------- */
+/*  0. MUI OVERRIDES    */
+/* -------------------- */
+/* accordion */
+.jr-MuiAccordion-root:before {
+  display: none;
+}
+
+/* auto-complete */
+.jr-MuiAutocomplete-inputRoot .jr-MuiAutocomplete-input {
+  min-width: 52px;
+  width: 100%;
+}
+
+.jr-MuiAutocomplete-listbox {
+  padding: 4px 0;
+}
+
+.jr-MuiAutocomplete-option {
+  font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.25
+}
+
+/* button */
+.jr-MuiButton-iconSizeSmall > *:first-child.mui {
+  font-size: inherit;
+}
+
+.jr-MuiButton-iconSizeMedium > *:first-child.mui {
+  font-size: inherit;
+}
+
+.jr-MuiButton-iconSizeLarge > *:first-child.mui {
+  font-size: inherit;
+}
+
+.jr-MuiButton-contained,
+.jr-MuiButton-contained:hover,
+.jr-MuiButton-contained.jr-Mui-focusVisible {
+  box-shadow: none;
+}
+
+/* button group */
+.jr-MuiButtonGroup-groupedContainedHorizontal:not(:last-child) {
+  border-right: none;
+}
+
+/* card */
+.jr-MuiCardHeader-root {
+  padding: 0;
+}
+
+.jr-MuiCardHeader-action {
+  align-self: unset;
+  margin: 0;
+}
+
+/* divider */
+.jr-MuiDivider-root {
+  background-color: transparent;
+}
+
+/* inputs */
+.jr-MuiInputBase-root {
+  letter-spacing: 0;
+}
+
+.jr-MuiInputLabel-formControl {
+  position: relative;
+}
+
+.jr-MuiInputLabel-outlined,
+.jr-MuiInputLabel-shrink {
+  transform: none !important;
+}
+
+.jr-MuiOutlinedInput-notchedOutline {
+  border: none;
+  top: 0;
+}
+
+.jr-MuiOutlinedInput-input {
+  padding: 0 6px;
+}
+
+.jr-MuiInputBase-input.jr-Mui-disabled {
+  background-color: #f4f4f4;
+  opacity: .6;
+}
+
+.jr-MuiOutlinedInput-notchedOutline > legend {
+  display: none;
+}
+
+.jr-MuiFormHelperText-contained {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.jr-MuiOutlinedInput-multiline {
+  padding: 0;
+}
+
+.jr-MuiOutlinedInput-root.jr-Mui-focused .jr-MuiOutlinedInput-notchedOutline {
+  border-color: transparent;
+  border-width: 1px;
+}
+
+.jr-MuiOutlinedInput-adornedStart {
+  padding-left: 0;
+}
+
+.jr-MuiAutocomplete-inputRoot.jr-MuiOutlinedInput-root {
+  padding: 0;
+}
+
+.jr-MuiAutocomplete-inputRoot.jr-MuiOutlinedInput-root .jr-MuiAutocomplete-input,
+.jr-MuiAutocomplete-inputRoot.jr-MuiOutlinedInput-root .jr-MuiAutocomplete-input:first-child {
+  padding: 0 6px;
+}
+
+/* tabs */
+.jr-MuiTabs-root {
+  min-height: 22px;
+}
+
+@media (min-width: 600px) {
+  .jr-MuiTab-root {
+    min-width: auto;
+  }
+}
+
+/* typography */
+.jr-MuiTypography-body1 {
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 1.333;
+}
+
+.jr-MuiTypography-body2 {
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.333;
+}
+
+
+/* ------------------- */
+/*  1. ACCORDION       */
+/* ------------------- */
+.jr-mAccordion.mui,
+.jr-mAccordion.jr-Mui-expanded.mui {
+  margin: 0 0 14px 0;
+}
+
+.jr-mAccordion.mui:last-of-type,
+.jr-mAccordion.jr-Mui-expanded.mui {
+  margin-bottom: 0;
+}
+
+.jr-mAccordion-title.mui,
+.jr-mAccordion-title.jr-Mui-expanded.mui {
+  border-bottom: 1px solid #dedede;
+  flex-direction: row-reverse;
+  height: 28px;
+  min-height: 28px;
+  padding: 0 10px 0 6px;
+}
+
+.jr-mAccordion-title-text.mui,
+.jr-mAccordion-title-text.mui.jr-Mui-expanded {
+  margin: 0;
+}
+
+.jr-mAccordion-title-text.mui > p {
+  color: #333333;
+  font-family: $font-family-semibold;
+  font-size: 13px;
+  line-height: 28px;
+}
+
+.jr-mAccordion-title-icon.mui {
+  color: #333333;
+  margin-right: 2px;
+  padding: 0;
+}
+
+.jr-mAccordion.mui .jr-mAccordion-title.mui .jr-MuiSvgIcon-root {
+  width: .7em;
+  height: .7em;
+}
+
+.jr-mAccordion-title-icon.mui.jr-Mui-expanded {
+  transform: rotate(90deg);
+}
+
+.jr-mAccordion-body.mui {
+  padding: 12px;
+}
+
+/* size variation */
+.jr-mAccordionSmall.mui .jr-mAccordion-title.mui,
+.jr-mAccordionSmall.mui .jr-mAccordion-title.jr-Mui-expanded.mui {
+  height: 24px;
+  min-height: 24px;
+  padding: 0 10px 0 6px;
+}
+
+.jr-mAccordionSmall.mui .jr-mAccordion-title-text.mui > p {
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.jr-mAccordionSmall.mui .jr-mAccordion-title.mui .jr-MuiSvgIcon-root {
+  width: .6em;
+  height: .6em;
+}
+
+.jr-mAccordionSmall.mui .jr-mAccordion-body.mui {
+  padding: 8px;
+}
+
+/* shaded title variation */
+.jr-mAccordion-titleShaded.mui,
+.jr-mAccordion-titleShaded.jr-Mui-expanded.mui {
+  background-color: #f5f6f8;
+  border-bottom: none;
+  border-radius: 2px;
+}
+
+/* focused state */
+.jr-mAccordion-titleShaded.mui.jr-Mui-focused,
+.jr-mAccordion-titleShaded.jr-Mui-expanded.mui.jr-Mui-focused {
+  background-color: rgba(0, 0, 0, .12);
+}
+
+
+/* ------------------ */
+/*  2. BUTTON         */
+/* ------------------ */
+/*  2a. Base Button   */
+/*  ----------------- */
+.jr-mButton.mui {
+  background-color: transparent;
+  border-radius: 2px;
+  font-family: $font-family-semibold;
+  font-size: 13px;
+  font-weight: normal;
+  height: 24px;
+  letter-spacing: normal;
+  line-height: unset;
+  min-width: 24px;
+  padding: 0;
+  margin-right: 0;
+  width: auto;
+}
+
+.jr-mButton.mui:not(:first-of-type) {
+  margin-left: .5em;
+}
+
+.jr-mButton-label.mui {
+  color: #444444;
+  display: flex;
+  line-height: 24px;
+  margin-left: 1em;
+  margin-right: 1em;
+  text-transform: none;
+}
+
+/* ------------------ */
+/*  2b. Icon Button   */
+/*  ----------------- */
+/* Note: icons are bigger in plain buttons than in contained buttons */
+.jr-mButton.jr-MuiIconButton-root.mui {
+  height: 24px;
+  width: 24px;
+}
+
+.jr-mButton.jr-MuiIconButton-root.mui .jr-mIcon.mui {
+  font-size: 18px;
+}
+
+.jr-mButton.jr-MuiIconButton-root.jr-MuiButton-contained.mui .jr-mIcon.mui {
+  font-size: 14px;
+}
+
+
+.jr-mButtonSmall.jr-MuiIconButton-root.mui {
+  height: 22px;
+  min-width: 22px;
+  width: 22px;
+}
+
+.jr-mButtonSmall.jr-MuiIconButton-root.mui .jr-mIcon.mui {
+  font-size: 16px;
+}
+
+.jr-mButtonSmall.jr-MuiIconButton-root.jr-MuiButton-contained.mui .jr-mIcon.mui {
+  font-size: 13px;
+}
+
+.jr-mButtonSmall {
+}
+
+
+.jr-mButtonLarge.jr-MuiIconButton-root.mui {
+  height: 28px;
+  min-width: 28px;
+  width: 28px;
+}
+
+.jr-mButtonLarge.jr-MuiIconButton-root.mui .jr-mIcon.mui {
+  font-size: 20px;
+}
+
+.jr-mButtonLarge.jr-MuiIconButton-root.jr-MuiButton-contained.mui .jr-mIcon.mui {
+  font-size: 16px;
+}
+
+/* --------------- */
+/*  2c. Sizes      */
+/*  -------------- */
+.jr-mButton.mui.jr-MuiButton-containedSizeSmall,
+.jr-mButton.mui.jr-MuiButton-textSizeSmall {
+  font-size: 12px;
+  height: 22px;
+  min-width: 22px;
+}
+
+.jr-mButton.mui.jr-MuiButton-containedSizeSmall .jr-mButton-label.mui,
+.jr-mButton.mui.jr-MuiButton-textSizeSmall .jr-mButton-label.mui {
+  line-height: 22px;
+}
+
+.jr-mButton.mui.jr-MuiButton-containedSizeLarge,
+.jr-mButton.mui.jr-MuiButton-textSizeLarge {
+  font-size: 14px;
+  height: 28px;
+  min-width: 28px;
+}
+
+.jr-mButton.mui.jr-MuiButton-containedSizeLarge .jr-mButton-label.mui,
+.jr-mButton.mui.jr-MuiButton-textSizeLarge .jr-mButton-label.mui {
+  line-height: 28px;
+}
+
+/* ---------------- */
+/*  2d. Priority    */
+/*  --------------- */
+.jr-mButtonPrimary.mui .jr-mButton-label.mui,
+.jr-mButtonPrimary.mui .jr-mButton-icon.mui {
+  color: #055dab;
+}
+
+.jr-mButtonSecondary.mui .jr-mButton-label.mui,
+.jr-mButtonSecondary.mui .jr-mButton-icon.mui {
+}
+
+.jr-mButtonError.mui .jr-mButton-label.mui,
+.jr-mButtonError.mui .jr-mButton-icon.mui {
+  color: #bd1d26;
+}
+
+.jr-mButtonWarning.mui .jr-mButton-label.mui,
+.jr-mButtonWarning.mui .jr-mButton-icon.mui {
+  color: #e2500f;
+}
+
+/* ----------------- */
+/*  2e. Contained    */
+/*  ---------------- */
+.jr-mButtonPrimary.jr-MuiButton-contained.mui {
+  background-color: $color-tciLight;
+}
+
+.jr-mButtonSecondary.jr-MuiButton-contained.mui {
+  background-color: #e4e4e4;
+}
+
+.jr-mButtonError.jr-MuiButton-contained.mui {
+  background-color: $color-errorMedium;
+}
+
+.jr-mButtonWarning.jr-MuiButton-contained.mui {
+  background-color: #ff6a00;
+}
+
+.jr-mButtonPrimary.jr-MuiButton-contained.mui .jr-mButton-label.mui,
+.jr-mButtonError.jr-MuiButton-contained.mui .jr-mButton-label.mui,
+.jr-mButtonWarning.jr-MuiButton-contained.mui .jr-mButton-label.mui {
+  color: #ffffff;
+}
+
+/* ------------------------- */
+/* 2f. Combo Icon + Text     */
+/* ------------------------- */
+.jr-mButton.mui .jr-MuiButton-startIcon {
+  margin-left: -4px;
+  margin-right: 4px;
+}
+
+/* -------------------- */
+/* 2g. Button States    */
+/* -------------------- */
+/* disabled */
+.jr-mButton.mui.jr-Mui-disabled {
+  opacity: .5
+}
+
+.jr-mButton.mui.jr-Mui-disabled .jr-mButton-label.mui {
+  opacity: .8;
+}
+
+/* selected */
+.jr-mButton.jr-Mui-selected.mui {
+  background-color: $color-tciLight;
+}
+
+.jr-mButton.jr-Mui-selected.mui .jr-mButton-icon.mui {
+  color: #ffffff;
+}
+
+/* focus */
+.jr-Mui-focusVisible .jr-mButton-label.mui,
+.jr-Mui-focusVisible .jr-mButton-icon.mui {
+  z-index: 99;
+}
+
+.jr-mButton.jr-MuiButton-contained.mui .jr-MuiTouchRipple-ripple {
+  width: calc(100% - 2px) !important;
+  height: calc(100% - 2px) !important;
+  top: 1px !important;
+  right: 1px !important;
+  bottom: 1px !important;
+  left: 1px !important;
+  opacity: .5;
+}
+
+.jr-mButton.mui:not(.jr-MuiButton-contained) .jr-MuiTouchRipple-ripple {
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  opacity: .3;
+}
+
+.jr-mButton.mui .jr-MuiTouchRipple-child {
+  background-color: #999999;
+  border-radius: 2px;
+}
+
+.jr-MuiButton-contained.jr-mButtonPrimary.mui .jr-MuiTouchRipple-child,
+.jr-MuiButton-contained.jr-mButtonError.mui .jr-MuiTouchRipple-child,
+.jr-MuiButton-contained.jr-mButtonWarning.mui .jr-MuiTouchRipple-child {
+  background-color: #ffffff;
+}
+
+.jr-MuiButton-text.mui.jr-Mui-focusVisible .jr-MuiTouchRipple-ripple {
+  opacity: 1;
+}
+.jr-MuiButton-text.mui.jr-Mui-focusVisible .jr-MuiTouchRipple-child {
+  background-color: #e4e4e4;
+}
+.jr-MuiButton-text.jr-mButtonPrimary.mui.jr-Mui-focusVisible .jr-MuiTouchRipple-child {
+  background-color: #d8e8f7;
+}
+.jr-MuiButton-text.jr-mButtonError.mui.jr-Mui-focusVisible .jr-MuiTouchRipple-child {
+  background-color: $color-errorLight;
+}
+.jr-MuiButton-text.jr-mButtonWarning.mui.jr-Mui-focusVisible .jr-MuiTouchRipple-child {
+  background-color: $color-warningLight;
+}
+
+
+
+/* ------------------- */
+/*  3. BUTTON GROUP    */
+/* ------------------- */
+.jr-mButtongroup.mui {}
+
+.jr-mButtongroup.mui .jr-mButton.mui {
+  margin-right: 2px;
+  margin-left: 0;
+}
+
+.jr-mButtongroup.mui .jr-mButton.mui:last-child {
+  margin-right: 0;
+}
+
+.jr-mButtongroup.mui .jr-MuiButtonGroup-groupedHorizontal:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.jr-mButtongroup.mui .jr-MuiButtonGroup-groupedHorizontal:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* focus */
+.jr-mButtongroup.mui .jr-mButton.jr-Mui-selected.mui.jr-Mui-focusVisible .jr-MuiTouchRipple-child {
+  background-color: #ffffff
+}
+
+
+/* ------------ */
+/*  4. ICON     */
+/* ------------ */
+.jr-mIcon.mui {
+  box-sizing: border-box;
+  color: #666666;
+  font-size: 18px;
+  position: relative;
+  text-decoration: none;
+  vertical-align: middle;
+  width: auto;
+}
+
+.jr-mIcon.jr-loading.mui {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #0081cb;
+  height: 18px;
+  width: 18px;
+  -webkit-animation: spin 1s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  -ms-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+  background: image-url("jr-loading_animation.gif") no-repeat -2px 0px \9
+;
+  background-size: 120%;
+}
+
+/* small */
+.jr-mIconSmall.mui {
+  font-size: 16px;
+}
+
+.jr-mIconLarge.mui {
+  font-size: 20px;
+}
+
+/* large */
+.jr-mIcon.jr-mIconSmall.jr-loading.mui {
+  height: 16px;
+  width: 16px;
+}
+
+.jr-mIcon.jr-mIconLarge.jr-loading.mui {
+  height: 20px;
+  width: 20px;
+}
+
+
+/* ------------------ */
+/*  5. INPUTS         */
+/* ------------------ */
+/*  5a. Base          */
+/* ------------------ */
+.jr-mInputs.mui {
+  width: 100%;
+}
+
+.jr-mInputsLarge.mui {}
+.jr-mInputsSmall.mui {}
+
+.jr-mInputs-group.mui {
+  margin-bottom: 14px;
+}
+
+.jr-mInputs-group-item.mui {}
+
+/* Attribute/value pairings with action buttons */
+.jr-mInputs-group-itemAttribute.mui {}
+.jr-mInputs-group-itemValue.mui {}
+
+.jr-mInputs-group-itemValue.mui .jr-mInputSmall.mui .jr-mInput-text.mui[readonly] {
+  max-height: 40px;
+  -webkit-line-clamp: 2;
+  width: calc(100% - 56px);
+}
+
+.jr-mInputsSmall.mui .jr-mInputs-group-itemValue.mui + .jr-mInputs-group-action.mui {
+  margin-top: -30px;
+}
+
+.jr-mInputsSmall.mui .jr-mInputs-group.mui {
+  margin-bottom: 10px;
+}
+
+.jr-mInputsLarge.mui .jr-mInputs-group.mui {
+  margin-bottom: 16px;
+}
+
+.jr-mInputs-group-label.mui {
+  color: #444444;
+}
+
+.jr-mInputs-divider.mui {
+  border-top: 1px solid #e5eaed;
+  display: block;
+  height: 8px;
+}
+
+.jr-mInputsLarge.mui .jr-mInputs-group-label.mui {}
+
+.jr-mInputsSmall.mui .jr-mInputs-group-label.mui {
+  margin-bottom: 6px;
+}
+
+.jr-mInputs-group-item.mui,
+.jr-mInputs-group-items.mui {}
+
+.jr-mInputs-group-itemIndent.mui,
+.jr-mInputs-group-itemsIndent.mui {
+  margin-left: 12px;
+}
+
+.jr-mInputs-group-itemComplex.mui {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.jr-mInputs-group-action.mui {}
+
+.jr-mInputs-group-actionRight.mui {
+  text-align: right;
+}
+
+.jr-mInputs-group-itemComplex.mui .jr-mControlColor.mui {
+  flex: 1 1 50%;
+}
+
+/* specific to color control */
+
+.jr-mInputs-group-itemComplex.mui .jr-mControlColor.mui + div {
+  flex: 0 1 52px;
+}
+
+/* specific to color control */
+
+.jr-mInputs-group-itemComplex.mui .jr-mInput-error.mui {
+  flex: 1 1 100%;
+}
+
+/* ------------------ */
+/*  6. INPUT          */
+/* ------------------ */
+/*  6a. Base Input    */
+/*  ----------------- */
+.jr-mInput.mui {}
+
+.jr-mInput-label.mui {
+  box-sizing: border-box;
+  color: #444444;
+  font-family: $font-family-primary;
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.jr-mInput-helper.mui,
+.jr-mInput-error.mui {
+  font-family: $font-family-primary;
+  font-size: 11px;
+  letter-spacing: normal;
+  line-height: 1.25;
+}
+
+.jr-mInput-helper.mui {
+  color: #999999;
+}
+
+.jr-mInput-error.mui {
+  color: $color-errorMedium;
+  font-family: $font-family-semibold;
+}
+
+/* narrow */
+.jr-mInputNarrow.mui > .jr-MuiInputBase-root {
+  width: 52px;
+}
+
+
+/*  ------------------  */
+/*  6b. Inline Input    */
+/*  ------------------  */
+.jr-mInputInline.mui > .jr-MuiInputBase-root {
+  height: 24px;
+}
+
+.jr-mInputInline.mui .jr-mInput-label.mui {
+  flex: 1 1 48%; /* 48% prevent wrapping of input for indented inputs */
+  line-height: 1.3;
+  padding-top: 4px;
+  padding-right: 8px;
+}
+
+.jr-mInputInline.mui .jr-MuiInputBase-root {
+  display: inline-block; /* needed to prevent textarea from overflowing its container */
+  flex: 1 1 50%;
+}
+
+.jr-mInputInline.jr-mInputSmall.mui > .jr-MuiInputBase-root {
+  height: 22px;
+}
+
+.jr-mInputInline.jr-mInputSmall.mui > .jr-MuiInputBase-multiline {
+  height: auto;
+}
+
+/* narrow */
+.jr-mInputInline.jr-mInputNarrow.mui > .jr-MuiInputBase-root {
+  flex: 0 1 52px;
+}
+
+/* wide */
+.jr-mInputInline.jr-mInputWide.mui > .jr-MuiInputBase-root {
+  flex: 0 1 70%;
+}
+
+.jr-mInputInline.jr-mInputWide.mui .jr-mInput-label.mui {
+  width: 28%;
+}
+
+/*  ---------------  */
+/*  6c. Text Input   */
+/*  ---------------  */
+.jr-mInputText.mui {
+  display: flex;
+  margin: 0 0 12px 0;
+}
+
+.jr-mInputInline.mui {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jr-mInputText.jr-mInputInline.mui {
+  flex-wrap: wrap;
+}
+
+.jr-mInput-text.mui {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-family: $font-family-primary;
+  font-size: 13px;
+  height: 24px;
+  padding: 0 6px;
+}
+
+.jr-mInputText.mui textarea.jr-mInput-text.mui {
+  height: auto;
+  min-height: 24px;
+}
+
+/* large text input */
+.jr-mInputLarge.jr-mInputText.mui {
+  margin: 0 0 14px 0;
+}
+
+.jr-mInputLarge.mui .jr-mInput-text.mui {
+  height: 28px;
+}
+
+.jr-mInputLarge.jr-mInputInline.mui > .jr-MuiInputBase-root {
+  height: 28px;
+}
+
+.jr-mInputLarge.jr-mInputInline.mui .jr-mInput-label.mui {
+  padding-top: 5px;
+}
+
+.jr-mInputText.jr-mInputLarge.mui + .jr-mInput-error.mui {
+  margin-top: -10px;
+}
+
+.jr-mInputText.mui + .jr-mInput-error.mui {
+  margin-top: -8px;
+  margin-bottom: 14px;
+}
+
+.jr-mInputLarge.mui textarea.jr-mInput-text.mui {
+  min-height: 28px;
+}
+
+/* small text input */
+.jr-mInputSmall.jr-mInputText.mui,
+.jr-mInputSmall.jr-mInputTextarea.mui {
+  margin: 0 0 8px 0;
+}
+
+.jr-mInputSmall.mui .jr-mInput-label.mui {
+  font-size: 12px;
+}
+
+.jr-mInputSmall.mui .jr-mInput-text.mui {
+  font-size: 12px;
+  height: 22px;
+  padding: 0 4px;
+}
+
+.jr-mInputText.jr-mInputSmall.mui + .jr-mInput-error.mui {
+  margin-top: -4px;
+  margin-bottom: 8px;
+}
+
+.jr-mInputSmall.mui .jr-mInput-text.mui[readonly],
+.jr-mInput-text.mui[readonly],
+.jr-mInput-text.mui[readonly] + fieldset {
+  background-color: transparent;
+  border: none;
+  color: #999999;
+  padding-left: 0;
+}
+
+textarea[readonly].jr-mInput-text.mui {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.jr-mInputSmall.mui textarea.jr-mInput-text.mui {
+  min-height: 22px;
+}
+
+/* error state */
+.jr-mInputText.mui .jr-MuiInputBase-root.jr-Mui-error > .jr-mInput-text.mui {
+  border-color: $color-errorMedium;
+}
+
+/* focused states */
+.jr-MuiInputBase-root.jr-Mui-focused .jr-mInput-text.mui {
+  border: 1px solid $color-tciLight;
+}
+
+/*.jr-MuiOutlinedInput-root.jr-Mui-focused .jr-mInput-text.mui[readonly] {
+  color: blue;
+}*/
+
+.jr-MuiOutlinedInput-root.jr-Mui-focused .jr-mInput-text.mui[readonly]::selection {
+  background-color: #cfe5f3;
+}
+
+.jr-MuiOutlinedInput-root.jr-Mui-focused .jr-mInput-text.mui[readonly] {
+  border: 1px solid #cfe5f3;
+  padding-left: 2px;
+}
+
+.jr-mInputSelect.mui .jr-MuiOutlinedInput-root.jr-Mui-focused .jr-MuiOutlinedInput-notchedOutline {
+  border: 1px solid $color-tciLight;
+}
+
+
+/*  -----------------  */
+/*  6d. Select Input   */
+/*  -----------------  */
+.jr-mInputSelect.mui {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 12px 0;
+}
+
+.jr-mInput-select.mui {
+  background-color: white;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #212121;
+  font-family: $font-family-primary;
+  height: 24px;
+  font-size: 13px;
+  line-height: 24px;
+  min-height: 24px;
+}
+
+.jr-mInput-select.mui ~ .jr-MuiSelect-icon {
+  right: 3px;
+}
+
+.jr-mInputSelect.jr-mInputInline.mui {
+  flex-direction: row;
+}
+
+.jr-mInputSelect.jr-mInputInline.mui .jr-MuiInputBase-root {
+  max-width: 50%;
+}
+
+.jr-MuiMenu-list.jr-MuiList-padding {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.jr-mInput-select-item.mui,
+.jr-MuiMenuItem-root {
+  font-family: $font-family-primary;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.jr-mInputSmall.mui .jr-mInput-select.mui {
+  font-size: 12px;
+  height: 22px;
+  line-height: 22px;
+  min-height: 22px;
+}
+
+.jr-mInputLarge.mui .jr-mInput-select.mui {
+  height: 28px;
+  line-height: 28px;
+  min-height: 28px;
+}
+
+.jr-Mui-focused .jr-mInput-select.mui {
+}
+
+/*  -----------------  */
+/*  6e. Browse Input   */
+/*  -----------------  */
+.jr-mInputBrowse.mui {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.jr-mInputBrowse.mui > :first-child {
+  flex: 1 1 auto;
+}
+
+.jr-mInputBrowse.mui .jr-mInputText.mui {
+  margin-bottom: 0;
+}
+
+.jr-mInputBrowse.mui .jr-mInput-label.mui {
+  flex: 1 1 100%;
+}
+
+.jr-mInputBrowse.mui .jr-mButton.mui {
+  margin-left: 6px;
+  top: 22px;
+}
+
+.jr-mInputBrowse.mui + .jr-mInput-helper.mui,
+.jr-mInputBrowse.mui + .jr-mInput-error.mui {
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+.jr-mInputBrowse.mui + .jr-mInput-helper.mui + .jr-mInput-error.mui {
+  margin-top: -6px;
+  margin-bottom: 8px;
+}
+
+/*  -----------------  */
+/*  6f. Switch Input   */
+/*  -----------------  */
+.jr-mInputInline.jr-mInputSwitch.mui > label {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.jr-mInputSwitch.mui {
+  margin: 0 0 12px 0;
+}
+
+.jr-mInputSwitch.jr-mInputSmall.mui {
+  margin: 0 0 8px 0;
+}
+
+/*.jr-MuiSwitch-root,*/
+.jr-MuiSwitch-root, /* this can be removed after replacing with following classname */
+.jr-mInput-switch.mui {
+  border-radius: 10px;
+  height: 20px;
+  overflow: visible;
+  padding: 0;
+  width: 38px;
+}
+
+.jr-MuiSwitch-switchBase {
+  color: #e4e4e4;
+  padding: 0;
+}
+
+.jr-MuiSwitch-thumb {
+  box-shadow: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+.jr-MuiSwitch-track {
+  background-color: #b5b5b5;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.jr-MuiSwitch-colorPrimary.jr-Mui-checked {
+  color: #fff;
+}
+
+.jr-MuiSwitch-colorPrimary.jr-Mui-checked + .jr-MuiSwitch-track {
+  background-color: #055dab;
+  opacity: 1;
+}
+
+.jr-MuiSwitch-switchBase.jr-Mui-checked {
+  transform: translateX(18px);
+}
+
+.jr-mInputSwitch.mui > .jr-Mui-disabled {
+  opacity: .5;
+}
+
+/* small */
+.jr-MuiSwitch-sizeSmall.jr-MuiSwitch-root {
+  border-radius: 8px;
+  height: 16px;
+  padding: 0;
+  width: 28px;
+}
+
+.jr-MuiSwitch-sizeSmall .jr-MuiSwitch-thumb {
+  width: 12px;
+  height: 12px;
+}
+
+.jr-MuiSwitch-sizeSmall > .jr-MuiSwitch-switchBase.jr-Mui-checked {
+  transform: translateX(12px);
+}
+
+.jr-MuiSwitch-sizeSmall .jr-MuiSwitch-switchBase {
+  padding: 0;
+}
+
+/* focused state */
+.jr-MuiSwitch-switchBase.jr-Mui-focusVisible + .jr-MuiSwitch-track:before {
+  content: "";
+  border: 1px solid $color-tciLight;
+  border-radius: 14px;
+  height: calc(100% + 2px);
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  overflow: visible;
+  width: calc(100% + 2px);
+}
+
+/*  -------------------  */
+/*  6g. Buttons Input    */
+/*  -------------------  */
+/*  used for text formatting e.g. bold, italic, underline */
+.jr-mInputButtons.jr-mInputInline.mui {
+  display: flex;
+}
+
+.jr-mInputButtons.mui {
+  margin-bottom: 10px;
+}
+
+.jr-mInputButtons.jr-mInputSmall.mui {
+  margin-bottom: 8px;
+}
+
+.jr-mInputButtons.jr-mInputLarge.mui {
+  margin-bottom: 14px;
+}
+
+
+
+/* ----------------- */
+/*  7. INSTRUCTOR    */
+/* ----------------- */
+.jr-mInstructor.mui {
+  align-items: center;
+  color: #666666;
+  display: flex;
+  flex-direction: row;
+  font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+  font-weight: normal;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.jr-mInstructor-wrapper.mui {
+  padding: 26px 20%;
+}
+
+.jr-mInstructor-icon.mui {
+  font-size: 30px;
+  height: 1.333em;
+  line-height: 1.333;
+}
+.jr-mInstructor-title.mui {
+  font-family: $font-family-semibold;
+  font-size: 20px;
+  line-height: 1.2em;
+  margin-top: .25em;
+  margin-bottom: .6em;
+}
+
+.jr-mInstructor-text.mui {
+  font-size: 13px;
+  line-height: 1.35em;
+}
+
+// sizes
+.jr-mInstructorSmall.mui .jr-mInstructor-icon.mui {
+  font-size: 24px;
+}
+
+.jr-mInstructorSmall.mui .jr-mInstructor-wrapper.mui {
+  padding: 10px 15%;
+}
+
+.jr-mInstructorSmall.mui .jr-mInstructor-title.mui {
+  font-size: 16px;
+}
+
+.jr-mInstructorSmall.mui .jr-mInstructor-text.mui {
+  font-size: 12px;
+}
+
+.jr-mInstructorLarge.mui .jr-mInstructor-icon.mui {
+  font-size: 36px;
+}
+
+.jr-mInstructorLarge.mui .jr-mInstructor-wrapper.mui {
+  padding: 32px 25%;
+}
+
+.jr-mInstructorLarge.mui .jr-mInstructor-title.mui {
+  font-size: 24px;
+}
+
+.jr-mInstructorLarge.mui .jr-mInstructor-text.mui {
+  font-size: 14px;
+}
+
+// no title variation
+.jr-mInstructorSimple.mui {}
+
+.jr-mInstructorSimple.mui .jr-mInstructor-title.mui {
+  display: none;
+}
+
+.jr-mInstructorSimple.jr-mInstructor.mui .jr-mInstructor-icon.mui {
+  font-size: 26px
+}
+
+.jr-mInstructorSimple.jr-mInstructorSmall.mui .jr-mInstructor-icon.mui {
+  font-size: 20px;
+}
+
+.jr-mInstructorSimple.jr-mInstructorLarge.mui .jr-mInstructor-icon.mui {
+  font-size: 32px;
+}
+
+
+/* ----------------- */
+/*  8. MENU          */
+/* ----------------- */
+
+
+/* ----------------- */
+/*  9. PANEL         */
+/* ----------------- */
+/* panel container */
+.jr-mPanels.mui {
+  align-items: stretch;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.jr-mPanels.mui * {
+  box-sizing: border-box;
+}
+
+.jr-mPanelsLeft.mui {}
+.jr-mPanelsRight.mui {}
+
+.jr-mPanelsLeft.jr-mPanelsMinimized.mui,
+.jr-mPanelsRight.jr-mPanelsMinimized.mui {
+  /* display: flex; redundant */
+}
+
+.jr-mPanelsStacked.mui {
+  flex-direction: column;
+}
+
+.jr-mPanelsStacked.mui .jr-mPanel:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+/* panel */
+.jr-mPanel.mui {
+  background-color: #f3f4fb;
+}
+
+.jr-mPanel.mui .jr-MuiDrawer-paper {
+  background-color: transparent;
+  border: none;
+  min-width: 250px;
+  overflow: visible;
+  position: relative;
+  padding: 10px;
+}
+
+.jr-mPanel-action.mui {
+  background-color: #f3f4fb;
+  position: absolute;
+  top: 0;
+  height: 30px;
+  z-index: 999;
+}
+
+/* left and right panel shared styles */
+.jr-mPanelLeft.mui .jr-mPanel-action-button.mui,
+.jr-mPanelRight.mui .jr-mPanel-action-button.mui {
+  background-color: #f3f4fb;
+  height: 28px;
+  margin: 0;
+  min-width: 16px;
+  top: 1px;
+  width: 16px;
+}
+
+.jr-mPanelLeft.mui .jr-mPanel-action-button.mui .jr-mButton-icon,
+.jr-mPanelRight.mui .jr-mPanel-action-button.mui .jr-mButton-icon {
+  color: #212121;
+  font-size: 14px;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui,
+.jr-mPanelRight.jr-mPanelMinimized.mui {
+  flex: 1 1 auto;
+  width: 26px;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui .jr-mPanel-action.mui,
+.jr-mPanelRight.jr-mPanelMinimized.mui .jr-mPanel-action.mui {
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 4px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 26px;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui .jr-mPanel-section.mui,
+.jr-mPanelRight.jr-mPanelMinimized.mui .jr-mPanel-section.mui {
+  border: none;
+  border-radius: 0;
+  flex: 0 0 auto;
+  width: 20px;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui .jr-mPanel-section-action.mui,
+.jr-mPanelRight.jr-mPanelMinimized.mui .jr-mPanel-section-action.mui {
+  background-color: #ffffff;
+  color: #212121;
+  font-family: $font-family-semibold;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: normal;
+  min-width: 20px;
+  padding: 10px 0;
+  text-transform: none;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.jr-mPanel.jr-mPanelMinimized.mui .jr-MuiButton-label {
+  writing-mode: vertical-rl;
+}
+
+/* left panel */
+.jr-mPanelLeft.mui {
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+}
+
+.jr-mPanelLeft.mui .jr-mPanel-action.mui {
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 0 4px rgba(0, 0, 0, 0.2);
+  right: -12px;
+  width: 12px;
+}
+
+.jr-mPanelLeft.mui .jr-mPanel-action-button.mui {
+  right: 3px;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui .jr-mButton.mui {
+  right: 0;
+  margin-left: 0;
+  width: 26px;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui .jr-mPanel-section.mui {
+  align-items: flex-start;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui .jr-mPanel-section-action.mui {
+  border-radius: 0 4px 4px 0;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* right panel */
+.jr-mPanelRight.mui {
+  box-shadow: -1px 0 4px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
+}
+
+.jr-mPanelRight.jr-mPanelMinimized.mui .jr-mPanel-sections.mui {
+  align-items: flex-end;
+}
+
+.jr-mPanelRight.mui .jr-mPanel-action.mui {
+  border-radius: 2px 0 0 2px;
+  box-shadow: -1px 0 4px rgba(0, 0, 0, 0.2);
+  left: -12px;
+  width: 12px;
+}
+
+.jr-mPanelRight.mui .jr-mPanel-action-button.mui {
+  left: 1px;
+}
+
+.jr-mPanelRight.jr-mPanelMinimized.mui .jr-mButton.mui {
+  left: 0;
+  margin-right: 0;
+  width: 26px;
+}
+
+.jr-mPanelRight.jr-mPanelMinimized.mui .jr-mPanel-section-action.mui {
+  border-radius: 4px 0 0 4px;
+  box-shadow: -1px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* panel section container */
+.jr-mPanel-sections.mui {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.jr-mPanelLeft.jr-mPanelMinimized.mui .jr-mPanel-sections.mui,
+.jr-mPanelRight.jr-mPanelMinimized.mui .jr-mPanel-sections.mui {
+  height: auto;
+}
+
+/* panel section */
+.jr-mPanel-section.mui {
+  border: 1px solid #e5eaed;
+  border-radius: 4px;
+  flex: 1 1 auto;
+  margin-bottom: 8px;
+  max-height: 100%;
+  padding: 0;
+}
+
+.jr-mPanel-section.mui .jr-MuiCard-root {
+  height: 100%;
+  width: 100%;
+}
+
+.jr-mPanel-section.mui .jr-MuiCardContent-root {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  max-height: calc(100% - 28px);
+  padding: 8px;
+}
+
+.jr-mPanel-section.mui:last-child {
+  margin-bottom: 0;
+}
+
+.jr-mPanel-section-header.mui {
+  border-bottom: 1px solid #e5eaed;
+  border-radius: 4px 4px 0 0;
+  height: 28px;
+  padding: 0 6px 0 10px;
+}
+
+.jr-mPanel-section-header-title.mui {
+  color: #333333;
+  font-family: $font-family-semibold;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.jr-mPanel-section-header-title.mui .jr-MuiCardHeader-title {
+  color: inherit;
+}
+
+.jr-mPanel-section-header.mui .jr-MuiCardHeader-action .jr-mButton.mui {
+  margin-left: 0;
+}
+
+.jr-mPanel-section-search.mui {}
+.jr-mPanel-section-body.mui {}
+
+/* panel and section resize handles */
+.jr-mPanel-section.mui + div > .jr-mPanel-resizerVertical.mui {
+  bottom: -10px !important;
+}
+
+.jr-mPanelRight.mui + div > .jr-mPanel-resizerHorizontal.mui {
+  left: 0 !important;
+}
+
+.jr-mPanelLeft.mui + div > .jr-mPanel-resizerHorizontal.mui {
+  right: 0 !important;
+}
+
+/* ----------------- */
+/*  10. TABS         */
+/* ----------------- */
+.jr-mTabs.mui {}
+
+.jr-mTab.mui {
+  color: #666666;
+  font-family: $font-family-primary;
+  font-weight: normal;
+  letter-spacing: normal;
+  margin: 0 6px;
+  opacity: 1;
+  padding: 0 6px;
+  text-transform: none;
+}
+
+.jr-mTab-label.mui {
+  z-index: 99;
+}
+
+.jr-mTab.mui[disabled] {
+  opacity: .45;
+}
+
+.jr-mTab.mui.jr-Mui-selected {
+  color: #062e79;
+}
+
+.jr-mTab.mui:not(.jr-Mui-selected):hover {
+  color: #055dab;
+}
+
+/* sizes */
+.jr-mTabsSmall.mui .jr-mTab.mui {
+  font-size: 12px;
+  line-height: 22px;
+  min-height: 24px;
+}
+
+.jr-mTabsMedium.mui .jr-mTab.mui {
+  font-size: 13px;
+  line-height: 24px;
+  min-height: 26px;
+}
+
+.jr-mTabsLarge.mui .jr-mTab.mui {
+  font-size: 14px;
+  line-height: 28px;
+  min-height: 30px;
+}
+
+/* classic tabs */
+.jr-mTabsClassic.mui {}
+
+.jr-mTabsClassic.mui .jr-mTab.mui {
+  padding: 0 1em;
+  margin: 0;
+}
+
+.jr-mTabsClassic.jr-mTabsSmall.mui .jr-mTab.mui {
+  min-height: 22px;
+}
+
+.jr-mTabsClassic.jr-mTabsMedium.mui .jr-mTab.mui {
+  min-height: 24px;
+}
+
+.jr-mTabsClassic.jr-mTabsLarge.mui .jr-mTab.mui {
+  min-height: 28px;
+}
+
+.jr-mTabsClassic.mui .jr-Mui-selected {
+  color: #ffffff;
+}
+
+.jr-mTabsClassic.mui .jr-PrivateTabIndicator-colorPrimary-1 {
+  background-color: #062e79;
+  border-radius: 3px 3px 0 0;
+}
+
+.jr-mTabsClassic.jr-mTabsSmall.mui .jr-PrivateTabIndicator-colorPrimary-1 {
+  height: 22px;
+}
+
+.jr-mTabsClassic.jr-mTabsMedium.mui .jr-PrivateTabIndicator-colorPrimary-1 {
+  height: 24px;
+}
+
+.jr-mTabsClassic.jr-mTabsLarge.mui .jr-PrivateTabIndicator-colorPrimary-1 {
+  height: 28px;
+}
+
+.jr-mTabsClassic.mui:not(.jr-Mui-selected):hover {}
+
+
+/* -------------------- */
+/*  11. TYPOGRAPHY      */
+/* -------------------- */
+/*  11a. Basic          */
+/*  ------------------- */
+.jr-MuiTypography-root {
+  font-family: $font-family-primary;
+}
+
+.jr-MuiTypography-h1 {
+  font-size: 24px;
+}
+
+.jr-MuiTypography-h2 {
+  font-size: 20px;
+}
+
+.jr-MuiTypography-h3 {
+  font-size: 18px;
+}
+
+.jr-MuiTypography-h4 {
+  font-size: 16px;
+}
+
+.jr-MuiTypography-h5 {
+  font-size: 14px;
+}
+
+.jr-MuiTypography-h6 {
+  font-family: $font-family-semibold;
+  font-size: 13px;
+}
+
+.jr-mText.mui,
+.jr-MuiTypography-body1 {
+  display: block;
+}
+
+.jr-mTextSmall.mui {
+  font-size: 12px;
+}
+
+.jr-mTextLarge.mui {
+  font-size: 14px;
+}
+
+.jr-mTextXLarge.mui {
+  font-size: 16px;
+}
+
+/* ----------------- */
+/*  11b. Links       */
+/*  ---------------- */
+.jr-mLink.mui:link,
+.jr-mLink.mui:visited,
+.jr-mLink.mui:hover,
+.jr-mLink.mui:active,
+.jr-mLink.mui:focus {
+  color: #444444;
+  font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+/*  font-size: 12px;*/
+  font-weight: normal;
+/*  text-decoration: underline;*/
+}
+
+.jr-mLinkTheme.mui:link,
+.jr-mLinkTheme.mui:visited,
+.jr-mLinkTheme.mui:hover,
+.jr-mLinkTheme.mui:active,
+.jr-mLinkTheme.mui:focus {
+  color: #055dab;
+}
+
+.jr-mLink.mui:focus-visible {
+  border-radius: 1px;
+  outline: none;
+}
+
+.jr-mLink.mui:focus {
+  background-color: #d8e8f7;
+}
+
+
+/* ---------------- */
+/*  12. CONTROL     */
+/* ---------------- */
+/*  12a. Color      */
+/*  --------------  */
+.jr-mControl.mui {}
+
+.jr-mControlColor.mui {}
+
+.jr-mControlColor.jr-mControlComplex.mui {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.jr-mControlColor.mui .jr-mInputText.jr-mInputSmall.mui,
+.jr-mControlColor.jr-mControlComplex.mui .jr-mInput-text.jr-mInputSmall.mui {
+  margin-bottom: 8px;
+}
+
+.jr-mControlColor.mui .jr-mInputText.jr-mInputSmall.mui ~ .jr-mInput-error.mui,
+.jr-mControlColor.jr-mControlComplex.mui .jr-mInput-text.jr-mInputSmall.mui ~ .jr-mInput-error.mui {
+  margin-top: -5px;
+  margin-bottom: 8px;
+}
+
+.jr-mControlColor.mui ~ .jr-mInput-error.mui:first-of-type {
+  margin-top: -5px;
+}
+
+.jr-mControlColor.mui ~ .jr-mInput-error.mui:last-child {
+  margin-bottom: 8px;
+}
+
+.jr-mControlColor.mui .jr-mInput-text.mui[readonly] {
+  padding-left: 4px;
+}
+
+.jr-mControlColor.mui .jr-mInputText.jr-mInputInline.mui {
+  flex-wrap: nowrap;
+}
+
+.jr-mControlColor.jr-mControlComplex.mui .jr-mInputText.mui {
+  width: calc(100% - 26px)
+}
+
+.jr-mControl-action.mui {
+  height: 22px;
+  width: 22px;
+}
+
+.jr-mControlColor.mui .jr-mInput-text.mui {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #444444;
+  font-family: Monaco, monospace;
+  font-size: 12px;
+  line-height: 24px;
+  width: 68px;
+}
+
+.jr-mControlColor.mui .jr-mInputSmall.mui .jr-mInput-text.mui {
+  font-size: 11px;
+  line-height: 22px;
+  width: 60px;
+}
+
+.jr-mControlColor.mui .jr-mInputLarge.mui .jr-mInput-text.mui {
+  width: 72px;
+}
+
+.jr-mControlColor.mui .jr-mInputText.mui .jr-MuiInputBase-root {
+  display: inline-flex;
+  flex: 0 1 auto;
+}
+
+.jr-mControl-launcher.mui {
+}
+
+.jr-mControlColor.mui .jr-mControl-launcher-swatch.mui {
+  cursor: pointer;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  width: 34px;
+  height: 24px;
+  border-right: none;
+  display: block;
+  margin: 0;
+}
+
+.jr-mControlColor.mui .jr-mInputSmall.mui .jr-mControl-launcher-swatch.mui {
+  width: 32px;
+  height: 22px;
+}
+
+.jr-mControlColor.mui .jr-mInputLarge.mui .jr-mControl-launcher-swatch.mui {
+  width: 38px;
+  height: 28px;
+}
+
+.jr-mControlColor.mui .jr-mControl-launcher-swatchLight.mui {
+  border: 1px solid #dedede;
+}
+
+.jr-mControlColor.mui .jr-mControl-launcher-swatchTransparent.mui {
+  background-color: #ffffff !important;
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  background-image: linear-gradient(45deg, #dedede 25%, transparent 25%, transparent 75%, #dedede 75%, #dedede),
+  linear-gradient(45deg, #dedede 25%, transparent 25%, transparent 75%, #dedede 75%, #dedede)
+}
+
+/* error state */
+.jr-mControlColor.mui .jr-MuiInputBase-root.jr-Mui-error .jr-mControl-launcher-swatch.mui {
+  border-top-color: $color-errorMedium;
+  border-left-color: $color-errorMedium;
+  border-bottom-color: $color-errorMedium;
+}
+
+/* focus state */
+.jr-mControlColor.mui .jr-MuiInputBase-root.jr-Mui-focused:not(.jr-Mui-error) .jr-mControl-launcher-swatch.mui {
+  border-top-color: $color-tciLight;
+  border-left-color: $color-tciLight;
+  border-bottom-color: $color-tciLight;
+}
+
+.jr-mControlColor.mui .jr-MuiInputBase-root.jr-Mui-focused .jr-mInput-text.mui[readonly] {
+  padding-left: 3px;
+}
+
+/* ---------------- */
+/*  12b. Interval   */
+/*  --------------  */
+.jr-mControlInterval.mui {
+  display: flex;
+}
+
+.jr-mControlInterval.mui > .jr-mControl-interval.mui {
+  flex: 1 1 auto;
+}
+
+.jr-mControlInterval.mui > .jr-mControl-timeframe.mui {
+  flex: 1 1 auto;
+  margin-left: 6px;
+}
+
+.jr-mControlInterval.mui + .jr-mInput-error.mui {
+  margin-top: -4px;
+}
+
+
+/* --------------- */
+/*  12c. Action    */
+/*  -------------  */
+.jr-mControlAction.mui {}
+
+/* error state */
+.jr-mControlColor.mui .jr-MuiInputBase-root.jr-Mui-error .jr-mControl-launcher-swatch.mui {
+  border-top-color: $color-errorMedium;
+  border-left-color: $color-errorMedium;
+  border-bottom-color: $color-errorMedium;
+
+}

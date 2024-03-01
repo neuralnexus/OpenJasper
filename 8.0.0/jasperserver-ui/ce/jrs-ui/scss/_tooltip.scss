@@ -1,0 +1,292 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    TOOLTIP MODULE RULES
+    Last modified date:     May 12, 2019
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+.jr-mTooltipContainer.jr {
+  z-index: $zindex-tooltip;
+  display: inline-block;
+  //pointer-events: none;
+}
+
+.jr-mTooltip.jr {
+  background-color: $color-infoMedium;
+  border-radius: em(4px, 12px);
+  border-style: solid;
+  box-shadow: 0 0 5px rgba(34, 25, 25, 0.4);
+  color: #fff;
+  display: inline-block;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  max-width: em(506px); // this may not be necessary
+  padding: em(8px, 12px) em(11px, 12px);
+  pointer-events: none;
+  z-index: $zindex-tooltip;
+  // position: absolute;
+}
+
+.jr-mTooltipBottom.jr {}
+.jr-mTooltipBottom.jr:before,
+.jr-mTooltipBottomRight:before,
+.jr-mTooltipBottomLeft:before {
+  border-right: em(6px, 12px) solid transparent;
+  border-left: em(6px, 12px) solid transparent;
+  border-bottom: em(7px, 12px) solid $color-infoMedium;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 0 0 em(-6px, 12px);
+  position: absolute;
+  top: em(-7px, 12px);
+  left: 50%;
+}
+
+.jr-mTooltipTop.jr {}
+.jr-mTooltipTop:after,
+.jr-mTooltipTopRight:after,
+.jr-mTooltipTopLeft:after {
+  border-right: em(6px, 12px) solid transparent;
+  border-left: em(6px, 12px) solid transparent;
+  border-top: em(7px, 12px) solid $color-infoMedium;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 0 0 em(-6px, 12px);
+  position: absolute;
+  bottom: em(-7px, 12px);
+  left: 50%;
+}
+
+.jr-mTooltipTopRight:after,
+.jr-mTooltipBottomRight:before {
+  left: auto;
+  right: em(18px, 12px);
+}
+
+.jr-mTooltipTopLeft:after,
+.jr-mTooltipBottomLeft:before {
+  left: em(18px, 12px);
+}
+
+.jr-mTooltipRight.jr {}
+.jr-mTooltipRight.jr:before {
+  border-top: em(6px, 12px) solid transparent;
+  border-bottom: em(6px, 12px) solid transparent;
+  border-right: em(7px, 12px) solid $color-infoMedium;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 em(-10px, 12px) 0 0;
+  position: absolute;
+  left: em(-7px, 12px);
+  top: .909em; // keep ems so it's scalable
+}
+
+.jr-mTooltipLeft.jr {}
+.jr-mTooltipLeft.jr:before {
+  border-top: em(6px, 12px) solid transparent;
+  border-bottom: em(6px, 12px) solid transparent;
+  border-left: em(7px, 12px) solid $color-infoMedium;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 em(-10px, 12px) 0 0;
+  position: absolute;
+  right: em(3px, 12px);
+  top: .909em; // keep ems so it's scalable
+}
+
+.jr-mTooltip-label.jr {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.jr-mTooltip-text.jr {
+  font-size: 12px; // new base font size
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.jr-mTooltip.jr > .jr-mTooltip-text.jr:first-child {
+  font-family: $font-family-semibold;
+}
+
+.jr-mTooltip-label.jr + .jr-mTooltip-text.jr {}
+
+.jr-mTooltip-text.jr + .jr-mTooltip-label.jr {
+  margin-top: em(14px);
+}
+
+.jr-mTooltip.jr-isInvisible.jr {
+  visibility: hidden;  // to be able to calculate dimensions
+}
+
+// ----------------------------
+//  MODULE VARIATION - OUTLINE
+// ----------------------------
+.jr-mTooltipOutline.jr {
+  background-color: #fff;
+  border-color: $color-infoMedium;
+  border-width: em(1px);
+  border-style: solid;
+  color: $color-infoMedium;
+}
+
+.jr-mTooltipOutline.jr > .jr-mTooltip-text.jr:first-child {
+  font-family: $font-family-primary;
+  font-weight: normal;
+}
+
+.jr-mTooltipOutline.jr .jr-mTooltip-label.jr {}
+
+
+// ------------------------------
+//  MODULE VARIATION - ATTENTION
+// ------------------------------
+.jr-mTooltipAttention.jr {
+  // !important is needed for alt themes
+  background-color: $color-attentionMedium !important;
+  border-color: $color-attentionMedium;
+}
+
+.jr-mTooltipAttention.jr-mTooltipBottom {}
+.jr-mTooltipAttention.jr-mTooltipBottom.jr:before,
+.jr-mTooltipAttention.jr-mTooltipBottomRight:before,
+.jr-mTooltipAttention.jr-mTooltipBottomLeft:before {
+  border-bottom-color: $color-attentionMedium;
+}
+
+.jr-mTooltipAttention.jr-mTooltipTop {}
+.jr-mTooltipAttention.jr-mTooltipTop:after,
+.jr-mTooltipAttention.jr-mTooltipTopRight:after,
+.jr-mTooltipAttention.jr-mTooltipTopLeft:after {
+  border-top-color: $color-attentionMedium;
+}
+
+.jr-mTooltipAttention.jr-mTooltipRight {}
+.jr-mTooltipAttention.jr-mTooltipRight.jr:before {
+  border-right-color: $color-attentionMedium;
+}
+
+.jr-mTooltipAttention.jr-mTooltipLeft {}
+.jr-mTooltipAttention.jr-mTooltipLeft.jr:before {
+  border-left-color: $color-attentionMedium;
+}
+
+// ----------------------------------------
+//  MODULE VARIATION - ATTENTION + OUTLINE
+// ----------------------------------------
+.jr-mTooltipAttention.jr-mTooltipOutline.jr {
+  background-color: #fff;
+  border-color: $color-attentionMedium;
+  color: $color-attentionDark;
+}
+
+
+// ----------------------------
+//  MODULE VARIATION - WARNING
+// ----------------------------
+.jr-mTooltipWarning.jr {
+  // !important is needed for alt themes
+  background-color: $color-warningMedium !important;
+  border-color: $color-warningMedium;
+}
+
+.jr-mTooltipWarning.jr-mTooltipBottom {}
+.jr-mTooltipWarning.jr-mTooltipBottom.jr:before,
+.jr-mTooltipWarning.jr-mTooltipBottomRight.jr:before,
+.jr-mTooltipWarning.jr-mTooltipBottomLeft.jr:before {
+  border-bottom-color: $color-warningMedium;
+}
+
+.jr-mTooltipWarning.jr-mTooltipTop {}
+.jr-mTooltipWarning.jr-mTooltipTop:after,
+.jr-mTooltipWarning.jr-mTooltipTopRight:after,
+.jr-mTooltipWarning.jr-mTooltipTopLeft:after {
+  border-top-color: $color-warningMedium;
+}
+
+.jr-mTooltipWarning.jr-mTooltipRight {}
+.jr-mTooltipWarning.jr-mTooltipRight.jr:before {
+  border-right-color: $color-warningMedium;
+}
+
+.jr-mTooltipWarning.jr-mTooltipLeft {}
+.jr-mTooltipWarning.jr-mTooltipLeft.jr:before {
+  border-left-color: $color-warningMedium;
+}
+
+// --------------------------------------
+//  MODULE VARIATION - WARNING + OUTLINE
+// --------------------------------------
+.jr-mTooltipWarning.jr-mTooltipOutline.jr {
+  background-color: #fff !important;
+  border-color: $color-warningMedium;
+  color: $color-warningDark;
+}
+
+
+// --------------------------
+//  MODULE VARIATION - ERROR
+// --------------------------
+.jr-mTooltipError.jr {
+  // !important is needed for alt themes
+  background-color: $color-errorMedium !important;
+  border-color: $color-errorMedium;
+}
+
+.jr-mTooltipError.jr-mTooltipBottom {}
+.jr-mTooltipError.jr-mTooltipBottom.jr:before,
+.jr-mTooltipError.jr-mTooltipBottomRight:before,
+.jr-mTooltipError.jr-mTooltipBottomLeft:before {
+  border-bottom-color: $color-errorMedium;
+}
+
+.jr-mTooltipError.jr-mTooltipTop {}
+.jr-mTooltipError.jr-mTooltipTop:after,
+.jr-mTooltipError.jr-mTooltipTopRight:after,
+.jr-mTooltipError.jr-mTooltipTopLeft:after {
+  border-top-color: $color-errorMedium;
+}
+
+.jr-mTooltipError.jr-mTooltipRight {}
+.jr-mTooltipError.jr-mTooltipRight.jr:before {
+  border-right-color: $color-errorMedium;
+}
+
+.jr-mTooltipError.jr-mTooltipLeft {}
+.jr-mTooltipError.jr-mTooltipLeft.jr:before {
+  border-left-color: $color-errorMedium;
+}
+
+// ------------------------------------
+//  MODULE VARIATION - ERROR + OUTLINE
+// ------------------------------------
+.jr-mTooltipError.jr-mTooltipOutline.jr {
+  background-color: #fff !important;
+  border-color: $color-errorMedium;
+  color: $color-errorDark;
+}

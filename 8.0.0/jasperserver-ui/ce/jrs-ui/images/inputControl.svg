@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="28px" viewBox="0 0 33 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>inputControl</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon" transform="translate(-4.000000, -2.000000)" fill-rule="nonzero" fill="#686868">
+            <path d="M36.0526316,30 L36.0526316,2 L4,2 L4,30 L36.0526316,30 Z M34,10 L34,28 L6,28 L6,10 L34,10 Z M15,21 L15,23 L19,23 L19,21 L15,21 Z M13,23 L13,21 L9,21 L9,23 L13,23 Z M31,15 L31,13 L9,13 L9,15 L31,15 Z M31,19 L31,17 L9,17 L9,19 L31,19 Z" id="inputControl"></path>
+        </g>
+    </g>
+</svg>

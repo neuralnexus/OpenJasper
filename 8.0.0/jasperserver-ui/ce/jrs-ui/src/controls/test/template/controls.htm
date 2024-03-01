@@ -1,0 +1,232 @@
+<script id="bool" type="template/mustache">
+    <div id="{{-id}}" class="leaf">
+        <js-templateNonce></js-templateNonce>
+        <label class="control input checkBox" for="{{-uuid}}" title="{{-description}}">
+            <span class="wrap">{{ if (mandatory) { }}* {{ } }}{{-label}}</span>
+            <input  type="checkbox" {{if (readOnly) { }}disabled{{ } }} />
+        </label>
+    </div>
+</script>
+
+<script id="singleValueText" type="template/mustache">
+    <div id="{{-id}}" class="leaf">
+        <js-templateNonce></js-templateNonce>
+        <label class="control input text"  title="{{-description}}">
+            <span class="wrap">{{if (mandatory) { }}* {{ } }}{{label}}</span>
+            <input class=""  type="text" value="" {{if (readOnly) { }}disabled{{ } }} />
+            <span class="warning">{{-message}}</span>
+        </label>
+    </div>
+</script>
+
+<script id="singleValueNumber" type="template/mustache">
+    <div id="{{-id}}" class="leaf">
+        <js-templateNonce></js-templateNonce>
+        <label class="control input text"  title="{{-description}}">
+            <span class="wrap">{{if (mandatory) { }}* {{ } }}{{-label}}</span>
+            <input class=""  type="text" value="" {{if (readOnly) { }}disabled{{ } }} />
+            <span class="warning">{{-message}}</span>
+        </label>
+    </div>
+</script>
+
+<script id="singleValueDate" type="template/mustache">
+    <div id="{{-id}}" class="leaf">
+        <js-templateNonce></js-templateNonce>
+        <label class="control picker"
+               title="{{-label}}. &#10;<spring:message code="DATE_IC_TOOLTIP" javaScriptEscape="true"/>">
+        <span class="wrap">{{if (mandatory) { }}* {{ } }}{{-label}}</span>
+        <input class="date"  type="text" value="" {{if (readOnly) { }}disabled{{ } }} />
+        <div class="warning">{{-message}}</div>
+        </label>
+    </div>
+</script>
+
+<script id="singleValueDatetime" type="template/mustache">
+    <div id="{{-id}}" class="leaf">
+        <js-templateNonce></js-templateNonce>
+        <label class="control picker"
+               title="{{-label}}. &#10;<spring:message code="DATE_IC_TOOLTIP" javaScriptEscape="true"/>">
+        <span class="wrap">{{if (mandatory) { }}* {{ } }}{{-label}}</span>
+        <input class="date" type="text" value="" {{if (readOnly) { }}disabled{{ } }} />
+        <div class="warning">{{-message}}</div>
+        </label>
+    </div>
+</script>
+
+<script id="singleValueTime" type="template/mustache">
+    <div id="{{-id}}" class="leaf">
+        <js-templateNonce></js-templateNonce>
+        <label class="control picker"
+               title="{{-label}}. &#10;<spring:message code="DATE_IC_TOOLTIP" javaScriptEscape="true"/>">
+        <span class="wrap">{{if (mandatory) { }}* {{ } }}{{-label}}</span>
+        <input class="date" type="text" value="" {{if (readOnly) { }}disabled{{ } }} />
+        <div class="warning">{{-message}}</div>
+        </label>
+    </div>
+</script>
+
+<script id="singleSelect" type="template/mustache">
+    <div id="{{-id}}" class="leaf visibleOverflow">
+        <js-templateNonce></js-templateNonce>
+        <label class="control select"  title="{{-description}}">
+            <span class="wrap">{{if (mandatory) { }}* {{ } }}{{-label}}</span>
+            <div class="ssPlaceholder jr jr-mInput {{if (readOnly) { }} jr-isDisabled{{ } }}" {{if (readOnly) { }}disabled="disabled"{{ } }}></div>
+            <span class="warning">{{-message}}</span>
+        </label>
+    </div>
+</script>
+
+<script id="multiSelect" type="template/mustache">
+    <div class="leaf visibleOverflow" id="{{-id}}">
+        <js-templateNonce></js-templateNonce>
+        <div class="control select multiple"  title="{{-description}}">
+            <span class="wrap">{{if (mandatory) { }}* {{ } }}{{-label}}</span>
+            <div class="msPlaceholder jr {{if (readOnly) { }} jr-mInput jr-isDisabled {{ } }}" {{if (readOnly) { }}disabled="disabled"{{ } }}></div>
+            <span class="warning">{{-message}}</span>
+            <div class="resizeOverlay hidden"></div>
+        </div>
+    </div>
+</script>
+
+<script id="singleSelectRadio" type="template/mustache">
+    <div id="{{-id}}" class="leaf">
+        <js-templateNonce></js-templateNonce>
+        <fieldset class="control select multiple radio" title="{{-description}}">
+            <legend>{{if (mandatory) { }}* {{ } }}{{-label}}</legend>
+            <ul class="list inputSet">
+                <!--#data-->
+                {{ if (data) { }}
+                {{ for (var i = 0; i < data.length; i++) { }}
+                <li>
+                    <div class="control radio">
+                        <input {{ if (data[i].selected) { }}checked="checked"{{ } }} class="" id="{{-data[i].uuid}}" type="radio" name="{{-data[i].name}}" {{if (data[i].readOnly) { }}disabled="disabled"{{ } }} value="{{-data[i].value}}"/>
+                        <label class="wrap" for="{{-data[i].uuid}}" title="{{-data[i].description}}">
+                            {{-data[i].label}}&nbsp;
+                        </label>
+                    </div>
+                </li>
+                {{ } }}
+                {{ } }}
+                <!--/data-->
+            </ul>
+        </fieldset>
+        <span class="warning">{{-message}}</span>
+        <div class="resizeOverlay hidden"></div>
+        <div class="jr-mSizer jr-mSizerVertical jr hidden"><span class="ui-icon ui-icon-grip-solid-horizontal"></span></div>
+    </div>
+</script>
+
+<script id="multiSelectCheckbox" type="template/mustache">
+    <div id="{{-id}}" class="leaf visibleOverflow">
+        <js-templateNonce></js-templateNonce>
+        <fieldset class="control select checkbox" title="{{-description}}">
+            <legend>{{if (mandatory) { }}* {{ } }}{{-label}}</legend>
+            <ul class="list inputSet">
+                <!--#data-->
+                {{ if (data) { }}
+                {{ for (var i = 0; i < data.length; i++) { }}
+                <li>
+                    <div class="control checkBox">
+                        <label class="wrap" for="{{-data[i].uuid}}" title="{{-data[i].description}}">
+                            {{-data[i].label}}&nbsp;
+                        </label>
+                        <input {{ if (data[i].selected) { }}checked="checked"{{ } }} class="" id="{{-data[i].uuid}}" type="checkbox" {{if (data[i].readOnly) { }}disabled="disabled"{{ } }} value="{{-data[i].value}}"/>
+                    </div>
+                </li>
+                {{ } }}
+                {{ } }}
+                <!--/data-->
+            </ul>
+            <div class="{{if (readOnly) { }}hidden{{ } }}">
+                <a href="#" name="multiSelectAll"><spring:message code="button.select.all" javaScriptEscape="true"/></a>
+                <a href="#" name="multiSelectNone"><spring:message code="button.select.none" javaScriptEscape="true"/></a>
+                <a href="#" name="multiSelectInverse"><spring:message code="button.select.inverse" javaScriptEscape="true"/></a>
+            </div>
+        </fieldset>
+        <span class="warning">{{-message}}</span>
+        <div class="resizeOverlay hidden"></div>
+        <div class="jr-mSizer jr-mSizerVertical jr hidden"><span class="ui-icon ui-icon-grip-solid-horizontal"></span></div>
+    </div>
+</script>
+
+<script id="reportOptions" type="template/mustache">
+    <div>
+        <js-templateNonce></js-templateNonce>
+        <label class="control select" for="reportOptionsSelect" title="{{-title}}">
+            <span class="wrap">{{-label}}</span>
+            <select id="reportOptionsSelect">
+                <!--#data-->
+                {{ if (data) { }}
+                {{ for (var i = 0; i < data.length; i++) { }}
+                <option value="{{-data[i].id}}" {{ if (data[i].selected) { }}selected="selected"{{ } }}>{{-data[i].label}}</option>
+                {{ } }}
+                {{ } }}
+                <!--/data-->
+            </select>
+        </label>
+    </div>
+</script>
+
+
+<!--Placeholder for controls-->
+<js-templateNonce></js-templateNonce>
+<ul class="list inputControls" id="inputControlsContainer">
+
+</ul>
+
+<ul class="list inputControls" id="otherControlsContainer">
+
+</ul>
+
+
+<!--External decorator for control-->
+
+<div id="defaultControlDecorator">
+    <div data-reportunituri=""
+         data-uriprefix="/sample/some/report/Country_multi_select"
+         data-inputcontrolname="input_Country_multi_select"
+         data-controltype="7"
+         data-isreadonly="false"
+         data-value="{USA=true}" class="overlay button">
+    </div>
+
+</div>
+
+
+<!--Dashboard frames -->
+
+<div id="controlFrameContainer_control_1" class="componentContainer control select multiple"
+     style="left:110px;top:111px;height:88px;z-index:10;">
+    <div class="sizer vertical"></div>
+    <div id="controlFrameOverlay_control_1" data-framename="control_1" data-frametype="controlFrame"
+         data-reportunituri=""
+         data-uriprefix="/organizations/organization_1/reports/samples/Cascading_multi_select_report_files/Country_multi_select"
+         data-inputcontrolname="input_Country_multi_select" data-controltype="7" data-isreadonly="false"
+         data-value="{USA=true}" class="overlay button"></div>
+
+</div>
+
+<div id="controlFrameContainer_control_2" class="componentContainer control select multiple"
+     style="left:255px;top:112px;height:70px;z-index:10;">
+    <div class="sizer vertical"></div>
+    <div id="controlFrameOverlay_control_2" data-framename="control_2" data-frametype="controlFrame"
+         data-reportunituri=""
+         data-uriprefix="/organizations/organization_1/reports/samples/Cascading_multi_select_report_files/Cascading_state_multi_select"
+         data-inputcontrolname="input_Cascading_state_multi_select" data-controltype="7" data-isreadonly="false"
+         data-value="{CA=true}" class="overlay button"></div>
+
+</div>
+
+<div id="controlFrameContainer_control_3" class="componentContainer control select"
+     style="left:489px;top:118px;width:100px;z-index:10;">
+
+
+    <div class="sizer horizontal"></div>
+    <div id="controlFrameOverlay_control_3" data-framename="control_3" data-frametype="controlFrame"
+         data-reportunituri=""
+         data-uriprefix="/organizations/organization_1/reports/samples/Cascading_multi_select_report_files/Cascading_name_single_select"
+         data-inputcontrolname="input_Cascading_name_single_select" data-controltype="4" data-isreadonly="false"
+         data-value="Adams-Steen Transportation Holdings" class="overlay button"></div>
+
+</div>

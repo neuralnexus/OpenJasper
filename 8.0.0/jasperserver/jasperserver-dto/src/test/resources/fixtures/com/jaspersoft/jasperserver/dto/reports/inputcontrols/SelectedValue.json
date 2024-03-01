@@ -1,0 +1,10 @@
+{
+  "id": "TEST_ID",
+  "options": [
+    {
+      "label": "TEST_LABEL",
+      "value": "TEST_VALUE",
+      "selected": false
+    }
+  ]
+}

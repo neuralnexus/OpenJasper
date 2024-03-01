@@ -1,0 +1,388 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ----------------------------------
+   TABLE OF CONTENTS
+
+    1. BASIC PANEL
+
+    2. TOOLTIP PANEL
+
+    3. INFO PANEL
+
+    4. INFO, SYSTEM PANEL
+
+    5. NOTHING TO DISPLAY
+
+    6. MISC PANEL CONTENT
+
+  -----------------------------------
+    File last modified Jan 13, 2021
+  ----------------------------------- */
+
+
+/* ------------------ */
+/*  1. BASIC PANEL    */
+/* ------------------ */
+.panel {
+    background-color: transparent;
+    border: 0;
+    position: static;
+}
+
+.panel > .header {
+    background-color: #e0e0e0; /* will eventually need to change this */
+    border: 0;
+    /* border-bottom: 1px solid #B7B7B7; changed to #b5b5b5 below */
+    border-bottom: 1px solid var(--border-grey-29);
+    height: 28px;
+    line-height: 28px;
+    padding: 0;
+    width: 100%;
+}
+
+.panel > .header > .title {
+    display: inline;
+    float: left;
+    /* font-weight: bold; */ /* DELETE IF NO PROBLEMS */
+    line-height: inherit;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: static;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.panel > .header > .button.mutton {
+    float: right;
+    position: relative;
+}
+
+.panel .footer {
+    border-top: 1px solid var(--border-grey-10);
+}
+
+.panel.noHeader > .content > .header {
+    display: none;
+}
+
+.panel.showingSubHeader > .content > .body {
+    margin-top: 29px;
+}
+
+
+
+/* inlay */
+.panel.inlay .column.primary,
+.panel.inlay .column.secondary,
+.panel.inlay .column.tertiary {
+    margin: 0;
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+}
+
+.panel.filter.inlay > .content {
+    min-height: 0;
+}
+
+/* collapsible */
+.collapsiblePanel.open > .header > .buttonIconToggle {
+    background-position: -2px -697px;
+    float: left;
+    margin-right: 4px;
+}
+
+.collapsiblePanel.closed > .header > .buttonIconToggle {
+    background-position: -2px -673px;
+    float: left;
+    margin-right: 4px;
+}
+
+
+/* tabbed */
+.tabbedPanel > .subcontainer > .tabContainer {
+    display: none;
+}
+
+.tabbedPanel > .header > .tabHeaderContainer {
+    clear: none;
+    float: right;
+}
+
+.tabbedPanel > .header > .tabHeaderContainer > button {
+    border: thin solid rgb(16, 13, 58);
+    width: 22px;
+    height: 16px;
+    margin: 3px;
+    /* background-color: #f5f5f5; changed to #f4f4f4 below */
+    background-color: var(--background-grey-04);
+}
+
+.tabbedPanel > .header > .tabHeaderContainer > button.active {
+    border: thin solid red;
+}
+
+
+
+/* ------------------ */
+/*  2. TOOLTIP PANEL  */
+/* ------------------ */
+.panel.tooltip {
+    background-color: var(--background-white);
+    /* border: 1px solid #d3d5d6; changed to #d6d6d6 below */
+    border: 1px solid var(--border-grey-16);
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(34, 25, 25, 0.4);
+    float: left;
+    margin: 0;
+    max-width: 500px;
+    z-index: 1000;
+}
+
+.panel.tooltip > .content {
+    left: 0;
+    margin: 0;
+    position: relative;
+    top: 0;
+}
+
+.panel.tooltip > .content > .body {
+    line-height: 2em;
+    padding: 10px 14px 0 14px;
+}
+
+.panel.tooltip .message {
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.455;
+    overflow: visible;
+    white-space: normal;
+}
+
+.panel.tooltip .message:only-child {
+    margin-bottom: 8px;
+}
+
+.panel.tooltip .message.label {
+    color: var(--theme-medium-dark);
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.panel.tooltip .corner,
+.panel.tooltip .edge {
+    display: none;
+}
+
+
+
+/* ----------------- */
+/*  3. INFO PANEL    */
+/* ----------------- */
+.info {
+    clear: both;
+    /* border: 1px solid #d3d2d2; changed to #d6d6d6 below */
+    border: 1px solid var(--border-grey-16);
+    float: left;
+    margin: 2px 5px 20px 2px; /* moves visual top and left to actual */
+    position: relative;
+}
+
+.info.centered_vert.centered_horz {
+    clear: none;
+    float: none;
+    position: absolute;
+}
+
+.info > .content {
+    /* set coordinates to visual (0,0,0,0) of .column.decorated background,
+       as this object used as reference for positioning
+       child objects */
+    left: -1px;
+    margin-bottom: -5px;
+    margin-right: -4px;
+    position: relative;
+    top: -3px;
+}
+
+.info > .content > .header,
+.info > .content > .footer {
+    display: none;
+}
+
+.info .body {
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.info .column {
+    position: relative;
+    height: 100%;
+}
+
+.info .body.twoColumn_equal .column {
+    width: 48%;
+    float: left;
+    left: 0;
+}
+
+.info.fillParent {
+    float: none;
+}
+
+.info.fillParent .footer {
+    bottom: -10px;
+}
+
+.panel.info.nothingToDisplay {
+    border: none;
+    background-color: transparent;
+}
+
+.panel.info.noDataModeDisplay {}
+
+
+
+/* ----------------------- */
+/*  4. INFO, SYSTEM PANEL  */
+/* ----------------------- */
+.info.system {
+    height: 25px;
+    min-height: 0;
+    min-width: 0;
+    margin: 3px;
+    background-color: #feef97; /* TODO: define new color and variable */
+}
+
+.info.system > .content {
+    /* set coordinates to visual (0,0,0,0) of .column.decorated background,
+       as this object used as reference for positioning
+       child objects */
+    left: -3px;
+    margin-bottom: -1px;
+    margin-right: -5px;
+    position: relative;
+    top: -3px;
+    text-align: center;
+}
+
+.info.system .body {
+    padding: 0;
+}
+
+.info.system .message {
+    font-weight: bold; /* moved from theme.css */
+    line-height: 32px;
+    margin: auto 10px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#systemMessageConsole {
+    background-color: #feef97; /* TODO: define new color and variable */
+    height: 40px;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    z-index: 9;
+}
+
+#systemMessage {
+    color: var(--theme-medium-dark);
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#systemMessage span {
+    color: #333;
+}
+
+#systemMessage span a {
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+}
+
+#systemMessage .warning {
+    /* color: #ff0000; */
+    color: #d81e29; /* TODO: define new color and variable */
+}
+
+
+
+/* ----------------------- */
+/*  5. NOTHING TO DISPLAY  */
+/* ----------------------- */
+.panel.nothingToDisplay > .content {
+    margin: 0 12px;
+}
+
+.panel.nothingToDisplay .message.emphasis {
+    font-weight:bold;
+}
+
+.panel.nothingToDisplay.hidden {
+    display: none !important;
+}
+
+/* #nothingToDisplay.info > .content > .body > .message, using class instead */
+.panel.nothingToDisplay.info > .content > .body > .message {
+    background-color: #fff;
+    border: 1px solid #D3D2D2;
+    margin: 10px 0;
+    padding: 28px 8px;
+    text-align: center;
+} /* only usage left is settings > adhoc cache */
+
+
+
+/* ------------------------ */
+/*  6. MISC PANEL CONTENT   */
+/* ------------------------ */
+.panel .row.actions {
+    position: absolute;
+    bottom: 5px;
+}
+
+.panel .row.inputs {
+    margin: 15px 20px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.panel.filter .select {
+    margin: auto 10px;
+}

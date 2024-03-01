@@ -1,0 +1,255 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ============================================
+   DOMAIN DESIGNER UI
+   Last modified date:     May 24, 2021
+   Last modified by:       Anna Leeg
+ * ============================================ */
+
+.jr-mDomain.jr {
+  background-color: #fff;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+  height: 100%;
+  //overflow: hidden;        // it collapses layout when used in JRS
+}
+
+.jr-mDomainDesigner.jr {  // this class won't be needed when full layout architecture is implemented.
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.jr-mDomain-header.jr {
+  border-bottom: 2px solid $color-tciDark;
+  display: flex;
+  height: 40px;
+  justify-content: space-between; //use flex-start for left-aligned tabs
+}
+
+.jr-mDomain-header-title.jr {
+  color: #333;
+  display: flex;
+  flex: 0 1 auto;
+  height: auto;
+  min-width: 230px;
+  margin-right: 3em;
+}
+
+.jr-mDomain-header-title-icon.jr  {
+  align-self: center;
+  background-image: image-url("workflow_icons_sprite.svg");
+  background-position: 0 -152px;
+  background-repeat: no-repeat;
+  background-size: 27px;
+  border-radius: 50%;
+  height: 27px;
+  margin-left: 8px;
+  min-width: 27px;
+  width: 27px;
+}
+
+.jr-mDomain-header-title-text.jr {
+  align-self: center;
+  font-size: 22px;
+  margin-left: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jr-mDomain-header-tabs.jr {
+  align-self: flex-end;
+  flex: 0 1 auto;
+}
+
+.jr-mDomain-content.jr {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  width: 100%;
+}
+
+.jr-mDomain-content-main.jr {
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  @include column;
+}
+
+.jr-mDomain-content-datapanel.jr {
+  @include column;
+  @include column-left;
+  background-color: #f7f7f7;
+  border-right: 2px solid #fff;
+  width: 15.625em;
+  height: 100%;   // to fix layout issues with absolute positioned parent
+}
+
+.jr-mDomain-content-datapanel.jr + .jr-mDomain-content-main.jr {
+  // only indents main content when there is a side panel
+  left: 250px;
+}
+
+// mode workspace
+.jr-mDomain-mode.jr {
+  position: absolute; // adding absolute positioning here results in more logical positioning values on child elements
+  top: 32px;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.jr-mDomain-modeManage.jr {}
+.jr-mDomain-modeJoins.jr {}
+.jr-mDomain-modePrefilters.jr {}
+.jr-mDomain-modePresentation.jr {}
+.jr-mDomain-modeOptions.jr {}
+
+.jr-mDomain-mode-wrapper.jr {
+  overflow: hidden;
+  height: 100%;
+}
+
+.jr-mDomain-modeManage.jr .jr-mDomain-mode-wrapper.jr {
+  padding: 2em 2em 0 2em;
+}
+
+.jr-mDomain-modeJoins.jr .jr-mDomain-mode-wrapper.jr,
+.jr-mDomain-modePrefilters.jr .jr-mDomain-mode-wrapper.jr,
+.jr-mDomain-modePresentation.jr .jr-mDomain-mode-wrapper.jr {
+  display: flex;
+  flex-direction: column;
+}
+
+.jr-mDomain-modeOptions.jr .jr-mDomain-mode-wrapper.jr,
+.jr-mDomain-modeSecurity.jr .jr-mDomain-mode-wrapper.jr {
+  overflow-y: auto;
+  padding: 2em 2em 0 2em;
+}
+
+.jr-mDomain-mode-controls.jr {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 38px;
+  padding: 0 1em;
+}
+
+.jr-mDomain-mode-controls-buttons.jr {
+  white-space: nowrap;
+}
+
+.jr-mDomain-mode-controls-search.jr {}
+
+.jr-mDomain-modeJoins.jr .jr-mDomain-mode-controls.jr,
+.jr-mDomain-modePrefilters.jr .jr-mDomain-mode-controls.jr {
+  border-bottom: 1px solid #e4e4e4;
+  justify-content: flex-end;
+}
+
+.jr-mDomain-modePresentation.jr .jr-mDomain-mode-controls.jr {
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.jr-mDomain-modeSecurity.jr .jr-mDomain-mode-editor.jr {
+  border: 1px solid #e4e4e4;  // changed from #e5 to #e4 after color consolidation done before Embed code story
+  height: calc(100% - 140px);
+  width: 100%;
+}
+
+.jr-mDomain-mode-title.jr {}
+
+.jr-mDomain-mode-title-text.jr,
+.jr-mDomain-mode-title-object.jr {
+  display: inline-block;
+  font-size: 18px;              // new base font size
+  line-height: 2;
+}
+
+.jr-mDomain-mode-title-text.jr {
+  color: $color-tciMedium;
+}
+
+.jr-mDomain-shuttle.jr {
+  //height: calc(100% - #{em(204px)});
+  height: calc(100% - 204px);
+  margin: 2em 0;
+  min-height: 300px;
+  width: 700px;
+}
+
+.jr-mDomain-shuttle.jr:last-child {
+  //height: calc(100% - #{em(80px)});
+  height: calc(100% - 80px);
+}
+
+.jr-mDomain-attributeinput.jr {
+  margin: 1.5em 0;
+  width: 700px;
+}
+
+.jr-mDomain-mode-joinlist.jr {
+  height: 100%;
+  overflow: auto;
+  padding: 1em;
+  width: 100%;
+}
+
+.jr-mDomain-mode-dropbar.jr {}
+
+.jr-mDomain-mode-prefiltertable.jr,
+.jr-mDomain-mode-presentationtable.jr {
+  height: 100%;
+  overflow: hidden;
+  padding: 1em 1em 0 1em;
+  width: 100%;
+}
+
+.jr-mDomain-mode-resourcetable.jr {
+  // has clearfix rules because Add button floats right at bottom of container
+  clear: both;
+  content: "";
+  display: table;
+  min-width: 350px;
+}
+
+
+// custom icon positions so arrows don't look funny lined up with "to top" and "to bottom" arrows
+// perhaps revisit and have them this way by default
+//.jr-mDomain.jr .jr-mIcon.jr-arrowUp.jr {
+//  line-height: (29px / 17px)
+//}
+//.jr-mDomain.jr .jr-mIcon.jr-arrowDown.jr {
+//  line-height: (27px / 17px)
+//}
+
+// MODE STYLES
+
+
+// this needs to be removed—NO javascript style in CSS
+.jr-jJoinsBody.jr {
+  overflow-y: auto;
+}

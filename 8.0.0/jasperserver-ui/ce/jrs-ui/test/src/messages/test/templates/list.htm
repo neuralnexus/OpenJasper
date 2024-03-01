@@ -1,0 +1,104 @@
+<div class="column decorated primary showingToolBar">
+    <div class="content ">
+        <div class="subheader  ">
+            <div id="toolbar" class="toolbar">
+                <ul class="list buttonSet">
+                    <li class="node open">
+                        <ul class="list buttonSet">
+                            <li class="leaf"><button id="markAsRead" class="button capsule text up first" disabled="disabled"><span class="wrap">
+                                            Mark as Read
+                                        </span><span class="icon"></span></button></li>
+                            <li class="leaf"><button id="markAsUnread" class="button capsule text up last" disabled="disabled"><span class="wrap">
+                                            Mark as Unread
+                                        </span><span class="icon"></span></button></li>
+                            <li class="leaf"><button id="delete" class="button capsule text up" disabled="disabled"><span class="wrap">
+                                            Delete
+                                        </span></button></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul id="sortMode" class="list tabSet text control horizontal" tabindex="-1" js-navtype="none" js-stdnav="false">
+                    <li js-navtype="dynamiclist" id="sortMode_item1" class="label first" tabindex="-1" disabled="disabled">
+                        <p class="wrap">
+                            Show Messages:
+                        </p>
+                    </li>
+                    <li js-navtype="dynamiclist" id="sortMode_item2" class="tab selected cursor" tabindex="-1">
+                        <p class="wrap button">
+                            All
+                        </p>
+                    </li>
+                    <li js-navtype="dynamiclist" id="sortMode_item3" class="tab last" tabindex="-1">
+                        <p class="wrap button">
+                            Unread
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <ul id="messageListHeader" class="list collapsible tabular type_messages fourColumn header">
+                <li id="messageListHeader_item1" class="leaf first">
+                    <div class="wrap type_messages">
+                        <div class="column one">
+                            <p class="subject" title="Message subject">
+                                Subject
+                            </p>
+                        </div>
+                        <div class="column two">
+                            <p class="date" title="Event Date">
+                                Date
+                            </p>
+                        </div>
+                        <div class="column three">
+                            <p class="type" title="Event Type">
+                                Type
+                            </p>
+                        </div>
+                        <div class="column four">
+                            <p class="component" title="Affected Component">
+                                Component
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="body  ">
+
+            <ul id="messageList" class="list tabular type_messages fourColumn collapsible" tabindex="0" js-navtype="dynamiclist"><li js-navtype="dynamiclist" id="messageList_item1" class="leaf first" tabindex="-1">
+                <div class="wrap button type_messages unread over">
+                    <div class="column one">
+                        <p class="subject" title="Message subject"><a href="flow.html?_flowExecutionKey=e1s1&amp;_eventId=viewMessage&amp;id=2492">The job failed to execute. Review its parameters.</a></p>
+                    </div>
+                    <div class="column two">
+                        <p class="date" title="1/25/2021 09:22PM">January 25</p>
+                    </div>
+                    <div class="column three">
+                        <p class="type" title="Event Type">Error</p>
+                    </div>
+                    <div class="column four">
+                        <p class="component" title="Affected Component">Report Scheduler</p>
+                    </div>
+                </div>
+            </li><li js-navtype="dynamiclist" id="messageList_item2" class="leaf last" tabindex="-1">
+                <div class="wrap button type_messages">
+                    <div class="column one">
+                        <p class="subject" title="Message subject"><a href="flow.html?_flowExecutionKey=e1s1&amp;_eventId=viewMessage&amp;id=2491">The job failed to execute. Review its parameters.</a></p>
+                    </div>
+                    <div class="column two">
+                        <p class="date" title="1/25/2021 09:22PM">January 25</p>
+                    </div>
+                    <div class="column three">
+                        <p class="type" title="Event Type">Error</p>
+                    </div>
+                    <div class="column four">
+                        <p class="component" title="Affected Component">Report Scheduler</p>
+                    </div>
+                </div>
+            </li></ul>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,197 @@
+{
+    "title": "Report Properties",
+    "type": "object",
+    "description": "A JSON Schema describing a Report Properties",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "properties": {
+        "server": {
+            "type": "string",
+            "description": "URL of JRS instance."
+        },
+        "resource": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "description": "Report resource URI."
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "executionId": {
+                            "type": "string",
+                            "description": "Report Execution ID"
+                        }
+                    }
+                }
+            ]
+        },
+        "container": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "additionalProperties" : true,
+                    "description": "DOM element to render report to"
+                },
+                {
+                      "type": "string",
+                      "description": "CSS selector for container to render report to."
+                }
+            ]
+        },
+        "params": {
+            "type": "object",
+            "description": "Report's parameters values",
+            "additionalProperties": {
+                "type": "array"
+            }
+        },
+        "pages": {
+            "type": ["string", "integer", "object"],
+            "description": "Range of report's pages or single report page",
+            "pattern": "^[1-9]\\d*(\\-\\d+)?$",
+            "properties": {
+                "pages": {
+                    "type": ["string", "integer"],
+                    "description": "Range of report's pages or single report page",
+                    "pattern": "^[1-9]\\d*(\\-\\d+)?$",
+                    "minimum": 1
+                },
+                "anchor": {
+                    "type": ["string"],
+                    "description": "Report anchor"
+                }
+            },
+            "default": 1,
+            "minimum": 1
+        },
+        "scale" : {
+            "default": "container",
+            "oneOf" : [
+                {
+                    "type": "number",
+                    "minimum" : 0,
+                    "exclusiveMinimum": true,
+                    "description" : "Scale factor"
+                },
+                {
+                    "enum": ["container", "width", "height"],
+                    "default": "container",
+                    "description" : "Scale strategy"
+                }
+            ]
+        },
+        "defaultJiveUi": {
+            "type": "object",
+            "description": "Default JIVE UI options.",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Enable default JIVE UI.",
+                    "default": "true"
+                },
+                "floatingTableHeadersEnabled": {
+                    "type": "boolean",
+                    "description": "Enable table floating headers.",
+                    "default": "false"
+                },
+                "floatingCrosstabHeadersEnabled": {
+                    "type": "boolean",
+                    "description": "Enable crosstab floating header.",
+                    "default": "false"
+                }
+            }
+        },
+        "isolateDom": {
+            "type": "boolean",
+            "description": "Isolate report in iframe.",
+            "default": "false"
+        },
+        "linkOptions": {
+            "type": "object",
+            "description": "Report's parameters values",
+            "properties": {
+                "beforeRender": {
+                    "type": "function",
+                    "description": "A function to process link - link element pairs."
+                },
+                "events": {
+                    "type": "object",
+                    "description": "Backbone-like events object to be applied to JR links",
+                    "additionalProperties" : true
+                }
+            }
+        },
+        "ignorePagination": {
+            "type": "boolean",
+            "description": "Control if report will be split into separate pages"
+        },
+        "reportContainerWidth": {
+            "type": "number",
+            "description": "The report container width. This value is going to be injected into the REPORT_CONTAINER_WIDTH report parameter"
+        },
+        "reportLocale": {
+            "type": "string",
+            "description": "The locale to use for the report"
+        },
+        "reportTimeZone": {
+            "type": "string",
+            "description": "The time zone to use for the report"
+        },
+        "autoresize": {
+            "type": "boolean",
+            "description": "Automatically resize report on browser window resize",
+            "default": true
+        },
+        "centerReport": {
+            "type": "boolean",
+            "description": "Control if table-based reports will be centered inside the container",
+            "default": false
+        },
+        "useReportZoom": {
+            "type": "boolean",
+            "description": "Control if JasperReports saved zoom will be taken into account when scaling",
+            "default": false
+        },
+        "modalDialogs": {
+            "type": "boolean",
+            "description": "Control if Jive dialogs are modal or not",
+            "default": true
+        },
+        "chart": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Properties of charts inside report",
+            "properties": {
+                "animation": {
+                    "type": "boolean",
+                    "description": "Enable/disable animation when report is rendered or resized. Disabling animation may increase performance in some cases. For now works only for Highcharts-based charts."
+                },
+                "zoom": {
+                    "enum": [false, "x", "y", "xy"],
+                    "description": "Control zoom feature of chart reports. For now works only for Highcharts-based charts."
+                }
+            }
+        },
+        "loadingOverlay": {
+            "type": "boolean",
+            "description": "Enable/disable report loading overlay",
+            "default": true
+        },
+        "scrollToTop": {
+            "type": "boolean",
+            "description": "Enable/disable scrolling to top after report rendering",
+            "default": true
+        },
+        "showAdhocChartTitle": {
+            "type": "boolean",
+            "description": "Enable/disable showing Ad Hoc chart reports title",
+            "default": true
+        },
+        "events": {
+        "type": "object",
+        "description": "The event callback are functions which can be used to subscribe to certain events",
+        "additionalProperties" : true
+      }
+    },
+    "required": ["server", "resource"]
+}

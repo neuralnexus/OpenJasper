@@ -1,0 +1,34 @@
+{
+  "id": 100,
+  "version": 2,
+  "username": "TEST_USERNAME",
+  "label": "TEST_LABEL",
+  "description": "TEST_DESCRIPTION",
+  "creationDate": "2010-05-23T09:01:02+01:00",
+  "trigger": {
+    "calendarTrigger": {
+      "startType": 0,
+      "daysType": "ALL"
+    }
+  },
+  "baseOutputFilename": "TEST_BASE_OUTPUT_FILENAME",
+  "outputLocale": "TEST_OUTPUT_LOCALE",
+  "outputTimeZone": "TEST_OUTPUT_TIMEZONE",
+  "source": {
+    "reportUnitURI": "TEST_REPORT_UNIT_URI"
+  },
+  "outputFormats": {
+    "outputFormat": [
+      "HTML"
+    ]
+  },
+  "repositoryDestination": {
+    "overwriteFiles": true
+  },
+  "mailNotification": {
+    "skipNotificationWhenJobFails": true
+  },
+  "alert": {
+    "includingStackTrace": true
+  }
+}

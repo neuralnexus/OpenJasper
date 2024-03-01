@@ -1,0 +1,14 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "source": {
+        "include": [ "src/" ],
+        "exclude": [ "src/bi/report/jive/jr/tibcoGeoanalitics.js" ]
+    },
+    "opts": {
+        "recurse": true,
+        "private": false,
+        "lenient": true
+    }
+}

@@ -1,0 +1,160 @@
+<div id="mainNavigation"></div>
+<div id="searchInput"></div>
+<!-- ========== REPORT VIEWER TOOLBAR =========== -->
+<div id="viewerToolbar" class="toolbar">
+
+    <!-- ========== LEFT BUTTON SET =========== -->
+    <ul class="list buttonSet j-toolbar" tabindex="6" js-navtype="toolbar">
+        <li class="leaf">
+            <button id="back" class="button capsule text up" tabindex="-1">
+                <span class="wrap">Back<span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="leaf divider"></li>
+        <li class="leaf">
+            <button id="fileOptions" class="button capsule mutton up first" tabindex="-1">
+                <span class="wrap"><span class="icon"></span><span class="indicator"></span></span>
+            </button>
+        </li>
+        <li class="leaf">
+            <button id="export" class="button capsule mutton up last" tabindex="-1">
+                <span class="wrap"><span class="icon"></span><span class="indicator"></span></span>
+            </button>
+        </li>
+        <li class="leaf divider"></li>
+        <li class="leaf">
+            <button id="undo" class="button capsule up first" disabled="disabled" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="leaf">
+            <button id="redo" class="button capsule up middle" disabled="disabled" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="leaf">
+            <button id="undoAll" class="button capsule up last" disabled="disabled" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="leaf divider hidden"></li>
+        <li id="controls" class="leaf hidden">
+            <button id="ICDialog" class="button capsule  up" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="leaf divider"></li>
+    </ul>
+    <!-- ========== END LEFT BUTTON SET =========== -->
+
+    <!-- ========== RIGHT BUTTON SET =========== -->
+    <ul class="control toolsRight j-toolbar list" js-navtype="toolbar" tabindex="7">
+        <li class="leaf divider"></li>
+        <li class="control zoom leaf">
+            <button id="zoom_out" class="button action square move zoomOut up" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="control zoom leaf">
+            <button id="zoom_in" class="button action square move zoomIn up" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="control zoom leaf j-dropdown">
+            <label for="zoom_value" class="control input textPlus inline">
+                <input id="zoom_value" type="text" value="100%" name="zoom_value" tabindex="-1">
+                <button id="zoom_value_button" class="button disclosure" tabindex="-1">
+                    <span class="icon"></span>
+                </button>
+            </label>
+        </li>
+        <li class="leaf divider"></li>
+        <li class="control search leaf j-dropdown">
+            <label for="search_report" class="control input textPlus inline">
+                <input id="search_report" type="text" placeholder="search report" name="search_report" tabindex="-1">
+                <button id="search_report_button" class="button search" tabindex="-1">
+                    <span class="icon"></span>
+                </button>
+                <button id="search_options" class="button disclosure" tabindex="-1">
+                    <span class="icon"></span>
+                </button>
+            </label>
+        </li>
+        <li class="control search leaf">
+            <button id="search_previous" class="button action square move searchPrevious up" disabled="disabled" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="control search leaf">
+            <button id="search_next" class="button action square move searchNext up" disabled="disabled" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="leaf divider"></li>
+        <li class="control paging leaf">
+            <button id="page_first" class="button action square move toLeft up" disabled="disabled" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="control paging leaf">
+            <button id="page_prev" class="button action square move left up" disabled="disabled" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="control paging leaf j-dropdown">
+            <label class="control input text inline" for="page_current" tabindex="-1">
+                <span class="wrap">Page</span>
+                <input class="" id="page_current" type="text" name="currentPage" value="3" tabindex="-1">
+                <span class="wrap" id="page_total">of &nbsp;47</span>
+            </label>
+        </li>
+        <li class="control paging leaf">
+            <button id="page_next" class="button action square move right up" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+        <li class="control paging leaf">
+            <button id="page_last" class="button action square move toRight up" tabindex="-1">
+                <span class="wrap"><span class="icon"></span></span>
+            </button>
+        </li>
+    </ul>
+    <!-- ========== END RIGHT BUTTON SET =========== -->
+
+</div>
+
+<!-- ========== COMMON DROP-DOWN DYNAMIC MENU =========== -->
+<div id="menu" class="menu vertical dropDown fitable hidden" aria-hidden="true" role="menu" tabindex="-1"
+     js-navtype="toolbar" style="left: 85px; top: 88px; z-index: 99999;">
+    <div class="content">
+        <ul id="menuList" role="menubar" js-navtype="toolbar">
+            <li id="menuList_simpleAction_11" class="leaf" role="menuitem" js-navtype="toolbar">
+                <p class="wrap button"><span class="icon"></span>Save</p></li>
+            <li id="menuList_simpleAction_41" class="leaf" role="menuitem" js-navtype="toolbar">
+                <p class="wrap button"><span class="icon"></span>Save As...</p></li>
+        </ul>
+    </div>
+</div>
+
+<!-- ========== ZOOM OPTIONS DROP-DOWN MENU =========== -->
+<div id="vwroptions">
+    <div class="menu vertical dropDown fitable" style="z-index: 99999; display: none; top: 85px; left: 815.969px;">
+        <div class="content">
+            <ul js-navtype="toolbar">
+                <li class="leaf"><p class="wrap toggle button" data-val="0.1"><span class="icon"></span>10%</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="0.25"><span class="icon"></span>25%</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="0.5"><span class="icon"></span>50%</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="0.75"><span class="icon"></span>75%</p></li>
+                <li class="leaf selected"><p class="wrap toggle button down" data-val="1"><span class="icon"></span>100%</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="1.25"><span class="icon"></span>125%</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="2"><span class="icon"></span>200%</p></li>
+                <li class="leaf separator"></li>
+                <li class="leaf selected"><p class="wrap toggle button down" data-val="fit_actual"><span class="icon"></span>Actual Size</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="fit_width"><span class="icon"></span>Fit Width</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="fit_height"><span class="icon"></span>Fit Height</p></li>
+                <li class="leaf"><p class="wrap toggle button" data-val="fit_page"><span class="icon"></span>Fit Page</p></li>
+            </ul>
+        </div>
+    </div>
+</div>
+

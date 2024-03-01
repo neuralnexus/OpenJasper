@@ -1,0 +1,155 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+// ====================================================================
+//  * BASE RULES
+//  *
+//  * Base rules are the defaults applied to element selectors, attribute
+//  * selectors, pseudo-classes selectors, and child/sibling selectors.
+//  * Last modified date:     May 22, 2020
+//  * Last modified by:       Anna Leeg
+// ====================================================================
+
+/* Formats woff and woff2 generated from Font Squirrel */
+/* Formats ttf are from TIBCO UXPL, renamed to lower-case */
+@font-face {
+  font-family:"source_sans_proregular";
+  src:font-url("sourcesanspro-regular-webfont.woff2") format("woff2"),
+  font-url("sourcesanspro-regular-webfont.woff") format("woff"),
+  font-url("sourcesanspro-regular.ttf") format("truetype");
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:"source_sans_prosemibold";
+  src:font-url("sourcesanspro-semibold-webfont.woff2") format("woff2"),
+  font-url("sourcesanspro-semibold-webfont.woff") format("woff"),
+  font-url("sourcesanspro-semibold.ttf") format("truetype");
+  font-weight:normal;
+  font-style:normal;
+}
+
+@font-face {
+  font-family:"source_sans_probold";
+  src:font-url("sourcesanspro-bold-webfont.woff2") format("woff2"),
+  font-url("sourcesanspro-bold-webfont.woff") format("woff"),
+  font-url("sourcesanspro-bold.ttf") format("truetype");
+  font-weight:normal;
+  font-style:normal;
+}
+
+
+
+html.jr {
+  height: 100%;
+}
+
+body.jr {
+  color: #333333;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+h1.jr,
+h2.jr,
+h3.jr,
+h4.jr,
+h5.jr,
+h6.jr {
+  font-family: $font-family-primary;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1;
+}
+
+a.jr {
+  color: inherit; // needed for embedded controls because Bootstrap defines a color for all a elements
+  cursor: pointer;
+}
+
+th.jr {
+  font-weight: normal;
+}
+
+p.jr,
+textarea.jr {
+  font-size: 1em;
+  line-height: normal;
+  white-space: normal;
+}
+
+legend.jr { // needed for embedded controls because Bootstrap assigns a font-size of 21px
+  font-size: 12px
+}
+
+// no input element added to the following 2 rules to prevent specificity issues
+.jr[type="email"],
+.jr[type="number"],
+.jr[type="password"],
+.jr[type="text"] {
+  background-image: none;
+  border: 1px solid #cccccc;
+  height: 28px;
+  padding-right: 4px;
+  padding-left: 6px;
+}
+
+.jr[type="search"] {
+  background-image: none;
+  border: 1px solid #cccccc;
+  height: 26px;
+  padding-right: 32px;
+  padding-left: 4px;
+}
+
+.jr:focus { outline: none;}
+
+input.jr[type="radio"],
+input.jr[type="checkbox"] {
+  height: em(16px, 13px);
+  width: em(16px, 13px);
+}
+
+textarea.jr {
+  border: 1px solid #cccccc;
+  padding: 2px 4px;
+}
+
+select.jr {
+  width: auto;
+}
+
+button.jr  {
+  background-color: transparent;
+  border: 0;
+  display: inline-block;
+  padding: 0;
+  position:  relative;
+  vertical-align: top; // prevents issues with buttons containing icons, value can be anything except "baseline"
+  white-space: nowrap;
+}
+
+div.jr {position: relative}

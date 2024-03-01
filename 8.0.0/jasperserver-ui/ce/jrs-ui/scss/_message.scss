@@ -1,0 +1,307 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    MESSAGE MODULE
+    Last modified date:     June 15, 2020
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+// -------------------------
+//  BASE MESSAGE MODULE
+// -------------------------
+.jr-mMessage.jr {
+  background-color: #f7f7f7;
+  border-color: #e4e4e4;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: em(4px, 12px);
+  display: inline-block;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+  z-index: $zindex-message;
+}
+
+.jr-mMessage-textContainer.jr {
+  margin-left: em(46px, 12px);
+  padding: 1em;
+  text-align: left;
+}
+
+.jr-mMessage-title.jr {
+  color: $color-textDarker;
+  font-size: em(14px, 12px);  // new base font size
+  font-weight: bold;
+  margin-bottom: em(6px, 12px);
+  text-align: left;
+}
+
+.jr-mMessage-title.jr:only-child {
+  margin-bottom: 0;
+}
+
+.jr-mMessage-iconContainer.jr {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: em(44px, 12px);
+  text-align: center;
+}
+
+.jr-mMessage-icon.jr {
+  color: #fff;
+  margin-left: em(-1px, 30px); // margin values are based on XLarge icon size
+  margin-top: em(2px, 30px);
+}
+
+.jr-mMessage-close.jr { // values are based on small icon size
+  height: em(22px, 14px);
+  position: absolute;
+  top: em(2px, 14px);
+  right: em(2px, 14px);
+  width: em(20px, 14px);
+  z-index: $zindex-message;
+}
+
+.jr-mMessage-text.jr {
+  color: $grey-textDarker;
+  font-size: em(12px, 12px);
+  margin-top: em(12px, 12px);
+  white-space: normal;
+}
+
+.jr-mMessage-text.jr + .jr-mMessage-text.jr {
+  margin-top: em(6px, 12px);
+}
+
+// MODULE VARIATION, Info
+.jr-mMessageInfo.jr {
+  background-color: #f4f9fd;
+  border-color: $color-infoMedium;
+}
+
+.jr-mMessageInfo.jr .jr-mMessage-title.jr,
+.jr-mMessageInfo.jr .jr-mMessage-text.jr {
+  color: $color-infoDark;
+}
+
+.jr-mMessageInfo.jr .jr-mMessage-iconContainer.jr {
+  background-color: $color-infoMedium;
+}
+
+.jr-mMessageInfo.jr .jr-mMessage-close.jr {
+  color: $color-infoMedium;
+  opacity: .75;
+}
+
+
+// MODULE VARIATION, Success
+.jr-mMessageSuccess.jr {
+  background-color: $color-successLight;
+  border-color: $color-successMedium;
+}
+
+.jr-mMessageSuccess.jr .jr-mMessage-title.jr,
+.jr-mMessageSuccess.jr .jr-mMessage-text.jr {
+  color: $color-successDark;
+}
+
+.jr-mMessageSuccess.jr .jr-mMessage-iconContainer.jr {
+  background-color: $color-successMedium;
+}
+
+.jr-mMessageSuccess.jr .jr-mMessage-close.jr {
+  color: $color-successDark;
+  opacity: .75;
+}
+
+
+// MODULE VARIATION, Attention
+.jr-mMessageAttention.jr {
+  background-color: $color-attentionLight;
+  border-color: $color-attentionMedium;
+}
+
+.jr-mMessageAttention.jr .jr-mMessage-title.jr,
+.jr-mMessageAttention.jr .jr-mMessage-text.jr {
+  color: $color-attentionDark;
+}
+
+.jr-mMessageAttention.jr .jr-mMessage-iconContainer.jr {
+  background-color: $color-attentionMedium;
+}
+
+.jr-mMessageAttention.jr .jr-mMessage-close.jr {
+  color: $color-attentionMedium;
+  opacity: .75;
+}
+
+
+// MODULE VARIATION, Warning
+.jr-mMessageWarning.jr {
+  background-color: $color-warningLight;
+  border-color: $color-warningMedium;
+}
+
+.jr-mMessageWarning.jr .jr-mMessage-title.jr,
+.jr-mMessageWarning.jr .jr-mMessage-text.jr {
+  color: $color-warningDark;
+}
+
+.jr-mMessageWarning.jr .jr-mMessage-iconContainer.jr {
+  background-color: $color-warningMedium;
+}
+
+.jr-mMessageWarning.jr .jr-mMessage-close.jr {
+  color: $color-warningMedium;
+  opacity: .75;
+}
+
+
+// MODULE VARIATION, Error
+.jr-mMessageError.jr {
+  background-color: $color-errorLight;
+  border-color: $color-errorMedium;
+}
+
+.jr-mMessageError.jr .jr-mMessage-title.jr,
+.jr-mMessageError.jr .jr-mMessage-text.jr {
+  color: $color-errorDark;
+}
+
+.jr-mMessageError.jr .jr-mMessage-iconContainer.jr {
+  background-color: $color-errorMedium;
+}
+
+.jr-mMessageError.jr .jr-mMessage-close.jr {
+  color: $color-errorMedium;
+  opacity: .75;
+}
+
+
+// MODULE VARIATION, Plain (no icon)
+.jr-mMessagePlain.jr {}
+
+.jr-mMessagePlain.jr .jr-mMessage-iconContainer.jr {
+  display: none;
+}
+
+.jr-mMessagePlain.jr .jr-mMessage-title.jr {}
+
+.jr-mMessagePlain.jr .jr-mMessage-textContainer.jr {
+  margin-left: 0;
+}
+
+
+
+// MODULE VARIATION, Popover with triangle
+.jr-mMessageBottom.jr {}
+.jr-mMessageBottom.jr:before,
+.jr-mMessageBottomRight:before,
+.jr-mMessageBottomLeft:before {
+  border-right: em(6px) solid transparent;
+  border-left: em(6px) solid transparent;
+  //border-bottom: em(7px) solid $color-infoMedium;
+  border-bottom-width: em(7px, 12px);
+  border-bottom-style: solid;
+  border-bottom-color: inherit;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 0 0 em(-6px, 12px);
+  position: absolute;
+  top: em(-7px, 12px);
+  left: 50%;
+}
+
+.jr-mMessageTop.jr {}
+.jr-mMessageTop:after,
+.jr-mMessageTopRight:after,
+.jr-mMessageTopLeft:after {
+  border-right: em(6px, 12px) solid transparent;
+  border-left: em(6px, 12px) solid transparent;
+  //border-top: em(7px) solid $color-infoMedium;
+  border-top-width: em(7px, 12px);
+  border-top-style: solid;
+  border-top-color: inherit;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 0 0 em(-6px, 12px);
+  position: absolute;
+  bottom: em(-7px, 12px);
+  left: 50%;
+}
+
+.jr-mMessageTopRight:after,
+.jr-mMessageBottomRight:before {
+  left: auto;
+  right: em(22px, 12px);
+}
+
+.jr-mMessageTopLeft:after,
+.jr-mMessageBottomLeft:before {
+  left: em(22px, 12px);
+}
+
+.jr-mMessageRight.jr {}
+.jr-mMessageRight.jr:before {
+  border-top: em(6px, 12px) solid transparent;
+  border-bottom: em(6px, 12px) solid transparent;
+  //border-right: em(7px) solid $color-infoMedium;
+  border-right-width: em(7px, 12px);
+  border-right-style: solid;
+  border-right-color: inherit;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 em(-10px, 12px) 0 0;
+  position: absolute;
+  left: em(-7px, 12px);
+  top: .909em; // keep ems so it's scalable
+}
+
+.jr-mMessageLeft.jr {}
+.jr-mMessageLeft.jr:before {
+  border-top: em(6px, 12px) solid transparent;
+  border-bottom: em(6px, 12px) solid transparent;
+  border-left-width: em(7px, 12px);
+  border-left-style: solid;
+  border-left-color: inherit;
+  content: "";
+  height: 0;
+  line-height: 0;
+  margin: 0 em(-10px) 0 0;
+  position: absolute;
+  right: em(3px, 12px);
+  top: .909em; // keep ems so it's scalable
+}
+
+
+// ----------------
+//     STATES
+// ----------------
+
+.jr-mMessage.jr-isHidden.jr {
+  display: none;
+}

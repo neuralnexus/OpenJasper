@@ -1,0 +1,37 @@
+<div class="wrap draggable">
+
+    <js-templateNonce></js-templateNonce>
+    <div class="column one">
+        <p class="jobResource" >{{- model.reportLabel }} </p>
+        <p class="jobResourcePath">{{- model.reportUnitURI }}</p>
+    </div>
+    <div class="column two">
+        <p class="jobName">{{- model.label }}</p>
+        <p class="jobDescription" title="{{- model.description }}">{{- model.description }}</p>
+    </div>
+    <div class="column three">
+        <p class="jobID">{{- model.id }}</p>
+        <p class="jobOwner">{{- model.owner }}</p>
+        <p class="jobState">{{- model.state.value }}</p>
+    </div>
+    <div class="column four">
+        <p class="lastRanDate">
+            {{- lastRanDate }}
+        </p>
+        <p class="nextRunDate">
+            {{- nextRunDate }}
+        </p>
+    </div>
+    <div class="column five">
+	    <div class="jobDelete">
+		    <button name="deleteJob" class="button action simple delete"></button>
+	    </div>
+	    <div class="jobEdit">
+		    <button name="editJob" class="button action simple edit"></button>
+	    </div>
+	    <div class="jobEnabled">
+		    <input name="enableJob" type="checkbox" {{ if (isJobEnabled) { }} checked="checked" {{ } }}></input>
+	    </div>
+    </div>
+</div>
+

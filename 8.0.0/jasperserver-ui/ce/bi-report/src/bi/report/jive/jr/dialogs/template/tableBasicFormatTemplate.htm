@@ -1,0 +1,119 @@
+<div class="applytoWrapper">
+
+    <js-templateNonce></js-templateNonce>
+    <div class="applytoTitle"><span>{{- i18n["net.sf.jasperreports.components.headertoolbar.label.applyto"] }}:</span></div>
+    <div class="applytoSelector">
+        <select data-bind="options:applyToOptions,value:applyTo">
+        </select>
+    </div>
+</div>
+<form class="jive_form_basicFormat jive_form" style="width: 700px; display: block;">
+    <table width="100%" data-bind="toggle:hasHeading">
+        <tbody>
+            <tr>
+                <td colspan="4">
+                    <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.headingtext"] }}:</div>
+                    <div class="wrapper">
+                        <input type="text" data-bind="value:columnLabel">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="100%">
+        <tbody>
+        <tr>
+            <td rowspan="2">
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.fontname"] }}:</div>
+                <div class="wrapper">
+                    <input type="text" class="jive_listTextInput" data-bind="value:fontName">
+                    <select class="showList wFreeText" size="6" data-bind="groupedOptions:fontNames,value:fontName">
+                    </select>
+                </div>
+            </td>
+            <td rowspan="2">
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.fontsize"] }}:</div>
+                <div class="wrapper">
+                    <input type="text" class="jive_listTextInput" data-bind="value:customDecimal(fontSize)">
+                    <select class="showList wFreeText" size="6" data-bind="nonGroupedOptions:fontSizes,value:customDecimal(fontSize)">
+                    </select>
+                </div>
+            </td>
+            <td>
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.style"] }}:</div>
+                <div class="wrapper">
+                    <div class="buttonbar">
+                        <div class="jive_inputbutton" data-bind="checkboxDiv:fontBold" data-model-attr="fontBold"><span class="jive_bIcon boldIcon"></span></div>
+                        <div class="jive_inputbutton" data-bind="checkboxDiv:fontItalic" data-model-attr="fontItalic"><span class="jive_bIcon italicIcon"></span></div>
+                        <div class="jive_inputbutton" data-bind="checkboxDiv:fontUnderline" data-model-attr="fontUnderline"><span class="jive_bIcon underlineIcon"></span></div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.color"] }}:</div>
+                <div class="wrapper">
+                    <div class="buttonbar">
+                        <div class="jive_inputbutton  drop" data-bind="colorpicker:backgroundColor" data-model-attr="backgroundColor" data-label="{{- i18n["net.sf.jasperreports.components.headertoolbar.title.fontbackcolor"] }}" data-show-transparent-input="true">
+                            <div class="colorpick wide"></div>
+                            <span class="jive_bIcon backgroundColorIcon"></span>
+                        </div>
+                        <div class="jive_inputbutton  drop" data-bind="colorpicker:fontColor" data-model-attr="fontColor" data-label="{{- i18n["net.sf.jasperreports.components.headertoolbar.title.fontcolor"] }}">
+                            <div class="colorpick normal"></div>
+                            <span class="jive_bIcon fontColorIcon"></span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.alignment"] }}:</div>
+                <div class="wrapper">
+                    <div class="buttonbar">
+                        <div class="jive_inputbutton" data-bind="radioDiv:align" data-model-attr="align" data-value="left"><span class="jive_bIcon leftIcon"></span></div>
+                        <div class="jive_inputbutton" data-bind="radioDiv:align" data-model-attr="align" data-value="center"><span class="jive_bIcon centerIcon"></span></div>
+                        <div class="jive_inputbutton" data-bind="radioDiv:align" data-model-attr="align" data-value="right"><span class="jive_bIcon rightIcon"></span></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table width="100%" data-bind="toggle:hasPattern">
+        <tbody>
+        <tr>
+            <td colspan="2" rowspan="2">
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.formatpattern"] }}:</div>
+                <div class="wrapper">
+                    <input type="text" class="jive_listTextInput" data-bind="value:pattern,disabled:isDuration">
+                    <select class="showList wFreeText" size="4" data-bind="transformedPatterns:patterns,value:pattern">
+                    </select>
+                </div>
+            </td>
+            <td data-bind="css:{visibility:getNumericTypeVisibility}">
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.numberformat"] }}:</div>
+                <div class="wrapper">
+                    <div class="buttonbar">
+                        <div class="jive_inputbutton" name="percentageBtn" data-bind="checkboxDiv:hasPercentage" data-model-attr="hasPercentage"><span class="jive_bIcon percentageIcon"></span></div>
+                        <div class="jive_inputbutton" name="commaBtn" data-bind="checkboxDiv:hasComma" data-model-attr="hasComma"><span class="jive_bIcon commaIcon"></span></div>
+                        <div class="jive_inputbutton" name="increaseDecimalsBtn"><span class="jive_bIcon increaseDecimalsIcon"></span></div>
+                        <div class="jive_inputbutton" name="decreaseDecimalsBtn"><span class="jive_bIcon decreaseDecimalsIcon"></span></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr data-bind="css:{visibility:getNumericTypeVisibility}">
+            <td>
+                <div class="wrapper label">{{- i18n["net.sf.jasperreports.components.headertoolbar.label.currency"] }}:</div>
+                <div class="wrapper">
+                    <div class="buttonbar">
+                        <div class="jive_inputbutton  drop" name="currencyBtn">
+                            <span class="jive_bIcon currencyIcon"></span>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>

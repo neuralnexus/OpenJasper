@@ -1,0 +1,13 @@
+{
+  "uri": "TEST_URI",
+  "id": "TEST_ID",
+  "value": "TEST_VALUE",
+  "error": "TEST_ERROR",
+  "totalCount": "TEST_TOTAL_COUNT",
+  "options": [
+    {
+      "label": "TEST_LABEL",
+      "selected": false
+    }
+  ]
+}

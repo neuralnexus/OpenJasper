@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="32px" viewBox="0 0 40 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>jrs-icon-edit-text</title>
+    <g id="jrs-icon-edit-text" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M13,-1.0658141e-14 L13,24 L18,24 L11.4790165,32 L5,24 L10,24 L10,-1.0658141e-14 L13,-1.0658141e-14 Z M18.01,3 L35.002,10.344 L35.002,13.44 L18.01,20.832 L18.01,16.608 L21.61,15.144 L21.61,8.544 L18.01,7.128 L18.01,3 Z M24.778,9.72 L24.778,13.872 L30.058,11.784 L24.778,9.72 Z" id="textRotate90" fill="#686868" fill-rule="nonzero"></path>
+    </g>
+</svg>

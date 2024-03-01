@@ -1,0 +1,929 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ----------------------------------
+   TABLE OF CONTENTS
+
+    1. BASIC BUTTON
+
+    2. ACTION BUTTON
+       2a. Square action
+       2b. Small action
+       2c. Simple action
+
+     3. MATH BUTTON
+
+     4. SQUARE BUTTON
+
+     5. CAPSULE BUTTON
+        5a. Mini capsule
+        5b. Text capsule
+
+     6. DISCLOSURE BUTTON
+
+     7. MINIMIZE BUTTON
+
+     8. OPTIONS BUTTON
+
+     9. PICKER BUTTON
+
+    10. SCHEDULED BUTTON
+
+    11. SEARCH BUTTON
+
+    12. MOVE BUTTON
+
+  -----------------------------------
+    File last modified Jan 19, 2021
+  ----------------------------------- */
+
+
+/* ------------------- */
+/*  1. BASIC BUTTON    */
+/* ------------------- */
+.button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    overflow: visible; /* removes extra side padding in IE */
+    -webkit-tap-highlight-color: transparent; /* "turns off" link highlight for iPad */
+}
+
+.button.disabled,
+.button[disabled] {
+    cursor: default;
+}
+
+.button .wrap {
+    display: block !important;
+    font-family: inherit; /* fixes the problem that some browsers are rendering in lucida grande */
+    font-size: 11px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.button .icon,
+.button .indicator {
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.button .indicator {
+    background-image: url(images/disclosure_indicators_sprite.png);
+    height: 24px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+}
+
+.button .icon {
+    height: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+}
+
+button[disabled] .icon,
+button[disabled] .indicator {
+    opacity: 0.3;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* Safari and Google Chrome only
+       To address discrepancy in rendering between PC and Mac WebKit */
+
+    .button {
+        margin-top: -1px;
+        margin-bottom: -1px;
+    }
+
+    .tabSet.horizontal .button > .wrap {
+        margin-top: 0;
+    }
+}
+
+.button::-moz-focus-inner {
+    border: none; /* overrides extra padding in Firefox */
+    padding: 0;
+}
+
+
+/* --------------------- */
+/*  2. ACTION BUTTON    */
+/* --------------------- */
+.action {
+    display: inline-block;
+    margin-right: 5px;
+    min-height: 28px;
+    padding: 0 15px 0 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.action > .wrap {
+    background-position: left 0;
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 28px;
+    padding-left: 15px;
+}
+
+.footer .action {
+    margin-top: 4px;
+}
+
+/* State */
+.action,
+.action.pressed,
+.action.pressed.over,
+.action.square.pressed,
+.action.square.pressed.over {
+    background-color: var(--background-grey-10);
+}
+
+.action.over,
+.action.square.over {
+    background-color: var(--background-grey-29);
+}
+
+.action.primary,
+.action.primary.pressed,
+.action.primary.pressed.over {
+    background-color: var(--theme-medium-light);
+    background-image: none;
+}
+
+.action.primary.over {
+    background-color: var(--theme-medium-dark);
+}
+
+.action.checking {
+    cursor: default;
+}
+
+/*  ------------------  */
+/*  2a. Square action   */
+/*  ------------------  */
+.action.square {
+    text-align: center;
+    width: 34px;
+}
+
+.action.square > .wrap {
+    background-position: left top;
+    height: 32px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    text-indent: -5000px;
+    width: 20px;
+}
+
+.action.square > .wrap > .icon {
+    background-image: url(images/button_action_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-size: 240px;
+    display: block;
+    height: 32px;
+    width: 34px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .action.square > .wrap > .icon {
+        background-image: url(images/button_action_icons_sprite@2x.png);
+    }
+}
+
+/*  ------------------  */
+/*  2b. Small action   */
+/*  ------------------  */
+/*  introduced October 2014, occurs in redesigned Select Data dialog box  */
+.action.square.small {
+    margin: 0;
+    min-height: 24px;
+    padding: 0;
+    width: auto;
+}
+
+.action.square.small > .wrap {
+    height: 24px;
+    width: 24px;
+}
+
+.action.square.small.tree > .wrap,
+.action.square.small.list > .wrap {
+    width: 30px;
+}
+
+.action.square.small > .wrap > .icon {
+    display: block;
+    height: 24px;
+    width: 30px;
+}
+
+/* State, background color */
+.action.small.up {
+    background-color: var(--background-grey-10);
+}
+
+.action.small.up.over,
+.action.small.up.pressed {
+    background-color: var(--theme-medium-dark);
+}
+
+.action.small.pressed.over,
+.action.small.down,
+.action.small.down.over,
+.action.small.down.pressed {
+    background-color: var(--theme-medium-light);
+}
+
+/* State, icon position  */
+.action.small.tree.up .icon {
+    background-position: -56px -175px;
+}
+
+.action.small.tree.up.over .icon,
+.action.small.tree.up.pressed .icon,
+.action.small.tree.down .icon,
+.action.small.tree.down.over .icon {
+    background-position: -86px -175px;
+}
+
+.action.small.list.up .icon {
+    background-position: -115px -445px;
+}
+
+.action.small.list.up.over .icon,
+.action.small.list.up.pressed .icon,
+.action.small.list.down .icon,
+.action.small.list.down.over .icon {
+    background-position: -146px -445px;
+}
+
+/*  ------------------  */
+/*  2c. Simple action   */
+/*  ------------------  */
+/* icon-only buttons introduced July 2013 */
+/* icons updated for 2019 UI Improvements */
+.action.simple {
+    background: url("images/button_action_icons_sprite@1x.png") no-repeat scroll 0 0 transparent;
+    background-size: 240px;
+    display: inline-block;
+    height: 18px;
+    margin: 0;
+    min-height: 18px;
+    padding: 0;
+    width: 18px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .action.simple {
+        background-image: url(images/button_action_icons_sprite@2x.png);
+    }
+}
+
+.action.simple.button.save {
+    background-position: -120px -210px;
+}
+
+.action.simple.button.edit {
+    background-position: 0 -331px;
+}
+
+.action.simple.button.delete {
+    background-position: -1px -541px;
+}
+
+.action.simple.button.cancel {
+    background-position: -120px -180px;
+}
+
+.action.simple.button.add {
+    background-position: -60px -300px;
+    height: 100%;
+}
+
+
+
+/* ------------------- */
+/*  3. MATH BUTTON    */
+/* ------------------- */
+.button.math {
+    background: var(--background-grey-02);
+    border: 1px solid var(--border-grey-10);
+    border-radius: 1px;
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    margin-right: 3px;
+    margin-bottom: 6px;
+    -moz-user-select: none;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+}
+
+.button.math > .icon {
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    width: auto;
+}
+
+/* icon fonts for formula buttons */
+@font-face {
+    font-family: 'operators';
+    src: url('fonts/operators.eot');
+    src: url('fonts/operators.eot?#iefix') format('embedded-opentype'),
+    url('fonts/operators.woff') format('woff'),
+    url('fonts/operators.ttf') format('truetype'),
+    url('fonts/operators.svg#operators') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'operators';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.button.math [class^="icon-"], [class*=" icon-"] {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.icon-add:before {
+    content: "\61";
+}
+
+.icon-subtract:before {
+    content: "\62";
+}
+
+.icon-multiply:before {
+    content: "\63";
+}
+
+.icon-divide:before {
+    content: "\64";
+}
+
+.icon-percent:before {
+    content: "\65";
+}
+
+.icon-parenLeft:before {
+    content: "\66";
+}
+
+.icon-parenRight:before {
+    content: "\67";
+}
+
+.icon-colon:before {
+    content: "\68";
+}
+
+.icon-equal:before {
+    content: "\69";
+}
+
+.icon-notEqual:before {
+    content: "\6a";
+}
+
+.icon-greaterThan:before {
+    content: "\6b";
+}
+
+.icon-lessThan:before {
+    content: "\6c";
+}
+
+.icon-greaterEqual:before {
+    content: "\6d";
+}
+
+.icon-lessEqual:before {
+    content: "\6e";
+}
+
+.icon-and:before {
+    content: "\6f";
+}
+
+.icon-or:before {
+    content: "\70";
+}
+
+.icon-not:before {
+    content: "\71";
+}
+
+.icon-in:before {
+    content: "\72";
+}
+
+.icon-startsWith:before {
+    content: "\73";
+}
+
+.icon-endsWith:before {
+    content: "\74";
+}
+
+.icon-contains:before {
+    content: "\75";
+}
+
+
+/* --------------------- */
+/*  4. SQUARE BUTTON    */
+/* --------------------- */
+/* domain designer buttons */
+#add.square > .wrap > .icon {
+    background-position: 7px -652px;
+}
+
+#add.square.over > .wrap > .icon,
+#add.square.pressed > .wrap > .icon {
+    background-position: -33px -652px;
+}
+
+#addToSet.square > .wrap > .icon {
+    background-position: 6px -613px;
+}
+
+#addToSet.square.over > .wrap > .icon,
+#addToSet.square.pressed > .wrap > .icon {
+    background-position: -33px -613px;
+}
+
+#add.square.disabled .wrap > .icon,
+#add.square[disabled] .wrap > .icon {
+    background-position: -88px -652px;
+}
+
+#addToSet.square.disabled .wrap > .icon,
+#addToSet.square[disabled] .wrap > .icon {
+    background-position: -88px -613px;
+}
+
+
+/* ---------------------- */
+/*  5. CAPSULE BUTTON    */
+/* ---------------------- */
+button.capsule {
+    display: inline-block;
+    height: 24px;
+    margin-right: -1px;
+    text-decoration: none;
+    width: 32px;
+}
+
+.button.capsule.mutton {
+    width: 36px;
+}
+
+.button.capsule .wrap {
+    height: 22px;
+    line-height: 14px;
+}
+
+.button.capsule .wrap > .icon {
+    height: 22px;
+    width: 30px;
+}
+
+.button.capsule.mutton .wrap {
+    padding: 0 6px;
+}
+
+/* disclosure indicator icon positions for capsule buttons */
+.button.capsule .indicator {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-size: 80px;
+    background-position: -1px -80px;
+    right: 2px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .button.capsule .indicator {
+        background-image: url(images/disclosure_indicators_icons_sprite@2x.png);
+    }
+}
+
+.button.capsule.over .indicator,
+.button.capsule.pressed .indicator {
+    background-position: -61px -80px;
+    right: 2px;
+}
+
+
+/*  -----------------  */
+/*  5a. Mini capsule   */
+/*  -----------------  */
+/* I can't find any usage of .mini button in project */
+button.capsule.mini {
+    height: 20px;
+    width: 24px;
+}
+
+button.capsule.mini .wrap {
+    height: 20px;
+    line-height: 18px;
+}
+
+/*  -----------------  */
+/*  5b. Text capsule   */
+/*  -----------------  */
+.button.capsule.text {
+    border-left: 1px solid var(--border-grey-20);
+    border-right: 1px solid var(--border-white);
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-weight: normal;
+    margin: 0;
+    width: auto;
+}
+
+.button.capsule.text .wrap {
+    font-size: 13px;
+}
+
+.button.capsule.text.first {
+    border-left: none;
+}
+
+.button.capsule.text .wrap {
+    height: 100%;
+    line-height: 28px;
+    padding: 0 12px;
+}
+
+.button.capsule.text .indicator {
+    background-position: 0 -47px;
+    margin-right: 5px;
+}
+
+.button.capsule.text.mutton .wrap {
+    padding-right: 16px;
+}
+
+.button.capsule.text.over .indicator,
+.button.capsule.text.pressed .indicator {
+    background-position: 0 -81px;
+}
+
+.button.capsule.text.disabled .indicator,
+.button.capsule.text[disabled] .indicator {
+    background-position: 0 -114px;
+}
+
+.header #flushOLAPCache.button.capsule.text,
+.header #clearAllCache.button.capsule.text {
+    height: 27px;
+    position: absolute;
+    right: 1px;
+}
+
+/* capsule button states */
+.button.capsule.disabled {}
+
+.button.capsule.up {}
+
+.button.capsule.up.over,
+.button.capsule.superfocus.subfocus:hover,
+.button.capsule.down,
+.button.capsule.down.over,
+.button.capsule.down.pressed {
+    background-color: var(--theme-medium-dark);
+}
+
+.button.capsule.up.pressed,
+.button.capsule.superfocus.subfocus.pressed {
+    background-color: var(--theme-medium-light);
+}
+
+.button.capsule.down {}
+
+.button.capsule.down.pressed {}
+
+
+/* ------------------------- */
+/*  6. DISCLOSURE BUTTON    */
+/* ------------------------- */
+.button.disclosure {
+    background-color: transparent;
+    background-image: url(images/disclosure_indicators_sprite.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 22px;
+    vertical-align: middle;
+    width: 16px;
+    z-index: 10;
+}
+
+.closed .button.disclosure,
+.minimized .button.disclosure {
+    background-position: 0 -205px;
+}
+
+.closed .button.disclosure.over,
+.minimized .button.disclosure.over {
+    background-position: 0 -229px;
+}
+
+.closed .button.disclosure.pressed,
+.minimized .button.disclosure.pressed {
+    background-position: 0 -257px;
+}
+
+.button.disclosure,
+.button.disclosure.down {
+    background-position: 0 -286px;
+}
+
+.button.disclosure.over,
+.button.disclosure.down.over {
+    background-position: 0 -310px;
+}
+
+.button.disclosure.pressed,
+.button.disclosure.down.pressed {
+    background-position: 0 -336px;
+}
+
+
+/* ----------------------- */
+/*  7. MINIMIZE BUTTON    */
+/* ----------------------- */
+.button.minimize {
+    background-image: url(images/disclosure_indicators_sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 -480px;
+    display: inline-block;
+    height: 28px;
+    left: 0;
+    width: 16px;
+    z-index: 10;
+}
+
+.column.decorated.minimized.secondary > .button.minimize,
+.column.decorated.minimized.tertiary > .button.minimize {
+    background-position: 4px -480px;
+    width: 24px;
+}
+
+.button.minimize.over {
+    background-position: 0 -513px;
+}
+
+.button.minimize.pressed {
+    background-position: 0 -546px;
+}
+
+
+/* ---------------------- */
+/*  8. OPTIONS BUTTON    */
+/* ---------------------- */
+.button.options {
+    background-color: var(--background-grey-10);
+    margin-right: 5px;
+    padding: 0 15px 0 0;
+    text-align: center;
+}
+
+.button.options > .wrap {
+    height: 21px;
+    line-height: 22px;
+    padding: 0 0 0 15px;
+}
+
+.filter .button.options {
+    border-width: 0;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.filter .button.options > .wrap {
+    border-width: 0;
+}
+
+/* State */
+.button.options.over {
+    background-color: var(--background-grey-29);
+}
+
+.button.options.pressed {
+    background: var(--background-grey-10);
+}
+
+
+/* --------------------- */
+/*  9. PICKER BUTTON    */
+/* --------------------- */
+.button.picker {
+    background-image: url(images/control_icons_sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 6px;
+    display: inline;
+    height: 27px;
+    margin-left: 2px;
+    vertical-align: top;
+    width: 17px;
+    z-index: 10;
+}
+
+.button.picker.over {}
+
+.button.picker.pressed {
+    background-position: -40px 6px;
+}
+
+
+/* ----------------------- */
+/*  10. SCHEDULED BUTTON   */
+/* ----------------------- */
+.button.scheduled {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-position: -30px -415px;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    display: inline-block;
+    height: 22px;
+    position: relative;
+    width: 16px;
+    z-index: 10;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .button.scheduled {
+        background-image: url(images/disclosure_indicators_icons_sprite@2x.png);
+    }
+}
+
+.button.scheduled.over {}
+
+.button.scheduled.pressed {}
+
+
+/* ----------------------- */
+/*  11. SEARCH BUTTON   */
+/* ----------------------- */
+.button.search {
+    background-image: url(images/search_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-size: 80px;
+    border-left: none;
+    height: 24px;
+    width: 24px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
+    .button.search {
+        background-image: url(images/search_icons_sprite@2x.png);
+    }
+}
+
+/* State */
+.button.search.up,
+.button.search.over,
+.button.search.pressed,
+.button.search.disabled {
+    background-position: -30px -57px;
+}
+
+#secondarySearchBox .button.search.up,
+#secondarySearchBox .button.search.over,
+#secondarySearchBox .button.search.pressed,
+#secondarySearchBox .button.search.disabled {
+    background-position: -30px -55px;
+}
+
+
+#secondarySearchBox .button.searchClear,
+#secondarySearchBox .button.searchClear.up,
+#secondarySearchBox .button.searchClear.over,
+#secondarySearchBox .button.searchClear.pressed {
+    background-position: -30px -87px;
+}
+
+
+#globalSearch .button.search {
+    border-left: none;
+}
+
+
+/* ------------------- */
+/*  12. MOVE BUTTON    */
+/* ------------------- */
+.move.right .icon,
+.move.right.over.pressed .icon {
+    background-position: 8px -24px;
+}
+
+.move.right.over .icon {
+    background-position: -23px -24px;
+}
+
+.move.left .icon,
+.move.left.over.pressed .icon {
+    background-position: 6px 6px;
+}
+
+.move.left.over .icon {
+    background-position: -24px 6px;
+}
+
+.move.toRight .icon,
+.move.toRight.pressed .icon {
+    background-position: 8px -144px;
+}
+
+.move.toRight.over .icon {
+    background-position: -22px -144px;
+}
+
+.move.toLeft .icon,
+.move.toLeft.pressed .icon {
+    background-position: 6px -114px;
+}
+
+.move.toLeft.over .icon {
+    background-position: -24px -114px;
+}
+
+.move.upward .icon {
+    background-position: 7px -55px;
+}
+
+.move.upward.over .icon,
+.move.upward.pressed .icon {
+    background-position: -23px -55px;
+}
+
+.move.downward .icon {
+    background-position: 7px -82px;
+}
+
+.move.downward.over .icon,
+.move.downward.pressed .icon {
+    background-position: -23px -82px;
+}
+
+.move.toTop .icon {
+    background-position: 7px -234px;
+}
+
+.move.toTop.over .icon,
+.move.toTop.pressed .icon {
+    background-position: -23px -234px;
+}
+
+.move.toBottom .icon {
+    background-position: 7px -262px;
+}
+
+.move.toBottom.over .icon,
+.move.toBottom.pressed .icon {
+    background-position: -23px -262px;
+}

@@ -1,0 +1,86 @@
+{
+  "version": 0,
+  "permissionMask": 1,
+  "creationDate": "2018-09-18T13:56:14",
+  "updateDate": "2014-04-25T18:06:57",
+  "label": "03. Store Segment Performance Report",
+  "description": "Sample OLAP chart with HTML5 Grouped Bar chart and Filter. Created from an Ad Hoc View.",
+  "uri": "/public/Samples/Reports/03._Store_Segment_Performance_Report",
+  "dataSource": {
+    "advDataSource": {
+      "version": 0,
+      "permissionMask": 1,
+      "creationDate": "2018-09-18T13:56:09",
+      "updateDate": "2014-04-25T18:06:57",
+      "label": "03. Store Segment Performance",
+      "description": "Sample OLAP chart with HTML5 Grouped Bar chart and Filter",
+      "uri": "/public/Samples/Ad_Hoc_Views/03__Store_Segment_Performance",
+      "dataSource": {
+        "secureMondrianConnection": {
+          "version": 0,
+          "permissionMask": 1,
+          "creationDate": "2018-09-18T13:56:09",
+          "updateDate": "2013-04-10T23:26:11",
+          "label": "Foodmart",
+          "description": "",
+          "uri": "/public/Samples/Data_Sources/connections/Foodmart2013",
+          "dataSource": {
+            "jndiJdbcDataSource": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-09-18T13:56:09",
+              "updateDate": "2012-07-03T21:59:10",
+              "label": "Foodmart Data Source JNDI",
+              "description": "Foodmart Data Source JNDI",
+              "uri": "/public/Samples/Data_Sources/FoodmartDataSourceJNDI",
+              "jndiName": "jdbc/foodmart"
+            }
+          },
+          "schema": {
+            "schema": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-09-18T13:56:09",
+              "updateDate": "2013-04-10T23:22:02",
+              "label": "FoodmartSchema",
+              "description": "Foodmart OLAP schema with updated dates",
+              "uri": "/public/Samples/OLAP/Schemas/FoodmartSchema2013.xml",
+              "type": "olapMondrianSchema"
+            }
+          }
+        }
+      }
+    }
+  },
+  "jrxml": {
+    "jrxmlFile": {
+      "version": 0,
+      "permissionMask": 1,
+      "creationDate": "2018-09-18T13:56:14",
+      "updateDate": "2014-04-25T18:06:57",
+      "label": "mainReportJrxml",
+      "uri": "/public/Samples/Reports/03._Store_Segment_Performance_Report_files/mainReportJrxml",
+      "type": "jrxml"
+    }
+  },
+  "alwaysPromptControls": false,
+  "controlsLayout": "popupScreen",
+  "resources": {
+    "resource": [
+      {
+        "name": "stateXML",
+        "file": {
+          "fileResource": {
+            "version": 0,
+            "permissionMask": 1,
+            "creationDate": "2018-09-18T13:56:14",
+            "updateDate": "2014-04-25T18:06:57",
+            "label": "stateXML",
+            "uri": "/public/Samples/Reports/03._Store_Segment_Performance_Report_files/stateXML",
+            "type": "xml"
+          }
+        }
+      }
+    ]
+  }
+}

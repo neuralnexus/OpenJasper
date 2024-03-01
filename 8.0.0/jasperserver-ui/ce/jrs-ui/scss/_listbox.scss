@@ -1,0 +1,188 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+   LISTBOX MODULE
+   Last modified date:     May 22, 2020
+   Last modified by:       Anna Leeg
+ * ============================================ */
+
+.jr-mListbox.jr {
+  color: $grey-textMedium;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-primary;
+  font-size: 13px;
+  font-weight: normal;
+  height: 100%;
+}
+
+.jr-mListbox-label.jr {
+  @include input-label;
+  align-self: stretch;
+  flex: 0 1 auto;
+  font-family: $font-family-semibold;
+  font-size: 1em;
+  font-weight: normal;
+}
+//label variations
+.jr-mListbox-labelLight.jr {
+  font-family: $font-family-primary;
+}
+
+.jr-mListbox-labelPale.jr {
+  color: $grey-textLightest;
+}
+
+.jr-mListbox-search.jr {
+  align-self: stretch;
+  flex: 0 1 auto;
+  margin-bottom: em(6px, 13px);
+}
+
+.jr-mListbox-list.jr {
+  // designed to resize in height along with the listbox's parent container;
+  align-self: stretch;
+  background-color: #fff;
+  border: 1px solid #dedede;
+  flex: 1 1 100%;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.jr-mListbox-listStatic.jr {
+  // for list that should size according to its content
+  position: static;
+}
+
+.jr-mListbox-listPadded.jr {
+  // for list that needs padding
+  padding: 1em;
+}
+
+.jr-mListbox-button.jr {
+  position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.jr-mListbox-buttonRight.jr {
+  right: 0;
+  left: auto;
+}
+
+    .jr-mListbox-buttonSmall.jr {
+      position: absolute;
+      bottom: 0;
+    }
+
+// listbox position when label and search are present
+.jr-mListbox-search.jr + .jr-mListbox-list.jr {
+  top: em(56px, 13px);
+}
+
+// listbox position with search only
+.jr-mListbox-search.jr + .jr-mListbox-list.jr:nth-of-type(2) {
+  top: em(34px, 13px);
+}
+
+// listbox position with label only
+.jr-mListbox-label.jr + .jr-mListbox-list.jr {
+  top: em(22px, 13px);
+}
+
+
+.jr-mListbox-list.jr:nth-last-child(2) {
+  bottom: em(28px, 13px);
+}
+
+
+// ----------
+//   STATES
+// ----------
+.jr-mListbox-list.jr-isInvalid.jr {
+  border-color: $color-errorMedium;
+}
+
+.jr-mListbox-list.jr-isEmpty.jr {
+  background-color: #f7f7f7;
+}
+
+
+
+/* =======================================
+   ALTERNATE LISTBOXX MODULE
+   Last modified date:     Feb 17, 2017
+   Last modified by:       Anna Leeg
+ * ======================================= */
+/*
+.jr-mListboxx.jr {
+  color: #666;
+  display: table;
+  font-family: $font-primary---family;
+  font-size: $font-primary---size;
+  font-weight: normal;
+  height: 100%;
+}
+
+.jr-mListboxx-label.jr {
+  display: table-row;
+  font-weight: bold;
+  @include input-label;
+}
+
+.jr-mListboxx-label-text.jr {
+  display: table-cell;
+  font-weight: bold;
+}
+    .jr-mListboxx-label-textLight.jr {
+      font-weight: normal;
+    }
+
+    .jr-mListboxx-label-textPale.jr {
+      color: #999999;
+    }
+
+.jr-mListboxx-search.jr {
+  display: table-row;
+}
+
+.jr-mListboxx-search-wrapper.jr {
+  display: table-cell;
+  padding-bottom: em(6px);
+}
+
+.jr-mListboxx-list.jr {
+  display: table-row;
+  height: 100%;
+  width: 100%;
+}
+
+.jr-mListboxx-list-wrapper.jr {
+  background-color: #fff;
+  border: em(1px) solid #dedede;
+  display: table-cell;
+  overflow-y: auto;
+}
+ */

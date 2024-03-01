@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="32px" viewBox="0 0 40 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>createWorkspace</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="createWorkspace" fill="#666666">
+            <path d="M9,26 L14,26 L14,12 L9,12 L9,26 L9,26 Z M7,28 L7,4 L33,4 L33,28 L7,28 Z M31,26 L31,12 L16,12 L16,26 L31,26 L31,26 Z M9,10 L31,10 L31,6 L9,6 L9,10 L9,10 Z" id="create-workspace"></path>
+        </g>
+    </g>
+</svg>

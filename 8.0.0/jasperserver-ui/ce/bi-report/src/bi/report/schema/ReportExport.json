@@ -1,0 +1,32 @@
+{
+    "title": "Report export options",
+    "type": "object",
+    "properties": {
+        "outputFormat": {
+            "type": "string",
+            "description": "A format for output of the export operation",
+            "default": "pdf"
+        },
+      "ignorePagination": {
+        "type": "boolean",
+        "description": "Control if report will be split into separate pages"
+      },
+        "pages": {
+            "type": ["string", "integer", "object"],
+            "description": "Exports all pages if this property was not specified. Range of report's pages or single report page",
+            "pattern": "^[1-9]\\d*(\\-\\d+)?$",
+            "properties": {
+                "pages": {
+                    "type": ["string", "integer"],
+                    "description": "Exports all pages if this property and anchor property were not specified. Range of report's pages or single report page",
+                    "pattern": "^[1-9]\\d*(\\-\\d+)?$"
+                },
+                "anchor": {
+                    "type": ["string"],
+                    "description": "Exports particular report page where report anchor is met. Is ignored if pages property is specified"
+                }
+            }
+        }
+    },
+    "required": ["outputFormat"]
+}

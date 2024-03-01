@@ -1,0 +1,445 @@
+/*
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved. Confidentiality & Proprietary.
+ * Licensed pursuant to commercial TIBCO End User License Agreement.
+ */
+
+.show_chartTypeSelector_wrapper {
+    position: relative;
+    top: -23px;
+    left: 0px;
+    z-index: 1;
+}
+
+.jive_chartTypeSelector {
+    border:1px solid #d3d5d6 !important;
+    background-color: #fff !important;
+    float: left;
+    -moz-box-shadow: 0 0 4px 4px rgba(51,51,51,0.5);
+    -webkit-box-shadow: 0 0 4px 4px rgba(51,51,51,0.5);
+    box-shadow: 0 0 4px 4px rgba(51,51,51,0.5);
+
+    z-index:499;
+    min-width:270px;
+    *width: 276px; /* IE7 */
+    display:none;
+
+    position: absolute;
+}
+
+.jive_chartTypeSelector>.content {
+    /* set coordinates to visual (0,0,0,0) of .column.decorated background,
+       as this object used as reference for positioning
+       child objects */
+    margin-bottom:0;
+    left:-1px;
+    margin-right:-1px;
+    *margin-right:0px; /* IE7 */
+    top:-1px;
+    z-index:1;
+}
+
+.jive_chartTypeSelector>.content>.header {
+    /* gradient end values are #EAEAEA and #D8D9D7 */
+    background:url(images/column_header_bkgd.png) repeat-x #fff; /* background color needs to be white so there are no problems with subheaders */
+
+    position: relative;
+    border-bottom:1px solid #c5c5c5;
+    z-index:1;
+    /* margin-right:1px; */
+}
+
+
+.jive_chartTypeSelector>.content>.header>.closeIcon {
+    float: right;
+    width: 19px;
+    height: 19px;
+    margin: 5px;
+    background: url("images/dialogClose.png");
+    cursor: pointer;
+}
+
+.jive_chartTypeSelector>.content>.header>.title {
+    color: #333;
+    line-height: 28px;
+    margin-left:12px;
+    white-space: nowrap;
+    overflow:hidden;
+    float:none;
+    height: 28px;
+
+    margin: 0 0 0 4px;
+    z-index: 2;
+    position: relative;
+    text-overflow: ellipsis;
+    max-width: 82%;
+    word-wrap: normal;
+
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.jive_chartTypeSelector>.content>.body {
+    padding: 10px 14px !important;
+    position: relative;
+    overflow: auto;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    font-size: 11px;
+    line-height: 1.182em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.jive_chartTypeSelector .wrap {
+    font-weight:bold;
+    margin-bottom:5px;
+    color:#666;
+}
+
+.jive_chartTypeSelector div.body > .row {
+    min-width: 508px;
+
+    overflow:hidden;
+    margin-bottom:12px;
+    margin-left:-5px;
+
+    position: relative;
+    clear: both;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell {
+    float: left;
+    width: 51px;
+    height: 34px;
+    margin-right: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: url("images/chart_type_sprite.png");
+}
+
+.jive_chartTypeSelector div.body > .row > .cell.selected {
+    border: solid 1px #1388d8;
+    background-color: #1388d8;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="column"] {
+    background-position: 1px 1px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="stacked_column"] {
+    background-position: 1px -64px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="percent_column"] {
+    background-position: 1px -129px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="bar"] {
+    background-position: 1px -194px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="stacked_bar"] {
+    background-position: 1px -259px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="percent_bar"] {
+    background-position: 1px -324px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="line"] {
+    background-position: 1px -389px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spider_line"] {
+    background-position: 1px -1494px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spider_area"] {
+    background-position: 1px -1689px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spider_column"] {
+    background-position: 1px -1624px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spline"] {
+    background-position: 1px -454px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="area"] {
+    background-position: 1px -519px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="stacked_area"] {
+    background-position: 1px -584px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="percent_area"] {
+    background-position: 1px -649px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spline_area"] {
+    background-position: 1px -714px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="pie"] {
+    background-position: 1px -779px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="dual_level_pie"] {
+    background-position: 1px -1559px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="semi_pie"] {
+    background-position: 1px -2079px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_line"] {
+    background-position: 1px -389px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_spline"] {
+    background-position: 1px -454px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_area"] {
+    background-position: 1px -519px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_spline_area"] {
+    background-position: 1px -714px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="column_line"] {
+    background-position: 1px -844px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="column_spline"] {
+    background-position: 1px -974px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="stacked_column_line"] {
+    background-position: 1px -909px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="stacked_column_spline"] {
+    background-position: 1px -1039px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="multi_axis_line"] {
+    background-position: 1px -1104px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="multi_axis_spline"] {
+    background-position: 1px -1169px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="multi_axis_column"] {
+    background-position: 1px -1234px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="scatter"] {
+    background-position: 1px -1299px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="bubble"] {
+    background-position: 1px -1429px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="heat_map"] {
+    background-position: 1px -1754px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="heat_map_time_series"] {
+    background-position: 1px -1819px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="dual_measure_tree_map"] {
+    background-position: 1px -1949px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="tree_map"] {
+    background-position: 1px -1884px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="one_parent_tree_map"] {
+    background-position: 1px -2014px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="tile_map"] {
+    background-position: 1px -2054px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell.disabled {
+    cursor: default;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spider_line"].disabled {
+    background-position: 54px -1494px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spider_area"].disabled {
+    background-position: 54px -1689px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="spider_column"].disabled {
+    background-position: 54px -1624px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_line"].disabled {
+    background-position: 54px -389px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_spline"].disabled {
+    background-position: 54px -454px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_area"].disabled {
+    background-position: 54px -519px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="timeseries_spline_area"].disabled {
+    background-position: 54px -714px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="column_line"].disabled {
+    background-position: 54px -844px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="column_spline"].disabled {
+    background-position: 54px -974px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="stacked_column_line"].disabled {
+    background-position: 54px -909px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="stacked_column_spline"].disabled {
+    background-position: 54px -1039px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="multi_axis_line"].disabled {
+    background-position: 54px -1104px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="multi_axis_spline"].disabled {
+    background-position: 54px -1169px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="multi_axis_column"].disabled {
+    background-position: 54px -1234px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="scatter"].disabled {
+    background-position: 54px -1299px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="bubble"].disabled {
+    background-position: 54px -1429px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="heat_map"].disabled {
+    background-position: 54px -1754px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="heat_map_time_series"].disabled {
+    background-position: 54px -1819px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="dual_measure_tree_map"].disabled {
+    background-position: -89px -1949px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="tree_map"].disabled {
+    background-position: -89px -1884px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="one_parent_tree_map"].disabled {
+    background-position: -89px -2014px;
+}
+
+.jive_chartTypeSelector div.body > .row > .cell[name="tile_map"].disabled {
+    background-position: -89px -2054px;
+}
+
+.jive_chartSettingsIcon {
+    position:absolute;
+    background:url("images/chart_options_button_sprite.png");
+    width:32px;
+    height:23px;
+    left:0px;
+    top:0px;
+    cursor:pointer;
+    z-index:3;
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+.jive_chartSettingsIcon.over {background-position: -62px 0;}
+
+.jive_chartMenu {
+    background-color:#ffffff;
+    border:1px solid #d3d5d6;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    line-height: 1.272em;
+    list-style: none;
+    margin: 0;
+    min-width: 150px;
+    outline: 0;
+    padding:5px 0;
+    position: absolute;
+
+    -moz-box-shadow: 2px 2px 1px #eee;
+    -webkit-box-shadow: 2px 2px 1px #eee;
+    box-shadow: 2px 2px 1px #eee;
+
+    vertical-align: baseline;
+    z-index:2;
+    top: 22px;
+    left: 0px;
+
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.jive_chartMenu li {
+    cursor: pointer;
+    padding: 0;
+    background: #fff;
+    color: #000;
+}
+
+.jive_chartMenu .wrap {
+    line-height: 2em;
+    height:24px;
+    padding:0 2em;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+    margin:0;
+}
+
+.jive_chartMenu .leaf {
+    margin:0;
+}
+
+.jive_chartMenu li.hovered {
+    background: #ff8000;
+    color: #fff;
+}
+
+.jive_chartMenu li>.wrap.over {
+    background-color:#FC870E;
+}
+

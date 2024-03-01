@@ -1,0 +1,11 @@
+{
+  "name": "TEST_NAME",
+  "limit": "TEST_LIMIT",
+  "offset": "TEST_OFFSET",
+  "select": "TEST_SELECT",
+  "criteria": "TEST_CRITERIA",
+  "value": [
+    "TEST_VALUE_A",
+    "TEST_VALUE_B"
+  ]
+}

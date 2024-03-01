@@ -1,0 +1,94 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ========================================
+	VALIDATION STYLES
+	Last modified date:     May 11, 2019
+	Last modified by:       Anna Leeg
+ * ======================================== */
+
+.jr-mValidation.jr {
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: $font-family-semibold;
+  font-size: $font-size-primary;
+  font-weight: normal;
+}
+
+.jr-mValidation-icon.jr {
+  flex: 0 0 auto;
+  color: inherit !important;
+  line-height: 1.2 !important;
+  min-width: em(17px, 12px);
+}
+
+.jr-mValidation-text.jr {
+  flex: 1 1 auto;
+  line-height: (14px / 12px);
+  padding-top: em(1px, 12px);
+  white-space: normal;
+  word-break: break-all;
+}
+
+// validation types
+.jr-mValidationError.jr {color: $color-errorMedium;}
+.jr-mValidationSuccess.jr {color: $color-successDark;}
+.jr-mValidationWarning.jr {color: $color-warningMedium;}
+.jr-mValidationAttention.jr {color: $color-attentionMedium;}
+
+
+
+
+// ORIGINAL VERSION, to be removed
+.jr-mValidationOriginal.jr {
+  font-family: $font-primary---family;
+  font-size: $font-primary---size;
+  font-weight: normal;
+  line-height: (14px / 11px);
+  margin-bottom: em(6px);
+  margin-top: em(4px);
+}
+
+.jr-mValidation-alert.jr {
+  display: flex;
+  min-height: em(14px);
+}
+
+.jr-mValidation-alert-text.jr {
+  font-size: 10px; // new base font size
+  font-weight: bold;
+  line-height: (14px / 10px);
+  padding-top: em(1px, 10px);
+  white-space: normal;
+}
+
+.jr-mValidation-alert-icon.jr {
+  color: inherit !important;
+  line-height: 1.2 !important;
+  vertical-align: top;
+  min-width: em(17px);
+}
+
+// validation types
+.jr-mValidation-alertError.jr {color: $color-errorMedium;}
+.jr-mValidation-alertSuccess.jr {color: $color-successDark;}
+.jr-mValidation-alertWarning.jr {color: $color-warningMedium;}
+.jr-mValidation-alertAttention.jr {color: $color-attentionMedium;}

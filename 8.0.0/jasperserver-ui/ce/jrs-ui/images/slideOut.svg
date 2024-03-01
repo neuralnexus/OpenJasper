@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="32px" viewBox="0 0 40 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>slideOut</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="slideOut" fill="#666666">
+            <path d="M26,8 L32,8 L32,24 L26,24 L26,8 Z M18,17 L9,17 L9,15 L18,15 L18,11 L24,16 L18,21 L18,17 Z" id="slide-out" transform="translate(20.500000, 16.000000) scale(-1, 1) translate(-20.500000, -16.000000) "></path>
+        </g>
+    </g>
+</svg>

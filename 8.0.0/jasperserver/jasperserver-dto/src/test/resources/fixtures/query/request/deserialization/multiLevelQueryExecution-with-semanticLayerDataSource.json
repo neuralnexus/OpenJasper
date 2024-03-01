@@ -1,0 +1,169 @@
+{
+  "version": 0,
+  "permissionMask": 1,
+  "creationDate": "2018-04-18T10:41:27",
+  "updateDate": "2018-04-18T10:41:27",
+  "label": "multiLevelQuery2.json",
+  "description": "",
+  "uri": "/public/multiLevelQuery2_json",
+  "dataSource": {
+    "semanticLayerDataSource": {
+      "version": 1,
+      "permissionMask": 1,
+      "creationDate": "2018-04-12T00:51:00",
+      "updateDate": "2018-04-12T00:51:00",
+      "label": "Supermart Domain",
+      "description": "Comprehensive example of Domain (pre-joined table sets for complex reporting, custom query based dataset, column and row security, I18n bundles)",
+      "uri": "/organizations/organization_1/Domains/supermartDomain",
+      "dataSource": {
+        "jndiJdbcDataSource": {
+          "version": 0,
+          "permissionMask": 1,
+          "creationDate": "2018-04-12T00:50:51",
+          "updateDate": "2018-04-12T00:50:51",
+          "label": "Foodmart Data Source JNDI",
+          "description": "Foodmart Data Source JNDI",
+          "uri": "/organizations/organization_1/analysis/datasources/FoodmartDataSourceJNDI",
+          "jndiName": "jdbc/foodmart"
+        }
+      },
+      "securityFile": {
+        "securityFile": {
+          "version": 0,
+          "permissionMask": 1,
+          "creationDate": "2018-04-12T00:51:00",
+          "updateDate": "2018-04-12T00:51:00",
+          "label": "supermartDomain_domain_security",
+          "description": "supermartDomain_domain_security",
+          "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermartDomain_domain_security",
+          "type": "xml"
+        }
+      },
+      "schema": {
+        "schemaFile": {
+          "version": 0,
+          "permissionMask": 1,
+          "creationDate": "2018-04-12T00:51:00",
+          "updateDate": "2018-04-12T00:51:00",
+          "label": "supermartDomain_schema",
+          "description": "supermartDomain_schema",
+          "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermartDomain_schema",
+          "type": "xml"
+        }
+      },
+      "bundles": [
+        {
+          "locale": "",
+          "file": {
+            "file": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-04-12T00:51:00",
+              "updateDate": "2018-04-12T00:51:00",
+              "label": "supermart_domain.properties",
+              "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermart_domain.properties",
+              "type": "prop"
+            }
+          }
+        },
+        {
+          "locale": "en_US",
+          "file": {
+            "file": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-04-12T00:51:00",
+              "updateDate": "2018-04-12T00:51:00",
+              "label": "supermart_domain_en_US.properties",
+              "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermart_domain_en_US.properties",
+              "type": "prop"
+            }
+          }
+        },
+        {
+          "locale": "de",
+          "file": {
+            "file": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-04-12T00:51:00",
+              "updateDate": "2018-04-12T00:51:00",
+              "label": "supermart_domain_de.properties",
+              "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermart_domain_de.properties",
+              "type": "prop"
+            }
+          }
+        },
+        {
+          "locale": "fr",
+          "file": {
+            "file": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-04-12T00:51:00",
+              "updateDate": "2018-04-12T00:51:00",
+              "label": "supermart_domain_fr.properties",
+              "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermart_domain_fr.properties",
+              "type": "prop"
+            }
+          }
+        },
+        {
+          "locale": "es",
+          "file": {
+            "file": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-04-12T00:51:00",
+              "updateDate": "2018-04-12T00:51:00",
+              "label": "supermart_domain_es.properties",
+              "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermart_domain_es.properties",
+              "type": "prop"
+            }
+          }
+        },
+        {
+          "locale": "ja",
+          "file": {
+            "file": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-04-12T00:51:00",
+              "updateDate": "2018-04-12T00:51:00",
+              "label": "supermart_domain_ja.properties",
+              "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermart_domain_ja.properties",
+              "type": "prop"
+            }
+          }
+        },
+        {
+          "locale": "zh_CN",
+          "file": {
+            "file": {
+              "version": 0,
+              "permissionMask": 1,
+              "creationDate": "2018-04-12T00:51:00",
+              "updateDate": "2018-04-12T00:51:00",
+              "label": "supermart_domain_zh_CN.properties",
+              "uri": "/organizations/organization_1/Domains/supermartDomain_files/supermart_domain_zh_CN.properties",
+              "type": "prop"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "field": "sales_fact_ALL.sales_fact_ALL__unit_sales_98"
+        },
+        {
+          "field": "sales_fact_ALL.sales__product.sales__product__brand_name"
+        }
+      ]
+    },
+    "groupBy": []
+  }
+}

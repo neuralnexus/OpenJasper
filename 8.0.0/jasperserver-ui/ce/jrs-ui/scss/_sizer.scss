@@ -1,0 +1,81 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ============================================
+    SIZER RULES (jQuery Widget)
+    Last modified date:     Oct 4, 2018
+    Last modified by:       Anna Leeg
+ * ============================================ */
+
+// -----------------
+//  SIZER MODULES
+// -----------------
+.jr-mSizer.jr {
+  color: #333333;
+  font-family: $font-primary---family;
+  font-size: $font-primary---size;
+  font-weight: normal;
+}
+
+.jr-mSizer-handle.jr {}
+
+
+
+// MODULE VARIATION, horizontal/column resizer
+.jr-mSizerHorizontal.jr {
+  cursor: col-resize !important;
+  z-index: 1000;
+}
+
+
+// MODULE VARIATION, vertical/row resizer
+.jr-mSizerVertical.jr {
+  cursor: row-resize !important;
+}
+
+.jr-mSizerVertical.jr .jr-mSizer-handle.jr {
+  margin-bottom: em(10px);
+  margin-top: em(10px);
+}
+
+// jquery-ui overrides
+.jr-mSizerVertical.jr.ui-resizable-s {
+  bottom: 0;
+  left: inherit;
+  margin-bottom: em(10px);
+  margin-top: em(10px);
+}
+
+.jr-mSizerVertical.jr .ui-icon {
+  background-image: none;
+  border-top: 3px double #333;
+  height: em(3px);
+  margin: 0 auto;
+  width: em(10px);
+}
+
+
+// ----------
+//   STATES
+// ----------
+.jr-mSizer.jr-isInvisible.jr {
+  display: none;
+}

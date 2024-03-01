@@ -1,0 +1,123 @@
+# JRS Specfic
+
+production-tests/*.exec
+buildomatic/*_master.properties
+buildomatic/build_conf/
+buildomatic/conf_source/ieCe/
+buildomatic/conf_source/iePro/
+buildomatic/install_resources/sql/**/js-pro-create.ddl
+buildomatic/install_resources/sql/**/js-pro-delete.ddl
+buildomatic/install_resources/war/
+buildomatic/jdbc-dep
+buildomatic/js-mvn
+**/target/
+
+
+# Java (https://github.com/github/gitignore/blob/master/Java.gitignore)
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+
+# JetBrains
+
+# CMake
+cmake-build-debug/
+cmake-build-release/
+
+# folder-based project format
+.idea/
+
+# File-based project format
+*.iws
+*.iml
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Eclipse.gitignore (https://github.com/github/gitignore/blob/master/Global/Eclipse.gitignore)
+.metadata
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+
+buildomatic/keystore.init.properties
+jasperserver-war/overlays/

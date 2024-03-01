@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="32px" viewBox="0 0 40 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>lineArrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="lineArrow" fill-rule="nonzero" fill="#666666">
+            <path d="M32.778549,9.27454462 L32.8038129,9.29116577 L32.7817807,9.32465444 L33.0573866,13.5980762 L30.8201029,12.3063799 L25.9581793,19.6964419 L18.7583499,15.3204992 L13.5442072,22.4933871 L11.4411444,20.9646207 L18.0629391,11.8552821 L25.1648675,16.1717222 L28.5646035,11.0041667 L26.1291834,9.59807621 L32.593285,6.40192379 L32.778549,9.27454462 Z M8,26 L33.7606993,26 L33.7606993,28 L6,28 L6,4 L8,4 L8,26 Z" id="line-graph"></path>
+        </g>
+    </g>
+</svg>

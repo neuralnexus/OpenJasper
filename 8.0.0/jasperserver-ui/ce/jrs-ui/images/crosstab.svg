@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="32px" viewBox="0 0 40 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>crosstab</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="crosstab" fill="#666666">
+            <path d="M12,9 L12,4 L34,4 L34,10 L14,10 L14,28 L6,28 L6,9 L12,9 Z M14,14 L22,14 L22,16 L14,16 L14,14 Z M14,20 L22,20 L22,22 L14,22 L14,20 Z M24,14 L32,14 L32,16 L24,16 L24,14 Z M24,20 L32,20 L32,22 L24,22 L24,20 Z M14,26 L34,26 L34,28 L14,28 L14,26 Z M22,10 L24,10 L24,26 L22,26 L22,10 Z M32,10 L34,10 L34,26 L32,26 L32,10 Z"></path>
+        </g>
+    </g>
+</svg>

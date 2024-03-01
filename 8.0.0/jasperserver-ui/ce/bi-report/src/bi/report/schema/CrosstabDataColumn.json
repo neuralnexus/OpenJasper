@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "description": "JIVE crosstab data column component schema",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Crosstab component identifier"
+        },
+        "componentType": {
+            "enum": ["crosstabDataColumn"]
+        },
+        "sort": {
+            "type": "object",
+            "properties": {
+                "order": {
+                    "enum": ["asc", "desc"]
+                }
+            }
+        },
+        "columnValues": {
+            "type": "array",
+            "descripton": "An array of labels of the crosstab data column"
+        },
+        "sortMeasureIndex" : {
+            "type": "number",
+            "description": "Absolute offset the column in crosstab",
+            "minimum": 0
+        }
+    },
+    "required": ["id"]
+}

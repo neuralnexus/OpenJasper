@@ -1,0 +1,13 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "source": {
+        "include": [ "src/common/", "src/components/" ]
+    },
+    "opts": {
+        "recurse": true,
+        "private": false,
+        "lenient": true
+    }
+}

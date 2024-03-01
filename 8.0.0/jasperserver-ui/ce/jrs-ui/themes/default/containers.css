@@ -1,0 +1,1155 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* --------------------------------------
+   TABLE OF CONTENTS
+
+     1. GLOBAL BANNER & FOOTER
+
+     2. BASIC CONTAINERS
+
+     3. HEADER & SUBHEADER
+
+     4. COLUMNS
+        4a. Base rules
+        4b. Decorated
+        4c. Minimized
+        4d. Simple
+        4e. Tabbed
+        4f. No header
+        4g. Showing toolbar
+        4h. Sizers
+        4i. Footer
+        4j. Miscellaneous
+
+     5. TOOLBAR
+
+     6. PANE
+        6a. Base rules
+        6b. Sizable
+        6c. Filter
+        6d. Settings
+
+     7. BACKGROUND COLORS
+
+     8. DATA LEVEL SELECTOR
+
+     9. MISC/UNKNOWN
+   -----------------------------------
+    File last modified Feb 8, 2021
+   -----------------------------------  */
+
+
+
+/* ----------------------------- */
+/*  1. GLOBAL BANNER & FOOTER    */
+/* ----------------------------- */
+.banner {
+    background-color: var(--theme-dark);
+    border-bottom: 1px solid var(--border-white);
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+    height: 40px;
+    position: relative;
+}
+
+/* Responsive Behavior for banner */
+@media only screen and (max-width: 1100px) {
+    #logo {
+        height: 18px;
+        margin-top: 12px;
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    #logo {
+        display: none;
+    }
+}
+
+.sectionLeft {
+    float: left;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.sectionRight {
+    height: 39px;
+    margin-right: 6px;
+    position: absolute;
+    right: 0;
+}
+
+#frameFooter {
+    background-color: var(--theme-dark);
+    bottom: 0;
+    color: #fff;
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-size: 10px;
+    height: 17px;
+    position: absolute;
+    text-align: center; /* centers the #license element when it appears */
+    width: 100%;
+}
+
+/* chrome and safari only */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    #frameFooter {
+        position: fixed;
+    }
+}
+
+#frameFooter #about a {
+    color: #fff !important;
+}
+
+#frameFooter #copyright,
+#frameFooter #about,
+#frameFooter #license {
+    line-height: 17px;
+    position: absolute;
+}
+
+#frameFooter #copyright {
+    right: 10px;
+}
+
+#frameFooter #about {
+    left: 10px;
+}
+
+#frameFooter #license {
+    color: #feef97;
+}
+
+
+
+/* ----------------------- */
+/*  2. BASIC CONTAINERS    */
+/* ----------------------- */
+#frame {
+    position: absolute;
+    top: 40px;
+    bottom: 17px;
+    width: 100%;
+}
+
+.noDecoration > #frame {
+    top: 0;
+    bottom: 0;
+}
+
+.content {
+    -webkit-tap-highlight-color: transparent;
+    /* fixes highlighting on touch for iPad */
+    /* "turns off" link highlight */
+}
+
+.content.tabbed {
+} /* not sure tabbed content exists any more */
+
+.content.tabbed > .header {
+    border-bottom: none;
+}
+
+.content.tabbed > .body {
+    position: relative;
+}
+
+.content.tabbed > .body.section {
+    border: 1px solid var(--border-grey-20);
+    margin-top: 0;
+    padding-top: 2px; /* prevents issues with first item in container */
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.searchContainer {
+    position: absolute;
+    right: 0;
+}
+
+#display {
+    overflow: hidden;
+    position: absolute;
+}
+
+.body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+
+
+/* ------------------------- */
+/*  3. HEADER & SUBHEADER    */
+/* ------------------------- */
+.header {} /* top-level header gradually being replaced by .pageHeader */
+
+.header > .title {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 0 0 4px;
+    z-index: 2;
+    max-width: 82%;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.widget .header {
+    overflow: hidden;
+    height: 27px;
+}
+
+.header > .title h1,
+.header > .title h2,
+.header > .title h3,
+.header > .title h4,
+.header > .title h5 {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.header > .title > .tabSet.text {
+    display: inline-block;
+    line-height: 13px;
+    margin-bottom: 0;
+    top: 2px;
+}
+
+.header .icon {
+    position: absolute;
+    width: 25px;
+}
+
+.header .label {
+    top: -4px;
+    display: inline;
+}
+
+.header > .launcher {
+    display: inline;
+    line-height: 28px;
+}
+
+.header > .tabs {
+    clear: both;
+}
+
+.header .button.options {
+    position: absolute;
+    right: 40px;
+    top: 8px;
+}
+
+.header > .button.mutton,
+.subheader > .button.mutton {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-position: 5px 8px;
+    background-size: 80px;
+    display: inline-block;
+    height: 32px;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 22px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .header > .button.mutton,
+    .subheader > .button.mutton {
+        background-image: url(images/disclosure_indicators_icons_sprite@2x.png);
+    }
+}
+
+.sub.header {
+    height: 28px;
+    margin-top: 1px;
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid var(--border-white);
+    min-height: 0;
+    clear: both;
+    cursor: default; /* prevents the move cursor from .mover */
+}
+
+.sub.header .title {
+    font-weight: normal;
+    margin: 0 20px;
+    line-height: 28px;
+}
+
+.sub.header .horizontal {
+    margin: 6px 1em 0 1em;
+}
+
+.sub.header .button.options {
+    top: 4px;
+}
+
+.sub.header > .control {
+    margin: 6px 1em 0;
+}
+
+.subheader {
+    position: relative;
+    height: 24px;
+}
+
+.subheader > .title {
+    float: left;
+    font-weight: normal;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 4px;
+    padding-left: 16px;
+}
+
+.subheader > .button.disclosure {
+    position: absolute;
+    left: 0;
+    margin: 4px 4px 4px 0;
+}
+
+.subheader > .button.disclosure.open,
+.pane.filter .content > .header > .button.disclosure.open,
+.pane.expression .content > .header > .button.disclosure.open {
+    background-position: 2px -701px;
+}
+
+.subheader > .button.disclosure.closed,
+.pane.filter .content > .header > .button.disclosure.closed,
+.pane.expression .content > .header > .button.disclosure.closed {
+    background-position: 2px -677px;
+}
+
+
+
+/* -------------- */
+/*  4. COLUMNS    */
+/* -------------- */
+
+/* ----------------- */
+/*  4a. base rules   */
+/* ----------------- */
+.column {
+    margin: 0;
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-tap-highlight-color: transparent;
+    /* fixes highlighting on touch for iPad */
+    /* "turns off" link highlight */
+}
+
+.column .header > .title {
+    height: 28px;
+    line-height: 26px;
+    padding-left: 12px;
+}
+
+.column > .content {
+    position: relative;
+    height: 100%;
+}
+
+.column > .content > .body {
+    top: 36px;
+}
+
+/* ----------------- */
+/*  4b. decorated    */
+/* ----------------- */
+.column.decorated {
+    border: none;
+    bottom: 0;
+    top: 0;
+    overflow: visible;
+    margin: 0; /* default margin setting overridden as req'd in layout.css */ /* NEW */
+    min-width: 150px;
+}
+
+.column.decorated .column.decorated {
+    border: 1px solid var(--border-grey-20);
+}
+
+#frame.column.decorated {
+    min-width: 1024px;
+}
+
+#display > .column.decorated.primary {
+    min-width: 312px;
+    overflow: hidden;
+} /* I'm not sure this exists */
+
+.column.decorated > .content {
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.column.decorated > .content > .header {
+    height: 28px;
+    position: relative;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.column.decorated > .content > .body {
+    overflow: auto;
+    position: absolute;
+    top: 27px;
+    /* left: 0; defined by .body in BASIC CONTAINER section */
+}
+
+.column.decorated > .content.hasFooter > .body {
+    bottom: 37px;
+}
+
+.column.decorated.tertiary  .button.mutton {
+    right: 20px;
+}
+
+.column.decorated > .content.hasFooter > .footer {
+    background: var(--background-white);
+    border-top: 1px solid var(--border-grey-16);
+    white-space: nowrap;
+    z-index: 100;
+}
+
+/* ---------------- */
+/*  4c. minimized   */
+/* ---------------- */
+.column.decorated.minimized {
+    min-width: 24px !important;
+    width: 24px !important;
+}
+
+.column.decorated.minimized.secondary {
+    border-right: 1px solid var(--border-grey-10);
+}
+
+.column.decorated.minimized.tertiary {
+    border-left: 1px solid var(--border-grey-10);
+}
+
+.column.decorated.minimized .footer {
+    padding: 0;
+}
+
+.column.decorated.minimized .vtitle {
+    background: var(--background-white);
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 20px;
+    position: absolute;
+    transform: rotate(270deg);
+    transform-origin: left top;
+}
+
+.column.decorated.minimized.tertiary .vtitle {
+    margin-top: -7px;
+}
+
+.column.minimized > .icon.minimize {
+    background-image: url(images/button_action_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-size: 240px;
+    cursor: pointer;
+    height: 32px;
+    width: 24px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .column.minimized > .icon.minimize {
+        background-image: url(images/button_action_icons_sprite@2x.png);
+    }
+}
+
+#fields.column.minimized > .icon.minimize {
+    background-position: -58px -504px;
+} /* ad hoc */
+
+#filters.column.minimized > .icon.minimize,
+#searchFilters.column.minimized > .icon.minimize {
+    background-position: -58px -474px;
+} /* ad hoc, repo search */
+
+#folders.column.minimized > .icon.minimize {
+    background-position: -118px -504px
+} /* repo & manage */
+
+#inputControlsForm.column.minimized > .icon.minimize {
+    background-position: -57px -24px;
+} /* reports */
+
+#properties.column.minimized > .icon.minimize {
+    background-position: -58px -84px;
+}  /* manage */
+
+
+/* ------------- */
+/*  4d. simple   */
+/* ------------- */
+.column.simple {
+    overflow: visible;
+}
+
+.column.simple > .content {
+    position: absolute;
+    height: auto;
+}
+
+.column.simple > .content > .body {
+    overflow: auto;
+}
+
+/* 4e. tabbed */
+/* not sure these exist any more */
+.column.decorated.tabbed.showingToolBar > .content > .body {
+    margin-top: 32px;
+}
+
+.column.decorated.tabbed > .content > .body {
+    top: 63px;
+}
+
+.column.decorated.tabbed .content > .header > .tabs {
+    background-color: var(--background-white);
+    display: block;
+    height: 34px;
+}
+
+.column.decorated > .content > .header > .tabs {
+    display: none;
+}
+
+.column.decorated.tabbed > .content > .body > .row.canvas {
+    height: 86%;
+    margin: 1% 20px;
+}
+
+.column.decorated.tabbed > .content > .body > .row.actions {
+    height: 9%;
+    padding: 0 35px;
+}
+
+/* --------------- */
+/*  4f. No header  */
+/* --------------- */
+.column.noHeader > .content > .header,
+.column.noHeader > .minimize {
+    display: none;
+}
+
+.column.noHeader > .content > .body {
+    top: 0;
+}
+
+.column.decorated.noHeader > .content > .body {
+    margin-top: 10px;
+}
+
+/* ---------------------- */
+/*  4g. Showing toolbar   */
+/* ---------------------- */
+.column > .content > .body.showingSubHeader,
+.column.showingSubHeader > .content > .body {
+    margin-top: 29px;
+}
+
+.column.showingToolBar > .content > .body {
+    margin-top: 30px;
+}
+
+.column.showingToolBar.showingSubHeader > .content > .body {
+    margin-top: 63px;
+}
+
+.column.showingToolBar.showingDisplayManager > .content > .body {
+    margin-top: 105px;
+}
+
+/* ------------- */
+/*  4h. Sizers   */
+/* ------------- */
+.sizer {
+    position: absolute;
+}
+
+.sizer.horizontal {
+    cursor: col-resize;
+}
+
+.sizer.vertical {
+    cursor: row-resize;
+}
+
+.sizer.diagonal {
+    cursor: se-resize;
+}
+
+.column > .sizer {
+    background: none;
+    bottom: 0;
+    cursor: col-resize;
+    margin-left: -7px;
+    top: 0;
+    width: 8px;
+}
+
+.column.minimized > .sizer {
+    cursor: default;
+}
+
+.column.secondary > .sizer {
+    right: -8px;
+}
+
+.column.tertiary > .sizer {
+    left: 0;
+}
+
+.twoColumn.primaryLeft > .secondary.column > .sizer,
+.body.twoColumn.primaryLeft > .secondary.column > .sizer,
+.row.twoColumn.primaryLeft > .secondary.column > .sizer,
+.twoColumn.primaryLeft > .tertiary.column > .sizer,
+.body.twoColumn.primaryLeft > .tertiary.column > .sizer,
+.row.twoColumn.primaryLeft > .tertiary.column > .sizer {
+    left: 0;
+}
+
+/* ------------- */
+/*  4i. Footer   */
+/* ------------- */
+.footer {
+    background-repeat: no-repeat;
+    bottom: 0;
+    height: 37px;
+    left: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    position: absolute;
+    right: 0;
+}
+
+/* -------------------- */
+/*  4j. Miscellaneous   */
+/* -------------------- */
+.column.split > .content > .body {
+    overflow: hidden;
+}
+
+.column.primary .header > .title {
+    padding-left: 8px;
+}
+
+
+
+/* -------------- */
+/*  5. TOOLBAR    */
+/* -------------- */
+.toolbar {
+    clear: both;
+    height: 28px;
+}
+
+.toolbar .divider {
+    background-color: var(--background-grey-20);
+    border-right: 1px solid var(--border-white);
+    border-left: var(--border-grey-20);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: 27px;
+}
+
+.toolbar .divider.first {
+    left: 0;
+}
+
+.toolbar .divider.last {
+    right: 0;
+}
+
+.toolbar > input {
+    top: 10px;
+}
+
+.toolbar .dropList {
+    display: block;
+    width: auto;
+    margin-top: 7px;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+
+
+
+
+/* ----------- */
+/*  6. PANE    */
+/* ----------- */
+/*  Panes are dialogs that visually share their left and right borders with
+    their enclosing column. Pane also has the special case of .pane.sizeable,
+    that requires that .pane > .content be position:absolute. */
+
+/* ----------------- */
+/*  6a. Base rules   */
+/* ----------------- */
+.pane {
+    position: relative;
+    margin: 0;
+    left: 0;
+    right: 0;
+    min-height: 0;
+    background-image: none;
+    border-bottom: 1px solid var(--border-grey-13);
+}
+
+.pane > .content {
+    position: relative;
+    width: 100%;
+}
+
+.pane.minimized,
+.pane.sizeable.minimized {
+    height: auto !important;
+    border-bottom: none;
+}
+
+.pane.minimized > .content,
+.pane.sizeable.minimized > .content {
+    position: relative;
+}
+
+.pane.sizeable.minimized .sizer,
+.pane.minimized .body,
+.pane.minimized .footer {
+    display: none;
+}
+
+.pane .body {
+    position: relative;
+}
+
+.pane .footer {
+    border-top: none;
+}
+
+/* START: panel sizer rules are here instead of panel.css
+   because there were problems with the cascade */
+.panel.sizeable {
+    min-height: 150px;
+    min-width: 150px;
+}
+
+.panel > .sizer {
+    background-image: url(images/panel_sizer_sprite.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 9px;
+    position: absolute;
+    width: 9px;
+    z-index: 3;
+}
+
+.panel > .sizer.vertical {
+    background-position: left 0;
+}
+
+.panel > .sizer.diagonal {
+    background-position: left -48px;
+}
+/* END: panel sizer rules */
+
+.pane .sizer {
+    bottom: 0;
+    width: 100%;
+}
+
+.pane .sizer.vertical {
+    background-position: 53% -10px;
+    background-repeat: no-repeat;
+}
+
+.pane.upper .sizer {
+    bottom: -20px;
+    right: 3px;
+    top: auto;
+    background-color: transparent;
+}
+
+.pane.lower .sizer {
+    top: 10px;
+    right: 3px;
+    background-color: transparent;
+}
+
+.pane.closed .body,
+.pane.closed .footer,
+.pane.closed .sizer {
+    display: none;
+}
+
+.pane .header {
+    background-color: var(--background-grey-08);
+    border-bottom: 1px solid var(--border-grey-13);
+    min-height: 28px;
+}
+
+.pane .header .title {
+    font-size: 12px;
+    line-height: 28px;
+    margin-right: 22px;
+}
+
+.pane .header .disclosure {
+    position: absolute;
+    z-index: 10;
+    top: 6px;
+    left: 2px;
+}
+
+.pane .header .icon {
+    height: 28px;
+}
+
+.pane .control.searchLockup {
+    margin-top: 8px;
+}
+
+.pane .control.searchLockup input {
+    width: 70%;
+}
+
+.pane .multi-select {
+    bottom: 30px;
+    position: absolute;
+    top: 0;
+} /* not sure this exists any more */
+
+/* -------------- */
+/*  6b. Sizable   */
+/* -------------- */
+.pane.sizeable > .content {
+    height: 100%;
+    position: absolute;
+    float: none;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0
+}
+
+.pane.sizeable .body {
+    overflow: auto;
+    position: absolute;
+    top: 29px;
+    bottom: 5px;
+}
+
+.pane.sizeable .footer {
+    height: 5px;
+    border-top: 1px solid var(--border-grey-13);
+}
+
+/* ------------- */
+/*  6c. Filter   */
+/* ------------- */
+.pane.filter.sizeable {
+    min-height: 150px;
+}
+
+.pane.filter .body {
+    overflow: hidden;
+}
+
+.pane.filter .message {
+    margin: 10px;
+    white-space: normal;
+}
+
+.pane.filter ul.message {
+    margin-left: 20px;
+}
+
+.pane.filter .options,
+.pane.filter .operation {
+    border-bottom: 1px solid var(--border-grey-13);
+}
+
+.pane.filter .options,
+.pane.filter .operation {
+    padding: 7px;
+}
+
+.pane.filter .values {
+    padding: 0 7px;
+}
+
+.pane.filter.sizeable .values {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.pane.filter.sizeable .body .values label {
+    margin-top: 35px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.pane.filter.sizeable .body .values select {
+    position: absolute;
+    top: 0;
+    bottom: 30px;
+}
+
+.pane.filter .all {
+    padding:0 7px 15px;
+}
+
+.pane.filter.sizeable .all {
+    bottom: 5px;
+    position: absolute;
+}
+
+.pane.filter .all .wrap {
+    left: auto;
+    position: relative;
+}
+
+.pane.filter label .wrap {
+    background: transparent;
+    border: none;
+    left: -5000px;
+    position: absolute;
+}
+
+.pane.filter .body .options,
+.pane.filter .body .operation {
+    border: none;
+    display: none;
+}
+
+.pane.filter .body .options .select,
+.pane.filter .body .options select,
+.pane.filter .body .operation .select,
+.pane.filter .body .operation select {
+    margin: 0;
+}
+
+.pane.filter.showingOptions .body .options,
+.pane.filter.showingOperation .body .operation {
+    display: block;
+}
+
+.pane.filter.showingOptions .body .values,
+.pane.filter.showingOperation .body .values {
+    border-top: 1px solid var(--border-grey-13);
+}
+
+.pane.filter.showingOptions.sizeable .body .values,
+.pane.filter.showingOperation.sizeable .body .values {
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+/* --------------- */
+/*  6d. Settings   */
+/* --------------- */
+.pane.settings {
+    border: none;
+}
+
+.pane.settings .header {
+    background-color: transparent;
+    border: none;
+    height: 25px;
+    min-height: 0;
+}
+
+.pane.settings .header.title {
+    line-height: 25px;
+}
+
+.pane.settings .column {
+    position: relative;
+}
+
+.pane.settings .body {
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.pane.settings .body .column.primary {
+    display: inline-block;
+    float: left;
+    left: auto;
+    white-space: normal;
+    width: 475px;
+}
+
+.pane.settings .body .column.secondary {
+    display: inline-block;
+    float :none;
+}
+
+.pane.settings .control input,
+.pane.settings .control select {
+    display: inline-block;
+    max-width: 100px;
+}
+
+.pane.settings .control.text input {
+    float: left;
+    margin-top: 0;
+    margin-right: 6px;
+    width: 50px;
+}
+
+.pane.settings .control select {
+    float: left;
+    margin-top: 3px;
+    margin-right: 6px;
+}
+
+.pane.settings .control .wrap {
+    display: inline-block;
+    margin: 0 0 5px 20px;
+    max-width: 450px;
+}
+
+
+
+/* ----------------------- */
+/*  7. BACKGROUND COLORS   */
+/* ----------------------- */
+body,
+.pane .body,
+.panel,
+.column.decorated {
+    background-color: var(--background-white);
+}
+
+/* column decorated */
+.column.decorated > .content > .header,
+.column.decorated > .content > .header > .subheader {
+    background-color: var(--background-grey-10);
+    border-bottom: 1px solid var(--border-white);
+}
+
+.toolbar {
+    background-color: var(--background-grey-08);
+}
+
+.sub.header {
+    background: var(--background-white);
+}
+
+.column.decorated.secondary > .content > .body,
+.column.decorated.tertiary > .content > .body {
+    background-color: var(--background-grey-03);
+}
+
+.column.decorated.minimized {
+    background: var(--background-white);
+    border: 0;
+}
+
+.inputs .column.decorated.secondary > .content > .body,
+.inputs .column.decorated.tertiary > .content > .body {
+    background-color: transparent;
+}
+
+.pane {
+    background-color: var(--background-white);
+}
+
+
+
+/* ------------------------- */
+/*  8. DATA LEVEL SELECTOR   */
+/* ------------------------- */
+#chart-options-container .pod-header,
+#level-container .pod-header {
+    background-color: var(--background-grey-08);
+    color: #666666;
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    min-height: 24px;
+    padding-left: 8px;
+}
+
+#level-container .pod-body {
+    border-bottom: 1px solid #e5eaed;
+    padding: 8px;
+    position: relative;
+}
+
+
+
+/* ------------------- */
+/*  9. MISC/UNKNOWN    */
+/* ------------------- */
+.row {
+    position: relative;
+    clear: both;
+}
+
+.row.actionButtons {
+    margin-top: 20px;
+}
+
+/* Row elements can be used to create parent contexts for columns for complex and nested layouts */
+.row > .sizer.vertical {
+    bottom: 0;
+    height: 10px;
+    width: 100%;
+}

@@ -1,0 +1,262 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    TABS MODULE
+    Last modified date:     May 1, 2019
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+// ------------------------
+//    BASE TABS MODULE
+// ------------------------
+
+.jr-mTab.jr {
+  font-family: $font-family-primary;
+  font-size: 14px;
+  font-weight: normal;
+  height: auto;
+  white-space: nowrap;
+}
+
+.jr-mTab-item.jr {
+  cursor: pointer;
+  position: relative;
+}
+
+.jr-mTab-item-label.jr {;
+  color: $grey-textMedium;
+  display: inline-block;
+  font-size: em(14px , 14px);
+  height: em(32px, 14px);
+  line-height: (32px / 14px);
+  padding: 0 1em;
+}
+
+.jr-mTab-item-icon.jr {}
+
+
+// VARIATION FOR SHORTER TAB HEIGHT .jr-mTabSmall
+.jr-mTabSmall.jr .jr-mTab-item-label.jr {
+  height: em(28px, 12px);
+  line-height: (28px / 12px);
+}
+
+
+// VARIATION FOR ALIGNMENT .jr-mTabCenter and jr-mTabRight
+.jr-mTabCenter.jr {
+  text-align: center;
+}
+
+.jr-mTabRight.jr {
+  text-align: right;
+}
+
+
+// VARIATION, STANDARD HORIZONTAL TABS .jr-mTabsHorizontal
+.jr-mTabHorizontal.jr .jr-mTab-item.jr {
+  border-radius: .25em .25em 0 0;
+  display: inline-block;
+  margin-right: .25em;
+}
+
+.jr-mTabHorizontal.jr .jr-mTab-item-badge.jr {
+  height: auto;
+  position: absolute;
+  top: em(-5px, 14px);
+  right: em(-6px, 14px);
+  width: auto;
+}
+
+
+// VARIATION, SECONDARY (HORIZONTAL) TABS .jr-mTabsSecondary
+.jr-mTabSecondary.jr {}
+
+.jr-mTabSecondary.jr .jr-mTab-item.jr {
+  margin-right: 1em;
+}
+
+.jr-mTabSecondary.jr .jr-mTab-item-label.jr {
+  height: em(28px, 14px);
+  line-height: em(28px, 14px);
+  padding: 0 em(6px, 14px);
+}
+
+
+// VARIATION, TEXT (HORIZONTAL) TABS .jr-mTabsText
+.jr-mTabText.jr {}
+
+.jr-mTabText.jr .jr-mTab-title.jr {
+  display: inline-block;
+}
+
+.jr-mTabText.jr .jr-mTab-title-label.jr {
+  color: $grey-textDark;
+  font-size: 1em;
+  font-family: $font-family-primary;
+  font-weight: bold;
+  padding-right: em(10px, 14px);
+}
+
+.jr-mTabText.jr .jr-mTab-item.jr {
+  margin-right: 1em;
+}
+
+.jr-mTabText.jr .jr-mTab-item-label.jr {
+  height: em(22px, 14px);
+  line-height: em(22px, 14px);
+  padding: 0 em(1px, 14px);
+}
+
+
+// VARIATION, STACKED TABS .jr-mTabsVertical
+.jr-mTabVertical.jr {}
+
+.jr-mTabVertical.jr .jr-mTab-item.jr {
+  border-radius: .25em 0 0 .25em;
+  display: block;
+  margin-bottom: em(4px, 14px);
+}
+
+.jr-mTabVertical.jr .jr-mTab-item-badge.jr {
+  height: em(18px, 14px);
+  top: em(-5px, 14px);
+  left: em(-6px, 14px);
+  width: em(18px, 14px);
+  position: absolute;
+}
+
+
+// TABS MODULE VARIATION .jr-mTabsReverse
+.jr-mTabReverse.jr {}
+
+.jr-mTabReverse.jr .jr-mTab-item-label.jr {
+    color: #fff;
+}
+
+
+// ----------------
+//     STATES
+// ----------------
+
+// state pseudo-classes are temporary until proper state classes are implemented
+
+// hovered
+.jr-mTab-item.jr:hover .jr-mTab-item-label.jr, //temp
+.jr-mTab-item.jr-isHovered.jr .jr-mTab-item-label.jr {
+    color: $color-tciMedium;
+}
+
+// active
+.jr-mTab-item.jr-isActive.jr {
+  background-color: $color-tciDark;
+}
+
+.jr-mTab-item.jr-isActive.jr .jr-mTab-item-label.jr {
+    color: #fff;
+}
+
+// hovered, reverse
+.jr-mTabReverse.jr .jr-mTab-item.jr:hover, //temp
+.jr-mTabReverse.jr .jr-mTab-item.jr-isHovered.jr {
+  //background-color: rgba(255,255,255,0.12);
+}
+.jr-mVisualchooser .jr-mTabReverse.jr .jr-mTab-item.jr-isHovered.jr {
+    background-color: transparent;
+}
+
+.jr-mTabReverse.jr .jr-mTab-item.jr:hover .jr-mTab-item-label.jr, //temp
+.jr-mTabReverse.jr .jr-mTab-item.jr-isHovered.jr .jr-mTab-item-label.jr {
+  color: #fff;
+  opacity: .8;
+}
+
+// active, reverse
+.jr-mTabReverse.jr .jr-mTab-item.jr-isActive.jr {
+  background-color: #fff;
+}
+
+.jr-mTabReverse.jr .jr-mTab-item.jr-isActive.jr .jr-mTab-item-label.jr {
+  color: $color-tciDark;
+  opacity: 1;
+}
+
+//hovered, secondary
+.jr-mTabSecondary.jr .jr-mTab-item.jr:hover .jr-mTab-item-label.jr,  //temp
+.jr-mTabSecondary.jr .jr-mTab-item.jr-isHovered.jr .jr-mTab-item-label.jr {
+  color: $color-tciMedium;
+}
+
+// active, secondary
+.jr-mTabSecondary.jr .jr-mTab-item.jr-isActive.jr {
+  background-color: transparent;
+  border-bottom: 3px solid $color-tciDark;
+}
+
+.jr-mTabSecondary.jr .jr-mTab-item.jr-isActive.jr .jr-mTab-item-label.jr {
+  color: $color-tciDark;
+}
+
+//hovered, text
+.jr-mTabText.jr .jr-mTab-item.jr:hover,  //temp
+.jr-mTabText.jr .jr-mTab-item.jr-isHovered.jr {
+  //border-bottom: 1px solid #dedede;
+}
+
+.jr-mTabText.jr .jr-mTab-item.jr:hover .jr-mTab-item-label.jr, //temp
+.jr-mTabText.jr .jr-mTab-item.jr-isHovered.jr .jr-mTab-item-label.jr {
+  color: $color-tciMedium;
+}
+
+// active, text
+.jr-mTabText.jr .jr-mTab-item.jr-isActive.jr {
+  background-color: transparent;
+  border-bottom: 1px solid $color-tciDark;
+}
+
+.jr-mTabText.jr .jr-mTab-item.jr-isActive.jr .jr-mTab-item-label.jr {
+  color: $color-tciDark;
+}
+
+// error
+.jr-mTabReverse.jr .jr-mTab-item.jr-hasError.jr:hover, //temp
+.jr-mTab-item.jr-hasError.jr {
+  background-color: $color-errorLight;
+}
+
+.jr-mTabReverse.jr .jr-mTab-item.jr-hasError.jr:hover .jr-mTab-item-label.jr, //temp
+.jr-mTab-item.jr-hasError.jr .jr-mTab-item-label.jr {
+  color: $color-errorDark;
+  opacity: 1;
+}
+
+// error, active
+.jr-mTab-item.jr-hasError.jr-isActive.jr {
+  background-color: $color-tciDark;
+}
+
+.jr-mTab-item.jr-hasError.jr-isActive.jr .jr-mTab-item-label.jr {
+  color: #fff;
+}
+
+// background and color is correct without these:
+//.jr-mTabReverse.jr .jr-mTab-item.jr-hasError.jr-isActive.jr {}
+//.jr-mTabReverse.jr .jr-mTab-item.jr-hasError.jr-isActive.jr .jr-mTab-item-label.jr {}

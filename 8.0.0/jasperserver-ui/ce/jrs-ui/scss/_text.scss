@@ -1,0 +1,157 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =======================================
+	TEXT STYLES
+	Last modified date:   May 15, 2019
+	Last modified by:     Anna Leeg
+ * ======================================= */
+
+// NOTES:
+// Text and Title need the child jr-mText-wrapper
+// container so they are scalable when embedded.
+//
+// Base font size is applied to jr-mText. Text and
+// Title sizes in wrapper are relative to the base size.
+
+
+// --------------
+//  BASE MODULE
+// --------------
+.jr-mText.jr {
+  font-family: $font-family-primary;
+  font-size: 13px;
+  white-space: normal;
+}
+
+.jr-mTextTitle.jr {}
+
+
+// size, standard text
+.jr-mTextSmall.jr .jr-mText-wrapper.jr {
+  font-size: em(12px, 13px);
+  line-height: (16px / 12px);
+}
+
+.jr-mTextMedium.jr .jr-mText-wrapper.jr {
+  font-size: em(13px, 13px);
+  line-height: (17px / 13px);
+}
+
+.jr-mTextLarge.jr .jr-mText-wrapper.jr {
+  font-size: em(14px, 13px);
+  line-height: (18px / 14px);
+}
+
+.jr-mTextXLarge.jr .jr-mText-wrapper.jr {
+  font-size: em(16px, 13px);
+  line-height: (22px / 16px);
+}
+
+// size, titles
+.jr-mTextTitle.jr-mTextXSmall.jr .jr-mText-wrapper.jr {
+  font-size: em(14px, 13px);
+  line-height: (20px / 14px);
+}
+
+.jr-mTextTitle.jr-mTextSmall.jr .jr-mText-wrapper.jr {
+  font-size: em(16px, 13px);
+  line-height: (22px / 16px);
+}
+
+.jr-mTextTitle.jr-mTextMedium.jr .jr-mText-wrapper.jr {
+  font-size: em(18px, 13px);
+  line-height: (24px / 18px);
+}
+
+.jr-mTextTitle.jr-mTextLarge.jr .jr-mText-wrapper.jr {
+  font-size: em(20px, 13px);
+  line-height: (26px / 20px);
+}
+
+.jr-mTextTitle.jr-mTextXLarge.jr .jr-mText-wrapper.jr {
+  font-size: em(24px, 13px);
+  line-height: (28px / 24px);
+}
+
+
+// -------------
+//  TEXT COLORS
+// -------------
+
+//theme colors
+.jr-mTextThemeDark.jr {
+  color: $color-tciDark;
+}
+
+.jr-mTextThemePrimary.jr {
+  color: $color-tciLight;
+}
+
+.jr-mTextThemeAltPrimary.jr {
+  color: $color-tciMedium;
+}
+
+//alert colors
+.jr-mTextError.jr {
+  color: $color-errorMedium;
+}
+
+.jr-mTextWarning.jr {
+  color: $color-warningMedium;
+}
+
+.jr-mTextSuccess.jr {
+  color: $color-successDark;
+}
+
+.jr-mTextInfo.jr {
+  color: $color-infoMedium;
+}
+
+//greyscale
+.jr-mTextGreyDarkest.jr {
+  color: $grey-textDarkest;
+}
+
+.jr-mTextGreyDarker.jr {
+  color: $grey-textDarker;
+}
+
+.jr-mTextGreyDark.jr {
+  color: $grey-textDark;
+}
+
+.jr-mTextGreyPrimary.jr {
+  color: $grey-textMedium;
+}
+
+.jr-mTextGreyLight.jr {
+  color: $grey-textLight;
+}
+
+.jr-mTextGreyLighter.jr {
+  color: $grey-textLighter;
+}
+
+.jr-mTextGreyLightest.jr {
+  color: $grey-textLightest;
+}

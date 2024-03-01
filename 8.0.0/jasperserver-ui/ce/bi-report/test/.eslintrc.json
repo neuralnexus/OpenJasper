@@ -1,0 +1,27 @@
+{
+    "env": {
+        "browser": true,
+        "node": false,
+        "jasmine": true
+    },
+    "rules": {
+        "no-console": 2
+    },
+    "globals": {
+        "xit": "off",
+        "xdescribe": "off",
+        "fit": "off",
+        "fdescribe": "off"
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "overrides": [
+        {
+            "files": ["test-context.js"],
+            "env": {
+                "commonjs": true
+            }
+        }
+    ]
+}

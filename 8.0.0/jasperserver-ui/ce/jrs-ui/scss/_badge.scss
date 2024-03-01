@@ -1,0 +1,105 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+   BADGE MODULE
+   Last modified date:     May 17, 2019
+   Last modified by:       Anna Leeg
+ * ============================================ */
+
+.jr-mBadge.jr {
+  background-color: #fff;
+  border-radius: 16px;
+  color: $color-textMedium;
+  display: inline-block;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+  height: 16px;
+  min-width: 16px;
+  padding: 0 8px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.jr-mBadge-label.jr {
+  font-size: 10px;
+  font-weight: bold;
+  height: 16px;
+  line-height: 16px;
+}
+
+.jr-mBadge-label.jr {
+  display: block;
+}
+
+.jr-mBadge-icon.jr {
+  color: inherit;
+  font-size: 11px;
+  vertical-align: middle;
+}
+
+// firefox only:
+body:last-child .jr-mBadge-icon.jr {
+  vertical-align: baseline;
+}
+
+// ie/edge only
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  vertical-align: baseline;
+}
+
+// SHAPE VARIATION
+.jr-mBadgeRound.jr {
+  padding: 0;
+  width: 16px;
+}
+
+
+// COLOR VARIATIONS
+.jr-mBadgeInfo.jr,
+.jr-mBadgeAttention.jr,
+.jr-mBadgeError.jr,
+.jr-mBadgeWarning.jr,
+.jr-mBadgeSuccess.jr {
+  color: #fff;
+}
+
+.jr-mBadgeInfo.jr {
+  background-color: $color-infoMedium;
+}
+
+.jr-mBadgeAttention.jr {
+  background-color: $color-attentionMedium;
+}
+
+.jr-mBadgeError.jr {
+  background-color: $color-errorMedium;
+}
+
+.jr-mBadgeWarning.jr {
+  background-color: $color-warningMedium;
+}
+
+.jr-mBadgeSuccess.jr {
+  background-color: $color-successDark;
+}

@@ -1,0 +1,16 @@
+{
+  "dataSource": {
+    "reference": {
+      "uri": "/organizations/organization_1/adhoc/topics/AdhocDemo"
+    }
+  },
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "field": "ShipCountry"
+        }
+      ]
+    }
+  }
+}

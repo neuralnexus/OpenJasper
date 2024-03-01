@@ -1,0 +1,57 @@
+<div class="pageHeader ">
+	<div class="pageHeader-title">
+		<div class="pageHeader-title-icon">
+			<span class="icon schedules"></span>
+		</div>
+		<div class="pageHeader-title-text">{{- i18n["menu.jobs"] }}</div>
+	</div>
+</div>
+<div class="page column decorated primary listOfJobs masterView">
+
+    <js-templateNonce></js-templateNonce>
+	<div class="content">
+		<div class="subheader">
+			<div class="toolbar">
+				<span data-component-type="search" data-tab-index="3" class="control searchLockup " id="secondarySearchBox">
+				<label class="offLeft" for="__scheduler_jobSearchInput">{{- i18n["SEARCH_SEARCH"] }}</label>
+				<div class="wrap">
+					<input type="text" tabindex="" name="jobSearchInput" id="__scheduler_jobSearchInput" class="" value="{{- searchTerm }}">
+				</div>
+				<b class="right">
+					<a name="jobSearchClear" class="button searchClear {{- searchTerm ? 'up' : '' }}"></a>
+				</b>
+				<a class="button search up" name="jobSearchIcon"></a>
+			</span>
+			</div>
+			<ul id="resultsListHeader" class="list collapsible tabular jobs header">
+				<li id="" class="jobs first leaf">
+					<div class="wrap">
+						<div class="column one">
+							<p class="jobResource">{{- i18n["report.scheduling.list.resource"] }}</p>
+						</div>
+						<div class="column two">
+							<p class="jobName">{{- i18n["report.scheduling.list.header.label"] }}</p>
+						</div>
+						<div class="column three">
+							<p class="jobID">{{- i18n["report.scheduling.list.header.id"] }}</p>
+							<p class="jobOwner">{{- i18n["report.scheduling.list.header.owner"] }}</p>
+							<p class="jobState">{{- i18n["report.scheduling.list.header.state"] }}</p>
+						</div>
+						<div class="column four">
+							<p class="lastRanDate">{{- i18n["report.scheduling.list.header.prevFireTime"] }}</p>
+
+							<p class="nextRunDate">{{- i18n["report.scheduling.list.header.nextFireTime"] }}</p>
+						</div>
+						<div class="column five">
+							<p class="jobEnabled">{{- i18n["report.scheduling.list.label.enabled"] }}</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="body" id="jobsSummaryContainer">
+			<div name="jobsContainer" class="body"></div>
+		</div>
+	</div>
+</div>

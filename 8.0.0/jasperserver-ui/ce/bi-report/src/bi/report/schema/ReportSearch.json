@@ -1,0 +1,31 @@
+{
+    "title": "Report search options",
+    "type": ["object", "string"],
+    "oneOf": [
+        {
+            "type": "object",
+            "description": "A configuration object for advanced search",
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "description": "The text to be searched for inside the report",
+                    "minLength": 1
+                },
+                "caseSensitive": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "wholeWordsOnly": {
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "required": ["text"]
+        },
+        {
+            "type": "string",
+            "description": "The text to be searched for inside the report",
+            "minLength": 1
+        }
+    ]
+}

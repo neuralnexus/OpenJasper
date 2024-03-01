@@ -1,0 +1,42 @@
+{
+  "version": 101,
+  "permissionMask": 100,
+  "creationDate": "TEST_CREATION_DATE",
+  "updateDate": "TEST_UPDATE_DATE",
+  "label": "TEST_LABEL",
+  "description": "TEST_DESCRIPTION",
+  "uri": "TEST_URI",
+  "foundations": [
+    {
+      "id": "TEST_ID"
+    },
+    {
+      "components": "TEST_COMPONENTS"
+    },
+    {
+      "description": "TEST_DESCRIPTION"
+    },
+    {
+      "layout": "TEST_LAYOUT"
+    },
+    {
+      "wiring": "TEST_WIRING"
+    }
+  ],
+  "resources": [
+    {
+      "name": "TEST_NAME"
+    },
+    {
+      "resource": {
+        "ClientAdhocDataView": {
+          "label": "TEST_LABEL"
+        }
+      }
+    },
+    {
+      "type": "TEST_TYPE"
+    }
+  ],
+  "defaultFoundation": "TEST_DEFAULT_FOUNDATION"
+}

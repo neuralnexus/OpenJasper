@@ -1,0 +1,70 @@
+<div class="jr-mDrawer jr-uHeight-100pc jr">
+    <div class="jr-mDrawer-header jr">
+        <div class="jr-mDrawer-header-title jr">{{- i18n["report.scheduling.new.schedule"] }}</div>
+    </div>
+    <div class="jr-mDrawer-body jr">
+        <div class="pageHeader ">
+            <div class="pageHeader-subtitle">
+                <div class="pageHeader-subtitle-path">
+                    <span class="pageHeader-subtitle-path-label">{{- i18n["report.scheduling.job.edit.shedulefor"] }}:</span>
+                    <span class="pageHeader-subtitle-path-text">{{- reportUri }}</span>
+                </div>
+
+                <div class="pageHeader-subtitle-tabs pageHeader-subtitle-tabsRight">
+                    <div class="tabs">
+                        <ul name="tabs" disableCoreEvents="true" class="control tabSet buttons horizontal">
+                            <li data-tab="scheduleTab" class="tab">
+                                <a class="button">
+                                    <span class="wrap">{{- i18n["report.scheduling.schedule"] }}</span>
+                                </a>
+                            </li>
+                            <li data-tab="parametersTab" class="tab">
+                                <a class="button">
+                                    <span class="wrap">{{- i18n["report.scheduling.job.edit.parameters.button"] }}</span>
+                                </a>
+                            </li>
+                            <li data-tab="outputTab" class="tab">
+                                <a class="button">
+                                    <span class="wrap">{{- i18n["report.scheduling.job.edit.output"] }}</span>
+                                </a>
+                            </li>
+                            <li data-tab="notificationsTab" class="tab">
+                                <a class="button">
+                                    <span class="wrap">{{- i18n["report.scheduling.job.edit.notifications"] }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="control tabSet anchor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="schedulerEditor tabbed">
+                <js-templateNonce></js-templateNonce>
+                <div name="tabHolder">
+                    <div class="tab" name="scheduleTab"></div>
+                    <div class="tab" name="parametersTab"></div>
+                    <div class="tab" name="outputTab"></div>
+                    <div class="tab" name="notificationsTab"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jr-mDrawer-footer jr">
+        {{ if (!runNowMode) { }}
+        <button name="openSaveDialog" class="jr-mButton jr-mButtonText jr-mButtonPrimary jr">
+            <span class="jr-mButton-label jr">{{- i18n["button.save"] }}</span>
+        </button>
+        {{ } else { }}
+        <button name="openSaveDialog" class="jr-mButton jr-mButtonText jr-mButtonPrimary jr">
+            <span class="jr-mButton-label jr">{{- i18n["button.submit"] }}</span>
+        </button>
+        {{ } }}
+        <button name="cancelJobCreation" class="jr-mButton jr-mButtonText jr-mButtonSecondary jr">
+            <span class="jr-mButton-label jr">{{- i18n["button.cancel"] }}</span>
+        </button>
+    </div>
+</div>
+

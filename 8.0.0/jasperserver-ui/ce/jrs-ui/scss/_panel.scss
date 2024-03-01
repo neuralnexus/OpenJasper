@@ -1,0 +1,167 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =========================================
+   PANEL MODULE
+   Last modified date:     May 21, 2020
+   Last modified by:       Anna Leeg
+ * ========================================= */
+
+.jr-mPanel.jr {
+  align-content: stretch;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+  height: 100%;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.jr-mPanel-header.jr {
+  background-color: #d6d6d6;
+  display: flex;
+  flex: 0 1 em(32px, 12px);
+  justify-content: space-between;
+  min-height: em(32px, 12px);
+  white-space: nowrap;
+}
+
+.jr-mPanel-header-title.jr {
+  color: $grey-textDarker;
+  display: inline-block;
+  font-size: em(15px, 12px);  // new base font size
+  line-height: (32px / 15px);
+  margin-left: em(11px , 15px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.jr-mPanel-header-toolset.jr {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+}
+
+.jr-mPanel-search.jr,
+.jr-mPanel-section-search.jr {
+  align-items: center;
+  display: flex;
+  flex: 0 1 em(38px);
+  justify-content: center;
+  min-height: em(38px, 12px);
+  padding: 0 em(4px, 12px);
+}
+
+.jr-mPanel-search.jr {
+  background-color: transparent;
+  border-top: em(2px, 12px) solid #fff;
+}
+
+.jr-mPanel-section-search.jr {}
+
+.jr-mPanel-search.jr > .jr,
+.jr-mPanel-section-search.jr > .jr {
+  //targets jr-mInput
+  flex: 1 1 auto;
+}
+
+.jr-mPanel-body.jr {
+  //TODO: review in JRS-10728,
+  flex: 0 1 auto;
+  overflow: hidden;
+  overflow-y: auto;  //provide problems when rendered as data panel in domain designer,
+  width: 100%;
+}
+
+.jr-mPanel-footer.jr {
+  border-top: 1px solid #e4e4e4;
+  flex: none;
+  height: em(32px, 12px);
+  width: 100%;
+}
+
+.jr-mPanel-search.jr + .jr-mPanel-section.jr {
+  border-top: none;
+}
+
+// a panel can contain multiple sections
+.jr-mPanel-section.jr {
+  align-content: stretch;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  min-height: em(26px, 12px);
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.jr-mPanel-section-header.jr {
+  background-color: #ebebeb;
+  height: em(32px, 12px);
+}
+
+.jr-mPanel-header.jr + .jr-mPanel-section.jr {
+  border-top: em(2px, 12px) solid #fff;
+}
+
+.jr-mPanel-section-header-title.jr {
+  color: $grey-textDarker;
+  display: inline-block;
+  font-size: em(13px, 12px);
+  line-height: (32px / 12px);
+  margin-left: em(11px, 12px);
+  vertical-align: top;
+}
+
+.jr-mPanel-section-body.jr {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.jr-mPanel-section-divider.jr {
+  background-color: #fff;
+  border-bottom: 1px solid #dedede;
+  border-top: 1px solid #dedede;
+  height: em(4px);
+}
+
+.jr-mPanel-section-footer.jr { //not used yet
+  border-top: 1px solid #e4e4e4;
+  flex: none;
+  height: em(32px);
+  width: 100%;
+}
+
+.jr-mPanel-footer-wrapper.jr,
+.jr-mPanel-section-footer-wrapper.jr {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding-left: em(6px, 12px);
+  padding-right: em(6px, 12px);
+}

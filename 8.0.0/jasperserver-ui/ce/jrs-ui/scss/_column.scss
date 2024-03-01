@@ -1,0 +1,74 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    COLUMN RULES
+    Last modified date:     Jan 9, 2018
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+.jr-mColumns.jr {
+  //position: absolute;
+  //top: 3.636em;
+  //bottom: 0;
+  //width: 100%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.jr-mColumn.jr {
+  //display: table-cell;
+  //height: 100%;
+  //vertical-align: top;
+}
+
+.jr-mColumnMinor.jr {
+  flex: 0 1 auto;
+  width: 250px;
+}
+
+.jr-mColumnMajor.jr {
+  flex: 1 1 auto;
+}
+
+.jr-mColumnPadded.jr {
+  padding: em(15px) em(11px);
+} // inner padding is split between columns
+
+.jr-mColumnPadded.jr:first-of-type {
+  padding-left: em(22px);
+}
+
+.jr-mColumnPadded.jr:last-of-type {
+  padding-right: em(22px);
+}
+
+
+.jr-mColumnPaddedEqual.jr {
+  padding-left: em(22px);
+  padding-right: em(22px);
+} // inner padding is equal among all columns
+
+.jr-mColumn-wrapper.jr {
+  // use this when column contents need a surrounding margin
+  margin: em(15px) em(18px);
+}

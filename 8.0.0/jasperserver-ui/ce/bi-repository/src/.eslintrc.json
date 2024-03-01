@@ -1,0 +1,20 @@
+{
+    "plugins": [
+        "xss",
+        "no-unsanitized"
+    ],
+    "extends": ["plugin:xss/htmlOutput"],
+    "env": {
+        "browser": true,
+        "node": false
+    },
+    "rules": {
+        "no-console": 2,
+        //"indent": [2, "tab"],
+        "no-unsanitized/property": 2,
+        "no-unsanitized/method": 2
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}

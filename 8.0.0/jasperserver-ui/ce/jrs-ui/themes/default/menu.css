@@ -1,0 +1,307 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+/* -----------------------------------
+   TABLE OF CONTENTS
+
+    1. BASE MENU
+
+    2. VERTICAL MENU
+
+    3. CONTEXT & DROPDOWN MENU
+
+    4. PRIMARY NAVIGATION MENU
+
+    5. CHART MENU, AD HOC DESIGNER
+
+   -----------------------------------
+    File last modified Jan 12, 2021
+   -----------------------------------  */
+
+
+
+/* ---------------- */
+/*  1. BASE MENU    */
+/* ---------------- */
+.menu {
+    position: absolute;
+    float: left;
+    cursor: pointer;
+    list-style: none;
+    margin: 0;
+}
+
+.menu > .content {
+    position: relative;
+    padding: 7px 0;
+}
+
+.menu .node {
+    position: relative;
+}
+
+.menu .leaf {
+    margin: 0;
+}
+
+.menu .wrap {
+    margin-bottom: 0;
+}
+
+.menu .node > .wrap > .icon {
+    background-image: url("images/disclosure_indicators_sprite.png");
+    background-repeat: no-repeat;
+    left: auto;
+    position: absolute;
+}
+
+.menu.vertical .node .sub.menu {
+    left: 100%;
+    top: -5px;
+    margin: 0;
+}
+
+/* states */
+.menu.primaryNav .wrap.over,
+.menu.primaryNav .wrap.pressed {
+    background-color: var(--theme-medium-dark);
+}
+
+
+
+/* -------------------- */
+/*  2. VERTICAL MENU    */
+/* -------------------- */
+.menu.vertical {
+    min-width: 150px;
+    background-color: var(--background-white);
+    /* border: 1px solid #d3d5d6; */
+    border: 1px solid var(--border-grey-16);
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*TCI box shadow:*/
+}
+
+.menu.vertical .wrap {
+    background-repeat: no-repeat;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 2em;
+    white-space: nowrap;
+}
+
+.menu.vertical .leaf.separator,
+.menu.vertical .leaf.buttonItem {
+    /* border-top: 1px solid #bdbdbd; changed color to #ccc below */
+    border-top: 1px solid var(--border-grey-20);
+}
+
+.menu.vertical .leaf.separator {
+    background: none;
+    height: 1px;
+    margin: 6px 0;
+}
+
+.menu.vertical .leaf > .wrap.toggle.down .icon,
+.menu.vertical .leaf.active .wrap.button .icon {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-position: -20px -115px;
+    background-size: 80px;
+    top: 3px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .menu.vertical .leaf > .wrap.toggle.down .icon,
+    .menu.vertical .leaf.active .wrap.button .icon {
+        background-image: url(images/disclosure_indicators_icons_sprite@2x.png);
+    }
+}
+
+.menu.vertical li > .wrap.over,
+.menu.vertical li > .wrap.pressed {
+    background-color: var(--theme-medium-light);
+}
+
+.menu.vertical .leaf > .wrap.toggle.down.over .icon,
+.menu.vertical .leaf > .wrap.toggle.down.pressed .icon,
+.menu.vertical .leaf.active .wrap.button.over .icon,
+.menu.vertical .leaf.active .wrap.button.pressed .icon {
+    background-position: -50px -115px;
+}
+
+.menu.vertical .node > .wrap > .icon {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-position: -28px -297px;
+    background-size: 80px;
+    height: 18px;
+    right: 5px;
+    top: 6px;
+    width: 18px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .menu.vertical .node > .wrap > .icon {
+        background-image: url(images/disclosure_indicators_icons_sprite@2x.png);
+    }
+}
+
+.menu.vertical .node > .wrap.over > .icon,
+.menu.vertical .node > .wrap.pressed > .icon {
+    background-position: -58px -297px;
+}
+
+.menu.vertical .node.closed > .menu {
+    display: none;
+}
+
+.menu.vertical .node.open > .menu {
+    display: block;
+}
+
+
+
+/* ------------------------------ */
+/*  3. CONTEXT & DROPDOWN MENU    */
+/* ------------------------------ */
+.menu.context > .content,
+.menu.dropDown > .content {
+    /* set coordinates to visual (0,0,0,0) of .menu.context.context background,
+       as this object used as reference for positioning child objects */
+    left: 0;
+    margin-bottom: -6px;
+    margin-right: 0;
+    position: relative;
+    top: -2px;
+}
+
+.menu.dropDown > .msshadow {
+    background: var(--background-white);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+
+/* ------------------------------ */
+/*  4. PRIMARY NAVIGATION MENU    */
+/* ------------------------------ */
+.menu.primaryNav {
+    height: 100%;
+    margin-left: 10px;
+    -webkit-tap-highlight-color: transparent; /* "turn off" link highlight for iPad */
+}
+
+.menu.primaryNav .leaf,
+.menu.primaryNav .node {
+    border: none;
+    margin: 0;
+    padding-right: 0;
+}
+
+.menu.primaryNav .wrap {
+    border: none;
+    background-repeat: repeat-x;
+    font-size: 14px;
+    height: 39px;
+    line-height: 39px;
+    margin-top: 0;
+    padding: 0 0.9em;
+}
+
+.menu.primaryNav #main_view .wrap,
+.menu.primaryNav #main_manage .wrap,
+.menu.primaryNav #main_create .wrap {
+    padding-left: 1em;
+    padding-right: 1.6em;
+}
+
+.menu.primaryNav .node > .wrap > .icon {
+    background-image: url(images/disclosure_icons_sprite@1x.png);
+    background-position: 0 -112px;
+    background-size: 15px;
+    height: 16px;
+    right: 7px;
+    top: 12px;
+    width: 11px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .menu.primaryNav .node > .wrap > .icon {
+        background-image: url(images/disclosure_icons_sprite@2x.png);
+    }
+}
+
+.menu.primaryNav #main_home .wrap {
+    padding: 0 1.4em;
+    text-indent: -5000px;
+    width: 34px;
+}
+
+.menu.primaryNav #main_home .wrap > .icon {
+    background-image: url(images/banner_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    background-size: 20px;
+    height: 28px;
+    margin: 10px 9px 0 9px;
+    width: 20px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .menu.primaryNav #main_home .wrap > .icon {
+        background-image: url(images/banner_icons_sprite@2x.png);
+    }
+}
+
+
+
+/* ---------------------------------- */
+/*  5. CHART MENU, AD HOC DESIGNER    */
+/* ---------------------------------- */
+.menu#chartMenu {
+    padding: 7px 0;
+    z-index: 2;
+}
+
+.menu#chartMenu li {
+    padding: 0;
+}
+
+.menu#chartMenu li .wrap {
+    color: #666;
+}
+
+.menu#chartMenu li .wrap.over {
+    color: #fff;
+}
+
+.menu#chartMenu li.disabled > p.wrap.over {
+    background: none;
+    color: #666;
+}

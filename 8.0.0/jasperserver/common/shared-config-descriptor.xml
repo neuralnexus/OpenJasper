@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved. Confidentiality & Proprietary.
+  ~ Licensed pursuant to commercial TIBCO End User License Agreement.
+  -->
+
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
+    <id>shared-config</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/shared-config</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>**/applicationContext.xml</include>
+                <include>**/applicationContext-profileAttributes.xml</include>
+                <include>**/applicationContext-aws.xml</include>
+                <include>**/applicationContext-data-snapshots.xml</include>
+                <include>**/applicationContext-jdbc-metadata.xml</include>
+                <include>**/applicationContext-propertySettings.xml</include>
+                <include>**/applicationContext-cascade.xml</include>
+                <include>**/applicationContext-remote-services.xml</include>
+                <include>**/applicationContext-events-logging.xml</include>
+                <include>**/applicationContext-security.xml</include>
+                <include>**/ehcache.xml</include>
+                <include>**/query-executor-ehcache.xml</include>
+                <include>**/engine-ehcache.xml</include>
+                <include>**/olap-ehcache.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/shared-config/classes</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>**/esapi/**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

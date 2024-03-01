@@ -1,0 +1,452 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* --------------------------------------
+   TABLE OF CONTENTS
+
+    1. STANDARD DIALOG
+       1a. base rules
+       1b. sizeable
+
+    2. INLAY DIALOG
+       2a. base rules
+       2b. filter inlay
+
+    3. OVERLAY DIALOG
+       3a. base rules
+       3b. sizeable overlay
+       3c. tabbed overlay
+
+    4. OVERLAY WIDGET DIALOG
+
+   -----------------------------------
+    File last modified Jan 12, 2021
+   -----------------------------------  */
+
+
+/* ----------------------- */
+/*  1. STANDARD DIALOG     */
+/* ----------------------- */
+/*  1a. base rules         */
+/* ----------------------- */
+.panel.dialog {
+    position: absolute;
+}
+
+.dialog.overlay {
+    background-color: var(--background-white);
+    border: 1px solid var(--border-grey-10);
+    box-shadow: 0 0 4px 4px rgba(51,51,51,0.5);
+    float: left;
+}
+
+.dialog.overlay > .content {
+    margin-bottom: 0;
+    z-index: 1;
+}
+
+.dialog.overlay > .content > .header {
+    background-color: var(--background-grey-10);
+    border-bottom: 1px solid var(--border-white);
+    position: relative;
+    z-index:1;
+}
+
+.panel.dialog > .content > .header > .title {
+    float:none;
+    height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.dialog.overlay > .content > .header > .title {
+    line-height: 28px;
+    margin-left: 12px;
+}
+
+.dialog.overlay .content .header .icon {
+    height: 35px;
+}
+
+.dialog > .content > .header > .closeIcon {
+    background-image: url(images/button_action_icons_sprite@1x.png);
+    background-position: -115px -176px;
+    background-repeat: no-repeat;
+    background-size: 240px;
+    cursor: pointer;
+    float: right;
+    height: 28px;
+    margin-right: 3px;
+    width: 30px;
+}
+
+/* 2x icons */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .dialog > .content > .header > .closeIcon {
+        background-image: url(images/button_action_icons_sprite@2x.png);
+    }
+}
+
+.dialog > .content > .body {
+    overflow: auto;
+    padding: 18px;
+    position: relative;
+}
+
+.dialog > .content > .subcontainer {
+    padding: 10px;
+}
+
+.dialog > .content .groupBox {
+    float: none;
+}
+
+.dialog .group {
+    margin: 0;
+}
+
+.dialog fieldset.group {
+    margin-top: 16px;
+    /* WAS UP FOR DELETION - THERE WERE PROBLEMS IN REPO EXPORT RESOURCE DIALOG */
+}
+
+.dialog > .content > .footer {
+    background-repeat: no-repeat;
+    border-top: none;
+    bottom: 0;
+    height: 37px;
+    left: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    right: 0;
+}
+
+.dialog.overlay > .content > .footer {
+    border-width: 1px;
+    position: relative;
+}
+
+.dialog.overlay > .sizer {
+    display: none;
+}
+
+/* --------------- */
+/*  1b. sizeable   */
+/* --------------- */
+.dialog.sizeable .groupBox {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    bottom: 25px;
+    left: 20px;
+}
+
+.dialog.sizeable .groupBox > .content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.dialog.sizeable .groupBox > .content > .body {
+    padding: 6px;
+    position: absolute;
+}
+
+.dialog.ui-resizable > .content > .footer {
+    border-top: 1px solid var(--border-grey-10);
+}
+
+.panel.dialog.overlay.ui-resizable .subcontainer .treeBox > .content {
+    height: 100%;
+}
+
+.panel.dialog.overlay.ui-resizable .subcontainer .treeBox > .content > .body {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+
+/* -------------------- */
+/*  2. INLAY DIALOG     */
+/* -------------------- */
+/*  2a. base rules      */
+/* -------------------- */
+.dialog.inlay {
+    border: 1px solid var(--border-grey-16);
+    float: left;
+    margin: 4px 6px 9px 2px; /* moves visual top and left to actual */
+}
+
+.dialog.inlay .header {
+    border-bottom: 1px solid var(--border-grey-13);
+    height: 28px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.dialog.inlay .header span {
+    display: none;
+}
+
+.dialog.inlay .header .icon {
+    height: 28px;
+}
+
+.dialog.inlay .header * {
+    line-height: 28px;
+}
+
+.dialog.inlay > .content {
+    /* set coordinates to visual (0,0,0,0) of .column.decorated background,
+       as this object used as reference for positioning child objects */
+    left: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    position: relative;
+    top: 0;
+}
+
+.dialog.inlay > .content > .body {
+    z-index: 2;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+.dialog.inlay .footer {
+    background-repeat: no-repeat;
+    border-width: 0;
+    height: 42px;
+    overflow: visible;
+    padding: 5px 20px;
+    position: relative;
+}
+
+.dialog.inlay .footer > .cosmetic {
+    bottom: 0;
+    height: 76px;
+    position: absolute;
+}
+
+.dialog.inlay .footer > .cosmetic.left {
+    right: 15px;
+    left: 0;
+}
+
+.dialog.inlay .footer > .cosmetic.right {
+    right: 0;
+    width: 15px;
+}
+
+.dialog.inlay .sizer {
+    display: none;
+}
+
+.dialog.inlay.fillParent {
+    float: none;
+    position: relative;
+}
+
+.dialog.inlay.fillParent .footer {
+    bottom: -5px;
+}
+
+/* ------------------- */
+/*  2b. filter inlay   */
+/* ------------------- */
+.dialog.inlay.filter {
+    line-height: normal;
+    margin: 10px;
+    position: relative;
+}
+
+.dialog.inlay.filter > .content > .body {
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.dialog.inlay.filter > .content > .body > .column {
+    float: left;
+    height: auto;
+    line-height: normal;
+    margin: 0;
+    min-width: 185px;
+    overflow: visible;
+    position: relative;
+}
+
+.dialog.inlay.filter > .content > .body > .column.two.pickWells {
+    height: 150px;
+}
+
+.dialog.inlay.filter .select {
+    margin-left: 0;
+}
+
+.dialog.inlay.filter > .content > .body > .column.two > .control > .wrap {
+    left: -5000px;
+    position: absolute;
+}
+
+.dialog.inlay.filter > .content > .body > .column.two.pickWells .wrap {
+    left: auto;
+    position: relative;
+}
+
+.dialog.inlay.filter > .content > .body > .column.two input {
+    margin-top: 0;
+}
+
+.dialog.inlay.filter .footer > .lock {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    z-index: 1;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* Safari and Google Chrome only */
+    .dialog.inlay.filter .footer > .lock > .wrap {
+        float: right;
+    }
+}
+
+
+
+/* ---------------------- */
+/*  3. OVERLAY DIALOG     */
+/* ---------------------- */
+/*  3a. base rules        */
+/* ---------------------- */
+.dialog.overlay .header > .cosmetic {
+    display: none;
+}
+
+.dialog.overlay .header.mover > .cosmetic {
+    height: 35px;
+    left: 0;
+    right: 0;
+}
+
+.dialog.overlay.showingSubHeader > .content > .header {
+    border-bottom: 1px solid var(--border-grey-20);
+    height: 28px;
+}
+
+/* --------------- */
+/*  3b. sizeable   */
+/* --------------- */
+.dialog.overlay.sizeable {
+    float: none;
+}
+
+.dialog.overlay.sizeable > .sizer {
+    display: block;
+    bottom: 5px;
+    right: 5px;
+}
+
+.dialog.overlay.sizeable > .content {
+    /* set coordinates to visual (0,0,0,0) of .column.decorated background,
+       as this object used as reference for positioning child objects */
+    bottom: 0;
+    float: none;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.dialog.overlay.sizeable > .content > .body {
+    bottom: 44px;
+    margin-bottom: 0;
+    position: absolute;
+    top: 35px;
+}
+
+.dialog.overlay.sizeable > .content > .footer {
+    display: block;
+    position: absolute;
+}
+
+/* ----------- */
+/*  3c.tabbed  */
+/* ----------- */
+.dialog.tabbed .tabSet {
+    margin-bottom: 0;
+}
+
+.dialog.tabbed .groupBox {
+    margin-top: 14px;
+    padding-top: 20px;
+}
+
+.dialog.tabbed.sizeable > .content > .body > .groupBox > .content > .body {
+    top: 20px;
+}
+
+
+
+/* --------------------------- */
+/*  4. OVERLAY WIDGET DIALOG   */
+/* --------------------------- */
+/* widget is a petite version of .dialog.overlay) */
+.dialog.overlay.widget > .content {
+    position: relative;
+}
+
+.dialog.overlay.widget .header span {
+    height: 28px;
+    left: -1px;
+    right: 18px;
+}
+
+.dialog.overlay.widget .header * {
+    line-height: 27px;
+}
+
+.dialog.overlay.widget .header .icon {
+    height: 27px;
+}
+
+.dialog.overlay.widget.sizeable > .content {
+    /* set coordinates to visual (0,0,0,0) of .panel.widget background,
+       as this object used as reference for positioning
+       child objects */
+    float: none;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    margin: 0;
+}
+
+.dialog.overlay.widget.sizeable > .content > .body {
+    bottom: 30px;
+    top: 28px;
+}
+
+.dialog.overlay.widget.sizeable > .content > .footer {
+    height: 20px;
+}

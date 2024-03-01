@@ -1,0 +1,56 @@
+{
+  "version": 23,
+  "permissionMask": 23,
+  "creationDate": "creationDate",
+  "updateDate": "updateDate",
+  "label": "label",
+  "description": "description",
+  "uri": "uri",
+  "dataSource": {
+    "advDataSource": {
+      "label": "label"
+    }
+  },
+  "query": {
+    "query": {
+      "value": "value"
+    }
+  },
+  "jrxml": {
+    "jrxmlFile": {
+      "content": "content"
+    }
+  },
+  "inputControls": [
+    {
+      "inputControlReference": {}
+    },
+    {
+      "inputControlReference": {
+        "uri": "uri"
+      }
+    }
+  ],
+  "inputControlRenderingView": "renderingView",
+  "reportRenderingView": "renderingView",
+  "alwaysPromptControls": true,
+  "controlsLayout": "popupScreen",
+  "resources": {
+    "resource": [
+      {
+        "name": "testA",
+        "file": {
+          "fileResource": {}
+        }
+      },
+      {
+        "name": "testB",
+        "file": {
+          "fileResource": {
+            "content": "content"
+          }
+        }
+      }
+    ]
+  }
+}

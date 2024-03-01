@@ -1,0 +1,128 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    INSTRUCTOR MODULE
+    Last modified date:     May 21, 2020
+    Last modified by:       Anna Leeg
+ * ============================================= */
+
+// -------------------
+//    BASE MODULE
+// -------------------
+.jr-mInstructor.jr {
+  color: $color-textMedium;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+  justify-content: center;
+}
+
+.jr-mInstructor-wrapper.jr {
+  align-self: center;
+  max-width: em(400px);
+  padding: 2em 3em;
+  text-align: center;
+}
+
+// icon
+.jr-mInstructor-icon.jr {}
+
+// title text
+.jr-mInstructor-title.jr {
+  font-family: $font-family-semibold;
+}
+
+.jr-mInstructor-titleSmall.jr {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.jr-mInstructor-titleMedium.jr {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.jr-mInstructor-titleLarge.jr {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+// body text
+.jr-mInstructor-text.jr {}
+
+.jr-mInstructor-textSmall.jr {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.jr-mInstructor-textMedium.jr {
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.jr-mInstructor-textLarge.jr {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+
+// MODULE VARIATION, has border
+// TODO: default component now has no border, so change to Outline variation
+.jr-mInstructorOuterborder.jr {
+  border: em(1px) solid #e4e4e4;
+}
+
+.jr-mInstructorInnerborder.jr .jr-mInstructor-wrapper.jr {
+  border: em(1px) solid #e4e4e4;
+}
+
+
+// MODULE VARIATION, shaded background
+.jr-mInstructorShaded.jr, // TODO: replace Shaded with Outershade
+.jr-mInstructorOutershade.jr {
+  background-color: #f7f7f7;
+}
+
+.jr-mInstructorInnershade.jr .jr-mInstructor-wrapper.jr {
+  background-color: #f7f7f7;
+}
+
+
+// MODULE VARIATION, fills parent container
+.jr-mInstructorFull.jr {
+  // because of flexbox layout, width is already 100%
+  height: 100%;
+}
+
+
+// ----------
+//   STATES
+// ----------
+// When Instructor component is inside a dropzone component
+
+.jr.jr-isOver .jr-mInstructor-icon.jr,
+.jr.jr-isOver .jr-mInstructor-title.jr,
+.jr.jr-isOver .jr-mInstructor-text.jr {
+  color: #ffffff;
+}

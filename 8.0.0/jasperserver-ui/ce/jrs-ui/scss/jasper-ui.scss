@@ -1,0 +1,103 @@
+/*!
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =================================
+    Last modified:    Jan 22, 2021
+ * ================================= */
+
+// Variables
+@import 'config';
+@import 'function';
+@import 'mixin';
+
+
+// Base
+@import 'font';
+@import 'reset';
+@import 'base';
+@import 'icon';
+@import 'grid';
+@import 'text';
+
+
+// Components
+@import 'badge';
+@import 'box';
+@import 'button';
+@import 'control';
+@import 'datatable';
+@import 'dialog';
+@import 'domain';
+@import 'drawer';
+@import 'dropzone';
+@import 'form';
+@import 'input';
+@import 'instructor';
+@import 'jointree';
+@import 'link';
+@import 'list';
+@import 'listbox';
+@import 'login';
+@import 'message';
+@import 'overlay';
+@import 'scalable-list';
+@import 'sizer';
+@import 'select';
+@import 'shuttle';
+@import 'skeleton';
+@import 'spinner';
+@import 'state';
+@import 'tab';
+@import 'table';
+@import 'token';
+@import 'toolbar';
+@import 'tooltip';
+@import 'tree';
+@import 'validation';
+@import 'visual-chooser';
+@import "visualization";
+
+
+// Visualize.js only
+@import 'canvas';
+@import 'chart';
+@import 'input-control';
+
+
+// Modules in Development
+@import 'accordion';
+@import 'adhoc';
+@import 'banner';
+@import 'column';
+@import 'layout';
+@import 'menu';
+@import 'panel';
+
+
+// TODO JRS-10286
+@import 'vendor/perfect-scrollbar';
+
+// material-ui react library overrides
+@import './material-ui/material-ui';
+
+// This must always be last
+@import 'utility';
+

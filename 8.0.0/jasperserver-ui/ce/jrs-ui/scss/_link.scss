@@ -1,0 +1,95 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ==========================================
+	LINK STYLES
+	Last modified date:   June 12, 2020
+	Last modified by:     Anna Leeg
+ * ========================================== */
+
+// ------------
+//  LINK TEXT
+// ------------
+// standard link - no effects
+.jr-mLink.jr {
+  display: inline-block;
+  font-family: $font-family-primary;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.jr-mLink.jr:link,
+.jr-mLink.jr:visited,
+.jr-mLink.jr:hover,
+.jr-mLink.jr:active  {
+  text-decoration: none;
+}
+
+// themed link - colored according to theme
+.jr-mLinkTheme.jr {color: $color-textThemePrimary;}
+.jr-mLinkTheme.jr:link,
+.jr-mLinkTheme.jr:visited,
+.jr-mLinkTheme.jr:hover,
+.jr-mLinkTheme.jr:active  {
+  color: $color-textThemePrimary;
+}
+
+// decorated link - always underlined
+.jr-mLinkDecorated.jr {}
+.jr-mLinkDecorated.jr:link,
+.jr-mLinkDecorated.jr:visited,
+.jr-mLinkDecorated.jr:hover,
+.jr-mLinkDecorated.jr:active,
+.jr-mLinkDecorated.jr:focus {
+  text-decoration: underline;
+}
+
+// dynamic link - underline on hover
+.jr-mLinkDynamic.jr {}
+
+.jr-mLinkDynamic.jr:link,
+.jr-mLinkDynamic.jr:visited {
+  text-decoration: none
+}
+
+.jr-mLinkDynamic.jr:hover,
+.jr-mLinkDynamic.jr:active,
+.jr-mLinkDynamic.jr:focus {
+  text-decoration: underline
+}
+
+// link with icon
+.jr-mLink.jr .jr-mIcon.jr,
+.jr-mLink-icon.jr,
+.jr-mLink-icon.jr:link,
+.jr-mLink-icon.jr:visited,
+.jr-mLink-icon.jr:hover,
+.jr-mLink-icon.jr:active  {
+  text-decoration: none;
+}
+
+.jr-mLink-icon.jr {
+  color: inherit;
+  font-size: 16px;
+  line-height: 1.2;
+  margin-right: 6px;
+  vertical-align: middle;
+}

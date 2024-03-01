@@ -1,0 +1,15 @@
+{
+  "CollectorSettingsList": [
+    {
+      "id": "id",
+      "filterBy": {
+        "resource": {}
+      }
+    },
+    {
+      "filterBy": {
+        "resource": {}
+      }
+    }
+  ]
+}

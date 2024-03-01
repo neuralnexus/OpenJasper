@@ -1,0 +1,661 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* ========================================
+    TREE MODULE
+    Last modified date:    Sept 29, 2020
+    Last modified by:      Anna Leeg
+ * ======================================== */
+
+// -------------
+//  BASE TREE
+// -------------
+.jr-mTree.jr {
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: normal;
+}
+
+.jr-mTree-group.jr {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4;
+  height: auto;
+  margin-top: em(4px, 12px);
+  margin-bottom: em(2px, 12px);
+}
+
+.jr-mTree-group.jr:first-of-type {
+  margin-top: 0;
+}
+
+.jr-mTree-group-expander.jr {
+  content: "";
+  float: left;
+}
+
+.jr-mTree-group-label.jr {
+  color: $grey-textDark;
+  font-size: em(13px, 12px);
+  font-weight: normal;
+  line-height: em(24px, 12px);
+  padding-right: em(12px, 12px);
+}
+
+.jr-mTree-node.jr,
+.jr-mTree-leaf.jr {
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 1px;
+  position: relative;
+}
+
+// for domain designer presentation
+.jr-mTree-leafField.jr,
+.jr-mTree-leafMeasure.jr {}
+
+
+/* MS Edge Browser CSS Hack */
+@supports (-ms-ime-align:auto) {
+  .jr-mTree-node.jr,
+  .jr-mTree-leaf.jr {
+    margin-bottom: em(1px, 12px);
+  }
+}
+
+.jr-mTree-label.jr {
+  color: $grey-textDark;
+  font-size: em(13px, 12px);
+  flex: 1 1 auto;
+  height: em(26px, 13px);
+  line-height: (28px / 13px);
+  overflow: hidden;
+  padding-right: em(4px, 13px);
+  position: relative;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jr-mTree-badge.jr {
+  align-self: center;
+  flex: 0 0 auto;
+  padding-right: em(6px, 12px);
+}
+
+.jr-mTree-leaf.jr .jr-mTree-label.jr:first-child {
+  padding-left: em(6px, 12px);
+} // left padding for item when there is no icon
+
+.jr-mTree-iconContainer.jr {
+  flex: 0 0 auto;
+  height: em(26px, 12px);
+}
+
+.jr-mTree-label-icon.jr {
+  /* will be used when we implement data types */
+}
+
+.jr-mTree-icon.jr {
+  background-image: image-url("domain-tree-icons-sprite.svg");
+  background-repeat: no-repeat;
+  float: left;
+  height: em(19px, 12px);
+  width: em(22px, 12px);
+  margin: em(3px, 12px) em(4px, 12px) 0 em(2px, 12px);
+}
+
+.jr-mTree.jr > .jr-mTree-leaf-1.jr {
+  padding-left: em(2px, 12px);
+}
+
+.jr-mTree-spinner.jr {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: $color-tciLight;
+  height: em(12px, 12px);
+  margin: em(-6px, 12px) 0 0 0;
+  width: em(12px, 12px);
+}
+
+//node levels, 26px increments
+.jr-mTree-node-1.jr   {padding-left: 0;}
+.jr-mTree-node-2.jr   {padding-left: em(26px, 12px);}
+.jr-mTree-node-3.jr   {padding-left: em(53px, 12px);}
+.jr-mTree-node-4.jr   {padding-left: em(78px, 12px);}
+.jr-mTree-node-5.jr   {padding-left: em(104px, 12px);}
+.jr-mTree-node-6.jr   {padding-left: em(130px, 12px);}
+.jr-mTree-node-7.jr   {padding-left: em(156px, 12px);}
+.jr-mTree-node-8.jr   {padding-left: em(182px, 12px);}
+.jr-mTree-node-9.jr   {padding-left: em(208px, 12px);}
+.jr-mTree-node-10.jr  {padding-left: em(234px, 12px);}
+.jr-mTree-node-11.jr  {padding-left: em(260px, 12px);}
+.jr-mTree-node-12.jr  {padding-left: em(286px, 12px);}
+.jr-mTree-node-13.jr  {padding-left: em(312px, 12px);}
+.jr-mTree-node-14.jr  {padding-left: em(338px, 12px);}
+.jr-mTree-node-15.jr  {padding-left: em(364px, 12px);}
+
+//leaf levels, 26px increments
+.jr-mTree-leaf-1.jr   {padding-left: em(12px, 12px);}
+.jr-mTree-leaf-2.jr   {padding-left: em(38px, 12px);}
+.jr-mTree-leaf-3.jr   {padding-left: em(64px, 12px);}
+.jr-mTree-leaf-4.jr   {padding-left: em(90px, 12px);}
+.jr-mTree-leaf-5.jr   {padding-left: em(116px, 12px);}
+.jr-mTree-leaf-6.jr   {padding-left: em(142px, 12px);}
+.jr-mTree-leaf-7.jr   {padding-left: em(168px, 12px);}
+.jr-mTree-leaf-8.jr   {padding-left: em(194px, 12px);}
+.jr-mTree-leaf-9.jr   {padding-left: em(220px, 12px);}
+.jr-mTree-leaf-10.jr  {padding-left: em(246px, 12px);}
+.jr-mTree-leaf-11.jr  {padding-left: em(272px, 12px);}
+.jr-mTree-leaf-12.jr  {padding-left: em(298px, 12px);}
+.jr-mTree-leaf-13.jr  {padding-left: em(324px, 12px);}
+.jr-mTree-leaf-14.jr  {padding-left: em(350px, 12px);}
+.jr-mTree-leaf-15.jr  {padding-left: em(376px, 12px);}
+
+
+// -----------------------------------------------------------
+//  MODULE VARIATION FOR WIDER VERTICAL SPACING BETWEEN ITEMS
+// -----------------------------------------------------------
+.jr-mTreeLoose.jr {}
+
+.jr-mTreeLoose.jr .jr-mTree-node.jr,
+.jr-mTreeLoose.jr .jr-mTree-leaf.jr {
+  height: em(31px, 12px);
+  padding-top: em(2px, 12px);
+}
+
+// ICON POSITIONS
+// domain designer
+.jr-mTree-iconDatasource.jr {
+  background-position: 4px 3px;
+}
+
+.jr-mTree-iconSchema.jr {
+  background-position: 1px -23px;
+}
+
+.jr-mTree-iconTable.jr {
+  background-position: 3px -47px;
+}
+
+.jr-mTree-iconColumn.jr {
+  background-position: 9px -70px;
+  // margin-left: em(-5px); this icon is narrow, this aligns things better
+}
+
+.jr-mTree-iconIsland.jr {
+  background-position: 2px -94px;
+}
+
+.jr-mTree-iconDerivedtables.jr {
+  background-position: 2px -120px;
+}
+
+.jr-mTree-iconDerivedtable.jr {
+  background-position: 4px -143px;
+}
+
+.jr-mTree-iconSet.jr {
+  background-position: 3px -166px;
+}
+
+.jr-mTree-iconItem.jr {
+  background-position: 8px -190px;
+}
+
+.jr-mTree-iconCalcfields.jr {
+  background-position: 3px -215px;
+}
+
+.jr-mTree-iconCalcfield.jr {
+  background-position: 7px -239px;
+}
+
+.jr-mTree-iconFilter.jr {
+  background-position: 4px -262px;
+}
+
+.jr-mTree-iconFolder.jr {
+  background-position: 3px -287px;
+}
+
+.jr-mTree-iconDomain.jr {
+  background-position: 0 -313px;
+}
+
+.jr-mTree-iconJointree.jr {
+  background-position: 2px -335px;
+}
+
+.jr-mTree-iconAttrschema.jr {
+  background-position: 1px -360px;
+}
+
+.jr-mTree-leafField.jr .jr-mTree-iconString {
+  background-position: 0 -397px;
+}
+
+.jr-mTree-leafField.jr .jr-mTree-iconNumber {
+  background-position: 0 -457px;
+}
+
+.jr-mTree-leafField.jr .jr-mTree-iconDate {
+  background-position: 3px -517px;
+}
+
+.jr-mTree-leafField.jr .jr-mTree-iconTime {
+  background-position: 2px -577px;
+}
+
+.jr-mTree-leafField.jr .jr-mTree-iconBoolean {
+  background-position: 3px -637px;
+}
+
+.jr-mTree-leafMeasure.jr .jr-mTree-iconString {
+  background-position: 0 -427px;
+}
+
+.jr-mTree-leafMeasure.jr .jr-mTree-iconNumber {
+  background-position: 0 -487px;
+}
+
+.jr-mTree-leafMeasure.jr .jr-mTree-iconDate {
+  background-position: 3px -547px;
+}
+
+.jr-mTree-leafMeasure.jr .jr-mTree-iconTime {
+  background-position: 2px -607px;
+}
+
+.jr-mTree-leafMeasure.jr .jr-mTree-iconBoolean {
+  background-position: 3px -667px;
+}
+
+.jr-mTree-iconFileDocument.jr {
+  background-position: 4px -727px;
+}
+
+.jr-mTree-iconFileBundle.jr {
+  background-position: 4px -757px;
+}
+
+.jr-mTree-iconFileSecurity.jr {
+  background-position: 4px -787px;
+}
+
+.jr-mTree-iconFileCode.jr {
+  background-position: 4px -817px;
+}
+
+.jr-mTree-iconFileImage.jr {
+  background-position: 4px -847px;
+}
+
+
+// ----------------
+//  TREE ADD-ONS
+// ----------------
+
+// MAPPING KEYS
+.jr-mTree-leaf-key.jr {
+  background-color: #cccccc;
+  display: none;
+  font-size: 12px;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: (27px / 12px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  width: em(28px);
+}
+
+// ALERT ICONS
+.jr-mTree-alert.jr {
+  background-color: inherit;
+  display: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  width: 2.5em; // this can remain in ems
+}
+
+.jr-mTree-alert-icon.jr {
+  color: inherit;
+  font-size: 14px; // New base font size
+  height: em(26px, 14px); // 2px taller than jr-mIconSmall
+  line-height: (26px / 14px) // 2px taller than jr-mIconSmall
+}
+
+.jr-mTree-alertInfo.jr {
+  color: $color-infoMedium;
+  height: em(26px);
+  line-height: (26px / 11px);
+}
+
+
+
+// ----------
+//   STATES
+// ----------
+.jr-mTree-group.jr-isExpanded.jr .jr-mTree-group-expander.jr {
+  margin-left: em(1px, 12px);
+  margin-right: em(1px, 12px);
+}
+
+.jr-mTree-group.jr-isCollapsed.jr .jr-mTree-group-expander.jr {
+  margin-left: em(1px, 12px);
+  margin-right: em(1px, 12px);
+}
+
+.jr-mTree-node.jr-isEmpty.jr .jr-mTree-expander.jr {
+  border-left: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-right: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-top: em(5px, 12px) solid rgba(0, 0, 0, 0);
+  content: "";
+  float: left;
+  margin-top: em(11px, 12px);
+  margin-left: em(4px, 12px);
+  visibility: hidden;
+}
+
+// MAPPED (schema mapping)
+.jr-mTree-leaf.jr-isMapped.jr {
+  background-color: #f4f4f4;
+}
+
+.jr-mTree-leaf.jr-isMapped.jr .jr-mTree-label.jr {
+  color: $color-textMedium;
+  font-style: italic;
+}
+
+.jr-mTree-leaf.jr-isMapped.jr .jr-mTree-leaf-key.jr {
+  display: block;
+}
+
+.jr-mTree-leaf.jr-isMapped.jr-isSelected.jr .jr-mTree-leaf-key.jr {
+  background-color: $color-tciLight;
+  border-left: em(2px) solid #a3c4da;
+  color: #fff;
+  width: em(30px);
+}
+
+
+// HOVERED
+// highlight color
+.jr-mTree-node.jr-isHovered.jr,
+.jr-mTree-leaf.jr-isHovered.jr,
+.jr-mTree-node.jr:hover,
+.jr-mTree-leaf.jr:hover {
+  background-color: #fafafa;
+}
+
+.jr-mTree-leaf.jr:hover .jr-mTree-alert.jr {
+  display: block;
+}
+
+// INVALID
+// highlight color
+.jr-mTree-node.jr-isSelected.jr-isInvalid.jr,
+.jr-mTree-leaf.jr-isSelected.jr-isInvalid.jr {
+  background-color: $color-errorMedium;
+}
+
+
+// SELECTED
+// highlight color
+.jr-mTree-node.jr-isSelected.jr,
+.jr-mTree-leaf.jr-isSelected.jr {
+  background-color: $color-tciLight;
+}
+
+.jr-mTree-node.jr-isSelected.jr > .jr-mTree-label.jr,
+.jr-mTree-leaf.jr-isSelected.jr > .jr-mTree-label.jr {
+  color: #fff;
+}
+
+.jr-mTree-node.jr-isSelected.jr .jr-mTree-spinner.jr {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+}
+
+// LOADING
+.jr-isLoading.jr .jr-mTree-icon.jr {
+  background-image: none;
+}
+
+// icon positions
+.jr-isSelected.jr .jr-mTree-iconDatasource.jr {
+  background-position: -34px 3px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconSchema.jr {
+  background-position: -37px -23px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconTable.jr {
+  background-position: -35px -47px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconColumn.jr {
+  background-position: -29px -70px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconIsland.jr {
+  background-position: -36px -94px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconDerivedtables.jr {
+  background-position: -36px -120px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconDerivedtable.jr {
+  background-position: -34px -143px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconSet.jr {
+  background-position: -35px -166px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconItem.jr {
+  background-position: -30px -190px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconCalcfields.jr {
+  background-position: -35px -215px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconCalcfield.jr {
+  background-position: -31px -239px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconFilter.jr {
+  background-position: -34px -262px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconFolder.jr {
+  background-position: -35px -287px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconDomain.jr {
+  background-position: -38px -313px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconJointree.jr {
+  background-position: -36px -335px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconAttrschema.jr {
+  background-position: -37px -360px;
+}
+
+
+
+.jr-mTree-leafField.jr-isSelected.jr .jr-mTree-iconString {
+  background-position: -40px -397px;
+}
+
+.jr-mTree-leafField.jr-isSelected.jr .jr-mTree-iconNumber {
+  background-position: -40px -457px;
+}
+
+.jr-mTree-leafField.jr-isSelected.jr .jr-mTree-iconDate {
+  background-position: -37px -517px;
+}
+
+.jr-mTree-leafField.jr-isSelected.jr .jr-mTree-iconTime {
+  background-position: -38px -577px;
+}
+
+.jr-mTree-leafField.jr-isSelected.jr .jr-mTree-iconBoolean {
+  background-position: -37px -637px;
+}
+
+.jr-mTree-leafMeasure.jr-isSelected.jr .jr-mTree-iconString {
+  background-position: -40px -427px;
+}
+
+.jr-mTree-leafMeasure.jr-isSelected.jr .jr-mTree-iconNumber {
+  background-position: -40px -487px;
+}
+
+.jr-mTree-leafMeasure.jr-isSelected.jr .jr-mTree-iconDate {
+  background-position: -37px -547px;
+}
+
+.jr-mTree-leafMeasure.jr-isSelected.jr .jr-mTree-iconTime {
+  background-position: -38px -607px;
+}
+
+.jr-mTree-leafMeasure.jr-isSelected.jr .jr-mTree-iconBoolean {
+  background-position: -37px -667px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconFileDocument.jr {
+  background-position: -36px -727px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconFileBundle.jr {
+  background-position: -36px -757px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconFileSecurity.jr {
+  background-position: -36px -787px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconFileCode.jr {
+  background-position: -36px -817px;
+}
+
+.jr-isSelected.jr .jr-mTree-iconFileImage.jr {
+  background-position: -36px -847px;
+}
+
+// icon positions, broken
+.jr-isBroken.jr .jr-mTree-iconCalcfield.jr {
+  background-position: -107px -239px;
+}
+
+
+// icon positions, selected and invalid
+.jr-isSelected.jr-isInvalid.jr .jr-mTree-iconDatasource.jr {
+  background-position: -72px 3px;
+}
+
+.jr-isSelected.jr-isInvalid.jr .jr-mTree-iconSchema.jr {
+  background-position: -75px -23px;
+}
+
+.jr-isSelected.jr-isInvalid.jr .jr-mTree-iconTable.jr {
+  background-position: -73px -47px;
+}
+
+.jr-isSelected.jr-isInvalid.jr .jr-mTree-iconAttrschema.jr {
+  background-position: -75px -360px;
+}
+
+
+// open/closed disclosure triangle
+.jr-mTree-node.jr-isOpen.jr .jr-mTree-expander.jr {
+  border-left: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-right: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-top: em(5px, 12px) solid $color-tciLight;
+  content: "";
+  float: left;
+  margin-top: em(11px, 12px);
+  margin-left: em(4px, 12px);
+}
+
+.jr-mTree-node.jr-isClosed.jr .jr-mTree-expander.jr {
+  border-left: em(5px, 12px) solid $color-tciLight;
+  border-bottom: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-top: em(4px, 12px) solid  rgba(0, 0, 0, 0);
+  display: inline-block;
+  float: left;
+  margin-left: em(7px, 12px);
+  margin-top: em(9px, 12px);
+}
+
+.jr-mTree-node.jr-isOpen.jr-isSelected.jr .jr-mTree-expander.jr {
+  border-left: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-right: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-top: em(5px, 12px) solid #a5d4f0;
+  content: "";
+  float: left;
+  margin-top: em(11px, 12px);
+  margin-left: em(4px, 12px);
+}
+
+.jr-mTree-node.jr-isClosed.jr-isSelected.jr  .jr-mTree-expander.jr {
+  border-left: em(5px, 12px) solid #a5d4f0;
+  border-bottom: em(4px, 12px) solid rgba(0, 0, 0, 0);
+  border-top: em(4px, 12px) solid  rgba(0, 0, 0, 0);
+  content: "";
+  float: left;
+  margin-top: em(9px, 12px);
+  margin-left: em(7px, 12px);
+}
+
+
+
+// unused for now
+.jr-mTree-node.jr > .jr-mTree.jr {
+  margin-left: em(22px, 12px);
+}
+
+.jr-mTree-nodeFolder.jr:not(.jr-mTree-hideRoot) .jr-mTree {
+  margin-left: em(22px, 12px);
+}
+
+.jr-mTree-hideRoot.jr-mTree-nodeFolder > .jr-mTree-label-wrapper {
+  display: none !important;
+}
+
+.jr-mTree-node.selected > .jr-mTree-label-wrapper {
+  background-color: $color-tciLight;
+  color: #fff;
+}

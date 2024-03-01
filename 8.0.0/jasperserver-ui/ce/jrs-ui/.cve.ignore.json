@@ -1,0 +1,25 @@
+{
+  "ignoreList": [
+    "lodash",
+    "jquery-ui"
+  ],
+  "ignoreDevList": [
+    "lodash",
+    "underscore",
+    "postcss",
+    "y18n",
+    "hosted-git-info",
+    "url-parse",
+    "ua-parser-js",
+    "underscore.string",
+    "js-yaml",
+    "xmldom",
+    "trim",
+    "dns-packet",
+    "browserslist",
+    "ws",
+    "glob-parent",
+    "trim-newlines",
+    "css-what"
+  ]
+}

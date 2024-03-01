@@ -1,0 +1,11 @@
+{
+  "resourceLookup": [
+    {},
+    {
+      "label": "label"
+    }
+  ],
+  "_links": {
+    "next": "next"
+  }
+}

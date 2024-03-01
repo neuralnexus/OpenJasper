@@ -1,0 +1,204 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =============================================
+    MENU MODULE RULES
+    Last modified date:  May 22, 2020
+    Last modified by:    Anna Leeg
+ * ============================================= */
+
+.jr-mMenu.jr {
+    font-family: $font-primary---family;
+    font-size: $font-primary---size;
+}
+
+.jr-mMenu-node.jr,
+.jr-mMenu-leaf.jr {
+    cursor: pointer;
+    position: relative;
+    }
+
+
+   // MODULE VARIATION .jr-mMenuHorizontal
+    .jr-mMenuHorizontal.jr {
+        // font-weight: bold; Reinstate if we are using Open Sans
+        display: inline-block;
+        height: inherit;
+    }
+
+    .jr-mMenuHorizontal.jr .jr-mMenu-leaf-icon.jr {
+        margin-top: em(8px, 14px);
+        margin-right: em(-6px, 14px);
+        margin-left: em(-6px, 14px);
+    }
+
+    .jr-mMenuHorizontal.jr > .jr-mMenu-node.jr,
+    .jr-mMenuHorizontal.jr > .jr-mMenu-leaf.jr {
+        float: left;
+        height: inherit;
+        padding-left: em(12px);
+        padding-right: em(12px);
+    }
+
+    .jr-mMenuHorizontal.jr > .jr-mMenu-node.jr {
+        padding-right: em(22px, 13px);      // 1.692em | 22px / 13px
+    }
+
+    .jr-mMenuHorizontal.jr .jr-mMenu-node-label.jr,
+    .jr-mMenuHorizontal.jr .jr-mMenu-leaf-label.jr {
+        display: inline-block;
+        font-size: em(13px);            // 1.182em | 13px / 11px
+        line-height: (36px / 13px);     // 2.769 | 36px / 13px unitless value
+    }
+
+        @media screen and (-webkit-min-device-pixel-ratio:0)
+        {
+            .jr-mMenuHorizontal.jr .jr-mMenu-node-label.jr,
+            .jr-mMenuHorizontal.jr .jr-mMenu-leaf-label.jr  {
+                line-height: (38px / 13px);         // 2.923 | 38px / 13px unitless value
+            }
+        }
+
+    .jr-mMenuHorizontal.jr .jr-mMenu-node-label.jr:after {
+        border-top: .308em solid #fff;                      // .308em | 5px / 13px
+        border-right: em(3px, 13px) solid transparent;      // .231em | 4px / 13px - prewritten as 4px, but should have been 3px
+        border-left: em(3px, 13px) solid transparent;       // .231em | 4px / 13px - prewritten as 4px, but should have been 3px
+        content: "";
+        margin-left: em(3px, 13px);                         // .231em | 3px / 13px
+        position: absolute;
+            top: 50%;
+    }
+
+    .jr-mMenu-leaf-label-link.jr,
+    .jr-mMenu-node-label-link.jr {
+        color: #fff;
+        outline: none;
+        text-decoration: none;
+    }
+
+
+    // MODULE VARIATION .jr-mMenuVertical
+    .jr-mMenuVertical.jr {
+        background-color: #ffffff;
+        //border: 1px solid #e4e4e4;
+        //border-radius: em(6px);
+        display: inline-block;
+        padding-top: em(5px);
+        padding-bottom: em(5px);
+        min-width: 150px;
+
+      //temporary changes to match old menu component
+        border: 1px solid #ccc;
+        border-radius: 0;
+        font-family: Arial;
+    }
+
+    .jr-mMenuVertical.jr .jr-mMenu-separator.jr {
+        border-top: em(1px) solid #e4e4e4;   // .091em | 1px / 11px
+        margin-top: em(5px);                 // .455em | 5px / 11px
+        margin-bottom: em(5px);              // .455em | 5px / 11px
+        }
+
+    .jr-mMenuVertical.jr > .jr-mMenu-node.jr,
+    .jr-mMenuVertical.jr > .jr-mMenu-leaf.jr {
+        height: auto;
+    }
+
+    .jr-mMenuVertical.jr > .jr-mMenu-node.jr:after {
+        border-left: em(8px) solid #333;            // .727em | 8px / 11px
+        border-top: em(5px) solid transparent;      // .455em | 5px / 11px
+        border-bottom: em(5px) solid transparent;   // .455em | 5px / 11px
+        content: "";
+        position: absolute;
+            top: 36%;
+            right: 1em;
+    }
+
+    .jr-mMenuVertical.jr .jr-mMenu-node-label.jr,
+    .jr-mMenuVertical.jr .jr-mMenu-leaf-label.jr {
+        background-repeat: no-repeat;
+        font-size: em(13px);            // 1.182em | 13px / 11px
+        line-height: em(28px, 13px);    // 2.154em | 28px / 13px
+        margin-right: em(28px, 13px);   // 2.154em | 28px / 13px
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+
+    .jr-mMenuVertical.jr .jr-mMenu-node-label.jr {
+        margin-left: em(26px, 13px);       // 2em | 26px / 13px
+    }
+
+    .jr-mMenuVertical.jr .jr-mMenu-leaf-toggle.jr {
+        display: inline-block;
+        height: em(6px, 13px);             // .462em | 6px / 13px
+        margin-right: em(6px, 13px);       // .462em | 6px / 13px
+        margin-left: em(11px, 13px);       // .846em | 11px / 13px
+        vertical-align: middle;
+        width: em(6px, 13px);              // .462em | 6px / 13px
+    }
+
+
+// -----------------
+//  MENU STATES
+// -----------------
+// hover pseudo-classes are temporary until proper implementation can be done.
+.jr-mMenuHorizontal.jr > .jr-mMenu-node.jr-isHovered.jr,
+.jr-mMenuHorizontal.jr > .jr-mMenu-leaf.jr-isHovered.jr,
+.jr-mMenuHorizontal.jr > .jr-mMenu-node:hover.jr,
+.jr-mMenuHorizontal.jr > .jr-mMenu-leaf:hover.jr {
+    background: #195b8a;
+}
+
+.jr-mMenuVertical.jr > .jr-mMenu-node.jr-isHovered.jr,
+.jr-mMenuVertical.jr > .jr-mMenu-leaf.jr-isHovered.jr,
+    //TODO: remove `:hover` when designing new JS component
+    // required fix for JRS-10104
+.jr-mMenuVertical.jr > .jr-mMenu-leaf:hover.jr {
+    background: #195b8a;
+    color: #fff;
+}
+
+// vertical menu toggle
+.jr-mMenu-leaf-toggle.jr-isOn.jr {
+    background-color: #3e8ddd;
+    border-radius: 3px;
+    display: inline-block;
+    height: 6px;
+    margin-top: em(-3px, 13px);        // -.231em | -3px / 13px
+    margin-right: em(8px, 13px);       // .615em | 8px / 13px
+    margin-left: em(8px, 13px);        // .615em | 8px / 13px
+    vertical-align: middle;
+    width: em(6px, 13px);              // .462em | 6px / 13px
+}
+.jr-mMenu-leaf.jr-isHovered.jr .jr-mMenu-leaf-toggle.jr-isOn.jr{
+    background-color: #fff;
+}
+
+.jr-mMenuVertical.jr > .jr-mMenu-node.jr-isHovered.jr:after,
+.jr-mMenuVertical.jr > .jr-mMenu-node:hover.jr:after {
+    border-left: .615em solid #fff;
+}
+
+// hover styles for label links
+.jr-mMenu-leaf.jr-isHovered.jr .jr-mMenu-leaf-label-link.jr,
+.jr-mMenu-node.jr-isHovered.jr .jr-mMenu-node-label-link.jr {
+    text-decoration: underline;
+}

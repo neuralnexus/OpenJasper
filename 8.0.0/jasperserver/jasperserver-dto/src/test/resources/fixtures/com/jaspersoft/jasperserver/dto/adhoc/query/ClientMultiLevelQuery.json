@@ -1,0 +1,32 @@
+{
+  "select": {
+    "fields": [
+      {
+        "id": "id"
+      }
+    ]
+  },
+  "from": {
+    "dataSource": "dataSource"
+  },
+  "where": {
+    "filterExpression": {}
+  },
+  "limit": 23,
+  "groupBy": [
+    {
+      "group": {
+        "id": "idGroupBy"
+      }
+    }
+  ],
+  "orderBy": [
+    {
+      "aggregation": true,
+      "ascending": true
+    },
+    {
+      "ascending": true
+    }
+  ]
+}

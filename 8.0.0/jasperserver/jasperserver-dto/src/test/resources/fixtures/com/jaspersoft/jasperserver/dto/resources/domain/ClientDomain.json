@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "permissionMask": 23,
+  "creationDate": "creationDate",
+  "updateDate": "updateDate",
+  "label": "label",
+  "description": "description",
+  "uri": "uri",
+  "dataSource": {
+    "advDataSource": {
+      "label": "label"
+    }
+  },
+  "securityFile": {
+    "securityFile": {
+      "content": "content"
+    }
+  },
+  "schema": {
+    "resources": [
+      {
+        "element": {
+          "name": "name"
+        }
+      }
+    ]
+  },
+  "bundles": [
+    {},
+    {
+      "locale": "locale"
+    }
+  ]
+}

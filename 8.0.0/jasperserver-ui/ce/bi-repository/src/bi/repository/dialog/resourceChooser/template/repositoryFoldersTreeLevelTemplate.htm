@@ -1,0 +1,10 @@
+<ul class="list collapsible" style="top: {{- top}}px; position: relative;">
+
+    <js-templateNonce></js-templateNonce>
+	{{ _.each(items, function(item){ }}
+	<li class="{{- item._node ? 'node closed' : 'leaf'}} {{- item.selected ? 'selected' : ''}} {{- item._readonly ? 'readonly' : ''}}" data-index="{{- item.index }}" tabindex="-1">
+		<p class="wrap button draggable" data-tooltip='true'><b class="icon"></b> {{- item.value.label }} </p>
+		<div class="subcontainer" ></div>
+	</li>
+	{{ }) }}
+</ul>

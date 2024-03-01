@@ -1,0 +1,39 @@
+{
+  "dataSource": {
+    "notDataSource": {
+    }
+  },
+  "query": {
+    "select": {
+      "aggregations": [
+        {
+          "functionName": "Sum",
+          "timeBalanceFunctionName": "TimeBalanceDefault",
+          "type": "bigDecimal",
+          "fieldRef": "sales_fact_ALL.sales_fact_ALL__unit_sales_98"
+        }
+      ]
+    },
+    "groupBy": {
+      "rows": {
+        "items": [
+          {
+            "level": {
+              "categorizer": "all",
+              "includeAll": true,
+              "field": "sales_fact_ALL.sales__product.sales__product__brand_name",
+              "dimension": "sales_fact_ALL.sales__product.sales__product__brand_name"
+            }
+          }
+        ]
+      },
+      "columns": {
+        "items": [
+          {
+            "aggregations": {}
+          }
+        ]
+      }
+    }
+  }
+}

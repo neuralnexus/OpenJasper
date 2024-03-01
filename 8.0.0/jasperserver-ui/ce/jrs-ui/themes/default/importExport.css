@@ -1,0 +1,352 @@
+/*
+ * Copyright (C) 2005 - 2021 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* --------------------------------------
+   TABLE OF CONTENTS
+
+    1. EXPORT
+       1a. base rules
+       1b. export dialog
+
+    2. IMPORT
+       2a. base rules
+       2b. import dialog
+       2c. import conflict dialog
+
+  --------------------------------------
+    File last modified Jan 12, 2021
+  --------------------------------------  */
+
+
+
+/* ----------------- */
+/*  1. EXPORT        */
+/* ----------------- */
+/*  1a. base rules   */
+/* ----------------- */
+.export-view {
+    overflow: hidden;
+    padding: 22px;
+    width: 49%;
+}
+.export-view .section {
+    margin: 0 0 26px 0;
+    overflow: hidden;
+}
+
+.export-view p.title,
+.export-view p.jr-mDialog-header-title {
+    color: #666666;
+    margin: 0 0 14px;
+}
+
+.export-view .section.resources,
+.export-view .section.roles-users {
+    margin-left: 20px;
+}
+
+.export-view .section.everything {
+    margin: 14px 20px;
+}
+
+.export-view .section.events {
+    float: left;
+    margin-bottom: 0;
+    width: 30%;
+}
+
+.export-view .section.resources,
+.export-view .section.assets {
+    float: left;
+    width: 33%;
+    margin-bottom: 0;
+}
+
+.export-view .section > .group {
+    margin: 0 0 0 20px;
+    overflow: hidden;
+    padding-left: 0;
+}
+
+.export-view #secretKey legend {
+    margin-left: 0;
+}
+
+.export-view #secretKey .inputSet {
+    margin-left: 10px;
+}
+
+.export-view .control.checkBox {
+    float: left;
+    min-width: 180px;
+}
+
+.export-view .section.file-name .control.input {
+    float: left;
+    margin: 0 40px 0 0;
+    width: 400px;
+}
+
+.export-view .section.file-name .control.checkBox {
+    margin-top: 22px;
+}
+
+.export-view .section.file-name .encryptFileWrapper {
+    margin-right: 55px;
+}
+
+.export-view .selectRolesUsers.pickWells {
+    height: 220px;
+    margin: 4px;
+    width: auto;
+    user-select: none;
+}
+
+.export-view .selectRolesUsers.pickWells .control.searchLockup input {
+    box-sizing: border-box;
+    padding: 0 24px 8px 2px;
+    width: 100%;
+}
+
+.export-view .group.rolesAndUsers .control.radio {
+    float: left;
+    margin-right: 16px;
+    min-width: 200px;
+}
+
+.export-view .button-select-all {
+    border: 1px solid var(--border-grey-20);
+    bottom: 0;
+    cursor: pointer;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.export-view .button-select-all .label {
+    display: inline;
+    line-height: 21px;
+    vertical-align: top;
+}
+
+.export-view .button-select-all .label .text {
+    vertical-align: top;
+}
+
+.export-view .button-select-all .disabled {
+    cursor: default;
+}
+
+.export-view .authorityPicker {
+    margin-bottom: 25px;
+}
+
+.export-view .authorityPicker .selectBorder.lower {
+    display: none;
+}
+
+.export-view .button-select-all .icon {
+    background: transparent url("./images/icontrol_icons_sprite.png") 0 5px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 22px;
+    pointer-events: auto;
+    position: relative;
+    vertical-align: top;
+    width: 11px;
+    zoom: 1;
+}
+
+.export-view .button-select-all.disabled {
+    pointer-events: none;
+}
+
+/* -------------------- */
+/*  1b. export dialog   */
+/* -------------------- */
+.jr-mDialog.jr.tenant-export-dialog {
+    height: 680px;
+    min-width: 630px;
+    min-height: 350px !important;
+    width: 745px;
+}
+
+.jr-mDialog.jr.tenant-export-dialog > .jr-mDialog-body.jr {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin-bottom: 40px;
+    max-height: 100%;
+    padding: 0;
+    position: absolute;
+    top: 2.909em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.repository-export-dialog {
+    height: 530px;
+    min-width: 245px;
+    width: 650px;
+}
+
+.jr-mDialog.jr.repository-export-dialog .jr-mDialog-body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.repository-export-dialog #secretKey {
+    margin-left: 0;
+}
+
+.repository-export-dialog .jr-mDialog-body .export-view {
+    padding: 0;
+}
+
+.repository-export-dialog .export-view .section.file-name {
+    margin: 0 0 18px 0;
+}
+
+.repository-export-dialog .export-view .section.resources,
+.repository-export-dialog .export-view .section.assets,
+.repository-export-dialog .export-view .section.file-name > .group {
+    margin: 0;
+}
+
+.repository-export-dialog .export-view .section.resources > .group,
+.repository-export-dialog .export-view .section.assets > .group {
+    margin-left: 10px;
+}
+
+.repository-export-dialog .export-view .section.file-name .control.input {
+    margin: 0;
+    width: 100%;
+}
+
+.repository-export-dialog .export-view .control.checkBox {
+    float: none;
+    min-width: 200px;
+}
+
+
+
+/* ----------------- */
+/*  02. IMPORT       */
+/* ----------------- */
+/*  2a. base rules   */
+/* ----------------- */
+.import-view {
+    padding: 0 20px;
+}
+
+.import-view > .group {
+    margin-top: 24px;
+}
+
+.import-view input.hidden {
+    display: none;
+}
+
+#importDataFile.import-view #uploadFile {
+    width: 358px;
+}
+
+/* -------------------- */
+/*  2b. import dialog   */
+/* -------------------- */
+.tenant-export-dialog .export-view,
+.repository-export-dialog .export-view {
+    width: 100%;
+}
+
+.jr-mDialog.jr.tenant-import-dialog .jr-mDialog-body.jr {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.repository-export-dialog .export-view .section.resources {
+    width: auto;
+}
+
+.repository-export-dialog .section.resources p {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.tenant-export-dialog .export-view {
+    padding: 12px 23px 0 15px;
+}
+
+
+.jr-mDialog.jr.tenant-import-dialog {
+    height: 550px;
+}
+
+.jr-mDialog.tenant-export-dialog .jr-mDialog-footer,
+.jr-mDialog.tenant-import-dialog .jr-mDialog-footer,
+.jr-mDialog.repository-export-dialog .jr-mDialog-footer {
+    background-color: var(--background-white);
+    bottom: 0;
+    clear: both;
+    position: absolute;
+    width: 100%;
+}
+
+.jr-mDialog.tenant-import-dialog .jr-mDialog-body {
+    overflow-x: hidden;
+}
+
+.tenant-import-dialog {
+    height: 450px;
+}
+
+.tenant-import-dialog .import-view {
+    width: 100%;
+}
+
+.jr-mDialog.tenant-import-dialog .jr-mDialog-body {
+    padding: 8px 0 0 0;
+}
+
+.jr-mDialog.tenant-import-dialog.jr .jr-mDialog-body-wrapper.jr {
+    padding-top: 0;
+}
+
+/* ----------------------------- */
+/*  2c. import conflict dialog   */
+/* ----------------------------- */
+.merge-tenant-dialog {
+    min-height: 249px;
+    min-width: 450px;
+    width: 450px;
+}
+
+.merge-tenant-dialog .jr-mDialog-body > .message {
+    height: 26px;
+}
+
+.jr-mDialog.merge-tenant-dialog .jr-mDialog-body {
+    padding: 16px 16px 5px;
+}
+
+.merge-tenant-dialog p.imported-tenant,
+.merge-tenant-dialog p.selected-tenant {
+    margin: 15px 0 15px 20px;
+}

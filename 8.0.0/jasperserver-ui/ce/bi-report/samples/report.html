@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JasperReports Server components samples: Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name = "viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <link type="text/css" href="../src/runtime_dependencies/jquery-ui/themes/redmond/jquery-ui-1.10.4-custom.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../src/runtime_dependencies/requirejs/require.js"></script>
+    <script type="text/javascript" src="../src/require.config.js"></script>
+    <script type="text/javascript" src="../samples/require.config.js"></script>
+
+    <script type="text/javascript">
+        require([
+            "jquery",
+            "bi/report/Report",
+            "common/component/dialog/Dialog"
+        ], function($, Report, Dialog) {
+
+            var dialog = new Dialog({
+                modal: true,
+                resizable: true,
+                title: "dialog sample",
+                content: "some text or backbone view",
+                buttons: [
+                    {
+                        label: "Cancel",
+                        action: "cancel",
+                        primary: true
+                    }
+                ]
+            });
+            dialog.on('button:cancel', dialog.close, dialog);
+
+            $("#openDialog").click(_.bind(dialog.open, dialog));
+
+        });
+    </script>
+</head>
+<body>
+
+    <div>
+        <h3>Report sample</h3>
+        <button id="openDialog">Open dialog</button>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

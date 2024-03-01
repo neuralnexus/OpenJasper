@@ -1,0 +1,484 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+ /* =======================================
+   SELECT LIST MODULE
+   Last modified date:     May 22, 2020
+   Last modified by:       Anna Leeg
+ * ========================================= */
+
+.jr-mSelectlist.jr {
+    background-color: #fff;
+    color: #333333;
+    font-family: $font-primary---family;
+    font-weight: normal;
+    font-size: $font-primary---size;
+    position: relative;         // fix for IE7-8
+
+    // disable selection
+    @include user-select(none);
+
+    // border
+    @include border-box;
+    border: none;
+
+    // fonts
+    line-height: 1.182em;
+}
+
+.jr-mSelectlist-item.jr {
+    border-top: 1px solid #fff;
+    background-color: inherit;
+    cursor: pointer;
+    line-height: em(17px);
+    padding-right: em(6px);
+    padding-left: em(6px);
+    white-space: nowrap;
+}
+
+.jr-mSelectlist-item-wrapper.jr {
+    padding-top: em(2px);
+    padding-bottom: em(2px);
+}
+
+.jr-mSelectlist-item-text.jr {
+    color: inherit;             // color definition needed for embedded to prevent problems with Bootstrap
+    display: block;             // this MUST be block in order for text truncation with ellipses to work
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+// SELECT LIST MODULE EXTENSION .jr-mSelectlistSelected
+// shows only selected items. Individual items can be deleted from the list
+// with an associated delete icon. Used inside the multi-select module
+.jr-mSelectlistSelected.jr {}
+
+.jr-mSelectlistSelected.jr > .jr-mSelectlist-item.jr {
+    background-color: #1388d8;
+    color: #fff;
+}
+
+.jr-mSelectlistSelected .jr-mSelectlist-item-delete.jr {
+    background-color: transparent;
+    background-image: image-url("icontrol_icons_sprite.png");
+    background-position: 0 -85px;
+    float: left;
+    height:16px;
+    width: 16px;
+}
+
+// iPad
+.ipad .jr-mSelectlist-item.jr {
+    font-size: 14px;
+    line-height: (22px / 11px);
+}
+
+.ipad .jr-mSelectlistSelected  .jr-mSelectlist-item-delete.jr {
+    background-position: 0 -232px;
+    height: 26px;
+    width: 20px;
+}
+
+// ------------------------
+//  SINGLE SELECT MODULE
+// ------------------------
+
+.jr-mSingleselect.jr {
+    color: #333333;
+    font-family: $font-primary---family;
+    font-weight: normal;
+    font-size: $font-primary---size;
+}
+
+.jr-mSingleselect-input.jr {
+    background-color: #fff;
+    border: em(1px) solid #d6d6d6;
+    cursor: pointer;
+    display: inline-block;
+    height: em(28px);
+    line-height: (28px / 11px);
+    overflow: hidden;
+    padding-left: em(6px);
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    z-index: $zindex-element-lvl-0; // must be below jr-mSingleselect-search
+}
+
+.jr-mSingleselect-input.jr-isFocused.jr {
+    border: 1px solid #fabc58;
+}
+
+.jr-mSingleselect-input-placeholder.jr {
+    color: #999999;
+}
+
+.jr-mSingleselect-input-selection.jr {
+    white-space: nowrap;
+}
+
+.jr-mSingleselect-input-expander.jr {
+    background: #fff image-url("icontrol_icons_sprite.png") no-repeat right -292px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: em(33px);
+}
+
+
+// SEARCH INPUT
+.jr-mSingleselect-search.jr {
+    background: #fff;
+    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+    -moz-box-shadow: 0 .364em .364em rgba(51,51,51,0.5);
+    -webkit-box-shadow: 0 .364em .364em rgba(51,51,51,0.5);
+    box-shadow: 0 .364em .364em rgba(51,51,51,0.5);
+    display: block;
+    left: -9999px; // move search container out while control collapsed but leave it visible for keyboard navigation
+    height: 3.455em;
+    padding: .455em .455em 0 .455em;
+    position: absolute;
+    top: em(28px);
+    width: 100%;
+    z-index: $zindex-element-lvl-1; // must be over jr-mSingleselect-input
+}
+
+// DROP-DOWN
+.jr-mSingleselect-dropdownContainer.jr {
+  border: 0;
+  padding: 0;
+  position: absolute;
+  height: auto;
+  overflow: visible;
+}
+
+ .jr-mSingleselect-dropdown.jr {
+    background-color: #fff;
+    border: 1px solid #d6d6d6;
+    border-top: 0;
+    -moz-box-shadow: 0 em(4px) em(4px) rgba(51,51,51,0.5);
+    -webkit-box-shadow: 0 em(4px) em(4px) rgba(51,51,51,0.5);
+    box-shadow: 0 em(4px) em(4px) rgba(51,51,51,0.5);
+    padding-top: em(4px);
+    padding-right: em(1px);
+    padding-left: em(1px);
+    position: absolute;
+    width: 100%;
+    z-index: $zindex-dropdown;  // must be over jr-mSingleselect-input
+}
+
+ .jr-mSingleselectTop.jr {}
+
+
+ .jr-mSingleselectTop.jr .jr-mSingleselect-input.jr {
+   -moz-box-shadow: 0 -0.364em 0.364em rgba(51, 51, 51, 0.5);
+   -webkit-box-shadow: 0 -0.364em 0.364em rgba(51, 51, 51, 0.5);
+   box-shadow: 0 -0.364em 0.364em rgba(51, 51, 51, 0.5);
+   border-top: .091em solid #fff;
+   border-bottom: .091em solid #d6d6d6;
+ }
+
+ .jr-mSingleselectTop.jr .jr-mSingleselect-search.jr {
+   -moz-box-shadow: 0 em(-4px) em(4px) rgba(51,51,51,0.5);
+   -webkit-box-shadow: 0 em(-4px) em(4px) rgba(51,51,51,0.5);
+   box-shadow: 0 em(-4px) em(4px) rgba(51, 51, 51, 0.5);
+   top: em(-38px);
+ }
+
+ .jr-mSingleselect-dropdownTop.jr {
+   border-bottom: 0;
+   -moz-box-shadow: 0 em(-4px) em(4px) rgba(51, 51, 51, 0.5);
+   -webkit-box-shadow: 0 em(-4px) em(4px) rgba(51, 51, 51, 0.5);
+   box-shadow: 0 em(-4px) em(4px) rgba(51, 51, 51, 0.5);
+   padding-top: 0;
+   bottom: 0;
+ }
+
+.jr-mSingleselect-dropdown.jr .jr-mScalablelist.jr {
+    max-height: em(242px);
+}
+
+// ----------------------
+//  MULTI-SELECT MODULE
+// ----------------------
+
+.jr-mMultiselect.jr  {
+    @include border-box;
+    color: #333333;
+    font-family: $font-primary---family;
+    font-weight: normal;
+    font-size: $font-primary---size;
+    min-height: 87px;  // to see at least three items in selected items list
+}
+
+ .jr-mMultiselect-input-placeholder.jr {
+   color: #999999;
+ }
+
+// MULTISELECT - AVAILABLE AND SELECTED TOGGLES
+.jr-mMultiselect-toggleContainer.jr {
+    height: 26px;
+    border-bottom: 1px solid #d6d6d6;
+    position: absolute;
+    width: 100%;
+    z-index: $zindex-element-lvl-0;
+}
+
+.jr-mMultiselect-toggle.jr {
+    border: 1px solid #d6d6d6;
+    border-bottom: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+.jr-mMultiselect-toggle-label.jr {
+    color: #195b8a;
+    display: block;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.jr-mMultiselect-toggleAvailable.jr {
+    right: 50%;
+    bottom: 0;
+    left: 0;
+}
+
+.jr-mMultiselect-toggleSelected.jr {
+    right: 0;
+    bottom: 0;
+    left: 51%;
+}
+// iPad
+.ipad .jr-mMultiselect-toggleContainer.jr {
+    height: 36px;
+}
+
+.ipad .jr-mMultiselect-toggle-label.jr {
+    font-size: 14px;
+}
+
+// MULTISELECT - SEARCH INPUT
+.jr-mMultiselect-search.jr {
+    background: #fff;
+    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+    padding: 5px;
+    position: absolute;
+    width: 100%;
+    z-index: $zindex-element-lvl-0;
+}
+// iPad
+.ipad .jr-mMultiselect-search.jr {
+    background-position: right -266px;
+    height: em(30px);
+}
+
+// MULTISELECT - LIST CONTAINER ELEMENTS
+.jr-mMultiselect-listContainer.jr {
+    background: transparent;
+    border-top: none;
+    border-bottom: 1px solid #d6d6d6;
+    height: 100%;
+    min-height: inherit; //prevents container from collapsing when empty
+}
+.jr-mMultiselect-listContainer.jr-isInactive.jr {
+    left: -999999px;
+    position: absolute;
+    top: 0;
+}
+.jr-mMultiselect-listContainer.jr-isActive.jr {
+    left: inherit;
+    position: relative;
+    top: inherit;
+}
+
+.jr-mMultiselect-list.jr {
+    height: 100%;
+    border-right: 1px solid #d6d6d6;
+    border-left: 1px solid #d6d6d6;
+}
+
+.jr-mMultiselect-list-message.jr {
+    font-style: italic;
+    padding: 2em;
+    text-align: center;
+}
+
+// MULTISELECT - ALL, NONE, INVERT BUTTONS
+.jr-mMultiselect-buttonContainer.jr {
+    background-color: #fff;
+    border: 1px solid #d6d6d6;
+    border-bottom: none;
+    height: auto;
+    position: absolute;
+    width:100%;
+    bottom: 0;
+}
+
+ // ----------------------
+ //  SIMPLE MULTI-SELECT
+ // ----------------------
+
+.jr-mMultiselectSimple.jr {
+  height: auto;
+}
+
+.jr-mMultiselectSimple.jr .jr-mMultiselect-listContainer.jr {
+  border: 1px solid #d6d6d6;
+}
+
+ .jr-mMultiselectSimple.jr .jr-mMultiselect-list.jr {
+   border: none;
+ }
+
+
+ // ---------------------------------------------------
+ //  MULTI-SELECT THAT FITS HEIGHT OF PARENT CONTAINER
+ // ---------------------------------------------------
+
+ .jr-mMultiselectFit.jr {
+   height: calc(100% - 2em);
+ }
+
+
+ // ------------------------------------------------
+//  FOR IPAD - CUSTOM MULTISELECT CONTROL MODULE
+// ------------------------------------------------
+
+// IPAD MULTISELECT ALL, NONE, INVERT BUTTONS
+.ipad .jr-mMultiselect-buttonContainer.jr {
+    height: 30px;
+}
+
+.ipad .jr-mMultiselect-button.jr {
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.ipad .jr-mMultiselect-button-icon.jr {
+    height: 28px;
+}
+
+// ipad individual button positions and styling
+.ipad .jr-mMultiselect-button-icon.all.jr {
+    background-position: 0 -142px;
+    width: 20px;
+}
+
+.ipad .jr-mMultiselect-button-icon.none.jr {
+    background-position: 0 -172px;
+    width: 17px;
+}
+
+.ipad .jr-mMultiselect-button-icon.invert.jr {
+    background-position: 0 -203px;
+    width: 18px;
+}
+
+
+
+// --------------
+//     STATES
+// --------------
+
+// select list
+.jr-mSelectlist-item.jr-isHovered.jr {
+    background-color: #e4e4e4;
+    color: #333;
+}
+
+.jr-mSelectlist-item.jr-isSelected.jr {
+    background-color: #1388d8;
+    color: #fff;
+}
+
+.jr-mSelectlist-item.jr-isSelected.jr-isHovered.jr {
+    background-color: #0f67a9;
+    color: #fff;
+}
+
+
+// disabled
+.jr-mSingleselect.jr-isDisabled.jr,
+.jr-mMultiselect.jr-isDisabled.jr {
+  opacity: .5;
+}
+
+.jr-mSingleselect.jr-isDisabled.jr *,
+.jr-mMultiselect.jr-isDisabled.jr * {
+  cursor: default;
+}
+
+// single select
+.jr-mSingleselect-input.jr-isOpen.jr {
+    -moz-box-shadow: 0 .364em .364em rgba(51,51,51,0.5);
+    -webkit-box-shadow: 0 .364em .364em rgba(51,51,51,0.5);
+    box-shadow: 0 .364em .364em rgba(51,51,51,0.5);
+    border-bottom: .091em solid #fff;
+}
+
+.jr-mSingleselect-input.jr-isOpen.jr .jr-mSingleselect-input-expander.jr,
+.jr-mSingleselect-input.jr-isOpen.jr .jr-mSingleselect-input-placeholder.jr{
+    display: none;
+}
+
+.jr-mSingleselect-search.jr-isOpen.jr {
+    left: 0;
+}
+
+
+// multi-select - available and selected toggles
+.jr-mMultiselect-toggle.jr-isActive.jr {
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    height: 26px;
+    line-height: 24px;
+    top: 1px;
+}
+
+.jr-mMultiselect-toggle.jr-isInactive.jr {
+    background-color: #ebebeb;
+    height: 20px;
+    line-height: 18px;
+}
+
+.jr-mMultiselect-list-message.jr-isHidden.jr {
+    display: none;
+}
+
+
+// ipad
+.ipad .jr-mMultiselect-toggle.jr-isActive.jr {
+    height: 36px;
+    line-height: 34px;
+}
+
+.ipad .jr-mMultiselect-toggle.jr-isInactive.jr {
+    height: 28px;
+    line-height: 26px;
+}

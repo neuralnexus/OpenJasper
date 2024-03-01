@@ -1,0 +1,83 @@
+/*!
+ * Copyright (C) 2005 - 2020 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* =========================================
+	OVERLAY MODULE
+	Last modified date:     July 26, 2017
+	Last modified by:       Anna Leeg
+ * ========================================= */
+
+// ------------------
+//	OVERLAY MODULE
+// ------------------
+.jr-mOverlay.jr {
+  background-color: rgba(51, 51, 51, 0.6);
+  height: 100%;
+  position: absolute;
+    top: 0;
+    left: 0;
+  width: 100%;
+  z-index: $zindex-overlay;
+}
+
+.jr-mOverlay-wrapper.jr {
+  height: 100%;
+  text-align: center;
+}
+
+.jr-mOverlay-wrapperCenter.jr {
+  height: auto;
+  text-align: center;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%)
+}
+
+.jr-mOverlay-wrapperCenter.jr:before {
+  vertical-align: middle;
+}
+
+
+.jr-mOverlay-centroid.jr {
+  height: 100%;
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+} //TODO: remove centroid rule after JRS-12165
+
+
+// ---------------------------------
+// MODULE VARIATION, TRANSPARENT
+// ---------------------------------
+.jr-mOverlayClear.jr {
+  background-color: transparent;
+}
+
+
+
+// STATE
+.jr-mOverlay.jr-isHidden.jr {
+    display: none;
+}

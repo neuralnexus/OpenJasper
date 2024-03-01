@@ -1,0 +1,29 @@
+{
+    "title": "Report save as options",
+    "type": "object",
+    "properties": {
+        "folderUri": {
+            "type": "string",
+            "description": "The URI of a folder to save a report",
+            "pattern": "^/.*"
+        },
+        "label": {
+            "type": "string",
+            "description": "Report resource label"
+        },
+        "description": {
+            "type": "string",
+            "description": "Report resource description"
+        },
+        "overwrite": {
+            "type": "boolean",
+            "description": "If true and there is a resource with the same name, then the resource will be overridden",
+            "default": "false"
+        },
+        "inputControlsOrder": {
+            "type": "string",
+            "description": ";-separated new input controls order"
+        }
+    },
+    "required": ["folderUri"]
+}

@@ -1,0 +1,9 @@
+*.iml
+.idea/
+.env.local
+build/
+node_modules/
+package-lock.json
+/buildArtifactVersionName.txt
+yarn-error.log
+/.tscache
