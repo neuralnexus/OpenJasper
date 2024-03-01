@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jaspersoft.jasperserver</groupId>
+    <artifactId>jasperserver-remote-services</artifactId>
+    <packaging>jar</packaging>
+    <name>JasperServer remote services</name>
+    <parent>
+        <groupId>com.jaspersoft.jasperserver</groupId>
+        <artifactId>server</artifactId>
+        <version>${buildArtifactVersionName}</version>
+    </parent>
+    <dependencies>
+       <!-- Java 9+ doesn't come with com.sun.mail as a standard package anymore but we need it -->
+        <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>com.jaspersoft.jasperserver.core.util</groupId>
+          <artifactId>jasperserver-core-util</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>com.jaspersoft.jasperserver.api.engine.impl</groupId>
+          <artifactId>jasperserver-api-engine-impl</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>com.jaspersoft.jasperserver</groupId>
+          <artifactId>jasperserver-common-ws</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>com.jaspersoft.jasperserver</groupId>
+          <artifactId>jasperserver-search</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-war-jar</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-export-tool</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-input-controls</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+            <version>${jackson.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <skip>${skipRemoteTests}</skip>
+                    <excludes>
+                        <!-- <exclude>**/RunReportServiceImplTest.java</exclude> -->
+                        <exclude>**/BatchRepositoryServicePeganatedSearchTest.java</exclude>
+                        <exclude>com/jaspersoft/jasperserver/remote/services/impl/async/*Test.java</exclude>
+                    </excludes>
+                    <argLine>${argLine} </argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>build-ce</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <skipRemoteTests>false</skipRemoteTests>
+            </properties>
+        </profile>
+        <profile>
+            <id>env-dev</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>dev</value>
+                </property>
+            </activation>
+            <properties>
+                <skipRemoteTests>true</skipRemoteTests>
+            </properties>
+        </profile>
+        <profile>
+            <id>env-ci</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>ci</value>
+                </property>
+            </activation>
+            <properties>
+                <skipRemoteTests>false</skipRemoteTests>
+            </properties>
+        </profile>
+    </profiles>
+</project>

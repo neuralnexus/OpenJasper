@@ -1,0 +1,37 @@
+{
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "id": "city1",
+          "field": "sales_fact_ALL.sales__store.sales__store__region.sales__store__region__sales_city"
+        }
+      ]
+    },
+    "where": {
+      "filterExpression": {
+        "object": {
+          "equals": {
+            "operands": [
+              {
+                "variable": {
+                  "name": "city1"
+                }
+              },
+              {
+                "string": {
+                  "value": "San Francisco"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "/public/Samples/Ad_Hoc_Views/04__Product_Results_by_Store_Type"
+    }
+  }
+}

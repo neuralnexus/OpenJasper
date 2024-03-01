@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<antlib>
+
+<taskdef classname="com.jaspersoft.jasperserver.codecoverage.ant.CCValidationTask" name="validate"/>
+
+
+</antlib>

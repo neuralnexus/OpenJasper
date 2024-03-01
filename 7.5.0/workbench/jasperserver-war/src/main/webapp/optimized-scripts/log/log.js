@@ -1,0 +1,1 @@
+define(["require","runtime_dependencies/js-sdk/src/common/logging/logger"],function(e){return e("runtime_dependencies/js-sdk/src/common/logging/logger")});

@@ -1,0 +1,33 @@
+{
+  "version": 101,
+  "permissionMask": 100,
+  "creationDate": "TEST_CREATION_DATE",
+  "updateDate": "TEST_UPDATE_DATE",
+  "label": "TEST_LABEL",
+  "description": "TEST_DESCRIPTION",
+  "uri": "TEST_URI",
+  "serviceClass": "TEST_SERVICE_CLASS",
+  "dataSourceName": "TEST_DATA_SOURCE_NAME",
+  "properties": [
+    {
+      "key": "TEST_KEY_A",
+      "value": "TEST_VALUE_A"
+    },
+    {
+      "key": "TEST_KEY_B",
+      "value": "TEST_VALUE_B"
+    }
+  ],
+  "resources": {
+    "resource": [
+      {
+        "name": "TEST_URI",
+        "file": {
+          "fileReference": {
+            "uri": "TEST_URI"
+          }
+        }
+      }
+    ]
+  }
+}

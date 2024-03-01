@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,E,r){r.exports={UNEXPECTED_ERROR:"unexpected.error",INVALID_RESOURCE_TYPE:"invalid.resource.type",ACCESS_DENIED:"access.denied"}});

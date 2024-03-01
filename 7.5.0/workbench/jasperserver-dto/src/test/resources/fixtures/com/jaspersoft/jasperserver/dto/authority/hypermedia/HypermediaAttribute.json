@@ -1,0 +1,19 @@
+{
+  "name": "testName",
+  "value": "testValue",
+  "description": "testDescription",
+  "permissionMask": 32,
+  "holder": "testHolder",
+  "secure": true,
+  "inherited": true,
+  "_embedded": {
+    "permission": [
+      {}
+    ]
+  },
+  "_links": {
+    "permission": {
+      "href": "href"
+    }
+  }
+}

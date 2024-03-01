@@ -1,0 +1,13 @@
+{
+  "params": {
+    "offset": [
+      2,
+      3
+    ]
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "uri"
+    }
+  }
+}

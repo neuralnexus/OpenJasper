@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(a,e,n){n.exports=["java.lang.Date","java.lang.String","java.lang.Integer","java.lang.Boolean","java.lang.Double","java.sql.Timestamp","java.lang.Short","java.math.BigDecimal","java.lang.Long","java.sql.Time"]});

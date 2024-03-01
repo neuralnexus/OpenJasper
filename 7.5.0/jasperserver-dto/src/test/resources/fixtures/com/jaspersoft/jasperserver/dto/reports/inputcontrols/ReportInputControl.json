@@ -1,0 +1,50 @@
+{
+  "id": "TEST_ID",
+  "description": "TEST_DESCRIPTION",
+  "type": "TEST_TYPE",
+  "uri": "TEST_URI",
+  "label": "TEST_LABEL",
+  "mandatory": true,
+  "readOnly": true,
+  "visible": true,
+  "masterDependencies": [
+    "TEST_MASTER_DEPENDENCY"
+  ],
+  "slaveDependencies": [
+    "TEST_SLAVE_DEPENDENCY"
+  ],
+  "validationRules": [
+    {
+      "dateTimeFormatValidationRule": {
+        "errorMessage": "TEST_ERROR_MESSAGE"
+      }
+    },
+    {
+      "mandatoryValidationRule": {
+        "errorMessage": "TEST_ERROR_MESSAGE"
+      }
+    },
+    {
+      "rangeValidationRule": {
+        "errorMessage": "TEST_ERROR_MESSAGE",
+        "inverted": false,
+        "includeMaxValue": false,
+        "includeMinValue": false
+      }
+    },
+    {
+      "regexpValidationRule": {
+        "errorMessage": "TEST_ERROR_MESSAGE",
+        "inverted": false
+      }
+    }
+  ],
+  "state": {
+    "id": "TEST_ID"
+  },
+  "dataType": {
+    "pattern": "TEST_PATTERN",
+    "strictMax": false,
+    "strictMin": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "TEST_ID",
+  "secondAggregateField": "TEST_AGGREGATE_ARG",
+  "functionName": "TEST_AGGREGATE_FUNCTION",
+  "timeBalanceFunctionName": "TEST_AGGREGATE_FIRST_LEVEL_FUNCTION",
+  "expression": {
+    "object": {
+      "add": {
+        "operands": []
+      }
+    }
+  },
+  "arg": "TEST_AGGREGATE_ARG",
+  "type": "TEST_AGGREGATE_TYPE",
+  "fieldRef": "TEST_FIELD_REFERENCE"
+}

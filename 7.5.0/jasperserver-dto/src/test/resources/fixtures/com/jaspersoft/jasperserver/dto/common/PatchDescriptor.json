@@ -1,0 +1,12 @@
+{
+  "patch": [
+    {
+      "expression": "expression"
+    },
+    {
+      "field": "field",
+      "value": "23"
+    }
+  ],
+  "version": 2
+}

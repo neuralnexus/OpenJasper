@@ -1,0 +1,19 @@
+{
+  "fullName": "user name",
+  "password": "pass",
+  "emailAddress": "email@test.com",
+  "externallyDefined": true,
+  "enabled": true,
+  "previousPasswordChangeTime": "2001-09-09T01:46:39.999+0000",
+  "tenantId": "23",
+  "username": "user",
+  "roles": [
+    {
+      "externallyDefined": false
+    },
+    {
+      "name": "name",
+      "externallyDefined": false
+    }
+  ]
+}

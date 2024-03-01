@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "kind": "TEST_KIND"
+  },
+  "rows": [
+    [
+      "TEST_DATA_COLUMN_A_ROW_A",
+      "TEST_DATA_COLUMN_B_ROW_A"
+    ],
+    [
+      "TEST_DATA_COLUMN_A_ROW_B",
+      "TEST_DATA_COLUMN_B_ROW_B"
+    ]
+  ]
+}

@@ -1,0 +1,381 @@
+/*
+ * Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+.overrides_custom css
+
+Place styles for simple UI customization in this file
+
+*/
+
+/* accessible keyboard navigation */
+#metaLinks li.subfocus:not(select),
+#metaLinks li.over {
+    background-color: #89bd0d;
+}
+
+/* theme.css */
+.palette08,
+.button.action.primary.disabled,
+.button.action.primary[disabled] {
+	color: #97cffe;
+}
+
+.palette08_bkgd {
+	background-color: #a2c664;
+}
+
+.palette10_bkgd {
+	background-color: #6aa707;
+}
+
+.content .header > .title,
+.column.decorated.minimized .vtitle {
+    color: #666666;
+}
+
+.palette14_bkgd,
+.palette15_bkgd,
+.palette16_bkgd {
+	background-color: transparent;
+}
+
+.palette15, .button.capsule.down {
+	color: #004400;
+}
+
+.palette16,
+.button.capsule.down.disabled,
+.button.capsule.down[disabled],
+.resourcePath {
+	color: #306f04;
+}
+
+.sky_bkgd {
+	background-color: #4698be;
+}
+
+.addNewItem, a.addNewItem,
+.hyperlinkPropertiesSection a.addNewItem{
+    border-color: #3bafff;
+    color: #3bafff;
+}
+
+.button.capsule.superfocus.subfocus:hover,
+.button.capsule.up.over,
+.button.capsule.down,
+.button.capsule.down.over,
+.button.capsule.down.pressed {
+    background-color: #0081cb;
+}
+
+.button.capsule.up.pressed,
+.button.capsule.down.over,
+.button.capsule.superfocus.subfocus.pressed {
+    background-color: #3bafff;
+}
+
+.dashboardToolbar #save.pressed,
+.dashboardToolbar #export.pressed,
+.dashboardCanvas .dashletToolbar .button.text.cancelDashletButton,
+.dashboardCanvas .dashletToolbar .button.exportDashletButton.pressed {
+    background-color: #0081cb;
+}
+
+.action.small.up.over,
+.action.small.up.pressed {
+    background-color: #0081cb;
+}
+
+.action.small.pressed.over,
+.action.small.down,
+.action.small.down.over,
+.action.small.down.pressed,
+.sourceDialogNew .header .button.over.subfocus{
+    background-color: #3bafff;
+}
+
+.palette11,
+.textAccent02,
+.tabSet.text .selected.tab > .wrap,
+.tabSet.text .selected.tab > .wrap.over,
+.tabSet.text .selected.tab > .wrap.pressed,
+.list.filters > li.selected>.wrap,
+.list.filters > li.selected>.wrap.pressed,
+.list.filters > li.selected>.wrap .launcher,
+.list.stepIndicator .selected>.wrap,
+.panel.info.system .message,
+.list.type_basic .wrap a,
+.resourceName,
+.fsection,
+.launcher,
+#reportContainer a,
+#scheduler_editor #stepDisplay > fieldset > legend,
+.homeSidebar-title,
+.workflow-title,
+#resultsContainer .resourceName,
+.resourceBlock a:link,
+.resourceBlock a:visited,
+.resourceBlock a:hover,
+.resourceBlock a:active,
+.workflow-description a:hover,
+.workflow-buttonContainer .button,
+.plusminus .node > .wrap > .jrbookmark,
+.list.settings .panel.pane.settings .header > .title,
+.tabSet.horizontal.buttons .selected > .button > .wrap,
+.tabSet.horizontal.buttons .button.over,
+.tabSet.horizontal.buttons .button.pressed,
+.content .header > .title,
+.resourceBlock-title,
+.column.decorated.minimized .vtitle,
+.flow #stepDisplay .column.primary .header .title,
+.flow #stepDisplay .column.secondary .header .title,
+#loginPage #metaLinks li,
+#loginPage #metaLinks a,
+#loginPage #metaLinks a:hover,
+#loginPage #metaLinks a:active,
+#needHelp {
+    color: #0081cb; /* TICBO medium blue */
+}
+
+.authorityPicker .selected,
+.authorityPicker .highlighted.selected,
+.list > li > .wrap.pressed,
+.list > li.selected > .wrap,
+.list > li.selected > .wrap.over,
+ div:focus li.selected > .wrap,
+.royal_bkgd,
+.menu.vertical li >.wrap.over,
+.menu.vertical li > .wrap.pressed,
+.list.responsive > li >.wrap.pressed,
+.list.responsive > li.selected:focus > .wrap,
+.list.responsive > li.selected:focus > .wrap.over {
+	background-color: #3bafff;
+}
+
+.cerulean {
+	color: #134F91;
+}
+
+.cerulean_bkgd {
+	background-color: #134f91;
+}
+
+.tabSet.vertical.buttons .button {
+    background-color: #0081cb;
+}
+
+.tabSet.vertical.buttons .selected .button,
+.tabSet.vertical.buttons .selected .button.over,
+.tabSet.vertical.buttons .selected .button.pressed,
+.tabSet.vertical.buttons .button.over,
+.tabSet.vertical.buttons .button.pressed,
+.tabSet.vertical.buttons .button.over {
+    background-color: #3bafff;
+}
+
+.tabSet.buttons.vertical [disabled] {
+    /* eqivalent to .4 opacity */
+    color: #80b3df;
+}
+
+#loginPage #copy {
+    background-color: #6aa707;
+    border-left: 4px solid #fff;
+    border-right: 4px solid #fff;
+}
+
+#loginForm .devices {
+    background-position: center 0;
+    background-size: auto;
+}
+
+#loginPage #frameFooter {
+    background-image: none;
+    background-color: #00a9d7;
+    border-top: 2px solid #fff;
+    height: 20px;
+}
+
+a#about,
+a#about:hover,
+a#about:active {
+	color: #e4f4c9;
+}
+
+.workflow-title {
+    color: #467a02;
+}
+
+.workflow-buttonContainer .button {
+	color:#467a02;
+}
+
+/* lists */
+.list.filters > li:not(.selected) > .wrap.over,
+.list.filters > li:not(.selected) > .wrap.pressed {
+    background-color: #3bafff;
+}
+
+/* controls */
+#tableOptions.over, #chartOptions.over {
+    background-color: #0081cb;
+}
+
+
+/* containers.css */
+.banner {
+    background-color: #6aa707;
+}
+
+.menu.primaryNav .wrap.over,
+.menu.primaryNav .wrap.pressed {
+	background-image: none;
+	background-color: #89bd0d;
+}
+
+.menu.vertical {
+	border:none \9; /* for all ie browsers */
+}
+
+.panel.tooltip .message.label {
+    color: #0081cb;
+}
+
+#frameFooter {
+	background-image: none;
+	background-color: #6aa707;
+}
+
+/* repository */
+#repoBrowse .column.primary > .content > .body {
+    margin-top: 29px;
+}
+
+
+/* buttons.css */
+.action.jumbo {
+	*height: auto;
+}
+
+.action.jumbo.up.over {
+	color: #8FBD04;
+	border: 1px solid #8FBD04;
+}
+
+.action.jumbo.up.pressed {
+	color: #439000;
+	border: 1px solid #439000;
+}
+
+.action.jumbo.pressed {
+	background-color: #6db000;
+	-moz-box-shadow: 0px 0px 0px;
+	-webkit-box-shadow: 0px 0px 0px ;
+	box-shadow: 0px 0px 0px;
+}
+
+.action.jumbo>.wrap {
+	left: -5px;
+}
+
+.action.primary,
+.action.primary.pressed,
+.action.primary.pressed.over {
+    background-color: #3bafff;
+}
+
+.action.primary.over {
+    background-color: #0081cb;
+}
+
+#reportViewer #asyncCancel,
+#reportViewer .toolsRight .button.action.up.over,
+#reportViewer .toolsRight .button.action.up.pressed,
+#reportViewer .toolsRight .button.action.down,
+#reportViewer .toolsRight .button.action.down.over,
+#reportViewer .toolsRight .button.action.down.pressed {
+    background-color: #0081cb;
+}
+
+#reportPartsContainer .button.action.up.over,
+#reportPartsContainer .reportPart.active {
+    background-color: #1388d8;
+}
+
+
+/* pages.css */
+.twoColumn > .primary.column,
+.body.twoColumn > .primary.column,
+.row.twoColumn > .primary.column {
+    display: block;
+    left: 200px;
+    right: 0;
+}
+
+.threeColumn > .primary.column,
+.body.threeColumn > .primary.column,
+.row.threeColumn > .primary.column {
+    display: block;
+    left: 200px;
+    margin-left: 1px;
+    margin-right: 1px;
+    right: 200px;
+}
+
+
+/* pageSpecific.css */
+#manage_users .twoColumn.manager > .primary.column,
+#manage_roles .twoColumn.manager > .primary.column {
+	left: 0;
+	margin-left: 5px;
+	margin-right: 15px;
+}
+
+#designer .toolbar .buttonSet .node > .button.pressed {
+    background-color: #0081cb;
+}
+
+.resourceBlock-title {
+    color: #666;
+    display: inline;
+    line-height: inherit;
+}
+
+
+/* NEW COMPONENTS */
+/* button */
+.jr-mButtonAction.jr-mButtonOutline.jr-isDown.jr,
+.jr-mButtonPrimary.jr:hover:active,
+.jr-mButtonPrimary.jr {
+    background-color: #3bafff;
+}
+
+.jr-mButtonPrimary.jr-isHovered.jr,
+.jr-mButtonPrimary.jr:focus,
+.jr-mButtonPrimary.jr:hover {
+    background-color: #0081cb;
+}
+
+/* dialog */
+.jr-mDialog-header-title.jr {
+    color: #0081cb;
+}

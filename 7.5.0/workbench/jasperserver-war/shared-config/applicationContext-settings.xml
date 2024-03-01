@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    <alias name="${bean.settingsGroups}" alias="settingsGroups"/>
+    <bean id="settingsGroupsCE" class="java.util.HashMap">
+        <constructor-arg index="0" type="java.util.Map">
+            <map>
+                <entry key="dataSourcePatterns" value-ref="dataSourcePatterns"/>
+                <entry key="userTimeZones" value-ref="userTimeZonesSettingsProvider"/>
+                <entry key="globalConfiguration" value-ref="configurationBean"/>
+                <entry key="awsSettings" value-ref="awsSettingsProvider"/>
+                <entry key="jasperreports" value-ref="jasperreports"/>
+                <entry key="clientLogging" value-ref="clientLogging"/>
+                <entry key="treeComponent" value-ref="treeComponent"/>
+                <entry key="dateTimeSettings" value-ref="dateTimeSettingsProvider"/>
+                <entry key="decimalFormatSymbols" value-ref="decimalFormatSymbolsProvider"/>
+                <entry key="auth" value-ref="authSettingsProvider"/>
+                <entry key="request" value-ref="requestSettingsProvider"/>
+                <entry key="inputControls" value-ref="inputControls"/>
+                <entry key="exportResourceOptions" value-ref="${bean.exportResourceOptions}"/>
+                <entry key="#{T(com.jaspersoft.jasperserver.dto.bridge.SettingsBridge).GROUP_NAME_PROFILE_ATTRIBUTES}"
+                       value-ref="profileAttributes"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <util:map id="dataSourcePatterns">
+        <entry key="dbHost">
+            <!-- Default pattern, which also includes pattern for the "attribute" placeholder through Spring Expression Language (SpEL) -->
+            <value><![CDATA[^([\p{L}\p{M}\p{N}_.,\-]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="dbPort">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}_.,\-]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="dbName">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="sName">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="securityToken">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="stmtCallLimit">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="serverAddress">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}_.:,/\-]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="projectId">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="oAuthServiceAcctEmail">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}_.@,\-]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="oAuthPvtKeyPath">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}_.:,/\-]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="authMech">
+            <value><![CDATA[^([0|1|2]{1}|#{ attributePlaceholderPatternUI })$]]></value>
+        </entry>
+        <entry key="defaultKeySpace">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="driverType">
+            <value><![CDATA[^([1|2|3|4]{1}|#{ attributePlaceholderPatternUI })$]]></value>
+        </entry>
+        <entry key="schemaName">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="informixServerName">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="dynamicUrlPartPattern" value-ref="dynamicJdbcUrlPartPattern"/>
+        <!-- Non-field helper patterns -->
+        <entry key="forbidWhitespacesPattern">
+            <value><![CDATA[^([^\s]|#{ attributePlaceholderPatternUI })*$]]></value>
+        </entry>
+        <entry key="configPath">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}_.:,/\-]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="authenticationMethod">
+            <value><![CDATA[^([\p{L}\p{M}\p{N}\s_.,\-}{]|#{ attributePlaceholderPatternUI })+$]]></value>
+        </entry>
+        <entry key="attributePlaceholderPattern" value-ref="attributePlaceholderPatternUI"/>
+    </util:map>
+    <util:properties id="jasperreports" location="classpath:jasperreports.properties"/>
+    <bean id="dynamicJdbcUrlPartPattern" class="java.lang.String">
+        <constructor-arg type="java.lang.String">
+            <!-- /^jdbc:ingres://([\w.]*):([\w.]*)/([\w.]*)/ -->
+            <value><![CDATA[((?:#{ attributePlaceholderPatternUI }|[\p{L}\p{M}\p{N}\s\_.,\-}{])+)]]></value>
+        </constructor-arg>
+    </bean>
+
+    <util:map id="clientLogging">
+        <entry key="enabled" value="true"/>
+        <entry key="level" value="error"/>
+    </util:map>
+
+    <util:map id="treeComponent">
+        <entry key="treeLevelLimit">
+            <value>5000</value>
+        </entry>
+    </util:map>
+
+    <util:map id="shouldApplyClientTimezoneFormattingSettings" key-type="java.lang.String" value-type="java.lang.Boolean">
+        <entry key="java.util.Date" value="false"/>
+        <entry key="java.sql.Date" value="false"/>
+        <entry key="java.sql.Timestamp" value="true"/>
+        <entry key="java.sql.Time" value="true"/>
+    </util:map>
+
+    <util:map id="datePickerPropertiesMap" map-class="java.util.LinkedHashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="closeText" value="CAL_close"/>
+        <entry key="prevText" value="CAL_prevText"/>
+        <entry key="nextText" value="CAL_nextText"/>
+        <entry key="currentText" value="CAL_currentText"/>
+        <entry key="monthNames">
+            <util:set set-class="java.util.LinkedHashSet" value-type="java.lang.String">
+                <value>CAL_monthNames_jan</value>
+                <value>CAL_monthNames_feb</value>
+                <value>CAL_monthNames_mar</value>
+                <value>CAL_monthNames_apr</value>
+                <value>CAL_monthNames_may</value>
+                <value>CAL_monthNames_jun</value>
+                <value>CAL_monthNames_jul</value>
+                <value>CAL_monthNames_aug</value>
+                <value>CAL_monthNames_sep</value>
+                <value>CAL_monthNames_oct</value>
+                <value>CAL_monthNames_nov</value>
+                <value>CAL_monthNames_dec</value>
+            </util:set>
+        </entry>
+        <entry key="monthNamesShort">
+            <util:set set-class="java.util.LinkedHashSet" value-type="java.lang.String">
+                <value>CAL_monthNames_short_jan</value>
+                <value>CAL_monthNames_short_feb</value>
+                <value>CAL_monthNames_short_mar</value>
+                <value>CAL_monthNames_short_apr</value>
+                <value>CAL_monthNames_short_may</value>
+                <value>CAL_monthNames_short_jun</value>
+                <value>CAL_monthNames_short_jul</value>
+                <value>CAL_monthNames_short_aug</value>
+                <value>CAL_monthNames_short_sep</value>
+                <value>CAL_monthNames_short_oct</value>
+                <value>CAL_monthNames_short_nov</value>
+                <value>CAL_monthNames_short_dec</value>
+            </util:set>
+        </entry>
+        <entry key="dayNames">
+            <util:set set-class="java.util.LinkedHashSet" value-type="java.lang.String">
+                <value>CAL_dayNames_sun</value>
+                <value>CAL_dayNames_mon</value>
+                <value>CAL_dayNames_tue</value>
+                <value>CAL_dayNames_wed</value>
+                <value>CAL_dayNames_thu</value>
+                <value>CAL_dayNames_fri</value>
+                <value>CAL_dayNames_sat</value>
+            </util:set>
+        </entry>
+        <entry key="dayNamesShort">
+            <util:set set-class="java.util.LinkedHashSet" value-type="java.lang.String">
+                <value>CAL_dayNames_short_sun</value>
+                <value>CAL_dayNames_short_mon</value>
+                <value>CAL_dayNames_short_tue</value>
+                <value>CAL_dayNames_short_wed</value>
+                <value>CAL_dayNames_short_thu</value>
+                <value>CAL_dayNames_short_fri</value>
+                <value>CAL_dayNames_short_sat</value>
+            </util:set>
+        </entry>
+        <entry key="dayNamesMin">
+            <util:set set-class="java.util.LinkedHashSet" value-type="java.lang.String">
+                <value>CAL_dayNames_min_sun</value>
+                <value>CAL_dayNames_min_mon</value>
+                <value>CAL_dayNames_min_tue</value>
+                <value>CAL_dayNames_min_wed</value>
+                <value>CAL_dayNames_min_thu</value>
+                <value>CAL_dayNames_min_fri</value>
+                <value>CAL_dayNames_min_sat</value>
+            </util:set>
+        </entry>
+        <entry key="weekHeader" value="CAL_weekHeader"/>
+        <entry key="dateFormat" value="calendar.date.format"/>
+        <entry key="firstDay" value="CAL_firstDay"/>
+        <entry key="isRTL" value="CAL_isRTL"/>
+        <entry key="showMonthAfterYear" value="CAL_showMonthAfterYear"/>
+        <entry key="yearSuffix" value="CAL_yearSuffix"/>
+    </util:map>
+
+    <util:map id="dateTimeSettingsPropertyTypeMap" map-class="java.util.LinkedHashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="CAL_firstDay" value="java.lang.Integer"/>
+        <entry key="CAL_isRTL" value="java.lang.Boolean"/>
+        <entry key="CAL_showMonthAfterYear" value="java.lang.Boolean"/>
+    </util:map>
+
+    <util:map id="timePickerPropertiesMap" map-class="java.util.LinkedHashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="timeOnlyTitle" value="CAL_timeOnlyTitle"/>
+        <entry key="timeText" value="CAL_time"/>
+        <entry key="hourText" value="CAL_hour"/>
+        <entry key="minuteText" value="CAL_min"/>
+        <entry key="secondText" value="CAL_second"/>
+        <entry key="millisecText" value="CAL_millisecText"/>
+        <entry key="microsecText" value="CAL_microsecText"/>
+        <entry key="timezoneText" value="CAL_timezoneText"/>
+        <entry key="timezoneText" value="CAL_timezoneText"/>
+        <entry key="currentText" value="CAL_now"/>
+        <entry key="closeText" value="CAL_close"/>
+        <entry key="timeSuffix" value="CAL_timeSuffix"/>
+        <entry key="timeFormat" value="CAL_timeFormat"/>
+        <entry key="amNames">
+            <util:set set-class="java.util.LinkedHashSet" value-type="java.lang.String">
+                <value>CAL_amNames_AM</value>
+                <value>CAL_amNames_short_AM</value>
+                <value>CAL_amNames_min_AM</value>
+            </util:set>
+        </entry>
+        <entry key="pmNames">
+            <util:set set-class="java.util.LinkedHashSet" value-type="java.lang.String">
+                <value>CAL_pmNames_PM</value>
+                <value>CAL_pmNames_short_PM</value>
+                <value>CAL_pmNames_min_PM</value>
+            </util:set>
+        </entry>
+        <entry key="isRTL" value="CAL_isRTL"/>
+        <entry key="timeFormat" value="calendar.time.format"/>
+        <entry key="dateFormat" value="calendar.date.format"/>
+        <entry key="separator" value="calendar.datetime.separator"/>
+    </util:map>
+
+    <bean id="dateTimeSettingsProvider" class="com.jaspersoft.jasperserver.remote.settings.DateTimeSettingsProvider">
+        <property name="applyClientTimezoneFormatting" ref="shouldApplyClientTimezoneFormattingSettings"/>
+        <property name="datePickerDefaultLocale" value="en"/>
+        <property name="datePickerPropertiesMapping" ref="datePickerPropertiesMap"/>
+        <property name="timePickerPropertiesMapping" ref="timePickerPropertiesMap"/>
+        <property name="dateTimeSettingsPropertyTypeMapping" ref="dateTimeSettingsPropertyTypeMap"/>
+        <property name="messageSource" ref="messageSource"/>
+        <property name="enableCache" value="true"/>
+    </bean>
+
+    <bean id="requestSettingsProvider" class="com.jaspersoft.jasperserver.remote.settings.RequestSettingsProvider"/>
+
+    <util:map id="inputControls">
+        <entry key="useUrlParametersOnReset" value="true"/>
+    </util:map>
+
+    <util:map id="profileAttributes">
+        <entry key="#{T(com.jaspersoft.jasperserver.dto.bridge.SettingsBridge).SETTING_NAME_ATTRIBUTE_PLACEHOLDER_SIMPLE_PATTERN}"
+               value-ref="attributePlaceholderPatternUI"/>
+        <entry key="attributePlaceholderGroupingPattern" value="#{ attributePlaceholderPatterns[0] }"/>
+        <entry key="attributeFunctionPattern" value-ref="attributeFunctionPattern"/>
+    </util:map>
+
+    <util:map id="exportResourceOptionsCe" >
+        <entry key="report">
+            <set>
+                <value>reportUnit</value>
+            </set>
+        </entry>
+        <entry key="dataSource">
+            <set>
+                <value>beanDataSource</value>
+                <value>customDataSource</value>
+                <value>jdbcDataSource</value>
+                <value>jndiJdbcDataSource</value>
+                <value>virtualDataSource</value>
+                <value>mondrianConnection</value>
+                <value>xmlaConnection</value>
+                <value>awsDataSource</value>
+            </set>
+        </entry>
+        <entry key="other">
+            <set>
+                <value>file</value>
+                <value>folder</value>
+                <value>listOfValues</value>
+                <value>inputControl</value>
+                <value>query</value>
+                <value>mondrianXmlaDefinition</value>
+                <value>dataType</value>
+                <value>olapUnit</value>
+            </set>
+        </entry>
+    </util:map>
+
+</beans>

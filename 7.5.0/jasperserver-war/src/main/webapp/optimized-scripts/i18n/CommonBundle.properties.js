@@ -1,0 +1,1 @@
+define(["require","exports","module","./all.properties"],function(e,r,o){var p=e("./all.properties");o.exports=p});

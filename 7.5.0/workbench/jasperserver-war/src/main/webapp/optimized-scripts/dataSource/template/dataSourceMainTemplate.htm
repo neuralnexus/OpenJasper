@@ -1,0 +1,61 @@
+<div class="column decorated primary addNewDataSource">
+
+
+    <js-templateNonce></js-templateNonce>
+    <div class="content hasFooter">
+        <div class="pageHeader">
+            <div class="pageHeader-title">
+                <div class="pageHeader-title-icon">
+                    <span class="icon datasource"></span>
+                </div>
+                <div class="pageHeader-title-text">
+                    {{ if (!isEditMode) { }}
+                    {{- i18n['resource.dataSource.title.new'] }}
+                    {{ } }}
+                </div>
+            </div>
+        </div>
+        <div class="body {{ if (supportsTouch) { }}swipeScroll{{ } }}">
+            <div id="stepDisplay">
+                <fieldset class="row instructions">
+                    <legend class="offLeft"><span>{{- i18n["resource.dataSource.instructions"] }}</span></legend>
+                    <h2 class="textAccent02">
+                        {{ if (isEditMode) { }}
+                        {{- i18n["resource.dataSource.instructions.form.header.edit"] }}
+                        {{ } else { }}
+                        {{- i18n["resource.dataSource.instructions1"] }}
+                        {{ } }}
+
+                    </h2>
+                </fieldset>
+
+                <fieldset class="row inputs oneColumn">
+                    <legend class="offLeft"><span>{{- i18n["resource.dataSource.inputs"] }}</span></legend>
+                    <div class="column primary">
+                        <div class="content">
+                            <div class="header">
+                                <div class="title {{ if (isEditMode) { }}disabled{{ } }}">{{- i18n["resource.dataSource.type"] }}</div>
+                                <label class="control select inline" title="{{- i18n['resource.dataSource.dsType'] }}">
+                                    <span class="wrap offLeft">{{- i18n['resource.dataSource.dsType'] }}</span>
+                                    <select name="dataSourceType" {{ if (isEditMode) { }}disabled="disabled"{{ } }}>
+                                        {{ _.each(dataSourceTypeOptions, function(option) { }}
+                                        <option value="{{- option.value }}">{{- option.label }}</option>
+                                        {{ }); }}
+                                    </select>
+                                    <span class="message warning"></span>
+                                </label>
+                            </div>
+                            <div class="body dataSourceBody"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="footer ">
+            <fieldset id="wizardNav">
+                <button class="button primary action up" id="saveBtn"><span class="wrap">{{- i18n['resource.datasource.saveDialog.save'] }}</span><span class="icon"></span></button>
+                <button class="button up action" id="cancelBtn"><span class="wrap">{{- i18n['resource.datasource.saveDialog.cancel'] }}</span><span class="icon"></span></button>
+            </fieldset>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "userName":"TEST_USERNAME",
+  "password":"TEST_PASSWORD",
+  "folderPath":"TEST_FOLDER_PATH",
+  "serverName":"TEST_SERVER_NAME",
+  "type":"ftp",
+  "protocol":"TEST_PROTOCOL",
+  "port":100,
+  "implicit":true,
+  "pbsz":101,
+  "prot":"TEST_PROT",
+  "propertiesMap":{
+    "KEY":"VALUE"
+  },
+  "sshKey":"TEST_SSH_KEY",
+  "sshPassphrase":"TEST_SSH_PASSPHRASE"
+}

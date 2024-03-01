@@ -1,0 +1,15 @@
+{
+  "operands": [
+    {
+      "number": {
+        "value": "100"
+      }
+    },
+    {
+      "number": {
+        "value": "100"
+      }
+    }
+  ],
+  "paren": true
+}

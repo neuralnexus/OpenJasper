@@ -1,0 +1,21 @@
+{
+  "parameters":[
+    "TEST_EXPORT_PARAMETER"
+  ],
+  "uris":[
+    "TEST_URIS_OF_RESOURCE"
+  ],
+  "scheduledJobs":[
+    "TEST_URIS_OF_SCHEDULED_JOB"
+  ],
+  "roles":[
+    "TEST_ROLE_TO_EXPORT"
+  ],
+  "users":[
+    "TEST_USER_TO_EXPORT"
+  ],
+  "organization":"TEST_ORGANIZATION",
+  "resourceTypes":[
+    "TEST_RESOURCE_TYPE"
+  ]
+}

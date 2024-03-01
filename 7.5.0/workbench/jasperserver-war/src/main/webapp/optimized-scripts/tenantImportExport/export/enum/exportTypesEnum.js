@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,r,E){E.exports={ROOT_TENANT:"rootTenant",TENANT:"tenant",SERVER_CE:"serverCE",SERVER_PRO:"serverPRO",REPOSITORY:"repository"}});

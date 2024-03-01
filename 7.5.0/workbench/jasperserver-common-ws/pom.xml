@@ -1,0 +1,72 @@
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jaspersoft.jasperserver</groupId>
+  <artifactId>jasperserver-common-ws</artifactId>
+  <packaging>jar</packaging>
+  <name>Jasper Server Common WebServices</name>
+  <parent>
+    <groupId>com.jaspersoft.jasperserver</groupId>
+    <artifactId>server</artifactId>
+    <version>${buildArtifactVersionName}</version>
+  </parent>
+  <description>Jasper Server Common WebServices Deployment</description>
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.dtd</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins/>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>activation</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>javax.activation-api</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.jaspersoft.jasperserver.core.util</groupId>
+      <artifactId>jasperserver-core-util</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.jaspersoft.jasperserver</groupId>
+      <artifactId>jasperserver-web-common-api</artifactId>
+    </dependency>
+
+	<!-- DEPENDENCY FOR CODECS to send binaries over the wire-->
+	<dependency>
+		<groupId>commons-codec</groupId>
+		<artifactId>commons-codec</artifactId>
+	</dependency>
+
+  </dependencies>
+</project>

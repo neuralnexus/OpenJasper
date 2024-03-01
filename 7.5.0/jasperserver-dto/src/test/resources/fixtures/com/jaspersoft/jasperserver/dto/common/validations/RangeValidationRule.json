@@ -1,0 +1,8 @@
+{
+  "errorMessage": "error",
+  "inverted": true,
+  "maxValue": 22.2,
+  "minValue": 12.2,
+  "includeMaxValue": true,
+  "includeMinValue": true
+}

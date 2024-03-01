@@ -1,0 +1,11 @@
+{{ for (var i = 0, l = items.length; i<l; i++){ }}
+<li class="leaf">
+
+    <js-templateNonce></js-templateNonce>
+    <div class=""><span class="leftColumn">{{- items[i].name}}{{- items[i].username}}</span>
+        {{ if (items[i].tenantId){ }}
+            <span class="rightColumn">{{- items[i].tenantId }}</span>
+        {{ } }}
+    </div>
+</li>
+{{ } }}

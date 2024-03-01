@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,r,o){var i={};i.initOptions={isEditMode:!1,parentFolderUri:"",resourceIdNotSupportedSymbols:"[~!#\\$%^|\\s`@&*()\\-+={}\\[\\]:;\"'\\<\\>,?/\\|\\\\]",dependentResources:[]},i.initOptions.resourceUri="",o.exports=i});

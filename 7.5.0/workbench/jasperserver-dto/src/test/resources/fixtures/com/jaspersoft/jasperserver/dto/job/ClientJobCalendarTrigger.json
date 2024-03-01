@@ -1,0 +1,24 @@
+{
+  "id": 100,
+  "version": 2,
+  "timezone": "Europe/Dublin",
+  "calendarName": "TEST_CALENDAR_NAME",
+  "startType": 1,
+  "startDate": "2010-05-23 01:01",
+  "endDate": "2010-05-23 01:01",
+  "misfireInstruction": 0,
+  "minutes": "TEST_MINUTES",
+  "hours": "TEST_HOURS",
+  "daysType": "ALL",
+  "weekDays": {
+    "day": [
+      "1"
+    ]
+  },
+  "monthDays": "TEST_MONTH_DAYS",
+  "months": {
+    "month": [
+      "1"
+    ]
+  }
+}

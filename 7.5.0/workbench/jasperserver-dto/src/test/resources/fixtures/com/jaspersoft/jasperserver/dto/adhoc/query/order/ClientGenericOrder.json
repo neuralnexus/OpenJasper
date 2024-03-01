@@ -1,0 +1,5 @@
+{
+  "ascending": true,
+  "fieldRef": "TEST_FIELD_REFERENCE",
+  "aggregation": true
+}

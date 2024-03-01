@@ -1,0 +1,13 @@
+{
+  "query": {
+    "select": {
+      "fields": [],
+      "aggregations": []
+    }
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "/uri"
+    }
+  }
+}

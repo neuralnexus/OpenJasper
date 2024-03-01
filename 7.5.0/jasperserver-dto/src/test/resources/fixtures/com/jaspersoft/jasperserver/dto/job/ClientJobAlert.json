@@ -1,0 +1,16 @@
+{
+  "id":100,
+  "version":2,
+  "recipient":"ADMIN",
+  "jobState":"ALL",
+  "messageText":"TEST_MESSAGE_TEXT",
+  "messageTextWhenJobFails":"TEST_MESSAGE_TEXT_WHEN_JOB_FAILS",
+  "subject":"TEST_SUBJECT",
+  "includingStackTrace":true,
+  "includingReportJobInfo":true,
+  "toAddresses":{
+    "address":[
+      "TEST_TO_ADDRESS"
+    ]
+  }
+}

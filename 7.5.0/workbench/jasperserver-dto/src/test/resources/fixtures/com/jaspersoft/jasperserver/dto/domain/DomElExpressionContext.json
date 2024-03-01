@@ -1,0 +1,22 @@
+{
+  "forbiddenVariableNames": [
+    "TEST_FORBIDDEN_VARIABLE_NAME"
+  ],
+  "resultType": "TEST_RESULT_TYPE",
+  "aggregate": true,
+  "skipTypeAndFunctionsValidation": true,
+  "nonStrictMode": true,
+  "skipUndefinedVariablesCheck": true,
+  "expression": {
+    "object": {
+      "number": {
+        "value": "10"
+      }
+    }
+  },
+  "variables": [
+    {
+      "name": "TEST_NAME"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "executions": [
+    {
+      "providedQueryExecution": {
+        "params": {
+          "offset": [
+            0
+          ],
+          "pageSize": [
+            10
+          ]
+        },
+        "dataSource":{
+          "reference": {
+            "uri": "testDsUri"
+          }
+        }
+      }
+    },
+    {
+      "multiLevelQueryExecution": {
+        "query": {},
+        "params": {
+          "offset": [
+            0
+          ],
+          "pageSize": [
+            10
+          ]
+        },
+        "dataSource":{
+          "reference": {
+            "uri": "testDsUri"
+          }
+        }
+      }
+    },
+    {
+      "multiAxisQueryExecution": {
+        "query": {},
+        "params": {
+          "offset": [
+            0
+          ],
+          "pageSize": [
+            10
+          ]
+        },
+        "dataSource":{
+          "reference": {
+            "uri": "testDsUri"
+          }
+        }
+
+      }
+    }
+  ]
+}

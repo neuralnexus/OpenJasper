@@ -1,0 +1,8 @@
+{
+  "id": "TEST_ID",
+  "categorizer": "TEST_CATEGORIZER",
+  "includeAll": true,
+  "field": "TEST_FILE_NAME",
+  "dimension": "TEST_DIMENSION",
+  "hierarchy": "TEST_HIERARCHY_NAME"
+}

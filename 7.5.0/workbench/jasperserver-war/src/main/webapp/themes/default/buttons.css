@@ -1,0 +1,974 @@
+/*
+ * Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * From: button.css
+ */
+.button {
+	position: relative;
+	border: 0;
+    border-radius: 0;
+	padding: 0;
+	cursor: pointer;
+	background-color: transparent;
+	overflow: visible; /* removes extra side padding in IE */
+}
+
+.button.disabled,
+.button[disabled] {
+	cursor: default;
+}
+
+.button .wrap {
+	position: relative;
+	display: block !important;
+	white-space: nowrap;
+	font-family: inherit; /* fixes the problem that some browsers are rendering in lucida grande */
+	font-size: 11px;
+}
+
+.button .icon,
+.button .indicator {
+	display: inline-block;
+	background-repeat: no-repeat;
+}
+
+.button .indicator {
+	background-image: url(images/disclosure_indicators_sprite.png);
+	width:11px;
+	height:24px;
+	right:0;
+	top:0;
+	position: absolute;
+}
+
+.button .icon {
+	width:24px;
+	height:24px;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+button[disabled] .icon,
+button[disabled] .indicator {
+    opacity: 0.3;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	/*
+		Safari and Google Chrome only
+		To address discrepancy in rendering between PC and Mac WebKit
+	*/
+	.button {
+		margin-top: -1px;
+		margin-bottom: -1px;
+	}
+
+	.tabSet.horizontal .button > .wrap {
+		margin-top:0;
+	}
+}
+
+.button::-moz-focus-inner {
+	border: none; /* overrides extra padding in Firefox */
+	padding: 0;
+}
+/*
+ * From: action.css
+ */
+.action {
+	display: inline-block;
+	margin-right: 5px;
+	min-height: 28px;
+	padding :0 15px 0 0;
+	text-align: center;
+	text-decoration: none;
+}
+
+.action > .wrap {
+	background-position: left 0;
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+	line-height: 28px;
+	padding-left: 15px;
+}
+
+.action.square > .wrap {
+	margin-top:0;
+	margin-bottom:0;
+}
+
+.footer .action {
+	margin-top: 4px;
+}
+
+/* action square small, new buttons introduced October 2014 */
+/* occurs in redesigned Select Data dialog box (formerly Data Chooser) */
+.action.square.small {
+	margin: 0;
+	min-height: 24px;
+	padding: 0;
+	width: auto;
+}
+
+.action.square.small > .wrap {
+    height: 24px;
+    width: 24px;
+}
+
+.action.square.small.tree > .wrap,
+.action.square.small.list > .wrap {
+	width:30px;
+}
+
+.action.square.small > .wrap > .icon {
+    display: block;
+    height: 24px;
+    width: 30px;
+}
+
+/* button background color, states */
+.action.small.up {
+    background-color: #e4e4e4;
+}
+
+.action.small.up.over,
+.action.small.up.pressed {
+    background-color: #005dab; /* tci dark blue */
+}
+
+.action.small.pressed.over,
+.action.small.down,
+.action.small.down.over,
+.action.small.down.pressed {
+    background-color: #0081cb; /* tci medium blue */
+}
+
+
+/* button icon positions, states */
+.action.small.tree.up .icon {
+    background-position: -56px -175px;
+}
+
+.action.small.tree.up.over .icon,
+.action.small.tree.up.pressed .icon,
+.action.small.tree.down .icon,
+.action.small.tree.down.over .icon {
+    background-position: -86px -175px;
+}
+
+.action.small.list.up .icon {
+    background-position: -115px -445px;
+}
+
+.action.small.list.up.over .icon,
+.action.small.list.up.pressed .icon,
+.action.small.list.down .icon,
+.action.small.list.down.over .icon {
+    background-position: -146px -445px;
+}
+
+/* action simple, new icon-only buttons introduced July 2013 */
+/* icons updated in 2019 for UI Improvements epic */
+.action.simple {
+    background: url("images/button_action_icons_sprite@1x.png") no-repeat scroll 0 0 transparent;
+    background-size: 240px;
+	display: inline-block;
+    height: 18px;
+	margin: 0;
+    min-height: 18px;
+	padding: 0;
+	width: 18px;
+}
+
+/* 2x SIMPLE ACTION BUTTON ICONS */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .action.simple {
+        background-image: url(images/button_action_icons_sprite@2x.png);
+    }
+}
+
+.action.simple.button.save {
+    background-position: -120px -210px;
+}
+
+.action.simple.button.edit {
+	background-position: 0 -331px;
+}
+
+.action.simple.button.delete {
+	background-position: -1px -541px;
+}
+
+.action.simple.button.cancel {
+    background-position: -120px -180px;
+}
+
+.action.simple.button.add {
+    background-position: -60px -300px;
+    height:100%;
+}
+
+/*
+ * From: action.join.css
+ */
+
+.action.join.inner .icon {
+	background-position: 5px -751px;
+}
+
+.action.join.left .icon {
+	background-position: 5px -692px;
+}
+
+.action.join.right .icon {
+	background-position: 5px -722px;
+}
+
+.action.join.full .icon {
+	background-position: 5px -779px;
+}
+
+.action.join.inner.over .icon,
+.action.join.inner.pressed .icon {
+	background-position: -31px -751px;
+}
+
+.action.join.left.over .icon,
+.action.join.left.pressed .icon {
+	background-position: -31px -692px;
+}
+
+.action.join.right.over .icon,
+.action.join.right.pressed .icon {
+	background-position: -31px -722px;
+}
+
+.action.join.full.over .icon,
+.action.join.full.pressed .icon {
+	background-position: -31px -779px;
+}
+
+.action.join.inner[disabled] .icon {
+	background-position: -90px -751px;
+}
+
+.action.join.left[disabled] .icon {
+	background-position: -90px -692px;
+}
+
+.action.join.right[disabled] .icon {
+	background-position: -90px -722px;
+}
+
+.action.join.full[disabled] .icon {
+	background-position: -90px -779px;
+}
+
+
+/* action jumbo */
+.action.jumbo {
+	background-color: #FFFFFF;
+	border:1px solid #d7d7d7;
+	background-image: none;
+	margin:0 5px 16px 5px;
+	padding: 0 34px 0 0;
+	text-align: center;
+	text-decoration: none;
+}
+
+.action.jumbo > .icon {
+	background-image: url("images/home_icons_sprite.png");
+	height: 130px;
+	left: 50%;
+	margin-left: -111px;
+	margin-top: -44px;
+	position: absolute;
+	top: 50%;
+	width: 222px;
+}
+
+.action.jumbo > .wrap {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	height: 180px;
+	left: 2px;
+	line-height: 40px;
+	margin-top: 0;
+	min-width: 222px;
+	padding: 0 0 0 25px;
+}
+
+.action.jumbo.up.over {
+	background: #ffffff;
+	border:1px solid #FC870E;
+}
+
+.action.jumbo.up.pressed {
+	background: #ffffff;
+	border: 1px solid #FB5B0D;
+}
+
+.action.jumbo.over .icon,
+.action.jumbo.pressed .icon {
+	background-color: none;
+}
+
+.action.jumbo.pressed > .wrap {}
+
+.action.jumbo.disabled,
+.action.jumbo[disabled] {
+	background-color: #ffffff;
+}
+
+.action.jumbo.disabled > .wrap,
+.action.jumbo[disabled] > .wrap {}
+
+
+@-moz-document url-prefix() {
+	.action.jumbo {
+		background-image: none;
+	}
+
+	.action.jumbo > .wrap {
+		background:none;
+	}
+}
+
+/* action square */
+.action.square {
+	text-align: center;
+	width:34px;
+}
+
+.action.square > .wrap {
+	height: 32px;
+	width: 20px;
+	background-position: left top;
+	padding:0;
+	text-indent:-5000px;
+}
+
+.action.square > .wrap > .icon {
+	display: block;
+	height: 32px;
+	width: 34px;
+    background-image: url(images/button_action_icons_sprite@1x.png);
+	background-repeat: no-repeat;
+    background-size: 240px;
+}
+
+/* 2x ACTION BUTTON ICONS */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .action.square > .wrap > .icon {
+        background-image: url(images/button_action_icons_sprite@2x.png);
+    }
+}
+
+/* operator buttons */
+.button.math {
+    background: #fafafa;
+    border: 1px solid #e2e2e2;
+    border-radius: 1px;
+    cursor: pointer;
+    display:inline-block;
+    height: 24px;
+    margin-right: 3px;
+    margin-bottom: 6px;
+    -moz-user-select: none;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+
+}
+
+.button.math > .icon {
+    height: 24px;
+    line-height: 24px;
+	position:relative;
+    width: auto;
+}
+
+
+/* icon fonts for formula buttons */
+@font-face {
+	font-family: 'operators';
+	src:url('fonts/operators.eot');
+	src:url('fonts/operators.eot?#iefix') format('embedded-opentype'),
+		url('fonts/operators.woff') format('woff'),
+		url('fonts/operators.ttf') format('truetype'),
+		url('fonts/operators.svg#operators') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'operators';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.button.math [class^="icon-"], [class*=" icon-"] {
+	font-size:13px;
+	line-height: 18px;
+}
+
+.icon-add:before {
+	content: "\61";
+}
+.icon-subtract:before {
+	content: "\62";
+}
+.icon-multiply:before {
+	content: "\63";
+}
+.icon-divide:before {
+	content: "\64";
+}
+.icon-percent:before {
+	content: "\65";
+}
+.icon-parenLeft:before {
+	content: "\66";
+}
+.icon-parenRight:before {
+	content: "\67";
+}
+.icon-colon:before {
+	content: "\68";
+}
+.icon-equal:before {
+	content: "\69";
+}
+.icon-notEqual:before {
+	content: "\6a";
+}
+.icon-greaterThan:before {
+	content: "\6b";
+}
+.icon-lessThan:before {
+	content: "\6c";
+}
+.icon-greaterEqual:before {
+	content: "\6d";
+}
+.icon-lessEqual:before {
+	content: "\6e";
+}
+.icon-and:before {
+	content: "\6f";
+}
+.icon-or:before {
+	content: "\70";
+}
+.icon-not:before {
+	content: "\71";
+}
+.icon-in:before {
+	content: "\72";
+}
+.icon-startsWith:before {
+	content: "\73";
+}
+.icon-endsWith:before {
+	content: "\74";
+}
+.icon-contains:before {
+	content: "\75";
+}
+
+
+/* domain designer buttons */
+
+#add.square > .wrap > .icon {
+	background-position: 7px -652px;
+}
+
+#add.square.over > .wrap > .icon,
+#add.square.pressed > .wrap > .icon {
+	background-position: -33px -652px;
+}
+
+#addToSet.square > .wrap > .icon {
+	background-position: 6px -613px;
+}
+
+#addToSet.square.over > .wrap > .icon,
+#addToSet.square.pressed > .wrap > .icon {
+	background-position: -33px -613px;
+}
+
+#add.square.disabled .wrap > .icon,
+#add.square[disabled] .wrap > .icon {
+	background-position: -88px -652px;
+}
+
+#addToSet.square.disabled .wrap > .icon,
+#addToSet.square[disabled] .wrap > .icon {
+	background-position: -88px -613px;
+}
+
+/* button capsule general */
+button.capsule {
+	display: inline-block;
+	height: 24px;
+	margin-right: -1px;
+	text-decoration: none;
+	width: 32px;
+}
+
+.button.capsule.mutton {
+	width: 36px;
+}
+
+.button.capsule .wrap {
+	height: 22px;
+	line-height: 14px;
+}
+
+.button.capsule .wrap > .icon {
+	height:22px;
+	width:30px;
+}
+
+.button.capsule.mutton .wrap {
+	padding:0 6px;
+}
+
+/* disclosure indicator sprite positions for capsule buttons */
+.button.capsule .indicator {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-size: 80px;
+	background-position: -1px -80px;
+    right: 2px;
+}
+
+/* 2x SIMPLE ACTION BUTTON ICONS */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .button.capsule .indicator {
+        background-image: url(images/disclosure_indicators_icons_sprite@2x.png);
+    }
+}
+
+.button.capsule.over .indicator,
+.button.capsule.pressed .indicator {
+	background-position: -61px -80px;
+    right: 2px;
+}
+
+/* mini capsule */
+button.capsule.mini {
+	height: 20px;
+	width: 24px;
+}
+
+button.capsule.mini .wrap {
+	height: 20px;
+	line-height: 18px;
+}
+
+/* capsule text */
+.button.capsule.text {
+	border-left: 1px solid #cecece;
+	border-right: 1px solid #fff;
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-weight: normal;
+	margin: 0;
+	width: auto;
+}
+
+.button.capsule.text .wrap {
+    font-size: 13px;
+}
+
+.button.capsule.text.first {
+	border-left: none;
+}
+
+.button.capsule.text .wrap {
+	height: 100%;
+	line-height: 28px;
+	padding: 0 12px;
+}
+
+.button.capsule.text .indicator {
+	background-position: 0 -47px;
+	margin-right: 5px;
+}
+
+.button.capsule.text.mutton .wrap {
+	padding-right: 16px;
+}
+
+.button.capsule.text.over .indicator,
+.button.capsule.text.pressed .indicator {
+	background-position: 0 -81px;
+}
+
+.button.capsule.text.disabled .indicator,
+.button.capsule.text[disabled] .indicator {
+	background-position: 0 -114px;
+}
+
+.header #flushOLAPCache.button.capsule.text,
+.header #clearAllCache.button.capsule.text {
+	height: 27px;
+	position: absolute;
+	right: 1px;
+}
+
+
+/* START capsule button state positions */
+
+.button.capsule.disabled {}
+
+.button.capsule.up {}
+
+.button.capsule.up.over,
+.button.capsule.superfocus.subfocus:hover,
+.button.capsule.down,
+.button.capsule.down.over,
+.button.capsule.down.pressed {
+    background-color: #005dab; /* tci dark blue */
+}
+
+.button.capsule.up.pressed,
+.button.capsule.superfocus.subfocus.pressed {
+    background-color: #0081cb; /* tci medium blue */
+}
+
+.button.capsule.down {}
+.button.capsule.down.pressed {}
+
+
+/* disclosure buttons */
+.button.disclosure {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	background-color: transparent;
+	background-image: url(images/disclosure_indicators_sprite.png);
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	z-index: 10;
+}
+
+.closed .button.disclosure,
+.minimized .button.disclosure {
+	background-position: 0 -205px;
+}
+
+.closed .button.disclosure.over,
+.minimized .button.disclosure.over {
+	background-position: 0 -229px;
+}
+
+.closed .button.disclosure.pressed,
+.minimized .button.disclosure.pressed {
+	background-position: 0 -257px;
+}
+
+.button.disclosure,
+.button.disclosure.down {
+	background-position: 0 -286px;
+}
+
+.button.disclosure.over,
+.button.disclosure.down.over {
+	background-position: 0 -310px;
+}
+
+.button.disclosure.pressed,
+.button.disclosure.down.pressed {
+	background-position: 0 -336px;
+}
+
+/*
+ * From: button.minimize.css
+ */
+.button.minimize {
+	height: 28px;
+	width: 16px;
+	display: inline-block;
+	background-image: url(images/disclosure_indicators_sprite.png);
+	background-repeat: no-repeat;
+	background-position: 0 -480px;
+	left: 0;
+	z-index: 10;
+}
+
+.column.decorated.minimized.secondary > .button.minimize,
+.column.decorated.minimized.tertiary > .button.minimize {
+	background-position: 4px -480px;
+	width: 24px;
+}
+
+.button.minimize.over {
+	background-position: 0 -513px;
+}
+
+.button.minimize.pressed {
+	background-position: 0 -546px;
+}
+
+/*
+ * From: button.options.css
+ */
+.button.options {
+	padding: 0 15px 0 0;
+	margin-right:5px;
+	text-align: center;
+}
+
+.button.options > .wrap {
+	padding: 0 0 0 15px;
+	height:21px;
+	line-height:22px;
+}
+
+.filter .button.options {
+	margin-left:20px;
+	margin-right: 10px;
+	border-width: 0;
+}
+
+.filter .button.options > .wrap {
+	border-width: 0;
+}
+
+/*
+ * From: button.picker.css
+ */
+
+.button.picker {
+	background-image: url(images/control_icons_sprite.png);
+	background-repeat: no-repeat;
+	background-position: 0 6px;
+	display: inline;
+	height: 27px;
+	margin-left:2px;
+    vertical-align: top;
+	width: 17px;
+	z-index: 10;
+}
+
+.button.picker.over {}
+
+.button.picker.pressed {
+	background-position: -40px 6px;
+}
+
+/*
+ * From: button.scheduled.css
+ */
+.button.scheduled {
+    background-image: url(images/disclosure_indicators_icons_sprite@1x.png);
+    background-position: -30px -419px;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    display: inline-block;
+	height: 16px;
+    position: relative;
+	width: 16px;
+	z-index: 10;
+}
+
+/* 2x BUTTON ICONS */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .button.scheduled  {
+        background-image: url(images/disclosure_indicators_icons_sprite@2x.png);
+    }
+}
+
+/*.button.scheduled.over {*/
+	/*background-position: 0 -432px;*/
+/*}*/
+
+/*.button.scheduled.pressed {*/
+	/*background-position: 0 -458px;*/
+/*}*/
+
+/*
+ * From: button.search.css
+ */
+.button.search {
+    background-image: url(images/search_icons_sprite@1x.png);
+    background-repeat: no-repeat;
+    background-size: 80px;
+    border-left: none;
+	height: 24px;
+	width: 24px;
+}
+
+/* 2x SIMPLE ACTION BUTTON ICONS */
+@media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi){
+    .button.search {
+        background-image: url(images/search_icons_sprite@2x.png);
+    }
+}
+
+.button.search.up,
+.button.search.over,
+.button.search.pressed,
+.button.search.disabled,
+#secondarySearchBox .button.search.up,
+#secondarySearchBox .button.search.over,
+#secondarySearchBox .button.search.pressed,
+#secondarySearchBox .button.search.disabled {
+	background-position: -30px -57px;
+}
+
+#secondarySearchBox .button.searchClear,
+#secondarySearchBox .button.searchClear.up,
+#secondarySearchBox .button.searchClear.over,
+#secondarySearchBox .button.searchClear.pressed {
+    background-position: -30px -86px;
+}
+
+#globalSearch .button.search {
+	border-left:none;
+}
+
+/*
+ * From: move.css
+ */
+.move.right .icon,
+.move.right.over.pressed .icon {
+	background-position: 8px -24px;
+}
+.move.right.over .icon {
+    background-position: -23px -24px;
+}
+
+
+.move.left .icon,
+.move.left.over.pressed .icon {
+	background-position: 6px 6px;
+}
+.move.left.over .icon {
+    background-position: -24px 6px;
+}
+
+.move.toRight .icon,
+.move.toRight.pressed .icon {
+    background-position: 8px -144px;
+}
+.move.toRight.over .icon {
+    background-position: -22px -144px;
+}
+
+
+.move.toLeft .icon,
+.move.toLeft.pressed .icon  {
+	background-position: 6px -114px;
+}
+.move.toLeft.over .icon {
+    background-position: -24px -114px;
+}
+
+
+.move.upward .icon {
+	background-position: 7px -55px;
+}
+.move.upward.over .icon,
+.move.upward.pressed .icon {
+    background-position: -23px -55px;
+}
+
+
+.move.downward .icon {
+	background-position: 7px -82px;
+}
+.move.downward.over .icon,
+.move.downward.pressed .icon {
+    background-position: -23px -82px;
+}
+
+
+.move.toTop .icon {
+	background-position: 7px -234px;
+}
+.move.toTop.over .icon,
+.move.toTop.pressed .icon {
+    background-position: -23px -234px;
+}
+
+
+.move.toBottom .icon {
+	background-position: 7px -262px;
+}
+.move.toBottom.over .icon,
+.move.toBottom.pressed .icon {
+	background-position: -23px -262px;
+}
+
+/*
+ * From: bg.css
+ */
+.action,
+.action.pressed,
+.action.pressed.over,
+.action.square.pressed,
+.action.square.pressed.over {
+	background-color: #e4e4e4;
+}
+
+.action.over,
+.action.square.over {
+	background-color: #b6b6b6;
+}
+
+.action.primary,
+.action.primary.pressed,
+.action.primary.pressed.over {
+	background-color: #0081cb; /* tci medium blue */
+	background-image: none;
+}
+
+.action.primary.over {
+	background-color: #055dab; /* tci dark blue */
+}
+
+.action.checking {
+	cursor:default;
+}
+
+.button.options {
+	background-color:#e4e4e4;
+}
+
+.button.options.over {
+	background-color:#adadad;
+}
+
+.button.options.pressed {
+	background: url("images/button_options_sprite.png") repeat-x scroll 0 -222px #adadad;
+}

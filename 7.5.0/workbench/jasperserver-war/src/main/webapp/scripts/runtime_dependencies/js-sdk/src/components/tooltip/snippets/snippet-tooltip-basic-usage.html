@@ -1,0 +1,109 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Tooltip</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <link type="text/css" href="../../../../demos/css/jasper-ui-dev.css" rel="stylesheet">
+    <link type="text/css" href="../../../../themes/default/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../../requireSnippetsConfig.js"></script>
+    <script type="text/javascript" src="../../../runtime_dependencies/requirejs/require.js"></script>
+    <script type="text/javascript" src="../../../../config.js"></script>
+    <style type="text/css">
+        .row {
+            position: absolute;
+            left: 100px;
+            width: 700px;
+        }
+        .row1 {
+            top: 50px;
+        }
+        .row2 {
+            top: 100px;
+        }
+        .row3 {
+            top: 150px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row row1">
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='Left Left Left'
+                data-jr-toogle="tooltip" data-jr-placement="left">
+            <span class="jr-mButton-label jr">Show Left</span>
+        </button>
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='{"label": "Some Title", "text": "Bottom Bottom Bottom"}'
+                data-jr-toogle="tooltip" data-jr-placement="bottom">
+            <span class="jr-mButton-label jr">Show Bottom</span>
+        </button>
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='Top Top Top'
+                data-jr-toogle="tooltip" data-jr-placement="top">
+            <span class="jr-mButton-label jr">Show Top</span>
+        </button>
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='{"label": "Some Title", "text": "Right Right Right"}'
+                data-jr-toogle="tooltip" data-jr-placement="right">
+            <span class="jr-mButton-label jr">Show Right</span>
+        </button>
+    </div>
+
+    <div class="row row2">
+
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='{"label": "Some Title", "text": "Bottom left Bottom left Bottom left"}'
+                data-jr-toogle="tooltip" data-jr-placement="bottomLeft">
+            <span class="jr-mButton-label jr">Show Bottom Left</span>
+        </button>
+
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='{"label": "Some Title", "text": "Bottom right Bottom right Bottom right"}'
+                data-jr-toogle="tooltip" data-jr-placement="bottomRight">
+            <span class="jr-mButton-label jr">Show Bottom Right</span>
+        </button>
+    </div>
+
+    <div class="row row3">
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='Warning text'
+                data-jr-type='warning'
+                data-jr-toogle="tooltip" data-jr-placement="top">
+            <span class="jr-mButton-label jr">Warning</span>
+        </button>
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='Some error here'
+                data-jr-type='error'
+                data-jr-toogle="tooltip" data-jr-placement="top">
+            <span class="jr-mButton-label jr">Error Error</span>
+        </button>
+        <button class="jr-mButton jr-mButtonText jr-mButtonDefault jr"
+                data-jr-content='Attached to body'
+                data-jr-type='info'
+                data-jr-container='body'
+                data-jr-toogle="tooltip" data-jr-placement="right">
+            <span class="jr-mButton-label jr">Container is body</span>
+        </button>
+    </div>
+<script type="text/javascript">
+
+    require([
+            "jquery",
+            "components/tooltip/Tooltip"
+    ], function($, Tooltip){
+
+        $("[data-jr-toogle='tooltip']").each(function(i, button){
+            new Tooltip({
+                el: button
+            });
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

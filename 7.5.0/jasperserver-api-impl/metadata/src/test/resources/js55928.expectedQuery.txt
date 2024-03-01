@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<query xmlns="http://www.jaspersoft.com/2007/SL/XMLSchema">
+  <groupList>
+    <group columnName="store_country" />
+  </groupList>
+  <queryFields>
+    <queryField id="c_gender" resourceId="c_gender" />
+    <queryField id="store_sales" resourceId="store_sales" />
+    <queryField id="store_city" resourceId="store_city" />
+    <queryField id="the_date" resourceId="the_date" />
+    <queryField id="product_family" resourceId="product_family" />
+    <queryField id="product_name" resourceId="product_name" />
+    <queryField id="c_country" resourceId="c_country" />
+    <queryField id="c_city" resourceId="c_city" />
+    <queryField id="store_country" resourceId="store_country" />
+    <queryField id="c_state_province" resourceId="c_state_province" />
+    <queryField id="product_subcategory" resourceId="product_subcategory" />
+    <queryField id="month_of_year" resourceId="month_of_year" />
+    <queryField id="store_cost" resourceId="store_cost" />
+    <queryField id="unit_sales" resourceId="unit_sales" />
+    <queryField id="product_category" resourceId="product_category" />
+    <queryField id="store_state" resourceId="store_state" />
+    <queryField id="product_department" resourceId="product_department" />
+    <queryField id="the_year" resourceId="the_year" />
+    <queryField id="day_of_month" resourceId="day_of_month" />
+    <queryField id="store_name" resourceId="store_name" />
+    <queryField id="quarter" resourceId="quarter" />
+  </queryFields>
+  <resources>
+    <memory id="default">
+      <fieldList>
+        <field id="c_country" type="java.lang.String" />
+        <field id="c_state_province" type="java.lang.String" />
+        <field id="c_city" type="java.lang.String" />
+        <field id="c_gender" type="java.lang.String" />
+        <field id="product_family" type="java.lang.String" />
+        <field id="product_category" type="java.lang.String" />
+        <field id="product_subcategory" type="java.lang.String" />
+        <field id="product_name" type="java.lang.String" />
+        <field id="product_department" type="java.lang.String" />
+        <field id="store_country" type="java.lang.String" />
+        <field id="store_state" type="java.lang.String" />
+        <field id="store_city" type="java.lang.String" />
+        <field id="store_name" type="java.lang.String" />
+        <field id="the_year" type="java.lang.Integer" />
+        <field id="quarter" type="java.lang.String" />
+        <field id="month_of_year" type="java.lang.Integer" />
+        <field id="day_of_month" type="java.lang.Integer" />
+        <field id="the_date" type="java.sql.Timestamp" />
+        <field id="store_sales" type="java.lang.Double" />
+        <field id="store_cost" type="java.lang.Double" />
+        <field id="unit_sales" type="java.lang.Double" />
+      </fieldList>
+      <sortList>
+        <sortColumn columnName="store_country" />
+      </sortList>
+      <source>
+        <jrQueryDataSet datasourceId="FoodmartDataSourceJNDI" maxRows="200001" queryLanguage="sql">
+          <fieldList>
+            <field id="c_country" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Customer Country</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="c_state_province" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Customer State</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="c_city" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Customer City</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="c_gender" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Customer Gender</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="product_family" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Product Family</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="product_category" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Product Category</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="product_subcategory" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Product Subcategory</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="product_name" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Product Name</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="product_department" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Product Department</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="store_country" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Store Country</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="store_state" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Store State</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="store_city" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Store City</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="store_name" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Store Name</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="the_year" type="java.lang.Integer">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>Sum(the_year)</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Year</string>
+                </entry>
+                <entry key="defaultMask">
+                  <string>#,##0</string>
+                </entry>
+                <entry key="kind">
+                  <string>MEASURE</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>Sum</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="quarter" type="java.lang.String">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Quarter</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="month_of_year" type="java.lang.Integer">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>Sum(month_of_year)</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Month</string>
+                </entry>
+                <entry key="defaultMask">
+                  <string>#,##0</string>
+                </entry>
+                <entry key="kind">
+                  <string>MEASURE</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>Sum</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="day_of_month" type="java.lang.Integer">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>Sum(day_of_month)</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Day of Month</string>
+                </entry>
+                <entry key="defaultMask">
+                  <string>#,##0</string>
+                </entry>
+                <entry key="kind">
+                  <string>MEASURE</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>Sum</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="the_date" type="java.sql.Timestamp">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>CountAll()</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Long</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Date</string>
+                </entry>
+                <entry key="defaultMask">
+                  <string>medium,hide</string>
+                </entry>
+                <entry key="kind">
+                  <string>DIMENSION</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>CountAll</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="store_sales" type="java.lang.Double">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>Sum(store_sales)</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Double</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Store Sales</string>
+                </entry>
+                <entry key="defaultMask">
+                  <string>#,##0.00</string>
+                </entry>
+                <entry key="kind">
+                  <string>MEASURE</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>Sum</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="store_cost" type="java.lang.Double">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>Sum(store_cost)</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Double</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Store Cost</string>
+                </entry>
+                <entry key="defaultMask">
+                  <string>#,##0.00</string>
+                </entry>
+                <entry key="kind">
+                  <string>MEASURE</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>Sum</string>
+                </entry>
+              </propertyMap>
+            </field>
+            <field id="unit_sales" type="java.lang.Double">
+              <propertyMap>
+                <entry key="aggregateExpression">
+                  <string>Sum(unit_sales)</string>
+                </entry>
+                <entry key="aggregateType">
+                  <string>java.lang.Double</string>
+                </entry>
+                <entry key="adhoc.display">
+                  <string>Unit Sales</string>
+                </entry>
+                <entry key="defaultMask">
+                  <string>#,##0.00</string>
+                </entry>
+                <entry key="kind">
+                  <string>MEASURE</string>
+                </entry>
+                <entry key="defaultAgg">
+                  <string>Sum</string>
+                </entry>
+              </propertyMap>
+            </field>
+          </fieldList>
+          <dsReferenceURI>/public/Samples/Topics/CrosstabDemo</dsReferenceURI>
+          <query>select    c.city  as c_city, c.state_province as c_state_province, c.country as c_country, c.gender as c_gender,
+        p.product_name, pc.product_family, pc.product_department, pc.product_category, pc.product_subcategory, 
+        st.store_name, st.store_city, st.store_state, st.store_country,
+        t.the_date, t.day_of_month, t.month_of_year, t.quarter, t.the_year,
+        s.store_sales, s.store_cost, s.unit_sales 
+    from sales_fact_1998 s
+    join customer c on (c.customer_id = s.customer_id) 
+    join time_by_day t on (t.time_id = s.time_id) 
+    join product p on (p.product_id = s.product_id) 
+    join product_class pc on (pc.product_class_id = p.product_class_id)
+    join store st on (st.store_id = s.store_id)</query>
+        </jrQueryDataSet>
+      </source>
+    </memory>
+  </resources>
+</query>
+

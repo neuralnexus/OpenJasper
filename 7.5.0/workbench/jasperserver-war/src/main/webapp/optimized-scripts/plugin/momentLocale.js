@@ -1,0 +1,1 @@
+define(["require","plugin/factory/momentLocalePluginFactory"],function(e){"use strict";return e("plugin/factory/momentLocalePluginFactory").create("momentLocales/")});

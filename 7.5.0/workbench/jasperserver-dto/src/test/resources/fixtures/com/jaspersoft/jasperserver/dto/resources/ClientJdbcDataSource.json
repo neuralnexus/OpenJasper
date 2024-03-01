@@ -1,0 +1,14 @@
+{
+  "version": 101,
+  "permissionMask": 100,
+  "creationDate": "TEST_CREATION_DATE",
+  "updateDate": "TEST_UPDATE_DATE",
+  "label": "TEST_LABEL",
+  "description": "TEST_DESCRIPTION",
+  "uri": "TEST_URI",
+  "driverClass": "TEST_DRIVER_CLASS",
+  "password": "TEST_PASSWORD",
+  "username": "TEST_USERNAME",
+  "connectionUrl": "TEST_CONNECTION_URL",
+  "timezone": "TEST_TIMEZONE"
+}

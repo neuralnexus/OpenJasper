@@ -1,0 +1,12 @@
+{
+  "sheets": [
+    {
+      "name": "TEST_NAME"
+    },
+    {
+      "columns": [
+        "TEST_COLUMN"
+      ]
+    }
+  ]
+}

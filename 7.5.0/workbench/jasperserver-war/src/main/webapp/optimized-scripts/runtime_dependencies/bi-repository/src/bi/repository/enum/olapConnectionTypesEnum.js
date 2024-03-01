@@ -1,0 +1,1 @@
+define(["require","exports","module","../enum/repositoryResourceTypes"],function(e,N,r){var o=e("../enum/repositoryResourceTypes");r.exports=[o.MONDRIAN_CONNECTION,o.SECURE_MONDRIAN_CONNECTION,o.XMLA_CONNECTION]});

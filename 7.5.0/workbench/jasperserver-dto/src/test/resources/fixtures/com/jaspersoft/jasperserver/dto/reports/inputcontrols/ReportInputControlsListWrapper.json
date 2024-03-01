@@ -1,0 +1,14 @@
+{
+  "inputControl": [
+    {
+      "id": "TEST_ID",
+      "masterDependencies": [],
+      "slaveDependencies": []
+    },
+    {
+      "label": "TEST_LABEL",
+      "masterDependencies": [],
+      "slaveDependencies": []
+    }
+  ]
+}

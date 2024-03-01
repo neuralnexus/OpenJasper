@@ -1,0 +1,37 @@
+{
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "id": "store_number",
+          "field": "sales_fact_ALL.sales__store.sales__store__store_contact.sales__store__store_contact__store_number"
+        }
+      ]
+    },
+    "where": {
+      "filterExpression": {
+        "object": {
+          "lessOrEqual": {
+            "operands": [
+              {
+                "variable": {
+                  "name": "store_number"
+                }
+              },
+              {
+                "number": {
+                  "value": "1"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "/public/Samples/Ad_Hoc_Views/04__Product_Results_by_Store_Type"
+    }
+  }
+}

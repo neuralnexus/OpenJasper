@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <import resource="multiSelectQueryInputControlHandler-fixtures-getValue1.xml"/>
+
+    <!-- sampleTestCase -->
+
+    <bean id="getValue4" class="java.util.HashMap" parent="baseTestCaseMap">
+        <constructor-arg index="0">
+            <map merge="true">
+                <entry key-ref="CONTROLS" value-ref="countryAndState"/>
+                <entry key-ref="PARAMETER_TYPES" value-ref="parameterTypes"/>
+                <entry key-ref="QUERY_EXECUTOR" value-ref="queryExecutor_getValue4"/>
+                <entry key-ref="TYPED_PARAMS_MAP">
+                    <map>
+                        <entry key="country"><null/></entry>
+                        <entry key="state"><list><value>CA</value></list></entry>
+                    </map>
+                </entry>
+                <entry key-ref="EXPECTED_RESULT" value-ref="expectedResult_getValue4"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="countryAndState" class="java.util.HashMap">
+        <constructor-arg index="0">
+            <map>
+                <entry key="country"> <!-- Control name -->
+                    <bean parent="countryControlDefinitionSingle"/>
+                </entry>
+                <entry key="state"> <!-- Control name -->
+                    <bean parent="stateControlDefinition"/>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <!-- control definitions -->
+    <bean id="countryControlDefinitionSingle" class="java.util.HashMap">
+        <constructor-arg index="0">
+            <map>
+                <entry key-ref="INPUT_CONTROL">
+                    <bean parent="country_inputControl_single">
+                        <property name="mandatory" value="true"/>
+                    </bean>
+                </entry>
+                <entry key-ref="CONTROL_INFO">
+                    <bean parent="country_controlInfoSingle">
+                        <property name="defaultValue" value="Ukraine"/>
+                    </bean>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="country_inputControl_single" parent="singleSelectQuery_inputControl">
+        <property name="name" value="country"/>
+        <property name="label" value="Billing Country"/>
+    </bean>
+
+    <bean id="country_controlInfoSingle" parent="country_controlInfo">
+        <property name="defaultValue" value="Ukraine"/>
+    </bean>
+
+    <!-- Expected results -->
+    <bean id="expectedResult_getValue4" class="com.jaspersoft.jasperserver.dto.reports.inputcontrols.InputControlState">
+        <property name="value"><null/></property>
+        <property name="error" value="fillParameters.error.mandatoryField"/>
+        <property name="id" value="state"/>
+        <property name="uri" value="/state"/>
+        <property name="options">
+            <list/>
+        </property>
+    </bean>
+
+    <bean id="queryExecutor_getValue4" class="java.util.HashMap">
+        <constructor-arg index="0">
+            <map>
+                <entry key="state">
+                    <map>
+                        <entry key="{country:null,state:CA}" value-ref="countries_queryResult_getValue4"/>
+                    </map>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <!-- query results -->
+    <bean id="countries_queryResult_getValue4" class="com.jaspersoft.jasperserver.inputcontrols.cascade.utils.OrderedMapMock">
+        <constructor-arg>
+            <map/>
+        </constructor-arg>
+    </bean>
+
+</beans>
+
+
+
+

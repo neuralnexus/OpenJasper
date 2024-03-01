@@ -1,0 +1,51 @@
+<%@ page contentType="text/html; charset=utf-8" %>
+<%--
+  ~ Copyright В© 2005 - 2019 TIBCO Software Inc.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  --%>
+
+<%--
+Overview:
+	This template used for a specific icon and text in the page body container title row
+
+Usage:
+    <t:insertTemplate template="/WEB-INF/jsp/templates/pageHeader.jsp">
+        <t:putAttribute name="titleText">New Datasource</t:putAttribute>
+        <t:putAttribute name="titleIconClass">datasource</t:putAttribute>
+    </t:insertTemplate>
+
+--%>
+
+<%@ taglib prefix="tx" uri="http://tiles.apache.org/tags-tiles-extras"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+
+<tx:useAttribute id="pageHeaderClass" name="pageHeaderClass" classname="java.lang.String" ignore="true"/>
+<tx:useAttribute id="pageHeaderText" name="pageHeaderText" classname="java.lang.String" ignore="true"/>
+<tx:useAttribute id="pageHeaderIconClass" name="pageHeaderIconClass" classname="java.lang.String" ignore="true"/>
+<tx:useAttribute id="headerContent" name="headerContent" classname="java.lang.String" ignore="true"/>
+
+<div class="pageHeader ${pageHeaderClass}">
+    <div class="pageHeader-title">
+        <div class="pageHeader-title-icon ">
+            <span class="icon ${pageHeaderIconClass}"></span>
+        </div>
+        <div class="pageHeader-title-text">${pageHeaderText}</div>
+    </div>
+    <c:if test="${headerContent != null}">
+        ${headerContent}
+    </c:if>
+</div>

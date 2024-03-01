@@ -1,0 +1,20 @@
+{
+  "rows": {
+    "items": [
+      {
+        "level": {
+          "id": "idRows"
+        }
+      }
+    ]
+  },
+  "columns": {
+    "items": [
+      {
+        "level": {
+          "id": "idColumns"
+        }
+      }
+    ]
+  }
+}

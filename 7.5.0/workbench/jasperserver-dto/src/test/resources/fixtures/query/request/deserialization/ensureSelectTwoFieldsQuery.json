@@ -1,0 +1,22 @@
+{
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "id": "fieldName",
+          "field": "sales"
+        },
+        {
+          "id": "fieldName2",
+          "field": "city"
+        }
+      ],
+      "aggregations": []
+    }
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "/uri"
+    }
+  }
+}

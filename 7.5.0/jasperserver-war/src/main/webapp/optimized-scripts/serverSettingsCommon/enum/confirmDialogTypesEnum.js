@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,C,i){i.exports={CANCEL_CONFIRM:"cancelConfirm",DELETE_CONFIRM:"deleteConfirm",PERMISSION_CONFIRM:"permissionConfirm",NAME_CONFIRM:"nameConfirm",EDIT_CONFIRM:"editConfirm"}});

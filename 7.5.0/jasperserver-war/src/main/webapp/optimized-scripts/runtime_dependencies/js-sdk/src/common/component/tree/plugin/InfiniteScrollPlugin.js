@@ -1,0 +1,1 @@
+define(["require","exports","module","./TreePlugin"],function(e,n,i){var t=e("./TreePlugin");i.exports=t.extend({itemsRendered:function(){this.$("> .subcontainer > .j-view-port-chunk").css({height:"auto"})}})});

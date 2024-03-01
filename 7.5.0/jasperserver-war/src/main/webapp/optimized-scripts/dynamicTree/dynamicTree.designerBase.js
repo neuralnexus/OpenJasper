@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,n,i){i.exports={isInSelection:function(){}}});

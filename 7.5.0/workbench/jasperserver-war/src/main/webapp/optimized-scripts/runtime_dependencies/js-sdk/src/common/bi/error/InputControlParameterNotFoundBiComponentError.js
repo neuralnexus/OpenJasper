@@ -1,0 +1,1 @@
+define(["require","exports","module","./BiComponentError","./enum/biComponentErrorCodes"],function(o,r,e){var n=o("./BiComponentError"),t=o("./enum/biComponentErrorCodes");e.exports=n.extend({constructor:function(o){n.prototype.constructor.call(this,t.INPUT_CONTROL_PARAMETER_NOT_FOUND_ERROR,o)}})});

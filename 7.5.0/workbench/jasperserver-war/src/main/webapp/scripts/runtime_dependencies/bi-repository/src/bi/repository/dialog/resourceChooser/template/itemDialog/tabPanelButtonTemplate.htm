@@ -1,0 +1,5 @@
+<button class="button {{- additionalCssClasses }}{{ if (exposeAction) { }} {{- action}} {{ } }} up" title="{{ if(action === 'list') { }} {{- i18n["Repository.ItemSelectDialog.listTabToolip"] }} {{ } else { }} {{- i18n["Repository.ItemSelectDialog.foldersTabToolip"] }} {{ } }}">
+
+    <js-templateNonce></js-templateNonce>
+    <span class="wrap">{{- label }}<span class="icon"></span></span>
+</button>

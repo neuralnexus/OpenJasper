@@ -1,0 +1,15 @@
+{
+  "holder":"TEST_HOLDER",
+  "host":"TEST_HOST",
+  "userName":"TEST_USERNAME",
+  "password":"TEST_PASSWORD",
+  "folderPath":"TEST_FOLDER_PATH",
+  "type":"ftp",
+  "protocol":"TEST_PROTOCOL",
+  "port":100,
+  "implicit":true,
+  "sshKey":"TEST_SSH_KEY",
+  "sshPassphrase":"TEST_SSH_PASSPHRASE",
+  "prot":"TEST_PROT",
+  "pbsz":101
+}

@@ -1,0 +1,11 @@
+{
+  "dateFormatPattern": "dfp",
+  "datetimeFormatPattern": "dtfp",
+  "version": "version",
+  "edition": "CE",
+  "editionName": "edName",
+  "licenseType": "licenseType",
+  "build": "build",
+  "expiration": "exp",
+  "features": "features"
+}

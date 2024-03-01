@@ -1,0 +1,26 @@
+    <js-templateNonce></js-templateNonce>
+{{ if (isWarning) { }}
+<span class="warning">
+{{ } }}
+
+{{ if (_.isArray(messages)) { }}
+    {{
+        var flag = false;
+        _.each(messages, function(msg) {
+            if (flag)
+                print('<br/>');
+            print(_.escape(msg));
+            flag = true;
+        })
+    }}
+{{ } else { }}
+    {{- messages }}
+{{ } }}
+
+{{ if (closeText) { }}
+    &nbsp;<span>| <a href="#"> {{- closeText }} </a></span>
+{{ } }}
+
+{{ if (isWarning) { }}
+</span>
+{{ } }}

@@ -1,0 +1,37 @@
+{
+  "version": 101,
+  "permissionMask": 100,
+  "creationDate": "TEST_CREATION_DATE",
+  "updateDate": "TEST_UPDATE_DATE",
+  "label": "TEST_LABEL",
+  "description": "TEST_DESCRIPTION",
+  "uri": "TEST_URI",
+  "mandatory": true,
+  "readOnly": true,
+  "visible": true,
+  "type": 27,
+  "valueColumn": "TEST_VALUE_COLUMN",
+  "dataType": {
+    "dataTypeReference": {
+      "uri": "TEST_URI"
+    }
+  },
+  "query": {
+    "query": {
+      "language": "TEST_LANGUAGE"
+    }
+  },
+  "listOfValues": {
+    "listOfValues": {
+      "items": [
+        {
+          "label": "TEST_LABEL"
+        }
+      ]
+    }
+  },
+  "visibleColumns": [
+    "COLUMN_A",
+    "COLUMN_B"
+  ]
+}

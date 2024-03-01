@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+    <import resource="multiSelectQueryInputControlHandler-fixtures-getValue1.xml"/>
+
+    <!-- sampleTestCase -->
+
+    <bean id="getValue3" parent="getValue1">
+        <constructor-arg index="0">
+            <map merge="true">
+                <entry key-ref="CONTROLS">
+                    <bean parent="allControlsDefinition">
+                        <constructor-arg index="0">
+                            <map merge="true">
+                                <entry key="country">
+                                    <bean parent="countryControlDefinition">
+                                        <constructor-arg index="0">
+                                            <map merge="true">
+                                                <entry key-ref="CONTROL_INFO">
+                                                    <bean parent="country_controlInfo">
+                                                        <property name="defaultValue">
+                                                            <list value-type="java.lang.String">
+                                                                <value>Germany</value>
+                                                            </list>
+                                                        </property>
+                                                    </bean>
+                                                </entry>
+                                            </map>
+                                        </constructor-arg>
+                                    </bean>
+                                </entry>
+                            </map>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+                <entry key-ref="EXPECTED_RESULT" value-ref="expectedResult_getValue3"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="expectedResult_getValue3" parent="expectedResult">
+        <property name="options">
+            <list>
+                <bean class="com.jaspersoft.jasperserver.dto.reports.inputcontrols.InputControlOption">
+                    <property name="label" value="USA"/>
+                    <property name="value" value="USA"/>
+                    <property name="selected" value="true"/>
+                </bean>
+                <bean class="com.jaspersoft.jasperserver.dto.reports.inputcontrols.InputControlOption">
+                    <property name="label" value="Ukraine"/>
+                    <property name="value" value="Ukraine"/>
+                    <property name="selected" value="false"/>
+                </bean>
+                <bean class="com.jaspersoft.jasperserver.dto.reports.inputcontrols.InputControlOption">
+                    <property name="label" value="Canada"/>
+                    <property name="value" value="Canada"/>
+                    <property name="selected" value="false"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>
+
+
+
+

@@ -1,0 +1,59 @@
+{
+  "version": 101,
+  "permissionMask": 100,
+  "creationDate": "TEST_CREATION_DATE",
+  "updateDate": "TEST_UPDATE_DATE",
+  "label": "TEST_LABEL",
+  "description": "TEST_DESCRIPTION",
+  "uri": "TEST_URI",
+  "dataSource": {
+    "customDataSource": {
+      "dataSourceName": "TEST_DATA_SOURCE_NAME"
+    }
+  },
+  "query": {
+    "queryReference": {
+      "uri": "TEST_URI"
+    }
+  },
+  "jrxml": {
+    "jrxmlFile": {
+      "content": "TEST_CONTENT"
+    }
+  },
+  "inputControls": [
+    {
+      "inputControl": {
+        "mandatory": true,
+        "readOnly": false,
+        "visible": false,
+        "type": 0
+      }
+    },
+    {
+      "inputControl": {
+        "mandatory": false,
+        "readOnly": false,
+        "visible": false,
+        "type": 0,
+        "valueColumn": "TEST_VALUE_COLUMN"
+      }
+    }
+  ],
+  "inputControlRenderingView": "TEST_INPUT_CONTROL_RENDERING_VIEW",
+  "reportRenderingView": "TEST_REPORT_RENDERING_VIEW",
+  "alwaysPromptControls": true,
+  "controlsLayout": "popupScreen",
+  "resources": {
+    "resource": [
+      {
+        "name": "TEST_KEY",
+        "file": {
+          "fileResource": {
+            "content": "TEST_CONTENT"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+define(["require","exports","module","backbone"],function(e,n,t){var i=e("backbone");t.exports=i.View.extend({dataLayerObtained:function(){},itemsRendered:function(){}},{processors:null,treeInitialized:function(){},treeRemoved:function(){}})});

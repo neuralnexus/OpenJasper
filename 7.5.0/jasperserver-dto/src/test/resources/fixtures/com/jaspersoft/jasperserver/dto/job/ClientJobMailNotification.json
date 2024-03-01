@@ -1,0 +1,20 @@
+{
+  "bccAddresses":{
+    "address":["TEST_BCC_ADDRESS"]
+  },
+  "ccAddresses":{
+    "address":["TEST_CC_ADDRESS"]
+  },
+  "toAddresses":{
+    "address":["TEST_TO_ADDRESS"]
+  },
+  "version":2,
+  "id":100,
+  "includingStackTraceWhenJobFails":true,
+  "messageText":"TEST_MESSAGE_TEXT",
+  "resultSendType":"SEND",
+  "skipEmptyReports":true,
+  "skipNotificationWhenJobFails":true,
+  "subject":"TEST_SUBJECT",
+  "messageTextWhenJobFails":"TEST_MESSAGE_TEXT_WHEN_JOB_FAILS"
+}

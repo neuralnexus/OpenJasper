@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,o,i){i.exports={redirect:function(e){window.location.href=e}}});

@@ -1,0 +1,86 @@
+/*
+ * Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+.dataLifetimeControls {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#saveAsTopicInputs label,
+#saveAsTopicInputs span{
+    margin-bottom: 0;
+}
+
+#saveAsTopicInputs .topicName{
+    height: 55px;
+}
+
+#saveAsTopicInputs .topicDesc{
+    height: 120px;
+}
+
+label.staging{
+    margin-top: 10px;
+    width: 110px;
+}
+
+#saveAsTopicInputs .browser{
+    height: 50px;
+}
+
+.dataLifetimeControls select#dataLifetimeUnits{
+    width: 100px;
+    margin-left: 10px;
+    margin-top: 4px;
+    float: left;
+}
+
+/* Chrome specific css, chrome has a little bit smaller selects than others */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .dataLifetimeControls select#dataLifetimeUnits{
+        margin-top: 5px;
+    }
+}
+
+.dataLifetimeControls .dataLifetimeLabel{
+    margin-bottom: 8px;
+}
+
+.dataLifetimeControls .dataLifetimeInputs input{
+    width: 32px;
+    padding: 4px;
+}
+
+.dataLifetimeControls .dataLifetimeInputs{
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.dataLifetimeControls .dataLifetimeInputs .dataLifetimeInputsError{
+    display: inline;
+}
+.dataLifetimeControls .dataLifetimeInputs span{
+    margin-right: 10px;
+}
+
+.dataLifetimeControls .lifeTimeInfo{
+    width: 275px;
+}

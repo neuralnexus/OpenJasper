@@ -1,0 +1,13 @@
+{
+  "id":"TEST_ID",
+  "message":"TEST_MESSAGE",
+  "phase":"TEST_PHASE",
+  "warnings":[
+    {
+      "code":"TEST_CODE"
+    }
+  ],
+  "error":{
+    "message":"TEST_MESSAGE"
+  }
+}

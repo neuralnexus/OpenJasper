@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,s,r){window.requirejs={baseUrl:"../../../",paths:{samples:"../samples/"},config:{theme:{href:"../../../../css/"}}}});

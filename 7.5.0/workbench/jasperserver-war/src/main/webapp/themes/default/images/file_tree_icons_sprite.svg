@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="234" viewBox="0 0 90 234">
+  <defs>
+    <circle id="file_tree_icons_sprite-a" cx="9" cy="9" r="9"/>
+    <circle id="file_tree_icons_sprite-c" cx="9" cy="9" r="9"/>
+    <circle id="file_tree_icons_sprite-e" cx="9" cy="9" r="9"/>
+    <circle id="file_tree_icons_sprite-g" cx="9" cy="9" r="9"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(72 180)">
+      <mask id="file_tree_icons_sprite-b" fill="#fff">
+        <use xlink:href="#file_tree_icons_sprite-a"/>
+      </mask>
+      <use fill="#9AC64C" fill-rule="nonzero" xlink:href="#file_tree_icons_sprite-a"/>
+      <path fill="#FFF" d="M6,4 L13,4 C14.1045695,4 15,4.8954305 15,6 L15,16 C15,17.1045695 14.1045695,18 13,18 L6,18 C4.8954305,18 4,17.1045695 4,16 L4,6 C4,4.8954305 4.8954305,4 6,4 Z" mask="url(#file_tree_icons_sprite-b)"/>
+      <polygon fill="#9AC64C" fill-rule="nonzero" points="6 6 9 6 9 14 6 14" mask="url(#file_tree_icons_sprite-b)"/>
+      <polygon fill="#9AC64C" fill-rule="nonzero" points="10 8 13 8 13 14 10 14" mask="url(#file_tree_icons_sprite-b)"/>
+      <circle cx="9" cy="9" r="9" stroke="#9AC64C" stroke-width="4" mask="url(#file_tree_icons_sprite-b)"/>
+    </g>
+    <g transform="translate(72 209)">
+      <circle cx="9" cy="10" r="9" fill="#FBF0F8"/>
+      <path fill="#D673AD" fill-rule="nonzero" d="M0,10.3141097 C0,5.17006895 4.02943725,1 9,1 C13.9705627,1 18,5.17006895 18,10.3141097 C18,12.9372934 16.9521647,15.3072006 15.266032,17 L12.8820643,14.0393951 C13.7583585,13.0618256 14.2941176,11.7527179 14.2941176,10.3141097 C14.2941176,8.70381761 13.6228529,7.25577969 12.5541148,6.25334289 C11.6145829,5.37209666 10.367874,4.83522163 9,4.83522163 C6.07613956,4.83522163 3.70588235,7.28820337 3.70588235,10.3141097 C3.70588235,11.7527179 4.2416415,13.0618256 5.1179357,14.0393951 L2.73396798,17 C1.04783528,15.3072006 0,12.9372934 0,10.3141097 Z"/>
+      <path fill="#FCDAF3" fill-rule="nonzero" d="M9,1 C11.3068382,1 13.4103608,1.8463214 15,3.23702203 L12.6317445,6 C11.6855415,5.1274663 10.4070669,4.59218822 9,4.59218822 C7.59293311,4.59218822 6.31445853,5.1274663 5.36825553,6 L3,3.23702203 C4.58963925,1.8463214 6.69316179,1 9,1 Z"/>
+      <path fill="#D673AD" d="M7.2,11.9393283 L10.8,11.9393283 C10.8,13.0136807 9.99411255,13.8846154 9,13.8846154 C8.00588745,13.8846154 7.2,13.0136807 7.2,11.9393283 Z M9,0.730769231 L10.8,11.9393283 L7.2,11.9393283 L9,0.730769231 Z" transform="rotate(3 9 7.308)"/>
+    </g>
+    <g transform="translate(72 150)">
+      <mask id="file_tree_icons_sprite-d" fill="#fff">
+        <use xlink:href="#file_tree_icons_sprite-c"/>
+      </mask>
+      <use fill="#2599FF" fill-rule="nonzero" xlink:href="#file_tree_icons_sprite-c"/>
+      <g mask="url(#file_tree_icons_sprite-d)">
+        <g transform="translate(0 2)">
+          <polygon fill="#A5D4F0" points=".129 6.481 6.043 .429 10.267 9.075 17.871 .429 17.871 16.857 .129 16.857"/>
+          <polygon fill="#02577B" points=".129 10.786 6.043 7.316 10.267 12.52 17.871 4.714 17.871 16.857 .129 16.857"/>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(72 120)">
+      <rect width="15" height="12" x="1" y="4" fill="#E9F8F7" rx=".5"/>
+      <rect width="13" height="8" x="2" y="7" fill="#63BCB9" rx=".5"/>
+      <path fill="#C4DEDC" d="M13.75,8 C13.8880712,8 14,8.11192881 14,8.25 L14,13.75 C14,13.8880712 13.8880712,14 13.75,14 L11.25,14 C11.1119288,14 11,13.8880712 11,13.75 L11,8.25 C11,8.11192881 11.1119288,8 11.25,8 L13.75,8 Z M9.75,8 C9.88807119,8 10,8.11192881 10,8.25 L10,13.75 C10,13.8880712 9.88807119,14 9.75,14 L7.25,14 C7.11192881,14 7,13.8880712 7,13.75 L7,8.25 C7,8.11192881 7.11192881,8 7.25,8 L9.75,8 Z M5.75,8 C5.88807119,8 6,8.11192881 6,8.25 L6,13.75 C6,13.8880712 5.88807119,14 5.75,14 L3.25,14 C3.11192881,14 3,13.8880712 3,13.75 L3,8.25 C3,8.11192881 3.11192881,8 3.25,8 L5.75,8 Z"/>
+    </g>
+    <g transform="translate(72 90)">
+      <circle cx="9" cy="9" r="9" fill="#E9F8F7" fill-rule="nonzero"/>
+      <path fill="#249490" d="M14.5,5 C14.7761424,5 15,5.22385763 15,5.5 L15,11.5 C15,11.7761424 14.7761424,12 14.5,12 L11.5,12 L11.5,16.5 C11.5,16.7761424 11.2761424,17 11,17 L10.5,17 C10.2238576,17 10,16.7761424 10,16.5 L10,12 L6.5,12 C6.22385763,12 6,11.7761424 6,11.5 L6,9.3 L1.5,9.3 C1.22385763,9.3 1,9.07614237 1,8.8 L1,8.3 C1,8.02385763 1.22385763,7.8 1.5,7.8 L6,7.8 L6,5.5 C6,5.22385763 6.22385763,5 6.5,5 L14.5,5 Z"/>
+      <rect width="7" height="4" x="7" y="7" fill="#F2F4F4" fill-rule="nonzero"/>
+    </g>
+    <g transform="translate(74 62)">
+      <polygon fill="#C1DCF5" points="0 2.931 7.45 0 14.828 2.931 7.377 5.862"/>
+      <polygon fill="#7FC0E5" points="0 3.966 0 12.237 6.897 15 6.897 6.778"/>
+      <polygon fill="#82AED5" points="14.828 3.966 14.828 12.237 7.931 15 7.931 6.778"/>
+    </g>
+    <g transform="translate(58 30)">
+      <polygon fill="#A5D4F0" fill-rule="nonzero" points="5 8 9 13 1 13" transform="rotate(-180 5 10.5)"/>
+      <g transform="translate(15 2)">
+        <polygon fill="#50ADFF" points="0 14 16 14 16 6 0 6"/>
+        <polygon fill="#A5D4F0" points="0 6 16 6 16 5 0 5"/>
+        <polygon fill="#055DAB" points="0 5 16 5 16 2.5 6.384 2.5 4.098 0 0 0"/>
+      </g>
+    </g>
+    <g transform="translate(58)">
+      <polygon fill="#A5D4F0" fill-rule="nonzero" points="5 8 9 13 1 13" transform="rotate(90 5 10.5)"/>
+      <g transform="translate(15 2)">
+        <polygon fill="#50ADFF" points="0 14 16 14 16 6 0 6"/>
+        <polygon fill="#A5D4F0" points="0 6 16 6 16 5 0 5"/>
+        <polygon fill="#055DAB" points="0 5 16 5 16 2.5 6.384 2.5 4.098 0 0 0"/>
+      </g>
+    </g>
+    <g transform="translate(14 90)">
+      <circle cx="9" cy="9" r="9" fill="#249490" fill-rule="nonzero"/>
+      <path fill="#176F77" d="M14.5,5 C14.7761424,5 15,5.22385763 15,5.5 L15,11.5 C15,11.7761424 14.7761424,12 14.5,12 L11.5,12 L11.5,16.5 C11.5,16.7761424 11.2761424,17 11,17 L10.5,17 C10.2238576,17 10,16.7761424 10,16.5 L10,12 L6.5,12 C6.22385763,12 6,11.7761424 6,11.5 L6,9.3 L1.5,9.3 C1.22385763,9.3 1,9.07614237 1,8.8 L1,8.3 C1,8.02385763 1.22385763,7.8 1.5,7.8 L6,7.8 L6,5.5 C6,5.22385763 6.22385763,5 6.5,5 L14.5,5 Z"/>
+      <rect width="7" height="4" x="7" y="7" fill="#DDE4E4" fill-rule="nonzero"/>
+    </g>
+    <g transform="translate(14 209)">
+      <circle cx="9" cy="10" r="9" fill="#FCDAF3"/>
+      <path fill="#BA0871" fill-rule="nonzero" d="M0,10.3141097 C0,5.17006895 4.02943725,1 9,1 C13.9705627,1 18,5.17006895 18,10.3141097 C18,12.9372934 16.9521647,15.3072006 15.266032,17 L12.8820643,14.0393951 C13.7583585,13.0618256 14.2941176,11.7527179 14.2941176,10.3141097 C14.2941176,8.70381761 13.6228529,7.25577969 12.5541148,6.25334289 C11.6145829,5.37209666 10.367874,4.83522163 9,4.83522163 C6.07613956,4.83522163 3.70588235,7.28820337 3.70588235,10.3141097 C3.70588235,11.7527179 4.2416415,13.0618256 5.1179357,14.0393951 L2.73396798,17 C1.04783528,15.3072006 0,12.9372934 0,10.3141097 Z"/>
+      <path fill="#D673AD" fill-rule="nonzero" d="M9,1 C11.3068382,1 13.4103608,1.8463214 15,3.23702203 L12.6317445,6 C11.6855415,5.1274663 10.4070669,4.59218822 9,4.59218822 C7.59293311,4.59218822 6.31445853,5.1274663 5.36825553,6 L3,3.23702203 C4.58963925,1.8463214 6.69316179,1 9,1 Z"/>
+      <path fill="#BA0871" d="M7.2,11.9393283 L10.8,11.9393283 C10.8,13.0136807 9.99411255,13.8846154 9,13.8846154 C8.00588745,13.8846154 7.2,13.0136807 7.2,11.9393283 Z M9,0.730769231 L10.8,11.9393283 L7.2,11.9393283 L9,0.730769231 Z" transform="rotate(3 9 7.308)"/>
+    </g>
+    <g transform="translate(14 150)">
+      <mask id="file_tree_icons_sprite-f" fill="#fff">
+        <use xlink:href="#file_tree_icons_sprite-e"/>
+      </mask>
+      <use fill="#318DDE" fill-rule="nonzero" xlink:href="#file_tree_icons_sprite-e"/>
+      <g mask="url(#file_tree_icons_sprite-f)">
+        <g transform="translate(-2 1)">
+          <polyline stroke="#D7ECF8" stroke-width="2" points="0 0 0 20 22 20"/>
+          <polygon fill="#A5D4F0" points="2.129 7.481 8.043 1.429 12.267 10.075 19.871 1.429 19.871 17.857 2.129 17.857"/>
+          <polygon fill="#006E9C" points="2.129 11.786 8.043 8.316 12.267 13.52 19.871 5.714 19.871 17.857 2.129 17.857"/>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(14 120)">
+      <rect width="15" height="12" x="1" y="4" fill="#249490" rx=".5"/>
+      <rect width="13" height="8" x="2" y="7" fill="#FFF" rx=".5"/>
+      <path fill="#9FCDCB" d="M13.75,8 C13.8880712,8 14,8.11192881 14,8.25 L14,13.75 C14,13.8880712 13.8880712,14 13.75,14 L11.25,14 C11.1119288,14 11,13.8880712 11,13.75 L11,8.25 C11,8.11192881 11.1119288,8 11.25,8 L13.75,8 Z M9.75,8 C9.88807119,8 10,8.11192881 10,8.25 L10,13.75 C10,13.8880712 9.88807119,14 9.75,14 L7.25,14 C7.11192881,14 7,13.8880712 7,13.75 L7,8.25 C7,8.11192881 7.11192881,8 7.25,8 L9.75,8 Z M5.75,8 C5.88807119,8 6,8.11192881 6,8.25 L6,13.75 C6,13.8880712 5.88807119,14 5.75,14 L3.25,14 C3.11192881,14 3,13.8880712 3,13.75 L3,8.25 C3,8.11192881 3.11192881,8 3.25,8 L5.75,8 Z"/>
+    </g>
+    <g transform="translate(16 62)">
+      <polygon fill="#00A9D7" points="0 2.931 7.45 0 14.828 2.931 7.377 5.862"/>
+      <polygon fill="#0081CB" points="0 3.966 0 12.237 6.897 15 6.897 6.778"/>
+      <polygon fill="#055DAB" points="14.828 3.966 14.828 12.237 7.931 15 7.931 6.778"/>
+    </g>
+    <g transform="translate(0 30)">
+      <g transform="translate(15 2)">
+        <polygon fill="#0081CB" points="0 14 16 14 16 6 0 6"/>
+        <polygon fill="#CFE5F3" points="0 6 16 6 16 5 0 5"/>
+        <polygon fill="#055DAB" points="0 5 16 5 16 2.5 6.384 2.5 4.098 0 0 0"/>
+      </g>
+      <polygon fill="#0081CB" fill-rule="nonzero" points="5 8 9 13 1 13" transform="rotate(-180 5 10.5)"/>
+    </g>
+    <g transform="translate(15 2)">
+      <polygon fill="#0081CB" points="0 14 16 14 16 6 0 6"/>
+      <polygon fill="#CFE5F3" points="0 6 16 6 16 5 0 5"/>
+      <polygon fill="#055DAB" points="0 5 16 5 16 2.5 6.384 2.5 4.098 0 0 0"/>
+    </g>
+    <polygon fill="#0081CB" fill-rule="nonzero" points="5 8 9 13 1 13" transform="rotate(90 5 10.5)"/>
+    <g transform="translate(14 180)">
+      <mask id="file_tree_icons_sprite-h" fill="#fff">
+        <use xlink:href="#file_tree_icons_sprite-g"/>
+      </mask>
+      <use fill="#7A9F35" fill-rule="nonzero" xlink:href="#file_tree_icons_sprite-g"/>
+      <path fill="#FFF" d="M6,4 L13,4 C14.1045695,4 15,4.8954305 15,6 L15,16 C15,17.1045695 14.1045695,18 13,18 L6,18 C4.8954305,18 4,17.1045695 4,16 L4,6 C4,4.8954305 4.8954305,4 6,4 Z" mask="url(#file_tree_icons_sprite-h)"/>
+      <polygon fill="#9AC64C" fill-rule="nonzero" points="6 6 9 6 9 14 6 14" mask="url(#file_tree_icons_sprite-h)"/>
+      <polygon fill="#9AC64C" fill-rule="nonzero" points="10 8 13 8 13 14 10 14" mask="url(#file_tree_icons_sprite-h)"/>
+      <circle cx="9" cy="9" r="9" stroke="#7A9F35" stroke-width="4" mask="url(#file_tree_icons_sprite-h)"/>
+    </g>
+  </g>
+</svg>

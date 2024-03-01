@@ -1,0 +1,156 @@
+<input name="organization" class="" type="hidden" data-bind="value:organization"/>
+
+    <js-templateNonce></js-templateNonce>
+
+<fieldset class="group">
+    <legend class="">
+        <span>{{- i18n['import.file.name'] }}</span>
+    </legend>
+    <label for="uploadFile">
+        <input name="file" class="upload-file" id="uploadFile" type="file"/>
+    </label>
+</fieldset>
+<fieldset class="group" id="secretKey">
+    <legend class="">
+        <span>{{- i18n['import.secret.key'] }}</span>
+    </legend>
+
+    <ul class="list inputSet">
+        <li class="leaf">
+            <div class="control radio twoLine">
+                <label for="optionOne" class="wrap">{{- i18n['import.use.default.key'] }}</label>
+
+                <input
+                        checked="checked"
+                        id="optionOne"
+                        class="jr-jDefaultKey"
+                        name="keyType"
+                        type="radio"
+                        value=""
+                        data-bind="checked:keyType"
+                >
+            </div>
+        </li>
+
+        <li class="leaf">
+            <div class="control radio twoLine">
+                <label for="optionOne" class="wrap">{{- i18n['import.use.key.value'] }}</label>
+
+                <input
+                        id="optionTwo"
+                        class="jr-jKeyValue"
+                        name="keyType"
+                        type="radio"
+                        value="{{- model.secureKeyTypes.VALUE }}"
+                        data-bind="checked:keyType"
+                >
+
+                <div class="control inline" data-bind="classes:{error:invalidKeyError}">
+                    <input class="jr-jSecretKey" data-bind="enabled:isKeyUseValue, value:secretKey" name="secret-key" type="password" size="60">
+                    <div class="warning message" data-bind="text:invalidKeyError"></div>
+                </div>
+            </div>
+        </li>
+
+        <li class="leaf last">
+            <div class="control radio twoLine">
+                <label for="optionThree" class="wrap">
+                    {{- i18n['import.use.key.file'] }}
+                </label>
+
+                <input
+                        id="optionThree"
+                        class="jr-jKeyFile"
+                        name="keyType"
+                        type="radio"
+                        value="{{- model.secureKeyTypes.FILE }}"
+                        data-bind="checked:keyType"
+                >
+
+                <div class="control inline" data-bind="classes:{error:invalidSecureFileContentError}">
+                    <input data-bind="enabled:isKeyUseFile, value:secretUri" class="jr-jSecretUri" type="text" name="secretUri" size="60">
+                    <button data-bind="enabled:isKeyUseFile" class="button action jr-jRepositoryBrowserButton" type="button" name="repositoryBrowserButton">
+                        <span class="wrap">{{- i18n2['button.browse'] }}<span class="icon"></span></span>
+                    </button>
+                    <span class="message warning" data-bind="text:invalidSecureFileContentError"></span>
+                    <span class="message hint"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</fieldset>
+<fieldset class="group">
+    <legend class="">
+        <span>{{- i18n['import.options'] }}</span>
+    </legend>
+    <ul class="list inputSet">
+        <li class="leaf">
+            <div class="control checkBox">
+                <label class="wrap" title="" for="update">{{- i18n['import.update'] }}</label>
+                <input id="update" class="" type="checkbox" value="" name="update" data-bind="checked:update"/>
+            </div>
+            <ul class="list inputSet">
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="">{{- i18n['import.skip.user.update']
+                            }}</label>
+                        <input id="skipUserUpdate" class="" type="checkbox" value="" name="skip-user-update"
+                               data-bind="checked:skipUserUpdate, enabled:update"/>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        {{ if (model.includeAuditEvents) { }}
+        <li class="leaf">
+            <div class="control checkBox">
+                <label class="wrap" title="">{{- i18n['import.include.audit.events']}}</label>
+                <input id="includeAuditEvents" class="" type="checkbox" name="include-audit-events"
+                       data-bind="checked:includeAuditEvents"/>
+            </div>
+        </li>
+
+        {{ } if (model.includeAccessEvents) { }}
+        <li class="leaf">
+            <div class="control checkBox">
+                <label class="wrap" title="">{{- i18n['import.include.access.events']}}</label>
+                <input id="includeAccessEvents" class="" type="checkbox" value="" name="include-access-events"
+                       data-bind="checked:includeAccessEvents"/>
+            </div>
+        </li>
+
+        {{ } if (model.includeMonitoringEvents) { }}
+        <li class="leaf">
+            <div class="control checkBox">
+                <label class="wrap" title="">{{- i18n['import.include.monitoring.events'] }}</label>
+                <input id="includeMonitoringEvents" class="" type="checkbox" value="" name="include-monitoring-events"
+                       data-bind="checked:includeMonitoringEvents"/>
+            </div>
+        </li>
+
+        {{ } if (model.includeServerSettings) { }}
+        <li class="leaf">
+            <div class="control checkBox">
+                <label class="wrap">{{- i18n['import.include.configuration.settings']}}</label>
+                <input class="" type="checkbox" value="" name="include-server-settings"
+                       data-bind="checked:includeServerSettings"/>
+            </div>
+        </li>
+        {{ } if (typeof model.skipThemes !== "undefined") { }}
+
+        <li class="leaf">
+            <div class="control checkBox">
+                <label class="wrap" title="">{{- i18n['import.include.themes']}}</label>
+                <input type="checkbox" value=""
+                       data-bind="checked:not(skipThemes)"/>
+                <input class="hidden" id="skip-themes" type="checkbox"  value="" name="skip-themes"
+                       data-bind="checked:skipThemes"/>
+            </div>
+        </li>
+        {{ } }}
+    </ul>
+</fieldset>
+
+<!-- Hack for correct sending of multipart/form-data in IE. -->
+<!-- Here is the fix https://blog.yorkxin.org/posts/2014/02/06/ajax-with-formdata-is-broken-on-ie10-ie11/ -->
+<input type="hidden" name="_dontcare">

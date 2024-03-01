@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,n,r){r.exports={INFO:"info",ERROR:"error",WARNING:"warning",ATTENTION:"attention"}});

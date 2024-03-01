@@ -1,0 +1,1 @@
+define(["require","exports","module","./view/RepositoryItemChooserDialogView","./view/RepositoryFolderChooserDialogView"],function(e,o,i){var r=e("./view/RepositoryItemChooserDialogView"),t=e("./view/RepositoryFolderChooserDialogView"),s={item:r,folder:t};i.exports={getDialog:function(e){var o;return o=r,s[e]&&(o=s[e]),o}}});

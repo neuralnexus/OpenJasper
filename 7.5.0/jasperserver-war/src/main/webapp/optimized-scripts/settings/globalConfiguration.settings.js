@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,o,r){r.exports={resourceIdNotSupportedSymbols:"[~!#\\$%^|\\s`@&*()\\-+={}\\[\\]:;\"'\\<\\>,?/\\|\\\\]"}});

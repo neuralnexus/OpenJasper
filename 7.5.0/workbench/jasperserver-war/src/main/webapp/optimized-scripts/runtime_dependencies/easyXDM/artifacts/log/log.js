@@ -1,0 +1,1 @@
+define([],function(){var e={DEBUG:"debug"},t=function(e,t){this.id=e,this.logLevel=t};return t.prototype.debug=function(t){this.logLevel===e.DEBUG&&console.log(this.logLevel+": "+this.id+". "+t)},{loggers:{},register:function(e,i){var o;return this.loggers[e]?o=this.loggers[e]:(o=new t(e,i),this.loggers[e]=o),o}}});

@@ -1,0 +1,7 @@
+{
+  "id":"TEST_ID",
+  "label":"TEST_LABEL",
+  "valueType":"TEST_VALUE_TYPE",
+  "uri":"TEST_URI",
+  "multipleValues":true
+}

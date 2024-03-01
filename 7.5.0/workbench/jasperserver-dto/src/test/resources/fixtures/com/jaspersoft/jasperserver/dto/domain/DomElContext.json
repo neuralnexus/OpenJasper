@@ -1,0 +1,15 @@
+{
+  "forbiddenVariableNames":[
+    "TEST_FORBIDDEN_VARIABLE_NAME"
+  ],
+  "resultType":"TEST_RESULT_TYPE",
+  "aggregate":true,
+  "skipTypeAndFunctionsValidation":true,
+  "skipUndefinedVariablesCheck":true,
+  "nonStrictMode":true,
+  "variables":[
+    {
+      "name":"TEST_NAME"
+    }
+  ]
+}

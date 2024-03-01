@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,o,r){r.exports={REPOSITORY:{name:"repository",label:"resource.datasource.text.fileLocation.options.repository"},SERVER_FILE_SYSTEM:{name:"serverFileSystem",label:"resource.datasource.text.fileLocation.options.serverFileSystem"},FTP_SERVER:{name:"ftpServer",label:"resource.datasource.text.fileLocation.options.ftpServer"}}});

@@ -1,0 +1,16 @@
+{
+  "version": 101,
+  "permissionMask": 100,
+  "creationDate": "TEST_CREATION_DATE",
+  "updateDate": "TEST_UPDATE_DATE",
+  "label": "TEST_LABEL",
+  "description": "TEST_DESCRIPTION",
+  "uri": "TEST_URI",
+  "dataSource": {
+    "customDataSource": {
+      "dataSourceName": "TEST_DATA_SOURCE_NAME"
+    }
+  },
+  "value": "TEST_VALUE",
+  "language": "TEST_LANGUAGE"
+}

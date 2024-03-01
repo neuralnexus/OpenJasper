@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- Enable annotation-based wiring -->
+    <context:annotation-config/>
+
+    <bean id="profileAttributesResolver"
+          class="com.jaspersoft.jasperserver.api.metadata.user.service.impl.ProfileAttributesResolverImpl">
+        <property name="attributePlaceholderPatterns" ref="attributePlaceholderPatterns"/>
+        <property name="parametrizedResourcePatterns" ref="parametrizedResourcePatterns"/>
+        <property name="messageSource" ref="messageSource"/>
+        <property name="profileAttributeCategories" ref="profileAttributeCategories"/>
+        <property name="excludedResourcesFromAttrResolving" ref="excludedResourcesFromAttrResolving"/>
+        <property name="enabledResolving" value="true"/>
+        <property name="profileAttributeService" ref="profileAttributeService"/>
+    </bean>
+
+    <bean id="excludedResourcesFromAttrResolving" class="java.util.HashSet">
+        <constructor-arg index="0" type="java.util.Collection">
+            <set>
+                <value>com.jaspersoft.jasperserver.api.metadata.jasperreports.domain.client.AwsReportDataSourceImpl</value>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <!--
+        Attribute placeholder patterns definitions.
+
+        Note: each pattern should have 2 mandatory named-capturing groups: "name" and "category" otherwise an error message will be thrown.
+            - "name" (?<name>...) group used to retrieve attribute's name from the function, in order to resolve it;
+            - "category" (?<category>...) group used to retrieve attribute's category.
+
+        This 2 groups are injected via Spring Expression Language (SPEL) and are defined as separate beans.
+
+        More about regexp named-capturing groups:
+            - https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html#groupname
+            - https://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#group(java.lang.String)
+    -->
+    <bean id="attributeNameGroup" class="java.lang.String">
+        <constructor-arg value="?&lt;name&gt;"/>
+    </bean>
+    <bean id="categoryGroup" class="java.lang.String">
+        <constructor-arg value="?&lt;category&gt;"/>
+    </bean>
+    <bean id="attributeFunctionPattern" class="java.lang.String">
+        <constructor-arg value="\s*attribute\s*\(\s*'(#{ attributeNameGroup }[^\\/']+)'\s*(,\s*'(#{ categoryGroup }[^\\/']+)'\s*)?\)\s*"/>
+    </bean>
+
+    <bean id="attributePatternDoubleSingleQuotes" class="java.lang.String">
+        <constructor-arg value="\{\s*attribute\s*\(\s*''(#{ attributeNameGroup }[^\\/']+)''\s*(,\s*''(#{ categoryGroup }[^\\/']+)''\s*)?\)\s*\}"/>
+    </bean>
+
+    <util:list id="attributePlaceholderPatterns" list-class="java.util.ArrayList" value-type="java.lang.String">
+        <value>\{#{ attributeFunctionPattern }}</value>
+        <value>#{ attributePatternDoubleSingleQuotes }</value>
+    </util:list>
+
+    <util:list id="parametrizedResourcePatterns" list-class="java.util.ArrayList" value-type="java.lang.String">
+        <value>#{ attributeFunctionPattern }</value>
+        <value>#{ attributePatternDoubleSingleQuotes }</value>
+    </util:list>
+
+    <!-- This patterns are invalid, they are missing named-capturinggroups -->
+    <util:list id="invalidAttributePlaceholderPatterns" list-class="java.util.ArrayList" value-type="java.lang.String">
+        <value>\{"\s*attribute\s*\(\s*'([^\\/']+)'\s*(,\s*'([^\\/']+)'\s*)?\)\s*"}</value>
+        <value>\{\s*attribute\s*\(\s*''([^\\/']+)''\s*(,\s*''(#{ categoryGroup }[^\\/']+)''\s*)?\)\s*}</value>
+    </util:list>
+
+    <util:list id="profileAttributeCategories"
+               list-class="java.util.ArrayList"
+               value-type="com.jaspersoft.jasperserver.api.metadata.user.service.ProfileAttributeCategory">
+        <value>USER</value>
+        <value>TENANT</value>
+        <value>SERVER</value>
+    </util:list>
+
+    <!-- Mocks -->
+    <bean id="messageSource" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="org.springframework.context.MessageSource" />
+    </bean>
+
+    <bean id="profileAttributeService" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="com.jaspersoft.jasperserver.api.metadata.user.service.ProfileAttributeService" />
+    </bean>
+
+    <bean id="messageSourceInterpolator" class="com.jaspersoft.jasperserver.api.metadata.common.util.MessageSourceInterpolator"/>
+
+    <bean id="beanValidator"
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="messageInterpolator" ref="messageSourceInterpolator"/>
+    </bean>
+
+</beans>

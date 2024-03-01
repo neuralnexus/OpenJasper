@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "level": {
+        "id": "id"
+      }
+    },
+    {
+      "level": {
+        "id": "id2"
+      }
+    }
+  ],
+  "expansions": [
+    {
+      "level": {
+        "expanded": false,
+        "fieldRef": "levelReference",
+        "aggregation": false
+      }
+    }
+  ]
+}

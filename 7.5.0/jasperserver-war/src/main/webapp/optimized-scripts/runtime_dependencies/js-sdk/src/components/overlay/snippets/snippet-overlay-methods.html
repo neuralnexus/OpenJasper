@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overlay</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <link type="text/css" href="../../../../demos/css/jasper-ui-dev.css" rel="stylesheet">
+    <link type="text/css" href="../../../../themes/default/jquery-ui/jquery-ui.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../../requireSnippetsConfig.js"></script>
+    <script type="text/javascript" src="../../../bower_components/requirejs/require.js"></script>
+    <script type="text/javascript" src="../../../../config.js"></script>
+
+</head>
+<body>
+<div class="jr" style="height:136px; width:100%;">
+    <div class="jr-mOverlay jr jr-isHidden jr-jOverlay">
+        <div class="jr-mSpinner jr"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    require(["components/overlay/Overlay"], function(Overlay){
+        var overlay = new Overlay({
+            el: $(".jr-jOverlay")
+        });
+
+        overlay.show();
+    });
+</script>
+</body>
+</html>

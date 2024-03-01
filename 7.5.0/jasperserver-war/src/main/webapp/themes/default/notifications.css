@@ -1,0 +1,52 @@
+/*
+ * Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+ * http://www.jaspersoft.com.
+ *
+ * Unless you have purchased a commercial license agreement from Jaspersoft,
+ * the following license terms apply:
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+.notificationAlert {;
+    background-color: #feef97;
+    border: none;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000000;
+}
+
+.notificationAlert > .notificationMessage {
+    color: #217eb5;
+    font-family: source_sans_prosemibold, Franklin Gothic Medium, Verdana, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 40px;
+    padding: 0 6px;
+    text-align: center;
+}
+
+.notificationAlert > .notificationMessage > .warning {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.notificationAlert .close {
+    color: #333;
+    font-family: source_sans_proregular, Franklin Gothic, Verdana, Arial, sans-serif;
+    font-weight: normal;
+}

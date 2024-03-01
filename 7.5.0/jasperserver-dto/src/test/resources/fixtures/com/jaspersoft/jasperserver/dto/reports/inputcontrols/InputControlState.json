@@ -1,0 +1,12 @@
+{
+  "uri": "TEST_URI",
+  "id": "TEST_ID",
+  "value": "TEST_VALUE",
+  "error": "TEST_ERROR",
+  "options": [
+    {
+      "selected": false,
+      "label": "TEST_LABEL"
+    }
+  ]
+}

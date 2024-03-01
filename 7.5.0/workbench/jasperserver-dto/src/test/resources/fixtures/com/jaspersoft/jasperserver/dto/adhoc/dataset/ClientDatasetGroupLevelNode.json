@@ -1,0 +1,13 @@
+{
+  "children": [
+    {
+      "group": {
+        "memberIdx": 0
+      }
+    }
+  ],
+  "memberIdx": 100,
+  "data": [
+    "TEST_DATA"
+  ]
+}

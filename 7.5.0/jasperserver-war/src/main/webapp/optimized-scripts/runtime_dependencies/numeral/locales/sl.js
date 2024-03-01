@@ -1,0 +1,1 @@
+!function(e,i){"function"==typeof define&&define.amd?define(["../numeral"],i):i("object"==typeof module&&module.exports?require("../numeral"):e.numeral)}(this,function(e){e.register("locale","sl",{delimiters:{thousands:".",decimal:","},abbreviations:{thousand:"k",million:"mio",billion:"mrd",trillion:"trilijon"},ordinal:function(){return"."},currency:{symbol:"€"}})});

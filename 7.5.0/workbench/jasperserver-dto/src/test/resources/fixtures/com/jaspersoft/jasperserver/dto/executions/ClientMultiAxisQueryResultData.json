@@ -1,0 +1,28 @@
+{
+  "truncated": true,
+  "totalCounts": [
+    2,
+    3,
+    4
+  ],
+  "dataset": {
+    "counts": [
+      2,
+      3,
+      4
+    ],
+    "data": [
+      [
+        "2",
+        "3",
+        "4"
+      ]
+    ]
+  },
+  "params": {
+    "offset": [
+      2,
+      3
+    ]
+  }
+}

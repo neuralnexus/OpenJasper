@@ -1,0 +1,50 @@
+{
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "id": "sales1",
+          "field": "sales_fact_ALL.sales_fact_ALL__store_sales_2013"
+        }
+      ]
+    },
+    "where": {
+      "filterExpression": {
+        "object": {
+          "in": {
+            "operands": [
+              {
+                "variable": {
+                  "name": "sales1"
+                }
+              },
+              {
+                "range": {
+                  "start": {
+                    "boundary": {
+                      "number": {
+                        "value": "1.0"
+                      }
+                    }
+                  },
+                  "end": {
+                    "boundary": {
+                      "number": {
+                        "value": "1.0001"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "/public/Samples/Ad_Hoc_Views/04__Product_Results_by_Store_Type"
+    }
+  }
+}

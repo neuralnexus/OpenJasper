@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,t,o){var r;r="undefined"!=typeof __jrsConfigs__?__jrsConfigs__:{contextPath:"",userLocale:"en",localeSettings:{locale:"en_US",decimalSeparator:".",groupingSeparator:",",timeFormat:"hh:mm:ss",dateFormat:"yy-mm-dd",timestampSeparator:" "}},o.exports=r});

@@ -1,0 +1,12 @@
+{
+  "reportUnitURI": "TEST_REPORT_UNIT_URI",
+  "parameters": {
+    "parameterValues": {
+      "KEY": [
+        "VALUE"
+      ]
+    }
+  },
+  "referenceHeight": 1,
+  "referenceWidth": 1
+}

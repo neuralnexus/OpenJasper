@@ -1,0 +1,10 @@
+{
+  "id": "id",
+  "name": "name",
+  "verbosity": "verbosity",
+  "filterBy": {
+    "userId": "userId",
+    "resource": {}
+  },
+  "status": "status"
+}

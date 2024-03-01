@@ -1,0 +1,1 @@
+define(["require","exports","module","runtime_dependencies/js-sdk/src/common/util/xssUtil"],function(e,s,n){var t=e("runtime_dependencies/js-sdk/src/common/util/xssUtil");n.exports={extend:function(e){e.escapeXSS=t.softHtmlEscape}}});

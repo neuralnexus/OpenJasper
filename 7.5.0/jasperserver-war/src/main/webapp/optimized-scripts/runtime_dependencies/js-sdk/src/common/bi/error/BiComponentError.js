@@ -1,0 +1,1 @@
+define(["require","exports","module","../../util/classUtil"],function(r,t,e){var i=r("../../util/classUtil"),s=i.inherit(Error,{constructor:function(r,t,e){this.errorCode=r,this.message=t,this.parameters=e}});s.prototype.toString=function(){return this.errorCode+" : "+this.message},e.exports=s});

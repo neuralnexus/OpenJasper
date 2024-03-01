@@ -1,0 +1,66 @@
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<reportUnit>
+    <creationDate>TEST_CREATION_DATE</creationDate>
+    <description>TEST_DESCRIPTION</description>
+    <label>TEST_LABEL</label>
+    <permissionMask>100</permissionMask>
+    <updateDate>TEST_UPDATE_DATE</updateDate>
+    <uri>TEST_URI</uri>
+    <version>101</version>
+    <customDataSource>
+        <dataSourceName>TEST_DATA_SOURCE_NAME</dataSourceName>
+    </customDataSource>
+    <alwaysPromptControls>true</alwaysPromptControls>
+    <controlsLayout>popupScreen</controlsLayout>
+    <resources>
+        <resource>
+            <fileResource>
+                <content>TEST_CONTENT</content>
+            </fileResource>
+            <name>TEST_KEY</name>
+        </resource>
+    </resources>
+    <inputControlRenderingView>TEST_INPUT_CONTROL_RENDERING_VIEW</inputControlRenderingView>
+    <inputControls>
+        <inputControl>
+            <mandatory>true</mandatory>
+            <readOnly>false</readOnly>
+            <type>0</type>
+            <visible>false</visible>
+        </inputControl>
+        <inputControl>
+            <mandatory>false</mandatory>
+            <readOnly>false</readOnly>
+            <type>0</type>
+            <valueColumn>TEST_VALUE_COLUMN</valueColumn>
+            <visible>false</visible>
+        </inputControl>
+    </inputControls>
+    <jrxmlFile>
+        <content>TEST_CONTENT</content>
+    </jrxmlFile>
+    <queryReference>
+        <uri>TEST_URI</uri>
+    </queryReference>
+    <reportRenderingView>TEST_REPORT_RENDERING_VIEW</reportRenderingView>
+</reportUnit>

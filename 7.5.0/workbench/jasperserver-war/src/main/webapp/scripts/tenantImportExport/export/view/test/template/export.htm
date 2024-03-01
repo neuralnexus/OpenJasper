@@ -1,0 +1,169 @@
+<script id="exportDataFileTemplate" type="text/mustache">
+    <fieldset id="exportDataFile" class="group">
+        <legend class="">
+            <span>Export Data File ('.zip' will be added):</span>
+        </legend>
+        <label for="filenameId">
+            <input type="text" id="filenameId" value="{{defaultFileName}}" />
+            <span id="fileNameMessage" class="message warning"></span>
+        </label>
+        <!--<button id="exportButton">Export</button>-->
+        <iframe id="exportFrame" src="" style="display: none" ></iframe>
+        <div id="response"></div>
+    </fieldset>
+</script>
+
+<script id="exportOptionsTemplatesShort" type="template/mustache">
+    <fieldset id="exportOptions" class="group">
+        <legend class="">
+            <span>export.options</span>
+        </legend>
+        <ul class="list inputSet">
+            <li class="leaf">
+                <div class="control checkBox">
+                    <label class="wrap" title="" for="">export.include.permission</label>
+                    <input id="includeRepositoryPermissions" class="" type="checkbox" value="" name="" {{#includeRepositoryPermissions}}checked="checked"{{/includeRepositoryPermissions}}>
+                </div>
+            </li>
+            <li class="leaf">
+                <div class="control checkBox">
+                    <label class="wrap" title="" for="">export.report.job</label>
+                    <input id="includeReportJobs" class="" type="checkbox" value="" name="" {{#includeReportJobs}}checked="checked"{{/includeReportJobs}}>
+                </div>
+            </li>
+        </ul>
+    </fieldset>
+</script>
+
+<script id="exportOptionsTemplates" type="template/mustache">
+        <fieldset id="exportOptions" class="group">
+            <legend class="">
+                <span>Export Options:</span>
+            </legend>
+            <ul class="list inputSet">
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Export Everything</label>
+                        <input id="everything" class="" type="checkbox" value="" name="" {{#everything}}checked="checked"{{/everything}}>
+                    </div>
+                </li>
+                <li class="leaf">
+                    <fieldset id="userRoleSelection" class="group">
+                        <legend class="">
+                            <span><spring:message code="export.user.role.selection"/></span>
+                        </legend>
+                        <ul class="list inputSet">
+                            <li class="leaf">
+                                <div class="control radio">
+                                    <label class="wrap" for="noUsersRoles" title=""><spring:message code="export.not.include.users.roles"/></label>
+                                    <input class="" id="noUsersRoles" type="radio" name="sample" value="" checked="checked">
+                                </div>
+                            </li>
+                            <li class="leaf">
+                                <div class="control radio">
+                                    <label class="wrap" for="roleUsers" title=""><spring:message code="export.role.users"/></label>
+                                    <input class="" id="roleUsers" type="radio" name="sample" value="" {{#userForRoles}}checked="checked"{{/userForRoles}}>
+                                </div>
+                            </li>
+                            <li class="leaf">
+                                <div class="control radio">
+                                    <label class="wrap" for="usersRoles" title="There must be a title"><spring:message code="export.users.roles"/></label>
+                                    <input class="" id="usersRoles" type="radio" name="sample" value="" {{#rolesForUser}}checked="checked"{{/rolesForUser}}>
+                                </div>
+                            </li>
+                            <li class="leaf">
+                                <fieldset id="selectRolesUsers" class="column two control pickWells">
+
+                                </fieldset>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </li>
+                <li class="leaf">
+                    <ul class="list inputSet">
+                        <li class="leaf">
+                            <fieldset id="selectRolesUsers" class="column two control pickWells">
+
+                            </fieldset>
+                        </li>
+                    </ul>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Include Access Events</label>
+                        <input id="includeAccessEvents" class="" type="checkbox" value="" name="" {{#includeAccessEvents}}checked="checked"{{/includeAccessEvents}}>
+                    </div>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Include Audit Events</label>
+                        <input id="includeAuditEvents" class="" type="checkbox" value="" name="" {{#includeAuditEvents}}checked="checked"{{/includeAuditEvents}}>
+                    </div>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Include Monitoring Events</label>
+                        <input id="includeMonitoringEvents" class="" type="checkbox" value="" name="" {{#includeMonitoringEvents}}checked="checked"{{/includeMonitoringEvents}}>
+                    </div>
+                </li>
+                <li class="leaf">
+                    <div class="control checkBox">
+                        <label class="wrap" title="" for="">Include server settings</label>
+                        <input id="includeSystemProperties" class="" type="checkbox" value="" name="" {{#includeSystemProperties}}checked="checked"{{/includeSystemProperties}}>
+                    </div>
+                </li>
+            </ul>
+        </fieldset>
+</script>
+
+<script id="controlButtonsTemplate" type="text/mustache">
+    <fieldset id="controlButtons">
+        <button id="exportButton" class="button action primary up">
+            <span class="wrap">Export</span>
+            <span class="icon"></span>
+        </button>
+    </fieldset>
+</script>
+
+<script id="authorityPickerTemplate" type="text/mustache">
+    <div id="" class="control combo {{customClass}} " title="{{title}}">
+        <span class="wrap">{{title}}:</span>
+                                    <span id="" class="control searchLockup ">
+                                        <div class="wrap">
+                                            <input type="text" tabindex="">
+                                        </div>
+                                        <b class="right">
+                                            <a class="button searchClear"></a>
+                                        </b>
+                                        <a class="button search up"></a>
+                                    </span>
+
+        <div class="authorityPicker" onselectstart="return false">
+            <div class="selectBorder upper"></div>
+            <ul class="">
+                {{options}}
+            </ul>
+            <div class="selectBorder lower"></div>
+        </div>
+    </div>
+</script>
+
+<script id="authorityPickerOptions" type="text/mustache">
+    {{#items}}<li><div class=""><span class="leftColumn">{{name}}{{username}}</span>{{#tenantId}}<span class="rightColumn">{{tenantId}}</span>{{/tenantId}}</div></li>{{/items}}
+</script>
+
+<script id="exportsDialogTemplate" type="text/mustache">
+    <div id="exportDialog">
+        <div class="body"></div>
+        <div class="footer">
+            <button id="dialogExportButton" class="button action primary up"><span class="wrap">Export<span class="icon"></span></button>
+            <button id="cancelExportButton" class="button action up cancel"><span class="wrap">Cancel<span class="icon"></span></button>
+        </div>
+    </div>
+</script>
+
+<script id="exportNotification" type="text/mustache">
+    <div class="notification hidden">
+        <span class="errorMessage">{message}</span>
+    </div>
+</script>

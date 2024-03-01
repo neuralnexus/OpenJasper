@@ -1,0 +1,21 @@
+{
+  "query": {
+    "select": {
+      "fields": [
+        {
+          "id": "fieldName",
+          "field": "sales"
+        },
+        {
+          "id": "fieldName2",
+          "field": "city"
+        }
+      ]
+    }
+  },
+  "dataSource": {
+    "reference": {
+      "uri": "/public/Samples/Ad_Hoc_Views/04__Product_Results_by_Store_Type"
+    }
+  }
+}

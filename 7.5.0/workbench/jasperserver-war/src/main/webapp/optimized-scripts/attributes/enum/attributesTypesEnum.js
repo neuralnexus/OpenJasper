@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,r,n){n.exports={USER:"user",TENANT:"tenant",SERVER:"server"}});

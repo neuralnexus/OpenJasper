@@ -1,0 +1,11 @@
+{
+  "id": "23",
+  "alias": "alias",
+  "parentId": "51",
+  "tenantName": "name",
+  "tenantDesc": "description",
+  "tenantNote": "note",
+  "tenantUri": "httt://url.com",
+  "tenantFolderUri": "/test",
+  "theme": "theme"
+}

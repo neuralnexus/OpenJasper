@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+    <!--<context:component-scan base-package="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.env"/>-->
+    <context:component-scan base-package="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.workflow.data"/>
+    <context:component-scan base-package="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.common.activity"/>
+
+
+    <util:map id="rootRelationMap" key-type="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.Relation">
+        <entry key="root">
+            <util:list>
+               <ref bean="resourcesRelation"/>
+               <ref bean="workflowsRelation"/>
+            </util:list>
+        </entry>
+    </util:map>
+
+    <!-- Relation for resources branch-->
+
+    <util:map id="resourcesRelation" key-type="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.Relation">
+        <entry key="resources">
+            <util:list>
+                <ref bean="resourceRelation"/>
+                <ref bean="resourceTemplateRelation"/>
+            </util:list>
+        </entry>
+    </util:map>
+
+    <util:map id="resourceTemplateRelation" key-type="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.Relation">
+        <entry key="resource_template">
+            <!--TODO: Relation.add -->
+            <util:list></util:list>
+        </entry>
+    </util:map>
+
+    <util:map id="resourceRelation" key-type="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.Relation">
+        <entry key="resource">
+            <util:list></util:list>
+        </entry>
+    </util:map>
+
+    <!--Relation for workflows branch-->
+    <util:map id="workflowsRelation" key-type="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.Relation">
+        <entry key="workflows">
+            <util:list>
+               <ref bean="workflowRelation"/>
+            </util:list>
+        </entry>
+    </util:map>
+
+    <util:map id="workflowRelation" key-type="com.jaspersoft.jasperserver.jaxrs.poc.hypermedia.Relation">
+        <entry key="workflow">
+            <util:list>
+                <ref bean="resourceTemplateRelation"/>
+                <ref bean="resourcesRelation"/>
+                <ref bean="workflowsRelation"/>
+            </util:list>
+        </entry>
+    </util:map>
+
+
+</beans>

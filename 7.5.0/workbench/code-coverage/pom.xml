@@ -1,0 +1,194 @@
+<!--
+  ~ Copyright (C) 2005 - 2019 TIBCO Software Inc. All rights reserved.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ Unless you have purchased a commercial license agreement from Jaspersoft,
+  ~ the following license terms apply:
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program. If not, see <http://www.gnu.org/licenses/>.
+  -->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jaspersoft.jasperserver</groupId>
+    <artifactId>jasperserver-code-coverage</artifactId>
+    <packaging>jar</packaging>
+    <name>JasperServer Code Coverage</name>
+    <parent>
+        <groupId>com.jaspersoft.jasperserver</groupId>
+        <artifactId>server</artifactId>
+        <version>${buildArtifactVersionName}</version>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.common</groupId>
+            <artifactId>jasperserver-api-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.engine</groupId>
+            <artifactId>jasperserver-api-engine</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.externalAuth</groupId>
+            <artifactId>jasperserver-api-externalAuth</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.metadata</groupId>
+            <artifactId>jasperserver-api-metadata</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.common.impl</groupId>
+            <artifactId>jasperserver-api-common-impl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.engine.impl</groupId>
+            <artifactId>jasperserver-api-engine-impl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.externalAuth.impl</groupId>
+            <artifactId>jasperserver-api-externalAuth-impl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.metadata.impl</groupId>
+            <artifactId>jasperserver-api-metadata-impl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-common-ws</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jrs-mongodb-datasource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.core.util</groupId>
+            <artifactId>jasperserver-core-util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-custom-datasources</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-dto</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-export-tool</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-ftp</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-jax-rs-rest</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-remote-services</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-search</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver</groupId>
+            <artifactId>jasperserver-war-jar</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jaspersoft.jasperserver.api.integrationTest</groupId>
+            <artifactId>jasperserver-api-integration-test</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <!--<version>${project.version}</version>-->
+                <executions>
+                    <execution>
+                        <id>verify-aggregate</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report-aggregate</goal>
+                        </goals>
+                        <configuration>
+                            <title>JaCoCo</title>
+                            <footer>Code Coverage Report for JaCoCo ${project.version}</footer>
+                            <includes>
+                                <!-- Analyze class files only to exclude shaded agent JAR from report -->
+                                <include>**/*.class</include>
+                            </includes>
+                            <dataFileIncludes>
+                                <dataFileInclude>**/*.exec</dataFileInclude>
+                                <dataFileInclude>**/jacoco-*.exec</dataFileInclude>
+                            </dataFileIncludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <excludeTransitive>true</excludeTransitive>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

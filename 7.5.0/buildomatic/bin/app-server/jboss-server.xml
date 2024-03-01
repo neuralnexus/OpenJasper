@@ -1,0 +1,165 @@
+<!--
+  ~ Copyright © 2005 - 2019 TIBCO Software Inc.
+  ~ http://www.jaspersoft.com.
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<project name="jboss-server">
+
+    <!--
+    Checks if driver should be deployed as JBoss module.
+    It's required when "com.mysql.jdbc.Driver" jar file (locates in "META-INF/services")
+    contains 2 or more driver classes. In this case we need to tell what driver to load, and
+    this can be done only trough custom module
+     -->
+    <macrodef name="isDeployDriverAsJbossModule">
+        <attribute name="resultVar"/>
+        <sequential>
+            <if>
+                <!-- Now only "mysql-connector-java" has 2 drivers -->
+                <equals arg1="${maven.jdbc.groupId}" arg2="mysql"/>
+                <then>
+                    <var name="@{resultVar}" value="true"/>
+                </then>
+                <else>
+                    <var name="@{resultVar}" value="false"/>
+                </else>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="isJbossRunning">
+        <attribute name="resultVar"/>
+        <sequential>
+            <echo message="Verifying if JBoss is running"/>
+
+            <runJbossCli outputvar="serverState" failOnError="false">
+                <arg value="command=:read-attribute(name=server-state)"/>
+            </runJbossCli>
+
+            <if>
+                <contains string="${serverState}" substring="running" casesensitive="false"/>
+                <then>
+                    <var name="@{resultVar}" value="true"/>
+                </then>
+                <else>
+                    <var name="@{resultVar}" value="false"/>
+                </else>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <!-- start JBoss only in Command Line Interface (skip applications deployment) -->
+    <macrodef name="startJbossCli">
+        <sequential>
+            <!-- "forget" starts any task in a background mode. Otherwise this will blocks any further ant tasks -->
+            <forget>
+                <java dir="${fixedAppServerDir}"
+                      jar="${fixedAppServerDir}/jboss-modules.jar"
+                      fork="true"
+                      failOnError="false">
+                    <arg line="-mp modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.standalone"/>
+                    <jvmarg value="-Djboss.home.dir=${fixedAppServerDir}"/>
+                    <arg value="-b=${jboss.host}"/>
+                    <arg value="--admin-only"/>
+                </java>
+            </forget>
+
+            <!-- But anyway try to determine if server is running and Cli is available -->
+            <for list="1,2,3,4,5" param="try">
+                <sequential>
+                    <if>
+                        <not>
+                            <equals arg1="${isJbossRunning}" arg2="true"/>
+                        </not>
+                        <then>
+                            <echo message="Try @{try}"/>
+                            <!-- sleep first because JBoss requires some time to start Cli -->
+                            <sleep seconds="5"/>
+                            <isJbossRunning resultVar="isJbossRunning"/>
+                        </then>
+                    </if>
+                </sequential>
+            </for>
+            <if>
+                <not>
+                    <equals arg1="${isJbossRunning}" arg2="true"/>
+                </not>
+                <then>
+                    <fail>Error: failed to start JBoss Command Line Interface</fail>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <!-- runs cmd in JBoss Command Line Interface -->
+    <macrodef name="runJbossCli">
+        <attribute name="failOnError" default="true"/>
+        <attribute name="outputVar" default=""/>
+        <attribute name="resultVar" default=""/>
+        <attribute name="verbose" default="false"/>
+        <element name="args" implicit="yes"/>
+        <sequential>
+            <local name="_out"/>
+            <local name="_res"/>
+            <java dir="${fixedAppServerDir}"
+                  jar="${fixedAppServerDir}/jboss-modules.jar"
+                  fork="true"
+                  failOnError="false"
+                  outputProperty="_out"
+                  resultProperty="_res">
+                <arg line="-mp modules org.jboss.as.cli"/>
+                <arg value="--controller=${jboss.host}"/>
+                <arg value="--connect"/>
+                <args/>
+            </java>
+            <if>
+                <equals arg1="@{verbose}" arg2="true"/>
+                <then>
+                    <echo message="${_out}"/>
+                </then>
+            </if>
+            <if>
+                <and>
+                    <not>
+                        <equals arg1="${_res}" arg2="0"/>
+                    </not>
+                    <equals arg1="@{failOnError}" arg2="true"/>
+                </and>
+                <then>
+                    <fail status="${_res}"/>
+                </then>
+            </if>
+            <!-- set output result -->
+            <if>
+                <not>
+                    <equals arg1="@{outputVar}" arg2=""/>
+                </not>
+                <then>
+                    <var name="@{outputVar}" value="${_out}"/>
+                </then>
+            </if>
+            <if>
+                <not>
+                    <equals arg1="@{resultVar}" arg2=""/>
+                </not>
+                <then>
+                    <var name="@{resultVar}" value="${_res}"/>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+</project>

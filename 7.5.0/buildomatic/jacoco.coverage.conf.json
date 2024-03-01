@@ -1,0 +1,259 @@
+[ {
+  "moduleName" : "jasperserver-action-model",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.13,
+  "branchCoveredRatio" : 0.017
+}, {
+  "moduleName" : "jasperserver-api-impl/common",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.54,
+  "branchCoveredRatio" : 0.49
+}, {
+  "moduleName" : "jasperserver-api-impl/engine",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.27,
+  "branchCoveredRatio" : 0.16
+}, {
+  "moduleName" : "jasperserver-api-impl/externalAuth",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.29,
+  "branchCoveredRatio" : 0.21
+}, {
+  "moduleName" : "jasperserver-api-impl/metadata",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.42,
+  "branchCoveredRatio" : 0.38
+}, {
+  "moduleName" : "jasperserver-api/common",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.4,
+  "branchCoveredRatio" : 0.36
+}, {
+  "moduleName" : "jasperserver-api/engine",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.35,
+  "branchCoveredRatio" : 0.13
+}, {
+  "moduleName" : "jasperserver-api/externalAuth",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.79,
+  "branchCoveredRatio" : 0.57
+}, {
+  "moduleName" : "jasperserver-api/metadata",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.62,
+  "branchCoveredRatio" : 0.45
+}, {
+  "moduleName" : "jasperserver-common-ws",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "jasperserver-connectors/mongodb-connector",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "jasperserver-core-util",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.48,
+  "branchCoveredRatio" : 0.41,
+  "skip" : true
+}, {
+  "moduleName" : "jasperserver-custom-datasources",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.059,
+  "branchCoveredRatio" : 0.051
+}, {
+  "moduleName" : "jasperserver-dto",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.97,
+  "branchCoveredRatio" : 0.94
+}, {
+  "moduleName" : "jasperserver-export-tool",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.45,
+  "branchCoveredRatio" : 0.32,
+  "skip" : true
+}, {
+  "moduleName" : "jasperserver-ftp",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "jasperserver-input-controls",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.68,
+  "branchCoveredRatio" : 0.68
+}, {
+  "moduleName" : "jasperserver-jax-rs-rest",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.34,
+  "branchCoveredRatio" : 0.26
+}, {
+  "moduleName" : "jasperserver-remote",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.4,
+  "branchCoveredRatio" : 0.33
+}, {
+  "moduleName" : "jasperserver-search",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.18,
+  "branchCoveredRatio" : 0.11
+}, {
+  "moduleName" : "jasperserver-util",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.075,
+  "branchCoveredRatio" : 0.25
+}, {
+  "moduleName" : "jasperserver-war-jar",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.12,
+  "branchCoveredRatio" : 0.082
+}, {
+  "moduleName" : "jasperserver-web-common-api",
+  "jrsVersion" : "ce",
+  "instructionCoveredRatio" : 0.12,
+  "branchCoveredRatio" : 0.14
+}, {
+  "moduleName" : "adhoc-engine/adhoc-mocks",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "adhoc-engine/adhoc-model",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.6,
+  "branchCoveredRatio" : 0.61
+}, {
+  "moduleName" : "adhoc-engine/adhoc-persistence",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "analysis",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.06,
+  "branchCoveredRatio" : 0.019
+}, {
+  "moduleName" : "analysis-export",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 1.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "common",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.32,
+  "branchCoveredRatio" : 0.24
+}, {
+  "moduleName" : "common-export",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.12,
+  "branchCoveredRatio" : 0.065
+}, {
+  "moduleName" : "datarator",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.54,
+  "branchCoveredRatio" : 0.51
+}, {
+  "moduleName" : "datarator-el",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.72,
+  "branchCoveredRatio" : 0.65
+}, {
+  "moduleName" : "easy-xml",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.65,
+  "branchCoveredRatio" : 0.62
+}, {
+  "moduleName" : "gyroscope",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.54,
+  "branchCoveredRatio" : 0.43
+}, {
+  "moduleName" : "gyroscope-export",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.34,
+  "branchCoveredRatio" : 0.17
+}, {
+  "moduleName" : "gyroscope-ireport-plugin",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "gyroscope-web",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.28,
+  "branchCoveredRatio" : 0.18
+}, {
+  "moduleName" : "jasperserver-jax-rs-rest",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.38,
+  "branchCoveredRatio" : 0.42
+}, {
+  "moduleName" : "jasperserver-remote",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.6,
+  "branchCoveredRatio" : 0.55
+}, {
+  "moduleName" : "jasperserver-war-jar",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.32,
+  "branchCoveredRatio" : 0.24
+}, {
+  "moduleName" : "jpivot-aop-woven",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 9.3E-5,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "license",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.32,
+  "branchCoveredRatio" : 0.24,
+  "skip" : true
+}, {
+  "moduleName" : "mondrian-aop-woven",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.22,
+  "branchCoveredRatio" : 0.16
+}, {
+  "moduleName" : "multi-tenancy",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.32,
+  "branchCoveredRatio" : 0.25
+}, {
+  "moduleName" : "report-options/api",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.16,
+  "branchCoveredRatio" : 0.17
+}, {
+  "moduleName" : "report-options/export",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.03,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "report-options/web",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "repository-hibernate",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.0,
+  "branchCoveredRatio" : 0.0
+}, {
+  "moduleName" : "search",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.1,
+  "branchCoveredRatio" : 0.037
+}, {
+  "moduleName" : "semantic-layer",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.46,
+  "branchCoveredRatio" : 0.38
+}, {
+  "moduleName" : "teiid-integration",
+  "jrsVersion" : "pro",
+  "instructionCoveredRatio" : 0.26,
+  "branchCoveredRatio" : 0.2
+} ]

@@ -1,0 +1,1 @@
+define(["require","exports","module","backbone","runtime_dependencies/js-sdk/src/jrs.configs"],function(e,s,n){var r=e("backbone"),o=e("runtime_dependencies/js-sdk/src/jrs.configs");n.exports=r.Model.extend({urlRoot:o.contextPath+"/rest_v2/jobs/calendars"})});

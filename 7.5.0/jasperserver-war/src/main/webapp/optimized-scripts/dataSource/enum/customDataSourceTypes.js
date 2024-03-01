@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,o,t){t.exports={DIAGNOSTIC:"diagnosticCustomDataSource",HIVE:"HiveDataSource",MONGODB:"MongoDbDataSource",TEXT_FILE:"textDataSource"}});
