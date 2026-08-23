@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   gemini-review:
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && vars.NEXUS_RUNS_ON_LINUX) || '["ubuntu-26.04"]') }}
     steps:
       - uses: actions/github-script@v7
         with:
